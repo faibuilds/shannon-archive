@@ -44,11 +44,18 @@ are the hands. Read this file fully before any task.
   every user-visible change.
 
 ## Checks before every commit
-- node: every inline <script> parses (new Function on extracted scripts).
+Run `node tools/check.js` and commit only on a clean pass (exit 0, every
+line PASS). It enforces the constitution automatically:
 - No em-dash character (U+2014) anywhere in /site.
-- No draft hook text appears in index.html.
-- status.json lit == number of covered plates == graph reality.
-- graph.json passes all schema rules above.
+- Privacy gate: no consent-gated names appear in index.html.
+- Every inline <script> in index.html parses.
+- status.json lit == sum(cells) == covered plates, total == cells length.
+- No sealed plate (status "soon") carries a hook.
+- graph.json schema: unique ids, valid edge endpoints, dates only on
+  events, cites point at sources, contributed edges carry a role,
+  synthesis edges cite a verified claim.
+- Exactly one "SHANNON vX.Y / BUILT" version stamp in index.html.
+If check.js exits nonzero, fix the FAIL lines before committing.
 
 ## Voice
 Engineering Community: precise, sober, warm. Short sentences. Specific
