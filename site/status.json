@@ -1,0 +1,33 @@
+{
+  "archive": "SHANNON",
+  "line": "KELLY L-01",
+  "total": 22,
+  "lit": 14,
+  "cells": [
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1
+  ],
+  "lastLit": "Bell X-1",
+  "lastLitDate": "Jul 2026",
+  "updated": "2026-07-12"
+}

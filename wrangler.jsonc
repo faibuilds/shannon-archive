@@ -1,0 +1,6 @@
+{
+  // Cloudflare Worker config: static assets served from /site
+  "name": "shannon-site",
+  "compatibility_date": "2026-07-01",
+  "assets": { "directory": "./site" }
+}

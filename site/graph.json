@@ -1,0 +1,2362 @@
+{
+ "schema": "shannon-graph@0.1",
+ "updated": "2026-07-12",
+ "line": "kelly",
+ "nodes": [
+  {
+   "id": "kelly",
+   "type": "line",
+   "name": "KELLY",
+   "engineer": "Kelly Johnson",
+   "domain": "Military aircraft",
+   "status": "live"
+  },
+  {
+   "id": "p-38",
+   "type": "artifact",
+   "name": "P-38 Lightning",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-p-38",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1939,
+    "month": 1
+   },
+   "subjectId": "p-38",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1942a",
+   "type": "artifact",
+   "name": "Me 262",
+   "category": "fighter",
+   "origin": "Germany",
+   "lineId": "kelly",
+   "sealed": true
+  },
+  {
+   "id": "ev-ff-sealed-1942a",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1942,
+    "month": 7
+   },
+   "subjectId": "sealed-1942a",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1942b",
+   "type": "artifact",
+   "name": "B-29 Superfortress",
+   "category": "bomber",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": true
+  },
+  {
+   "id": "ev-ff-sealed-1942b",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1942,
+    "month": 9
+   },
+   "subjectId": "sealed-1942b",
+   "label": "First flight"
+  },
+  {
+   "id": "bell-x-1",
+   "type": "artifact",
+   "name": "Bell X-1",
+   "category": "experimental",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-bell-x-1",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1946,
+    "month": 1
+   },
+   "subjectId": "bell-x-1",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1947",
+   "type": "artifact",
+   "name": "MiG-15",
+   "category": "fighter",
+   "origin": "Soviet Union",
+   "lineId": "kelly",
+   "sealed": true,
+   "redactedName": "M\u25ae\u25ae-1\u25ae"
+  },
+  {
+   "id": "ev-ff-sealed-1947",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1947,
+    "month": 12
+   },
+   "subjectId": "sealed-1947",
+   "label": "First flight"
+  },
+  {
+   "id": "b-52",
+   "type": "artifact",
+   "name": "B-52 Stratofortress",
+   "category": "bomber",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-b-52",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1952,
+    "month": 4
+   },
+   "subjectId": "b-52",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1954",
+   "type": "artifact",
+   "name": "C-130 Hercules",
+   "category": "transport",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": true
+  },
+  {
+   "id": "ev-ff-sealed-1954",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1954,
+    "month": 8
+   },
+   "subjectId": "sealed-1954",
+   "label": "First flight"
+  },
+  {
+   "id": "u-2",
+   "type": "artifact",
+   "name": "U-2",
+   "category": "recon",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-u-2",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1955,
+    "month": 8
+   },
+   "subjectId": "u-2",
+   "label": "First flight"
+  },
+  {
+   "id": "sr-71",
+   "type": "artifact",
+   "name": "SR-71 Blackbird",
+   "category": "recon",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-sr-71",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1964,
+    "month": 12
+   },
+   "subjectId": "sr-71",
+   "label": "First flight"
+  },
+  {
+   "id": "xb-70",
+   "type": "artifact",
+   "name": "XB-70 Valkyrie",
+   "category": "experimental",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-xb-70",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1964,
+    "month": 9
+   },
+   "subjectId": "xb-70",
+   "label": "First flight"
+  },
+  {
+   "id": "mig-25",
+   "type": "artifact",
+   "name": "MiG-25 Foxbat",
+   "category": "fighter",
+   "origin": "Soviet Union",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-mig-25",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1964,
+    "month": 3
+   },
+   "subjectId": "mig-25",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1966",
+   "type": "artifact",
+   "name": "Harrier",
+   "category": "attack",
+   "origin": "United Kingdom",
+   "lineId": "kelly",
+   "sealed": true,
+   "redactedName": "H\u25aeRR\u25aeER"
+  },
+  {
+   "id": "ev-ff-sealed-1966",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1966,
+    "month": 8
+   },
+   "subjectId": "sealed-1966",
+   "label": "First flight"
+  },
+  {
+   "id": "f-14",
+   "type": "artifact",
+   "name": "F-14 Tomcat",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-f-14",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1970,
+    "month": 12
+   },
+   "subjectId": "f-14",
+   "label": "First flight"
+  },
+  {
+   "id": "a-10",
+   "type": "artifact",
+   "name": "A-10 Thunderbolt II",
+   "category": "attack",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-a-10",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1972,
+    "month": 5
+   },
+   "subjectId": "a-10",
+   "label": "First flight"
+  },
+  {
+   "id": "f-15",
+   "type": "artifact",
+   "name": "F-15 Eagle",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-f-15",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1972,
+    "month": 7
+   },
+   "subjectId": "f-15",
+   "label": "First flight"
+  },
+  {
+   "id": "b-1",
+   "type": "artifact",
+   "name": "B-1 Lancer",
+   "category": "bomber",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-b-1",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1974,
+    "month": 12
+   },
+   "subjectId": "b-1",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1974",
+   "type": "artifact",
+   "name": "F-16 Fighting Falcon",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": true
+  },
+  {
+   "id": "ev-ff-sealed-1974",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1974,
+    "month": 2
+   },
+   "subjectId": "sealed-1974",
+   "label": "First flight"
+  },
+  {
+   "id": "f-117",
+   "type": "artifact",
+   "name": "F-117 Nighthawk",
+   "category": "attack",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-f-117",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1981,
+    "month": 6
+   },
+   "subjectId": "f-117",
+   "label": "First flight"
+  },
+  {
+   "id": "b-2",
+   "type": "artifact",
+   "name": "B-2 Spirit",
+   "category": "bomber",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-b-2",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1989,
+    "month": 7
+   },
+   "subjectId": "b-2",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-1997",
+   "type": "artifact",
+   "name": "F-22 Raptor",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": true
+  },
+  {
+   "id": "ev-ff-sealed-1997",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1997,
+    "month": 9
+   },
+   "subjectId": "sealed-1997",
+   "label": "First flight"
+  },
+  {
+   "id": "sealed-2006",
+   "type": "artifact",
+   "name": "F-35 Lightning II",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": true
+  },
+  {
+   "id": "ev-ff-sealed-2006",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 2006,
+    "month": 12
+   },
+   "subjectId": "sealed-2006",
+   "label": "First flight"
+  },
+  {
+   "id": "b-21",
+   "type": "artifact",
+   "name": "B-21 Raider",
+   "category": "bomber",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false
+  },
+  {
+   "id": "ev-ff-b-21",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 2023,
+    "month": 11
+   },
+   "subjectId": "b-21",
+   "label": "First flight"
+  },
+  {
+   "id": "kelly-johnson",
+   "type": "person",
+   "name": "Kelly Johnson"
+  },
+  {
+   "id": "jack-northrop",
+   "type": "person",
+   "name": "Jack Northrop"
+  },
+  {
+   "id": "story-p-38",
+   "type": "story",
+   "title": "The P-38 flutter story",
+   "aboutIds": [
+    "p-38"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/posts/engineeringcommunity_the-p-38-lightning-was-among-the-fastest-activity-7479079929280831488-0byj"
+   }
+  },
+  {
+   "id": "story-b-52",
+   "type": "story",
+   "title": "The B-52 longevity story",
+   "aboutIds": [
+    "b-52"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7438531976548200448"
+   }
+  },
+  {
+   "id": "story-u-2",
+   "type": "story",
+   "title": "The U-2 chase car story",
+   "aboutIds": [
+    "u-2"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7450308853377974272"
+   }
+  },
+  {
+   "id": "story-sr-71",
+   "type": "story",
+   "title": "The SR-71 starter cart story",
+   "aboutIds": [
+    "sr-71"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7427533950027497472"
+   }
+  },
+  {
+   "id": "story-xb-70",
+   "type": "story",
+   "title": "The XB-70 compression lift story",
+   "aboutIds": [
+    "xb-70"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/posts/engineeringcommunity_in-the-1950s-the-logic-of-nuclear-war-was-activity-7476100876433186816-0dsW"
+   }
+  },
+  {
+   "id": "story-mig-25",
+   "type": "story",
+   "title": "The MiG-25 myth story",
+   "aboutIds": [
+    "mig-25"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7452200561015283712"
+   }
+  },
+  {
+   "id": "story-f-14",
+   "type": "story",
+   "title": "The F-14 swing wing story",
+   "aboutIds": [
+    "f-14"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7468232263726432256"
+   }
+  },
+  {
+   "id": "story-a-10",
+   "type": "story",
+   "title": "The A-10 gun story",
+   "aboutIds": [
+    "a-10"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7463728769657192448"
+   }
+  },
+  {
+   "id": "story-f-15",
+   "type": "story",
+   "title": "The F-15 origin story",
+   "aboutIds": [
+    "f-15"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7471631468444954624"
+   }
+  },
+  {
+   "id": "story-b-1",
+   "type": "story",
+   "title": "The B-1 slower-on-purpose story",
+   "aboutIds": [
+    "b-1"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7468611725504868352"
+   }
+  },
+  {
+   "id": "story-f-117",
+   "type": "story",
+   "title": "The F-117 stealth story",
+   "aboutIds": [
+    "f-117"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7432543345794756609"
+   }
+  },
+  {
+   "id": "story-b-2",
+   "type": "story",
+   "title": "The B-2 flying wing story",
+   "aboutIds": [
+    "b-2"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7436525695503331328"
+   }
+  },
+  {
+   "id": "story-b-21",
+   "type": "story",
+   "title": "The B-21 story",
+   "aboutIds": [
+    "b-21"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7437684521543794688"
+   }
+  },
+  {
+   "id": "thesis-1930s",
+   "type": "thesis",
+   "text": "The propeller's ceiling.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-1940s",
+   "type": "thesis",
+   "text": "The jet shock.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-1950s",
+   "type": "thesis",
+   "text": "Altitude as armor.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-1960s",
+   "type": "thesis",
+   "text": "The Mach 3 bet.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-1970s",
+   "type": "thesis",
+   "text": "Agility replaces speed.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-1980s",
+   "type": "thesis",
+   "text": "The disappearing act.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-1990s",
+   "type": "thesis",
+   "text": "Stealth learns to fight.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-2000s",
+   "type": "thesis",
+   "text": "One airframe, every job.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "thesis-2020s",
+   "type": "thesis",
+   "text": "The bet doubles down.",
+   "lineId": "kelly"
+  },
+  {
+   "id": "src-a10-vcl",
+   "type": "source",
+   "title": "EC VCL: A-10 (May 2026), GAU-8 recoil and layout claims",
+   "kind": "reference"
+  },
+  {
+   "id": "src-f15-vcl",
+   "type": "source",
+   "title": "EC VCL: F-15 (Jun 2026), MiG-25 response claims",
+   "kind": "reference"
+  },
+  {
+   "id": "c-a10-recoil",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "a-10"
+   ],
+   "text": "The GAU-8 generates roughly 10,000 pounds of recoil, more than a single A-10 engine's thrust."
+  },
+  {
+   "id": "c-a10-gear",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "a-10"
+   ],
+   "text": "The nose gear is offset to keep the firing barrel on the aircraft centerline."
+  },
+  {
+   "id": "c-f15-response",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "f-15",
+    "mig-25"
+   ],
+   "text": "The F-15 program was shaped by the US reaction to the MiG-25, whose capabilities were overestimated."
+  },
+  {
+   "id": "src-bell-x-1-vcl",
+   "type": "source",
+   "title": "EC VCL: Bell X-1 (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-bell-x-1-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1945,
+    "month": 3
+   },
+   "subjectId": "bell-x-1",
+   "label": "Bell contracted to build three XS-1 supersonic research aircraft"
+  },
+  {
+   "id": "ev-bell-x-1-3",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1947,
+    "month": 10
+   },
+   "subjectId": "bell-x-1",
+   "label": "First supersonic flight, Mach 1.06, Yeager, Glamorous Glennis"
+  },
+  {
+   "id": "ev-bell-x-1-4",
+   "type": "event",
+   "eventType": "retirement",
+   "date": {
+    "year": 1950,
+    "month": 5
+   },
+   "subjectId": "bell-x-1",
+   "label": "X-1-1 retired to the National Air Museum after 82 airframe flights"
+  },
+  {
+   "id": "chuck-yeager",
+   "type": "person",
+   "name": "Chuck Yeager",
+   "note": "Flew the first supersonic flight; chosen as the most experienced USAF test pilot; flew the record flight with two broken ribs."
+  },
+  {
+   "id": "jack-ridley",
+   "type": "person",
+   "name": "Jack Ridley",
+   "note": "Flight engineer; cut the broom handle that let Yeager seal the hatch with broken ribs."
+  },
+  {
+   "id": "dick-frost",
+   "type": "person",
+   "name": "Dick Frost",
+   "note": "Proposed the worm-gear drive that let the pilot adjust the whole horizontal stabilizer in flight."
+  },
+  {
+   "id": "c-bell-x-1-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "On 14 October 1947 the Bell X-1, piloted by Chuck Yeager, became the first airplane to exceed the speed of sound at Mach 1.06.",
+   "sourceNote": "Smithsonian NASM"
+  },
+  {
+   "id": "c-bell-x-1-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The X-1 was air-launched from a B-29 and powered by a four-chamber Reaction Motors XLR11 rocket of 6,000 lbf burning liquid oxygen and ethyl alcohol.",
+   "sourceNote": "Smithsonian NASM; chuckyeager.org; San Diego Air & Space Museum"
+  },
+  {
+   "id": "c-bell-x-1-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The fuselage was modeled on the .50-caliber machine-gun bullet, a shape known to be stable at supersonic speed.",
+   "sourceNote": "San Diego Air & Space Museum"
+  },
+  {
+   "id": "c-bell-x-1-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The X-1 used extremely thin, strong wings (10 percent wing, 8 percent tail) to delay shock formation.",
+   "sourceNote": "chuckyeager.org; National Interest"
+  },
+  {
+   "id": "c-bell-x-1-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "Bell was contracted on 16 March 1945 to build three XS-1 research aircraft, establishing the pure research aircraft concept.",
+   "sourceNote": "San Diego Air & Space Museum"
+  },
+  {
+   "id": "c-bell-x-1-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "In early October 1947 Yeager lost elevator effectiveness at about Mach 0.92 due to shock-induced flow separation at the tail.",
+   "sourceNote": "SPS Aviation"
+  },
+  {
+   "id": "c-bell-x-1-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "Dick Frost proposed the worm-gear arrangement letting the pilot drive the whole stabilizer; Yeager regained control with about two degrees of stabilizer on the following flight.",
+   "sourceNote": "SPS Aviation"
+  },
+  {
+   "id": "c-bell-x-1-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "On the record flight the upgraded adjustable stabilizer let Yeager make fine angle changes that maintained pitch authority approaching Mach 1.",
+   "sourceNote": "Smithsonian NASM"
+  },
+  {
+   "id": "c-bell-x-1-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "Tilting the entire stabilizer restores pitch authority because the full surface includes flow ahead of the shock, unlike the hinged elevator sitting in separated air.",
+   "sourceNote": "National Interest; Smithsonian accounts; standard aerodynamics"
+  },
+  {
+   "id": "c-bell-x-1-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The in-flight-adjustable stabilizer idea was proposed by NACA during the P-38 compressibility investigation and shelved; the concept became a defining control feature of the X-1.",
+   "sourceNote": "Smithsonian Air & Space (EC VCL, P-38 package claim 8)"
+  },
+  {
+   "id": "c-bell-x-1-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The movable-tail concept became standard on the supersonic fighters that followed, including the F-100, F-104, F-4, F-15, and F-16.",
+   "sourceNote": "National Interest"
+  },
+  {
+   "id": "c-bell-x-1-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "Days before the flight Yeager broke two ribs falling from a horse, concealed it, and sealed the hatch using a broom handle cut by Jack Ridley.",
+   "sourceNote": "Yeager autobiography; fr.Wikipedia corroborates the fall"
+  },
+  {
+   "id": "c-bell-x-1-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "Yeager, a WWII ace with 13 victories, named the aircraft Glamorous Glennis for his wife.",
+   "sourceNote": "Smithsonian NASM"
+  },
+  {
+   "id": "c-bell-x-1-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "Yeager described the real barrier as not in the sky but in knowledge and experience of supersonic flight.",
+   "sourceNote": "Smithsonian NASM"
+  },
+  {
+   "id": "c-bell-x-1-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The X-1 program flew 78 program flights, later reaching Mach 1.45 and 71,900 feet.",
+   "sourceNote": "Smithsonian NASM"
+  },
+  {
+   "id": "c-bell-x-1-16",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The altitude of the Mach 1.06 record run is reported as 42,000 feet by the Smithsonian, 43,000 feet by multiple sources, and 45,000 feet by chuckyeager.org.",
+   "sourceNote": "Smithsonian NASM; AVI-8; SPS Aviation; chuckyeager.org"
+  },
+  {
+   "id": "c-bell-x-1-17",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The record speed in mph is reported as about 700 mph by the Smithsonian and 807 mph by sources using different airspeed conversions.",
+   "sourceNote": "Smithsonian NASM; SPS Aviation"
+  },
+  {
+   "id": "c-bell-x-1-18",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The drop altitude from the B-29 is reported variously as 20,000, 21,000, and 23,000 to 25,000 feet.",
+   "sourceNote": "Smithsonian NASM; chuckyeager.org; SPS Aviation"
+  },
+  {
+   "id": "c-bell-x-1-19",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The flight and its data were classified following the achievement.",
+   "sourceNote": "SPS Aviation; Smithsonian context"
+  },
+  {
+   "id": "c-bell-x-1-20",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "text": "The timing of Yeager's rib injury is reported as two days before the flight by most accounts and the day before by fr.Wikipedia.",
+   "sourceNote": "Yeager autobiography accounts; fr.Wikipedia"
+  },
+  {
+   "id": "story-bell-x-1",
+   "type": "story",
+   "title": "The Shelved Fix That Broke the Sound Barrier",
+   "hook": "THE X-1 BROKE THE SOUND BARRIER IN 1947 WITH A FIX THAT WAS NOT INVENTED FOR IT. IT HAD BEEN ON A SHELF SINCE THE P-38 INVESTIGATION (1943).",
+   "aboutIds": [
+    "bell-x-1"
+   ],
+   "platforms": {
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7481975843528003584",
+    "instagram": "https://www.instagram.com/p/Dar0WXCysq5/",
+    "facebook": "https://www.facebook.com/share/p/18xFQ9QRqk/"
+   },
+   "status": "published"
+  },
+  {
+   "id": "ev-dec-bell-x-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1945,
+    "month": 3
+   },
+   "subjectId": "bell-x-1",
+   "label": "Bell contracted to build three XS-1 supersonic research aircraft"
+  },
+  {
+   "id": "ev-rec-bell-x-1",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1947,
+    "month": 10
+   },
+   "subjectId": "bell-x-1",
+   "label": "First supersonic flight, Mach 1.06, Yeager, Glamorous Glennis"
+  },
+  {
+   "id": "ev-ret-bell-x-1",
+   "type": "event",
+   "eventType": "retirement",
+   "date": {
+    "year": 1950,
+    "month": 5
+   },
+   "subjectId": "bell-x-1",
+   "label": "X-1-1 retired to the National Air Museum after 82 airframe flights"
+  },
+  {
+   "id": "src-bellx1-vcl",
+   "type": "source",
+   "title": "EC VCL: Bell X-1 (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "kevlar",
+   "type": "artifact",
+   "name": "Kevlar (poly-paraphenylene terephthalamide)",
+   "category": "material",
+   "origin": "United States",
+   "lineId": "tipper",
+   "sealed": true
+  },
+  {
+   "id": "ev-dec-kevlar",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1964
+   },
+   "subjectId": "kevlar",
+   "label": "DuPont tasks Kwolek's group with a lightweight, very strong tire fiber"
+  },
+  {
+   "id": "ev-rec-kevlar-fiber",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1965
+   },
+   "subjectId": "kevlar",
+   "label": "Liquid crystalline solution spun; fiber five times stronger than steel by weight"
+  },
+  {
+   "id": "ev-rec-kevlar-commercial",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1971
+   },
+   "subjectId": "kevlar",
+   "label": "Kevlar introduced commercially"
+  },
+  {
+   "id": "stephanie-kwolek",
+   "type": "person",
+   "name": "Stephanie Kwolek"
+  },
+  {
+   "id": "charles-smullen",
+   "type": "person",
+   "name": "Charles Smullen"
+  },
+  {
+   "id": "wright-wind-tunnel",
+   "type": "artifact",
+   "name": "Wright brothers' 1901 wind tunnel",
+   "category": "other",
+   "origin": "United States",
+   "lineId": "unassigned",
+   "sealed": true
+  },
+  {
+   "id": "ev-fail-wwt",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1901,
+    "month": 8
+   },
+   "subjectId": "wright-wind-tunnel",
+   "label": "1901 glider season ends with a third of predicted lift"
+  },
+  {
+   "id": "ev-dec-wwt",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1901,
+    "month": 10
+   },
+   "subjectId": "wright-wind-tunnel",
+   "label": "The Wrights resolve to measure lift and drag themselves"
+  },
+  {
+   "id": "ev-rec-wwt",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1901,
+    "month": 12
+   },
+   "subjectId": "wright-wind-tunnel",
+   "label": "Verdict: Lilienthal largely correct, Smeaton wrong; corrected value 0.0033"
+  },
+  {
+   "id": "wilbur-wright",
+   "type": "person",
+   "name": "Wilbur Wright"
+  },
+  {
+   "id": "orville-wright",
+   "type": "person",
+   "name": "Orville Wright"
+  },
+  {
+   "id": "lovelace-notes-1843",
+   "type": "artifact",
+   "name": "Sketch of the Analytical Engine, with Notes by A.A.L.",
+   "category": "other",
+   "origin": "United Kingdom",
+   "lineId": "unassigned",
+   "sealed": true
+  },
+  {
+   "id": "ev-pub-menabrea",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1842,
+    "month": 10
+   },
+   "subjectId": "lovelace-notes-1843",
+   "label": "Menabrea publishes the French account of the Analytical Engine"
+  },
+  {
+   "id": "ev-pub-notes",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1843,
+    "month": 8
+   },
+   "subjectId": "lovelace-notes-1843",
+   "label": "Lovelace's translation with Notes A-G published, signed A.A.L."
+  },
+  {
+   "id": "ada-lovelace",
+   "type": "person",
+   "name": "Ada Lovelace"
+  },
+  {
+   "id": "charles-babbage",
+   "type": "person",
+   "name": "Charles Babbage"
+  },
+  {
+   "id": "boolean-algebra",
+   "type": "artifact",
+   "name": "Boolean algebra (The Laws of Thought)",
+   "category": "process",
+   "origin": "United Kingdom",
+   "lineId": "unassigned",
+   "sealed": true
+  },
+  {
+   "id": "ev-pub-mal",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1847
+   },
+   "subjectId": "boolean-algebra",
+   "label": "The Mathematical Analysis of Logic published"
+  },
+  {
+   "id": "ev-pub-lot",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1854
+   },
+   "subjectId": "boolean-algebra",
+   "label": "An Investigation of the Laws of Thought published"
+  },
+  {
+   "id": "george-boole",
+   "type": "person",
+   "name": "George Boole"
+  },
+  {
+   "id": "shannon-1937-thesis",
+   "type": "artifact",
+   "name": "Claude Shannon 1937 master's thesis",
+   "category": "other",
+   "origin": "United States",
+   "lineId": "unassigned",
+   "sealed": false,
+   "note": "Published EC story; block backfill pending"
+  },
+  {
+   "id": "concept-smeaton",
+   "type": "concept",
+   "name": "Smeaton's coefficient (0.005)"
+  },
+  {
+   "id": "concept-aristotelian-logic",
+   "type": "concept",
+   "name": "Aristotelian syllogistic logic"
+  },
+  {
+   "id": "concept-soft-body-armor",
+   "type": "concept",
+   "name": "Modern soft body armor"
+  },
+  {
+   "id": "src-boole-vcl",
+   "type": "source",
+   "title": "EC VCL: Boolean algebra (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "c-boolean-algebra-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boolean algebra became foundational to telephone switching and digital computer circuits after Claude Shannon found it the tool for designing switching circuits in the late 1930s.",
+   "sourceNote": "Britannica; Linda Hall Library"
+  },
+  {
+   "id": "c-boolean-algebra-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Before Boole, formal logic was an Aristotelian catalog of valid syllogism patterns; Boole's method provided general algebraic algorithms.",
+   "sourceNote": "Stanford Encyclopedia of Philosophy"
+  },
+  {
+   "id": "src-lovelace-vcl",
+   "type": "source",
+   "title": "EC VCL: Lovelace Notes (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "c-lovelace-notes-1843-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Her notes drew the program-versus-data distinction, the Engine storing its sequence of operations as well as its values.",
+   "sourceNote": "Yale TAP"
+  },
+  {
+   "id": "src-wwt-vcl",
+   "type": "source",
+   "title": "EC VCL: Wright wind tunnel (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "c-wright-wind-tunnel-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The Wrights' measured Smeaton value was 0.0033 against the accepted 0.005; the modern accepted value is 0.00326.",
+   "sourceNote": "NASA Glenn; Smithsonian NASM"
+  },
+  {
+   "id": "src-kevlar-vcl",
+   "type": "source",
+   "title": "EC VCL: Kevlar (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "c-kevlar-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "kevlar"
+   ],
+   "text": "Kevlar body armor is credited with protecting and saving thousands of lives across wide applications.",
+   "sourceNote": "ACS; NPR"
+  },
+  {
+   "id": "story-kevlar",
+   "type": "story",
+   "title": "The Accident Was the Liquid. The Rest Was Decision.",
+   "aboutIds": [
+    "kevlar"
+   ],
+   "status": "draft",
+   "platforms": {}
+  },
+  {
+   "id": "story-wright-wind-tunnel",
+   "type": "story",
+   "title": "They Checked the Number",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "status": "draft",
+   "platforms": {}
+  },
+  {
+   "id": "story-lovelace-notes-1843",
+   "type": "story",
+   "title": "The First Program Was Her Smaller Achievement",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "status": "draft",
+   "platforms": {}
+  },
+  {
+   "id": "story-boolean-algebra",
+   "type": "story",
+   "title": "The Laws of Thought Were the Laws of Machines",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "status": "draft",
+   "platforms": {}
+  }
+ ],
+ "edges": [
+  {
+   "type": "event-of",
+   "from": "ev-ff-p-38",
+   "to": "p-38"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1942a",
+   "to": "sealed-1942a"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1942b",
+   "to": "sealed-1942b"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-bell-x-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1947",
+   "to": "sealed-1947"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-b-52",
+   "to": "b-52"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1954",
+   "to": "sealed-1954"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-u-2",
+   "to": "u-2"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sr-71",
+   "to": "sr-71"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-xb-70",
+   "to": "xb-70"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-mig-25",
+   "to": "mig-25"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1966",
+   "to": "sealed-1966"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-f-14",
+   "to": "f-14"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-a-10",
+   "to": "a-10"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-f-15",
+   "to": "f-15"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-b-1",
+   "to": "b-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1974",
+   "to": "sealed-1974"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-f-117",
+   "to": "f-117"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-b-2",
+   "to": "b-2"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-1997",
+   "to": "sealed-1997"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-sealed-2006",
+   "to": "sealed-2006"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ff-b-21",
+   "to": "b-21"
+  },
+  {
+   "type": "contributed",
+   "from": "kelly-johnson",
+   "to": "p-38",
+   "role": "designed"
+  },
+  {
+   "type": "contributed",
+   "from": "kelly-johnson",
+   "to": "u-2",
+   "role": "designed"
+  },
+  {
+   "type": "contributed",
+   "from": "kelly-johnson",
+   "to": "sr-71",
+   "role": "led"
+  },
+  {
+   "type": "contributed",
+   "from": "jack-northrop",
+   "to": "b-2",
+   "role": "pioneered concept"
+  },
+  {
+   "type": "covers",
+   "from": "story-p-38",
+   "to": "p-38"
+  },
+  {
+   "type": "covers",
+   "from": "story-b-52",
+   "to": "b-52"
+  },
+  {
+   "type": "covers",
+   "from": "story-u-2",
+   "to": "u-2"
+  },
+  {
+   "type": "covers",
+   "from": "story-sr-71",
+   "to": "sr-71"
+  },
+  {
+   "type": "covers",
+   "from": "story-xb-70",
+   "to": "xb-70"
+  },
+  {
+   "type": "covers",
+   "from": "story-mig-25",
+   "to": "mig-25"
+  },
+  {
+   "type": "covers",
+   "from": "story-f-14",
+   "to": "f-14"
+  },
+  {
+   "type": "covers",
+   "from": "story-a-10",
+   "to": "a-10"
+  },
+  {
+   "type": "covers",
+   "from": "story-f-15",
+   "to": "f-15"
+  },
+  {
+   "type": "covers",
+   "from": "story-b-1",
+   "to": "b-1"
+  },
+  {
+   "type": "covers",
+   "from": "story-f-117",
+   "to": "f-117"
+  },
+  {
+   "type": "covers",
+   "from": "story-b-2",
+   "to": "b-2"
+  },
+  {
+   "type": "covers",
+   "from": "story-b-21",
+   "to": "b-21"
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1930s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1930,
+    "toYear": 1939
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1940s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1940,
+    "toYear": 1949
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1950s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1950,
+    "toYear": 1959
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1960s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1960,
+    "toYear": 1969
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1970s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1970,
+    "toYear": 1979
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1980s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1980,
+    "toYear": 1989
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-1990s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 1990,
+    "toYear": 1999
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-2000s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 2000,
+    "toYear": 2009
+   }
+  },
+  {
+   "type": "frames",
+   "from": "thesis-2020s",
+   "to": "kelly",
+   "span": {
+    "fromYear": 2020,
+    "toYear": 2029
+   }
+  },
+  {
+   "type": "cites",
+   "from": "c-a10-recoil",
+   "to": "src-a10-vcl"
+  },
+  {
+   "type": "cites",
+   "from": "c-a10-gear",
+   "to": "src-a10-vcl"
+  },
+  {
+   "type": "cites",
+   "from": "c-f15-response",
+   "to": "src-f15-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-a10-recoil",
+   "to": "a-10"
+  },
+  {
+   "type": "about",
+   "from": "c-a10-gear",
+   "to": "a-10"
+  },
+  {
+   "type": "about",
+   "from": "c-f15-response",
+   "to": "f-15"
+  },
+  {
+   "type": "responded-to",
+   "from": "f-15",
+   "to": "mig-25",
+   "claimId": "c-f15-response"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-bell-x-1-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-bell-x-1-3",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-bell-x-1-4",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "contributed",
+   "from": "chuck-yeager",
+   "to": "bell-x-1",
+   "role": "tested"
+  },
+  {
+   "type": "contributed",
+   "from": "jack-ridley",
+   "to": "bell-x-1",
+   "role": "led"
+  },
+  {
+   "type": "contributed",
+   "from": "dick-frost",
+   "to": "bell-x-1",
+   "role": "designed"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-01",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-01",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-02",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-02",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-03",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-03",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-04",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-04",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-05",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-05",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-06",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-06",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-07",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-07",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-08",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-08",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-09",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-09",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-10",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-10",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-11",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-11",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-12",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-12",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-13",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-13",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-14",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-14",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-15",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-15",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-16",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-16",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-17",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-17",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-18",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-18",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-19",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-19",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-20",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-20",
+   "to": "src-bell-x-1-vcl"
+  },
+  {
+   "type": "enabled",
+   "from": "p-38",
+   "to": "bell-x-1",
+   "claimId": "c-bell-x-1-10"
+  },
+  {
+   "type": "enabled",
+   "from": "bell-x-1",
+   "to": "f-15",
+   "claimId": "c-bell-x-1-11"
+  },
+  {
+   "type": "responded-to",
+   "from": "bell-x-1",
+   "to": "p-38",
+   "claimId": "c-bell-x-1-06"
+  },
+  {
+   "type": "covers",
+   "from": "story-bell-x-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-dec-bell-x-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-rec-bell-x-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-ret-bell-x-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "contributed",
+   "from": "chuck-yeager",
+   "to": "bell-x-1",
+   "role": "tested",
+   "note": "Flew the first supersonic flight with two broken ribs"
+  },
+  {
+   "type": "contributed",
+   "from": "jack-ridley",
+   "to": "bell-x-1",
+   "role": "led",
+   "note": "Flight engineer; cut the broom handle for the hatch"
+  },
+  {
+   "type": "contributed",
+   "from": "dick-frost",
+   "to": "bell-x-1",
+   "role": "designed",
+   "note": "Proposed the worm-gear full-stabilizer drive"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-01",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-01",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-02",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-02",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-03",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-03",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-04",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-04",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-05",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-05",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-06",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-06",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-07",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-07",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-08",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-08",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-09",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-09",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-10",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-10",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-11",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-11",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-12",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-12",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-13",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-13",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-14",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-14",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-15",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-15",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-16",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-16",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-17",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-17",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-18",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-18",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-19",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-19",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-bell-x-1-20",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "cites",
+   "from": "c-bell-x-1-20",
+   "to": "src-bellx1-vcl"
+  },
+  {
+   "type": "enabled",
+   "from": "p-38",
+   "to": "bell-x-1",
+   "claimId": "c-bell-x-1-10"
+  },
+  {
+   "type": "enabled",
+   "from": "bell-x-1",
+   "to": "f-15",
+   "claimId": "c-bell-x-1-11"
+  },
+  {
+   "type": "responded-to",
+   "from": "bell-x-1",
+   "to": "p-38",
+   "claimId": "c-bell-x-1-06"
+  },
+  {
+   "type": "covers",
+   "from": "story-bell-x-1",
+   "to": "bell-x-1"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-dec-kevlar",
+   "to": "kevlar"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-rec-kevlar-fiber",
+   "to": "kevlar"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-rec-kevlar-commercial",
+   "to": "kevlar"
+  },
+  {
+   "type": "contributed",
+   "from": "stephanie-kwolek",
+   "to": "kevlar",
+   "role": "pioneered",
+   "note": "Refused to discard the first polymer liquid crystal solution; persuaded the spin"
+  },
+  {
+   "type": "contributed",
+   "from": "charles-smullen",
+   "to": "kevlar",
+   "role": "tested",
+   "note": "Ran the spinneret after initially refusing on professional grounds"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-fail-wwt",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-dec-wwt",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-rec-wwt",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "contributed",
+   "from": "wilbur-wright",
+   "to": "wright-wind-tunnel",
+   "role": "pioneered",
+   "note": "Co-designed tunnel, balances, and parametric method"
+  },
+  {
+   "type": "contributed",
+   "from": "orville-wright",
+   "to": "wright-wind-tunnel",
+   "role": "pioneered",
+   "note": "Co-designed tunnel and balances; co-ran the test program"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-pub-menabrea",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-pub-notes",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "contributed",
+   "from": "ada-lovelace",
+   "to": "lovelace-notes-1843",
+   "role": "pioneered",
+   "note": "Authored the seven Notes; first published algorithm; symbols-beyond-number insight"
+  },
+  {
+   "type": "contributed",
+   "from": "charles-babbage",
+   "to": "lovelace-notes-1843",
+   "role": "designed",
+   "note": "Designed the unbuilt Analytical Engine; supplied Bernoulli mathematics"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-pub-mal",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-pub-lot",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "contributed",
+   "from": "george-boole",
+   "to": "boolean-algebra",
+   "role": "pioneered",
+   "note": "Self-taught; turned logic into two-valued algebra"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-09",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-09",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-03",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-03",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-14",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-14",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-11",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-11",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-kevlar-11",
+   "to": "kevlar"
+  },
+  {
+   "type": "cites",
+   "from": "c-kevlar-11",
+   "to": "src-kevlar-vcl"
+  },
+  {
+   "type": "enabled",
+   "from": "boolean-algebra",
+   "to": "shannon-1937-thesis",
+   "claimId": "c-boolean-algebra-09"
+  },
+  {
+   "type": "corrects",
+   "from": "boolean-algebra",
+   "to": "concept-aristotelian-logic",
+   "claimId": "c-boolean-algebra-03"
+  },
+  {
+   "type": "enabled",
+   "from": "lovelace-notes-1843",
+   "to": "shannon-1937-thesis",
+   "claimId": "c-lovelace-notes-1843-14"
+  },
+  {
+   "type": "corrects",
+   "from": "wright-wind-tunnel",
+   "to": "concept-smeaton",
+   "claimId": "c-wright-wind-tunnel-11"
+  },
+  {
+   "type": "enabled",
+   "from": "kevlar",
+   "to": "concept-soft-body-armor",
+   "claimId": "c-kevlar-11"
+  },
+  {
+   "type": "covers",
+   "from": "story-kevlar",
+   "to": "kevlar"
+  },
+  {
+   "type": "covers",
+   "from": "story-wright-wind-tunnel",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "covers",
+   "from": "story-lovelace-notes-1843",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "covers",
+   "from": "story-boolean-algebra",
+   "to": "boolean-algebra"
+  }
+ ]
+}
