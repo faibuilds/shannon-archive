@@ -180,7 +180,50 @@ let AIRCRAFT = null;
 })();
 
 // ---------------------------------------------------------------------------
-// Check 6: graph.json schema.
+// Check 6: Coverage literals. index.html must derive coverage counts from
+// the AIRCRAFT array at page init, never hardcode them. Fails on literal
+// "N / M airframes" or "N lit" strings, on non-empty static content in the
+// derived elements, and on a coverage data-count that disagrees with the
+// covered-plate count.
+// ---------------------------------------------------------------------------
+(function checkCoverageLiterals() {
+  const name = "coverage: no hardcoded coverage counts in index.html";
+  if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
+  const covered = AIRCRAFT.filter((p) => p.status === "covered").length;
+  const total = AIRCRAFT.length;
+  const problems = [];
+
+  // Literal "N / M airframes" anywhere in the file.
+  const frac = html.match(/\b\d+\s*\/\s*\d+\s+airframes/g);
+  if (frac) problems.push("literal gauge text: " + frac.join(", "));
+
+  // Literal digits directly before "lit" (e.g. "13 lit" or "13&nbsp;lit").
+  const litStr = html.match(/\b\d+(?:&nbsp;|\s)+lit\b/gi);
+  if (litStr) problems.push("literal lit count: " + litStr.join(", "));
+
+  // Elements JS fills from AIRCRAFT must be empty in the static HTML.
+  for (const id of ["gauge-count", "gauge-last", "visible-count"]) {
+    const m = html.match(new RegExp('id="' + id + '"[^>]*>([^<]*)<'));
+    if (!m) problems.push("element #" + id + " not found");
+    else if (/\S/.test(m[1])) problems.push("#" + id + ' holds literal "' + m[1].trim() + '"');
+  }
+
+  // Coverage stat elements: a literal data-count must agree with plate data.
+  for (const [stat, want] of [["lit", covered], ["total", total]]) {
+    const tag = html.match(new RegExp('<[^>]*data-stat="' + stat + '"[^>]*>'));
+    if (!tag) { problems.push('data-stat="' + stat + '" element not found'); continue; }
+    const dc = tag[0].match(/data-count="(\d+)"/);
+    if (dc && Number(dc[1]) !== want) {
+      problems.push('data-stat="' + stat + '" hardcodes ' + dc[1] + ", plates say " + want);
+    }
+  }
+
+  if (problems.length) fail(name, problems.join("; "));
+  else pass(name, "(covered=" + covered + ", total=" + total + " derived at init)");
+})();
+
+// ---------------------------------------------------------------------------
+// Check 7: graph.json schema.
 // ---------------------------------------------------------------------------
 (function checkGraph() {
   const name = "graph: schema (ids, edges, dates, cites, contributed, synthesis)";
@@ -245,7 +288,7 @@ let AIRCRAFT = null;
 })();
 
 // ---------------------------------------------------------------------------
-// Check 7: Version stamp. Exactly one "SHANNON vX.Y / BUILT" in index.html.
+// Check 8: Version stamp. Exactly one "SHANNON vX.Y / BUILT" in index.html.
 // ---------------------------------------------------------------------------
 (function checkStamp() {
   const name = "version: exactly one SHANNON vX.Y / BUILT stamp";

@@ -445,11 +445,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="hero-stat-num" data-count="22">0</div>
+      <div class="hero-stat-num" data-stat="total">0</div>
       <div class="hero-stat-label">Airframes on the line</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num"><span data-count="13">0</span><span class="accent">&nbsp;lit</span></div>
+      <div class="hero-stat-num"><span data-stat="lit">0</span><span class="accent">&nbsp;lit</span></div>
       <div class="hero-stat-label">Stories published</div>
     </div>
     <div class="hero-stat">
@@ -459,9 +459,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
 
   <div class="gauge-wrap brushed">
-    <div class="gauge-label"><span>Line coverage</span><b id="gauge-count">13 / 22 airframes</b></div>
+    <div class="gauge-label"><span>Line coverage</span><b id="gauge-count"></b></div>
     <div class="gauge-cells" id="gauge-cells"></div>
-    <div class="gauge-note"><span>One cell per airframe, in order. <b>Click a cell to jump to its plate.</b></span><span class="gauge-last">Last lit: P-38 Lightning, Jul 2026</span></div>
+    <div class="gauge-note"><span>One cell per airframe, in order. <b>Click a cell to jump to its plate.</b></span><span class="gauge-last" id="gauge-last"></span></div>
   </div>
 
   <div class="hero-scroll">Scroll</div>
@@ -484,7 +484,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <button class="pill" data-filter="role" data-value="experimental">Experimental</button>
     <button class="pill" data-filter="role" data-value="transport">Transport</button>
   </div>
-  <div class="filter-count"><b id="visible-count">22</b> airframes shown</div>
+  <div class="filter-count"><b id="visible-count"></b> airframes shown</div>
 </div>
 
 <section class="timeline-section">
@@ -588,7 +588,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.9 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
+    <span class="footer-stamp">SHANNON v1.10 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
   </div>
 </footer>
 
@@ -915,6 +915,26 @@ cellsWrap.addEventListener("click", e => {
   setTimeout(()=>el.classList.remove("flash"), 2600);
 });
 
+/* ---------- COVERAGE, derived from AIRCRAFT so it can never drift ---------- */
+const coveredPlates = AIRCRAFT.filter(a => a.status === "covered");
+const litCount = coveredPlates.length;
+const totalCount = AIRCRAFT.length;
+document.querySelector('[data-stat="total"]').dataset.count = totalCount;
+document.querySelector('[data-stat="lit"]').dataset.count = litCount;
+document.getElementById("gauge-count").textContent = litCount + " / " + totalCount + " airframes";
+const lastLit = coveredPlates
+  .map(a => {
+    const stamps = (a.posts || []).map(p => Date.parse(p.date)).filter(n => !isNaN(n));
+    return { a, t: stamps.length ? Math.max(...stamps) : -Infinity };
+  })
+  .sort((x, y) => y.t - x.t)[0];
+if (lastLit && isFinite(lastLit.t)) {
+  const d = new Date(lastLit.t);
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  document.getElementById("gauge-last").textContent =
+    "Last lit: " + lastLit.a.name + ", " + MONTHS[d.getMonth()] + " " + d.getFullYear();
+}
+
 /* ---------- FILTERS ---------- */
 const state = { status:"all", role:"all" };
 document.querySelectorAll(".pill").forEach(p => {
@@ -937,6 +957,7 @@ function applyFilters(){
   });
   document.getElementById("visible-count").textContent = visible;
 }
+applyFilters();
 
 /* ---------- SCROLL ---------- */
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
