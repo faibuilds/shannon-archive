@@ -51,6 +51,7 @@ line PASS). It enforces the constitution automatically:
 - Every inline <script> in index.html parses.
 - status.json lit == sum(cells) == covered plates, total == cells length.
 - No sealed plate (status "soon") carries a hook.
+- Plate art appears only on covered plates, and always with a credit.
 - graph.json schema: unique ids, valid edge endpoints, dates only on
   events, cites point at sources, contributed edges carry a role,
   synthesis edges cite a verified claim.

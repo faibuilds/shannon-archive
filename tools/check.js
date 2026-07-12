@@ -180,7 +180,28 @@ let AIRCRAFT = null;
 })();
 
 // ---------------------------------------------------------------------------
-// Check 6: Coverage literals. index.html must derive coverage counts from
+// Check 6: Art integrity. art and artCredit belong to covered plates only,
+// and art never ships without a credit.
+// ---------------------------------------------------------------------------
+(function checkArt() {
+  const name = "art: only covered plates carry art, always credited";
+  if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
+  const problems = [];
+  for (const p of AIRCRAFT) {
+    if (p.status !== "covered" && ("art" in p || "artCredit" in p)) {
+      problems.push(p.id + " has status " + p.status + " but carries art fields");
+    }
+    if ("art" in p && !("artCredit" in p)) {
+      problems.push(p.id + " has art without artCredit");
+    }
+  }
+  const withArt = AIRCRAFT.filter((p) => "art" in p).length;
+  if (problems.length) fail(name, problems.join("; "));
+  else pass(name, "(" + withArt + " plate(s) with art)");
+})();
+
+// ---------------------------------------------------------------------------
+// Check 7: Coverage literals. index.html must derive coverage counts from
 // the AIRCRAFT array at page init, never hardcode them. Fails on literal
 // "N / M airframes" or "N lit" strings, on non-empty static content in the
 // derived elements, and on a coverage data-count that disagrees with the
@@ -223,7 +244,7 @@ let AIRCRAFT = null;
 })();
 
 // ---------------------------------------------------------------------------
-// Check 7: graph.json schema.
+// Check 8: graph.json schema.
 // ---------------------------------------------------------------------------
 (function checkGraph() {
   const name = "graph: schema (ids, edges, dates, cites, contributed, synthesis)";
@@ -288,7 +309,7 @@ let AIRCRAFT = null;
 })();
 
 // ---------------------------------------------------------------------------
-// Check 8: Version stamp. Exactly one "SHANNON vX.Y / BUILT" in index.html.
+// Check 9: Version stamp. Exactly one "SHANNON vX.Y / BUILT" in index.html.
 // ---------------------------------------------------------------------------
 (function checkStamp() {
   const name = "version: exactly one SHANNON vX.Y / BUILT stamp";
