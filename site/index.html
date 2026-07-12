@@ -608,7 +608,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.11 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
+    <span class="footer-stamp">SHANNON v1.12 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
   </div>
 </footer>
 
@@ -710,6 +710,21 @@ const AIRCRAFT = [
 
   {id:"f-14", name:"F-14 Tomcat", year:1970, ff:"Dec 1970", origin:"United States", role:"fighter", status:"covered",
    hook:"TO LAND ON A CARRIER, THE F-14 TOMCAT NEEDED A 64-FOOT WINGSPAN. TO CATCH A BOMBER AT MACH 2, IT NEEDED 38. SO GRUMMAN BUILT WINGS THAT MOVE BETWEEN THE TWO IN FLIGHT.",
+   artCredit:"US Army FM 44-80, public domain.",
+   artNote:"Manual drawing, recolored, not redrawn. Dimension lines to the drawing's scale.",
+   art:`<svg viewBox="0 0 267 320" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/f-14.png" x="0" y="0" width="267" height="268"/>
+  <g stroke="#10b981" fill="none">
+    <path d="M8 284 L258 284" stroke-width="1.2"/>
+    <path d="M8 284 L15 281 M8 284 L15 287 M258 284 L251 281 M258 284 L251 287" stroke-width="0.9"/>
+    <path d="M58.5 310 L207.5 310" stroke-width="1.2"/>
+    <path d="M58.5 310 L65.5 307 M58.5 310 L65.5 313 M207.5 310 L200.5 307 M207.5 310 L200.5 313" stroke-width="0.9"/>
+  </g>
+  <g fill="#10b981" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+    <text x="133" y="279">64 FT 2 IN &#183; UNSWEPT</text>
+    <text x="132" y="305">38 FT 3 IN &#183; SWEPT</text>
+  </g>
+</svg>`,
    posts:[{label:"Read the story", date:"Jun 4, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7468232263726432256"}],
    remarks:[
      {name:"", title:"", text:"", len:232},
@@ -744,36 +759,16 @@ const AIRCRAFT = [
 
   {id:"f-117", name:"F-117 Nighthawk", year:1981, ff:"Jun 1981", origin:"United States", role:"attack", status:"covered",
    hook:"IN 1962, THE SOVIETS LET A SCIENTIST PUBLISH HIS \"WORTHLESS\" PAPER ON RADAR DIFFRACTION. LOCKHEED USED IT TO DEVELOP THE F-117.",
-   artCredit:"US Army FM 44-80, public domain, redrawn.",
-   art:`<svg viewBox="0 0 380 252" xmlns="http://www.w3.org/2000/svg">
-  <g stroke-linejoin="miter" fill="none">
-    <path d="M368 125 L60 9 L48 22 L115 74 L47 101 L28 125 L47 149 L115 176 L48 228 L60 241 Z" fill="rgba(174,182,189,0.04)" stroke="#aeb6bd" stroke-width="1.1"/>
-    <path d="M368 125 L60 9" stroke="#10b981" stroke-width="1.2" opacity="0.85"/>
-    <path d="M368 125 L60 241" stroke="#10b981" stroke-width="1.2" opacity="0.85"/>
-    <path d="M368 125 L377 122 M368 125 L377 128" stroke="#8f959c" stroke-width="0.6"/>
-    <path d="M368 125 L115 74" stroke="#5d636a" stroke-width="0.55"/>
-    <path d="M368 125 L115 176" stroke="#5d636a" stroke-width="0.55"/>
-    <path d="M368 125 L28 125" stroke="#5d636a" stroke-width="0.45" stroke-dasharray="5 4"/>
-    <path d="M327 125 L306 113 L284 117 L284 133 L306 137 Z" fill="rgba(16,185,129,0.07)" stroke="#8f959c" stroke-width="0.8"/>
-    <path d="M306 113 L306 137 M284 117 L284 133" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M327 125 L306 125" stroke="#5d636a" stroke-width="0.4"/>
-    <path d="M274 104 L298 109 L292 118 L268 113 Z" fill="rgba(174,182,189,0.10)" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M274 146 L298 141 L292 132 L268 137 Z" fill="rgba(174,182,189,0.10)" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M284 117 L98 106 L47 101" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M284 133 L98 144 L47 149" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M256 116 L186 116 L186 134 L256 134 Z" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M256 125 L186 125" stroke="#5d636a" stroke-width="0.4"/>
-    <path d="M221 116 L221 134" stroke="#5d636a" stroke-width="0.4"/>
-    <path d="M34 113 L54 113 M32 121 L54 121 M32 129 L54 129 M34 137 L54 137" stroke="#5d636a" stroke-width="0.45"/>
-    <path d="M140 58 L86 22" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M140 192 L86 228" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M115 74 L47 101" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M115 176 L47 149" stroke="#5d636a" stroke-width="0.5"/>
-    <path d="M240 96 L200 74 M240 154 L200 176" stroke="#5d636a" stroke-width="0.45"/>
-    <path d="M190 90 L155 65 M190 160 L155 185" stroke="#5d636a" stroke-width="0.4"/>
-    <path d="M94 108 L20 84 L6 95 L68 113 Z" fill="rgba(174,182,189,0.06)" stroke="#aeb6bd" stroke-width="0.95"/>
-    <path d="M94 142 L20 166 L6 155 L68 137 Z" fill="rgba(174,182,189,0.06)" stroke="#aeb6bd" stroke-width="0.95"/>
-    <path d="M80 104 L14 89 M80 146 L14 161" stroke="#5d636a" stroke-width="0.4"/>
+   artCredit:"US Army FM 44-80, public domain.",
+   artNote:"Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+   art:`<svg viewBox="0 0 267 320" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/f-117.png" x="34" y="0" width="198" height="292"/>
+  <g stroke="#10b981" fill="none">
+    <path d="M42 308 L223 308" stroke-width="1.2"/>
+    <path d="M42 308 L49 305 M42 308 L49 311 M223 308 L216 305 M223 308 L216 311" stroke-width="0.9"/>
+  </g>
+  <g fill="#10b981" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+    <text x="132" y="303">43 FT 4 IN &#183; SPAN</text>
   </g>
 </svg>`,
    posts:[
@@ -945,7 +940,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         ${hasArt ? `
         <div class="plate-art">
           ${a.art}
-          <div class="art-credit">${a.artCredit}<br>Illustration. Proportions match published dimensions; panel detail simplified.</div>
+          <div class="art-credit">${a.artCredit}<br>${a.artNote || "Illustration. Proportions match published dimensions; panel detail simplified."}</div>
         </div>` : ""}
         </div>
       </div>`;
