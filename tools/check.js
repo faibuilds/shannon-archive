@@ -90,11 +90,13 @@ const html = fs.readFileSync(INDEX, "utf8");
   const name = "privacy: no gated names in index.html";
   // Not-yet-consented names only. A person moves off this list when Fai
   // states they consented and their remark is unsealed with cleared:true.
-  // Consented so far: Lee Hearn, Neil Wilkins, Roger Griffiths (07.2026).
+  // Consented so far: Lee Hearn, Neil Wilkins, Roger Griffiths, Lakshmi N
+  // Sankar, Kenneth McNaught (07.2026). Allen Crane asked but not yet
+  // replied, so he stays in the exact-strings list below.
   const surnames = [
     "Ferretti", "Hindman", "Aven", "Aiken",
-    "Bolton", "Donahue", "Bourquin", "Palermo", "Pickard", "McNaught",
-    "Swatman", "Donley", "Partain", "Lakshmi", "Markos",
+    "Bolton", "Donahue", "Bourquin", "Palermo", "Pickard",
+    "Swatman", "Donley", "Partain", "Markos",
   ];
   const exacts = [
     "Jim Roberts", "Les Hayes", "Colin Rose", "Kev Senior",
