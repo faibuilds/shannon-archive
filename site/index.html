@@ -608,7 +608,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.14 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
+    <span class="footer-stamp">SHANNON v1.15 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
   </div>
 </footer>
 
@@ -838,7 +838,11 @@ function redactLines(L){
   }
   return out;
 }
-const esc = s => s.replace(/"/g,"&quot;");
+// HTML-escape authored content before it goes into innerHTML. Crew remarks
+// are other people's words (curated on consent), so text must never be able
+// to inject markup. Safe in both text and attribute contexts.
+const ESC_MAP = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
+const esc = s => (s == null ? "" : String(s)).replace(/[&<>"']/g, c => ESC_MAP[c]);
 let plateIndex = 0;
 
 Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
@@ -870,7 +874,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
     const extra = a.posts && a.posts.length > 1 ? a.posts.slice(1) : [];
     const emb = primary ? embedUrl(primary.url) : null;
     const ffMonth = MONTHS[a.ff.slice(0,3)];
-    const displayName = (!covered && a.redactedName) ? a.redactedName.replace(/▮/g,'<span class="redacted-ch">▮</span>') : a.name;
+    const displayName = (!covered && a.redactedName) ? a.redactedName.replace(/▮/g,'<span class="redacted-ch">▮</span>') : esc(a.name);
 
     plate.innerHTML = `
       <div class="rivets"></div>
@@ -884,9 +888,9 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
       <div class="plate-body">
         <div class="plate-cols">
         <div class="plate-main">
-        <h3>${displayName}${a.variant && covered ? `<span class="variant">${a.variant}</span>` : ""}</h3>
-        <div class="plate-role">${ROLE_LABEL[a.role]} · ${a.origin}</div>
-        ${covered ? `<p class="plate-hook">${a.hook}</p>` : `
+        <h3>${displayName}${a.variant && covered ? `<span class="variant">${esc(a.variant)}</span>` : ""}</h3>
+        <div class="plate-role">${ROLE_LABEL[a.role]} · ${esc(a.origin)}</div>
+        ${covered ? `<p class="plate-hook">${esc(a.hook)}</p>` : `
           <div class="redaction" aria-label="Story details sealed until publication">
             ${(a.lines||[85,70,55]).map(w => `<div class="redact-line" style="width:${w}%"></div>`).join("")}
             <div class="redact-note">Sealed until publication.</div>
@@ -898,8 +902,8 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         </div>
         <div class="plate-actions">
           ${covered && primary ? `
-            <a class="btn-read" href="${primary.url}" target="_blank" rel="noopener">Read the story &rarr;</a>
-            ${emb ? `<button class="btn-preview" data-embed="${emb}" data-url="${primary.url}" data-name="${esc(a.name)}">Preview post</button>` : ""}
+            <a class="btn-read" href="${esc(primary.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(primary.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
           `}
@@ -908,19 +912,19 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         </div>
         ${extra.length ? `
           <div class="more-posts">
-            <div class="more-posts-label">More on the ${a.name.split(" ")[0]}</div>
-            ${extra.map(p => `<a class="post-chip" href="${p.url}" target="_blank" rel="noopener">${p.label} <span class="chip-date">${p.date}</span></a>`).join("")}
+            <div class="more-posts-label">More on the ${esc(a.name.split(" ")[0])}</div>
+            ${extra.map(p => `<a class="post-chip" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
           </div>` : ""}
         ${a.remarks && a.remarks.length ? `
           <div class="remarks">
             <div class="remarks-label">Crew remarks</div>
             ${a.remarks.map(r => r.cleared ? `
               <div class="remark">
-                <div class="avatar">${r.name.split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase()}</div>
+                <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
                 <div class="remark-body">
-                  <div class="remark-meta"><span class="remark-name">${r.name}</span><span class="remark-title">${r.title}</span></div>
-                  <p class="remark-text">${r.text}</p>
-                  ${primary ? `<a class="remark-src" href="${primary.url}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
+                  <div class="remark-meta"><span class="remark-name">${esc(r.name)}</span><span class="remark-title">${esc(r.title)}</span></div>
+                  <p class="remark-text">${esc(r.text)}</p>
+                  ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
                 </div>
               </div>` : `
               <div class="remark pending">
@@ -940,7 +944,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         ${hasArt ? `
         <div class="plate-art">
           ${a.art}
-          <div class="art-credit">${a.artCredit}<br>${a.artNote || "Illustration. Proportions match published dimensions; panel detail simplified."}</div>
+          <div class="art-credit">${esc(a.artCredit)}<br>${esc(a.artNote || "Illustration. Proportions match published dimensions; panel detail simplified.")}</div>
         </div>` : ""}
         </div>
       </div>`;
@@ -1117,7 +1121,7 @@ function openModal(title, src, href, linkText, note){
   modalOpen.href = href;
   modalOpen.innerHTML = linkText;
   modalNote.textContent = note;
-  modalTitle.innerHTML = title + "<span>.</span>";
+  modalTitle.innerHTML = esc(title) + "<span>.</span>";
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
   document.getElementById("modal-close").focus();

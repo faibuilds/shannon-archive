@@ -1,0 +1,23 @@
+name: Constitution check
+
+# Runs the SHANNON verification gate (tools/check.js) on every push and pull
+# request to main. A failing check marks the commit red. To make it BLOCK the
+# deploy, turn on branch protection for main and mark this check "Required"
+# (GitHub: Settings -> Branches -> Add rule). See CLAUDE.md for what it enforces.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run SHANNON verification gate
+        run: node tools/check.js
