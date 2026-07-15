@@ -2,5 +2,9 @@
   // Cloudflare Worker config: static assets served from /site
   "name": "shannon-site",
   "compatibility_date": "2026-07-01",
+  // Pre-deploy gate: wrangler runs this before uploading. A nonzero exit
+  // (any constitution violation) aborts the deploy, so a bad commit cannot
+  // reach production even on a direct push to main.
+  "build": { "command": "node tools/check.js" },
   "assets": { "directory": "./site" }
 }
