@@ -13,3 +13,14 @@
 /graph.json
   Access-Control-Allow-Origin: *
   Cache-Control: no-store
+
+# Static assets: cache in the browser so repeat visits skip re-downloading.
+# Art is a modest 1 day because plate PNGs are regenerated in place; the
+# brand images change rarely, so a week. HTML stays uncached (max-age=0) so
+# new deploys go live instantly.
+/art/*
+  Cache-Control: public, max-age=86400
+/favicon.png
+  Cache-Control: public, max-age=604800
+/og.png
+  Cache-Control: public, max-age=604800

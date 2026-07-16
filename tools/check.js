@@ -121,20 +121,28 @@ const html = fs.readFileSync(INDEX, "utf8");
 (function checkScripts() {
   const name = "scripts: every inline <script> parses";
   const re = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
-  let m, total = 0, bad = [];
+  let m, js = 0, jsonld = 0, bad = [];
   while ((m = re.exec(html))) {
     const attrs = m[1];
     if (/\bsrc\s*=/.test(attrs)) continue; // external, no inline body
-    total++;
+    const line = () => html.slice(0, m.index).split("\n").length;
+    const typeMatch = attrs.match(/type\s*=\s*["']([^"']+)["']/i);
+    const type = typeMatch ? typeMatch[1].toLowerCase() : "";
+    if (type === "application/ld+json") {
+      // Structured data: validate as JSON, not JavaScript.
+      jsonld++;
+      try { JSON.parse(m[2]); } catch (e) { bad.push("ld+json at line " + line() + ": " + e.message); }
+      continue;
+    }
+    js++;
     try {
       new Function(m[2]);
     } catch (e) {
-      const line = html.slice(0, m.index).split("\n").length;
-      bad.push("block at line " + line + ": " + e.message);
+      bad.push("script at line " + line() + ": " + e.message);
     }
   }
   if (bad.length) fail(name, bad.join("; "));
-  else pass(name, "(" + total + " inline block" + (total === 1 ? "" : "s") + ")");
+  else pass(name, "(" + js + " JS block" + (js === 1 ? "" : "s") + (jsonld ? ", " + jsonld + " ld+json" : "") + ")");
 })();
 
 // ---------------------------------------------------------------------------
