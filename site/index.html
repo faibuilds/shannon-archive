@@ -644,7 +644,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.18 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
+    <span class="footer-stamp">SHANNON v1.19 / BUILT 07.2026 / KELLY L-01 : MILITARY AIRCRAFT</span>
   </div>
 </footer>
 
@@ -686,6 +686,18 @@ const AIRCRAFT = [
 
   {id:"bell-x-1", name:"Bell X-1", year:1946, ff:"Jan 1946", origin:"United States", role:"experimental", status:"covered",
    hook:"It broke the sound barrier in 1947 with a fix that was not invented for it. The idea had sat on a shelf since the P-38 investigation.",
+   artCredit:"NASA Dryden 3-view, public domain.",
+   artNote:"NASA drawing, recolored, not redrawn. Span measured on the drawing.",
+   art:`<svg viewBox="0 0 267 320" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/bell-x-1.png" x="16.5" y="0" width="234" height="280"/>
+  <g stroke="#10b981" fill="none">
+    <path d="M17.7 300 L248.9 300" stroke-width="1.2"/>
+    <path d="M17.7 300 L24.7 297 M17.7 300 L24.7 303 M248.9 300 L241.9 297 M248.9 300 L241.9 303" stroke-width="0.9"/>
+  </g>
+  <g fill="#10b981" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+    <text x="133.3" y="295">28 FT &#183; SPAN</text>
+  </g>
+</svg>`,
    posts:[{label:"Read the story", date:"Jul 12, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7481975843528003584"},
           {label:"Instagram", date:"", url:"https://www.instagram.com/p/Dar0WXCysq5/"},
           {label:"Facebook", date:"", url:"https://www.facebook.com/share/p/18xFQ9QRqk/"}]},
@@ -705,6 +717,18 @@ const AIRCRAFT = [
 
   {id:"u-2", name:"U-2", variant:"Dragon Lady", year:1955, ff:"Aug 1955", origin:"United States", role:"recon", status:"covered",
    hook:"EVERY U-2 LANDING REQUIRES A SPORTS CAR DOING 100+ MPH DOWN THE RUNWAY, WITH ANOTHER PILOT BEHIND THE WHEEL.",
+   artCredit:"NASA Dryden ER-2 3-view, public domain.",
+   artNote:"NASA ER-2 drawing, the U-2R airframe, recolored, not redrawn. Span measured on the drawing.",
+   art:`<svg viewBox="0 0 267 240" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/u-2.png" x="0" y="0" width="267" height="180.1"/>
+  <g stroke="#10b981" fill="none">
+    <path d="M1.2 212 L265.5 212" stroke-width="1.2"/>
+    <path d="M1.2 212 L8.2 209 M1.2 212 L8.2 215 M265.5 212 L258.5 209 M265.5 212 L258.5 215" stroke-width="0.9"/>
+  </g>
+  <g fill="#10b981" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+    <text x="133.4" y="207">103 FT &#183; SPAN</text>
+  </g>
+</svg>`,
    posts:[
      {label:"The chase car story", date:"Apr 15, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7450308853377974272"},
      {label:"It outlived its successor", date:"Mar 23, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7441759187333918721"}
@@ -980,7 +1004,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         ${hasArt ? `
         <div class="plate-art">
           ${a.art}
-          <div class="art-credit">${esc(a.artCredit)}<br>${esc(a.artNote || "Illustration. Proportions match published dimensions; panel detail simplified.")}</div>
+          <div class="art-credit">${esc(a.artCredit)}<br>${esc(a.artNote || "Illustration. Proportions match published dimensions; panel detail simplified.")}<br>Reference art, not engineering data. Errors possible; corrections welcome.</div>
         </div>` : ""}
         </div>
       </div>`;

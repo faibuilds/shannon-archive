@@ -278,6 +278,40 @@ for (let y = 0; y < chh; y++) {
   }
 }
 
+// --erasedetached x,y,w,h (repeatable, source coords): blank everything in
+// the rect except the main airframe component and its 3px anti-alias halo.
+// Used to drop a sheet's projection or alignment dash chains that the view
+// isolation truncated mid-run; the airframe is immune by construction.
+const eraseRects = [];
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === "--erasedetached") eraseRects.push(args[i + 1].split(",").map(Number));
+}
+if (eraseRects.length && box.largest !== undefined) {
+  // Distance (capped at 3) from each crop pixel to the largest component.
+  const dl = new Int16Array(cw * chh).fill(-1);
+  const q = [];
+  for (let i = 0; i < cw * chh; i++) if (clabel[i] === box.largest) { dl[i] = 0; q.push(i); }
+  for (let qi = 0; qi < q.length; qi++) {
+    const p = q[qi];
+    if (dl[p] >= 3) continue;
+    const x = p % cw, y = (p / cw) | 0;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+      const nx = x + dx, ny = y + dy;
+      if (nx < 0 || ny < 0 || nx >= cw || ny >= chh) continue;
+      const np = ny * cw + nx;
+      if (dl[np] === -1) { dl[np] = dl[p] + 1; q.push(np); }
+    }
+  }
+  for (const [rx, ry, rw, rh] of eraseRects) {
+    const x0 = Math.max(0, rx - cx0), y0 = Math.max(0, ry - cy0);
+    const x1 = Math.min(cw - 1, rx + rw - cx0), y1 = Math.min(chh - 1, ry + rh - cy0);
+    for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+      const p = y * cw + x;
+      if (dl[p] === -1) { clum[p] = 255; clabel[p] = -1; }
+    }
+  }
+}
+
 // Scale down if the long side exceeds MAXSIDE (box filter for luminance,
 // nearest neighbor for the component labels). Never upscale.
 let ow = cw, oh = chh, olum = clum, olabel = clabel;
