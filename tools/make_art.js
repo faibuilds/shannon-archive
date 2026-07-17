@@ -32,6 +32,11 @@ function crc32(buf) {
   return (c ^ 0xffffffff) >>> 0;
 }
 
+// --dropgreen: treat green-dominant pixels as background. Some source
+// sheets (engineering manuals) print dimension callouts in green over
+// black airframe geometry; this drops the annotations at decode time.
+let DROP_GREEN = false;
+
 // -------------------------------------------------------------- PNG decode
 function decodePNG(buf) {
   if (!buf.slice(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))) {
@@ -96,6 +101,10 @@ function decodePNG(buf) {
     } else {
       const o = i * ch; r = px[o]; g = px[o + 1]; b = px[o + 2];
       if (ch === 4) { const a = px[o + 3] / 255; r = 255 + (r - 255) * a; g = 255 + (g - 255) * a; b = 255 + (b - 255) * a; }
+    }
+    if (DROP_GREEN && g > 80 && g > r * 1.3 && g > b * 1.3) {
+      lum[i] = 255; // annotation ink, not airframe
+      continue;
     }
     lum[i] = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
   }
@@ -234,9 +243,10 @@ function planViewBox(lum, w, h, r, keep) {
 
 // ------------------------------------------------------------------- main
 const args = process.argv.slice(2);
+const BOOL_FLAGS = new Set(["--dropgreen"]);
 const files = [];
 for (let i = 0; i < args.length; i++) {
-  if (args[i].startsWith("--")) i++; // skip the option's value
+  if (args[i].startsWith("--")) { if (!BOOL_FLAGS.has(args[i])) i++; } // skip the option's value
   else files.push(args[i]);
 }
 if (files.length !== 2) {
@@ -249,21 +259,30 @@ const opt = (name, dflt) => {
 };
 const MAXSIDE = Number(opt("maxside", 900));
 const PAD = 8;
+DROP_GREEN = args.includes("--dropgreen");
 
 const img = decodePNG(fs.readFileSync(files[0]));
 let { width: w, height: h, lum } = img;
 
-// Crop to the plan view (or the manual override). In auto mode, pixels not
+// --crop x,y,w,h pre-crops the sheet (original coords); the plan view is
+// then auto-detected within it, so masking, classification, and erase
+// rects all behave identically to the uncropped path. Pixels not
 // belonging to the plan view's components are blanked to white so foreign
 // views protruding into the rectangle do not print or skew measurements.
-let box;
+let originX = 0, originY = 0;
 const cropArg = opt("crop", null);
 if (cropArg) {
-  const [x, y, cw, chh] = cropArg.split(",").map(Number);
-  box = { x0: x, y0: y, x1: x + cw - 1, y1: y + chh - 1, mask: null };
-} else {
-  box = planViewBox(lum, w, h, Number(opt("radius", 12)), Number(opt("keep", 25)));
+  const [x, y, cw2, ch2] = cropArg.split(",").map(Number);
+  const nl = new Uint8Array(cw2 * ch2).fill(255);
+  for (let yy = 0; yy < ch2; yy++) {
+    for (let xx = 0; xx < cw2; xx++) {
+      const sx = x + xx, sy = y + yy;
+      if (sx >= 0 && sy >= 0 && sx < w && sy < h) nl[yy * cw2 + xx] = lum[sy * w + sx];
+    }
+  }
+  lum = nl; w = cw2; h = ch2; originX = x; originY = y;
 }
+const box = planViewBox(lum, w, h, Number(opt("radius", 12)), Number(opt("keep", 25)));
 const cx0 = Math.max(0, box.x0 - PAD), cy0 = Math.max(0, box.y0 - PAD);
 const cx1 = Math.min(w - 1, box.x1 + PAD), cy1 = Math.min(h - 1, box.y1 + PAD);
 const cw = cx1 - cx0 + 1, chh = cy1 - cy0 + 1;
@@ -284,7 +303,10 @@ for (let y = 0; y < chh; y++) {
 // isolation truncated mid-run; the airframe is immune by construction.
 const eraseRects = [];
 for (let i = 0; i < args.length; i++) {
-  if (args[i] === "--erasedetached") eraseRects.push(args[i + 1].split(",").map(Number));
+  if (args[i] === "--erasedetached") {
+    const [rx, ry, rw, rh] = args[i + 1].split(",").map(Number);
+    eraseRects.push([rx - originX, ry - originY, rw, rh]); // original -> pre-crop coords
+  }
 }
 if (eraseRects.length && box.largest !== undefined) {
   // Distance (capped at 3) from each crop pixel to the largest component.
