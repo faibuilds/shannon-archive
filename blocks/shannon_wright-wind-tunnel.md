@@ -156,9 +156,9 @@ STORY
   title: They Checked the Number
   hook: IN 1901, EVERY LIFT CALCULATION ON EARTH USED A CONSTANT FROM THE
     1700S. TWO BICYCLE MECHANICS CHECKED IT. IT WAS OFF BY FIFTY PERCENT.
-  status: draft
+  status: published
   links:
-    linkedin: PENDING-FROM-FAI (post is live; URL not yet supplied)
+    linkedin: https://www.linkedin.com/posts/engineeringcommunity_when-we-told-the-story-of-the-wrights-and-activity-7483680998392549376-lpPZ
     instagram: none (not posted there per current flow)
     facebook: PENDING-FROM-FAI (post is live; URL not yet supplied)
     newsletter: none

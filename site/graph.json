@@ -1011,7 +1011,7 @@
    "name": "Kevlar (poly-paraphenylene terephthalamide)",
    "category": "material",
    "origin": "United States",
-   "lineId": "tipper",
+   "lineId": "undisclosed",
    "sealed": true
   },
   {
@@ -1995,6 +1995,647 @@
    "type": "story",
    "title": "The Most Important Master's Thesis Ever Written",
    "status": "published"
+  },
+  {
+   "id": "tacoma-narrows",
+   "type": "artifact",
+   "name": "Tacoma Narrows Bridge (1940)",
+   "category": "other",
+   "origin": "United States",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill; see blocks/shannon_tacoma-narrows.md"
+  },
+  {
+   "id": "src-tacoma-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: Tacoma Narrows (Jul 2026 research pass)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-record-tacoma-narrows-1",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1940,
+    "month": 7
+   },
+   "subjectId": "tacoma-narrows",
+   "label": "Opens 1 July 1940 as the third-longest suspension span in the world"
+  },
+  {
+   "id": "ev-failure-tacoma-narrows-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1940,
+    "month": 11
+   },
+   "subjectId": "tacoma-narrows",
+   "label": "Deck tears apart in torsional flutter on 7 November 1940 and falls into Puget Sound"
+  },
+  {
+   "id": "ev-publication-tacoma-narrows-3",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1991
+   },
+   "subjectId": "tacoma-narrows",
+   "label": "Billah and Scanlan publish the correction identifying aeroelastic flutter, not forced resonance"
+  },
+  {
+   "id": "leon-moisseiff",
+   "type": "person",
+   "name": "Leon Moisseiff",
+   "note": "Deflection theory advocate; had worked on the Manhattan Bridge and the Golden Gate. The collapse effectively ended his career; colleagues formally exonerated him. Died 1943."
+  },
+  {
+   "id": "f-bert-farquharson",
+   "type": "person",
+   "name": "F. Bert Farquharson",
+   "note": "University of Washington professor whose wind-tunnel study reached its fix five days before the collapse; went onto the twisting span to try to rescue the dog Tubby and was bitten."
+  },
+  {
+   "id": "kurt-billah",
+   "type": "person",
+   "name": "Kurt Billah",
+   "note": "Co-author of the 1991 paper correcting the resonance story."
+  },
+  {
+   "id": "robert-scanlan",
+   "type": "person",
+   "name": "Robert Scanlan",
+   "note": "Co-author of the 1991 paper correcting the resonance story."
+  },
+  {
+   "id": "c-tacoma-narrows-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "The Tacoma Narrows Bridge opened on 1 July 1940 as the third-longest suspension span in the world.",
+   "sourceNote": "WSDOT TNB history; Wikipedia (behind Golden Gate and George Washington)"
+  },
+  {
+   "id": "c-tacoma-narrows-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Its designer Leon Moisseiff had worked on the Manhattan Bridge and the Golden Gate Bridge.",
+   "sourceNote": "Moisseiff biographies (Wikipedia, PBS, Linda Hall); WSDOT"
+  },
+  {
+   "id": "c-tacoma-narrows-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Moisseiff's deflection theory held that a long span could be far lighter and more flexible than tradition demanded.",
+   "sourceNote": "WSDOT 1940-bridge and stories pages"
+  },
+  {
+   "id": "c-tacoma-narrows-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "The bridge used solid plate girders 8 feet deep in place of the 25-foot open stiffening trusses of the original state proposal.",
+   "sourceNote": "WSDOT 1940-bridge page; Wikipedia"
+  },
+  {
+   "id": "c-tacoma-narrows-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Construction workers nicknamed it Galloping Gertie because the deck rose and fell several feet in mild winds before the bridge opened.",
+   "sourceNote": "WSDOT stories page; Wikipedia (roadway crews, May 1940)"
+  },
+  {
+   "id": "c-tacoma-narrows-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Tie-down cables and hydraulic buffers were tried and did not stop the motion.",
+   "sourceNote": "Wikipedia; WSDOT (cables snapped; buffer seals damaged during sandblasting)"
+  },
+  {
+   "id": "c-tacoma-narrows-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Professor F. Bert Farquharson of the University of Washington studied the bridge with wind-tunnel models and by 2 November 1940 had proposed a fix, deflectors to alter the airflow, unimplemented when the bridge fell five days later.",
+   "sourceNote": "Wikipedia; Live Science; WSDOT"
+  },
+  {
+   "id": "c-tacoma-narrows-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "The bridge collapsed on 7 November 1940 in a wind of about 40 mph, the deck twisting up to 45 degrees in a growing alternating motion, and fell into Puget Sound.",
+   "sourceNote": "WSDOT collapse page; Wikipedia; APS News (some accounts say 42 mph; about 40 is safe)"
+  },
+  {
+   "id": "c-tacoma-narrows-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "The long-taught forced-resonance explanation is wrong; the wind was steady, with no rhythmic pulse matching a bridge frequency.",
+   "sourceNote": "Billah and Scanlan 1991, Am. J. Phys. 59:118-124; WSDOT lessons page"
+  },
+  {
+   "id": "c-tacoma-narrows-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "In 1991 Billah and Scanlan published the correction identifying aeroelastic flutter, a self-excited negative-damping phenomenon, as the mechanism.",
+   "sourceNote": "Billah and Scanlan 1991 (AIP, ADS)"
+  },
+  {
+   "id": "c-tacoma-narrows-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "In flutter the twisting deck reshapes the airflow so the aerodynamic force acts in the direction of the motion, adding energy each cycle.",
+   "sourceNote": "Billah and Scanlan 1991; WSDOT bridges-failure page"
+  },
+  {
+   "id": "c-tacoma-narrows-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "One car remained on the deck; News Tribune editor Leonard Coatsworth crawled off largely on hands and knees, leaving his daughter's dog Tubby in the car.",
+   "sourceNote": "WSDOT Tubby trivia page; HistoryLink; Wikipedia (about 500 yards to the tower)"
+  },
+  {
+   "id": "c-tacoma-narrows-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Farquharson went onto the twisting span to try to rescue Tubby and was bitten for the attempt.",
+   "sourceNote": "WSDOT Tubby trivia page; ASCE Civil Engineering Source (photographer Howard Clifford also attempted a rescue; the Farquharson account stands as written)"
+  },
+  {
+   "id": "c-tacoma-narrows-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Tubby was the only life lost in the collapse.",
+   "sourceNote": "WSDOT; Wikipedia; HistoryLink"
+  },
+  {
+   "id": "c-tacoma-narrows-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "The collapse effectively ended Moisseiff's career and the era of ever lighter, narrower, more flexible spans.",
+   "sourceNote": "Wikipedia (Moisseiff); SF Examiner; WSDOT (colleagues formally exonerated him; he died in 1943)"
+  },
+  {
+   "id": "c-tacoma-narrows-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tacoma-narrows"
+   ],
+   "text": "Since the collapse, wind-tunnel aerodynamic testing became standard practice for long-span suspension bridge design.",
+   "sourceNote": "WSDOT bridges-failure page; Wikipedia"
+  },
+  {
+   "id": "concept-resonance-explanation",
+   "type": "concept",
+   "name": "The forced-resonance textbook explanation of the Tacoma collapse"
+  },
+  {
+   "id": "concept-windtunnel-standard",
+   "type": "concept",
+   "name": "Wind-tunnel testing as standard practice for long-span bridges"
+  },
+  {
+   "id": "story-tacoma-narrows",
+   "type": "story",
+   "title": "Tacoma Narrows Bridge Collapse Due to Aeroelastic Flutter",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7478593943018819584 instagram: none facebook: none newsletter: referenced (the 747 flutter newsletter is cross-linked in the post close)"
+  },
+  {
+   "id": "liberty-ships",
+   "type": "artifact",
+   "name": "Liberty ship program (wartime welded fleet)",
+   "category": "process",
+   "origin": "United States",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill; see blocks/shannon_liberty-ships.md"
+  },
+  {
+   "id": "src-liberty-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: Liberty ships (Jul 2026 research pass)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-failure-liberty-ships-1",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1943,
+    "month": 1
+   },
+   "subjectId": "liberty-ships",
+   "label": "T2 tanker SS Schenectady fractures almost in half at her fitting dock in calm weather, 16 January 1943"
+  },
+  {
+   "id": "ev-record-liberty-ships-2",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1949
+   },
+   "subjectId": "liberty-ships",
+   "label": "Constance Tipper appointed Reader, the first and only full-time woman member of the Cambridge engineering faculty"
+  },
+  {
+   "id": "constance-tipper",
+   "type": "person",
+   "name": "Constance Tipper",
+   "note": "Cambridge metallurgist who showed the wartime hull fractures started in the steel, not the welds; the Tipper test for the ductile-to-brittle transition temperature carries her name."
+  },
+  {
+   "id": "c-liberty-ships-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "The US Liberty ship program built more than 2,700 vessels, welded rather than riveted, sometimes launching a ship within days of laying the keel, to counter U-boat sinkings of Atlantic cargo.",
+   "sourceNote": "Wikipedia (Liberty ship); Mariners' Museum (2,710 built; record launch 4 days 15.5 hours, average build 42 days)"
+  },
+  {
+   "id": "c-liberty-ships-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "Across the wartime welded fleet there were roughly 1,500 serious brittle-fracture incidents.",
+   "sourceNote": "Liberty ship literature; MDPI Challenges paper; 1946 survey counted 1,441 damage cases on 970 vessels"
+  },
+  {
+   "id": "c-liberty-ships-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "A small number of the ships broke completely in two.",
+   "sourceNote": "Wikipedia (Liberty ship); Mariners' Museum (twelve ships, including three Liberty ships, e.g. SS John P. Gaines, Nov 1943)"
+  },
+  {
+   "id": "c-liberty-ships-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "The tanker SS Schenectady, a welded wartime T2 sister type, split nearly in half at her dock on 16 January 1943 in calm weather shortly after sea trials, with a report heard about a mile away, the bow and stern sagging as the midsection rose.",
+   "sourceNote": "Wikipedia (SS Schenectady); bottom plates held, so nearly in half is the precise phrasing"
+  },
+  {
+   "id": "c-liberty-ships-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "Blame initially fell on the shipyards, fast work by inexperienced crews using still-new welding techniques.",
+   "sourceNote": "Wikipedia (SS Schenectady); Mariners' Museum"
+  },
+  {
+   "id": "c-liberty-ships-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "Constance Tipper, a metallurgist at Cambridge, showed the cracks did not initiate in the welds; the steel itself was the underlying problem.",
+   "sourceNote": "Cambridge Engineering Department; Wikipedia (Constance Tipper); IMechE archive"
+  },
+  {
+   "id": "c-liberty-ships-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "The mechanism is the ductile-to-brittle transition; below a transition temperature the steel behaves in a brittle manner, and North Atlantic winter temperatures were low enough to cross that line.",
+   "sourceNote": "Cambridge Engineering Department; Wikipedia (Constance Tipper)"
+  },
+  {
+   "id": "c-liberty-ships-08",
+   "type": "claim",
+   "status": "false",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "Tipper was one of the first women to take the Natural Sciences Tripos at Cambridge. (AS PUBLISHED IN THE POST.)",
+   "sourceNote": "Cambridge and Newnham history; the Tripos opened to women in 1881, over thirty years before Tipper sat it (1912-1915). The error circulates in secondary pages, including a Cambridge Engineering anniversary page. Correction recorded as c-liberty-ships-12. Editorial follow-up flagged to Fai."
+  },
+  {
+   "id": "c-liberty-ships-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "In the 1940s the ductile-to-brittle transition was not widely understood by ship designers, which is why blame first fell on the welding.",
+   "sourceNote": "Wikipedia (Liberty ship); Mariners' Museum"
+  },
+  {
+   "id": "c-liberty-ships-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "A riveted hull tends to arrest a running crack at plate boundaries; a continuous welded hull lets a crack propagate, and the square corners of deck hatches acted as initiation points.",
+   "sourceNote": "Wikipedia (Liberty ship, SS Schenectady); later fixed with reinforcements and crack arrestors"
+  },
+  {
+   "id": "c-liberty-ships-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "Tipper's work contributed to a standard test for the temperature at which steel turns brittle, and steel selection for cold toughness in ships, bridges, and pipelines descends from this understanding.",
+   "sourceNote": "Cambridge Engineering Department; Wikipedia (Constance Tipper); IMechE archive"
+  },
+  {
+   "id": "c-liberty-ships-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "liberty-ships"
+   ],
+   "text": "Tipper's actual distinction at Cambridge: appointed Reader in 1949, she was the first and only full-time woman member of the Cambridge engineering faculty. (CORRECTION of c-08; not in the published post.)",
+   "sourceNote": "Wikipedia (Constance Tipper); Cambridge Engineering Department"
+  },
+  {
+   "id": "concept-workmanship-blame",
+   "type": "concept",
+   "name": "The workmanship explanation of the wartime hull fractures"
+  },
+  {
+   "id": "concept-tipper-test",
+   "type": "concept",
+   "name": "Notch-tough steel selection for cold service (the Tipper test)"
+  },
+  {
+   "id": "story-liberty-ships",
+   "type": "story",
+   "title": "Liberty Ships Cracked Under Pressure",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7473840985081372672 instagram: none facebook: none newsletter: none"
+  },
+  {
+   "id": "manchester-28m",
+   "type": "artifact",
+   "name": "British Airtours Flight 28M (Boeing 737-236 G-BGJL, Manchester)",
+   "category": "process",
+   "origin": "United Kingdom",
+   "lineId": "unassigned",
+   "sealed": false,
+   "note": "Retro-VCL backfill; see blocks/shannon_manchester-28m.md"
+  },
+  {
+   "id": "src-manchester-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: Manchester 28M (Jul 2026 research pass)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-failure-manchester-28m-1",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1985,
+    "month": 8
+   },
+   "subjectId": "manchester-28m",
+   "label": "Uncontained combustor failure and fuel fire during the aborted takeoff at Manchester, 22 August 1985; 55 die, 82 survive"
+  },
+  {
+   "id": "ev-publication-manchester-28m-2",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1988
+   },
+   "subjectId": "manchester-28m",
+   "label": "AAIB Aircraft Accident Report 8/88 published with 31 safety recommendations"
+  },
+  {
+   "id": "arthur-bradbury",
+   "type": "person",
+   "name": "Arthur Bradbury",
+   "note": "Purser who opened the left front door about 25 seconds after the aircraft stopped, then freed the jammed right front door. Name from secondary sources; the AAIB report does not name him."
+  },
+  {
+   "id": "c-manchester-28m-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "On 22 August 1985, British Airtours Flight 28M, a Boeing 737-236, began its takeoff roll at Manchester bound for Corfu with 131 passengers and 6 crew.",
+   "sourceNote": "AAIB 8/88 synopsis (0612 hrs, G-BGJL, 129 passengers plus 2 infants, runway 24)"
+  },
+  {
+   "id": "c-manchester-28m-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "At about 125 knots the pilots heard a thump, believed a tire had burst, aborted the takeoff cleanly, and turned off the runway.",
+   "sourceNote": "AAIB 8/88 synopsis and 1.1 (thud at 125 kt; the commander thought tyre burst or bird strike; stop ordered in under a second)"
+  },
+  {
+   "id": "c-manchester-28m-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "A section of the left engine's combustion chamber, a part repaired by welding years earlier after a miscommunication over the repair manual, ruptured and was thrown out of the engine.",
+   "sourceNote": "AAIB 8/88 findings 24-47 (No 9 combustor can, 160 mm crack fusion-welded November 1983, about 21 months earlier, so \"years\" in the post slightly overstates; subjective manual wording, a deleted crack-length limit, and finding 47's inadequate operator-manufacturer information exchange)"
+  },
+  {
+   "id": "c-manchester-28m-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The ejected section struck a wing fuel tank access panel not built to take such an impact; fuel poured out and ignited.",
+   "sourceNote": "AAIB 8/88 findings 53-55 (panel had roughly one quarter the impact strength of the wing skin; neither was required to meet impact criteria)"
+  },
+  {
+   "id": "c-manchester-28m-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "Stopped just off the runway, a light wind of about 7 knots pushed the burning fuel against the fuselage.",
+   "sourceNote": "AAIB 8/88 synopsis, findings 6 and 62 (7 kt from 250 degrees; the wind called the principal factor controlling the fire)"
+  },
+  {
+   "id": "c-manchester-28m-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The investigators found the crew had acted reasonably on everything they knew.",
+   "sourceNote": "AAIB 8/88 section 2.3, finding 5 (\"entirely reasonable based on the cues available to them\")"
+  },
+  {
+   "id": "c-manchester-28m-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The first fire vehicle reached the aircraft in under half a minute.",
+   "sourceNote": "AAIB 8/88 sections 1.1 and 1.14, finding 79 (RIV2 at approximately 25 seconds after stopping)"
+  },
+  {
+   "id": "c-manchester-28m-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "Everyone survived the engine failure itself; the deaths came from the cabin, where burning interior materials produced dense toxic smoke, carbon monoxide and hydrogen cyanide, filling the cabin within minutes.",
+   "sourceNote": "AAIB 8/88 cause statement, 1.13, findings 63-64 and 99 (48 of 54 on-board dead had CO and/or HCN above incapacitating levels; fire penetrated the cabin within about a minute of stopping)"
+  },
+  {
+   "id": "c-manchester-28m-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The overwing hatch weighed 48 pounds and fell inward onto the passenger beside it.",
+   "sourceNote": "AAIB 8/88 section 1.1 (fell pivoting about its lower edge across the passenger in seat 10F)"
+  },
+  {
+   "id": "c-manchester-28m-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The gap to reach the overwing exit between the exit-row seats was 27 centimeters, ten and a half inches.",
+   "sourceNote": "AAIB 8/88 section 1.15, finding 102 (10.5 inches measured between row 10 cushions and row 9 seat backs)"
+  },
+  {
+   "id": "c-manchester-28m-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "Most of those who died were found in the part of the cabin around the overwing exit.",
+   "sourceNote": "AAIB 8/88 section 2.7.2 (approximately 38 of 54 recovered from rows 8-12, the overwing exit zone)"
+  },
+  {
+   "id": "c-manchester-28m-12",
+   "type": "claim",
+   "status": "false",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The purser fought a jammed door, abandoned it, and had the opposite door and slide working about 25 seconds after the aircraft stopped. (AS PUBLISHED IN THE POST; the door sides are reversed.)",
+   "sourceNote": "AAIB 8/88 sections 1.1 and 2.7, finding 100. The RIGHT front door (R1) jammed from a slide container lid design fault; the purser opened the LEFT front door (L1) about 25 seconds after stopping and freed R1 about 1 minute 10 seconds after stopping. Correction recorded as c-manchester-28m-16. Editorial follow-up flagged to Fai."
+  },
+  {
+   "id": "c-manchester-28m-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "That working front door is a large part of why 82 people lived.",
+   "sourceNote": "AAIB 8/88 sections 1.2 and 1.15, findings 97-98 (82 survived, 55 died: 53 passengers and 2 rear cabin crew; one survivor died 6 days later in hospital)"
+  },
+  {
+   "id": "c-manchester-28m-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The investigation produced 31 recommendations.",
+   "sourceNote": "AAIB 8/88 section 4, recommendations 4.1 through 4.31; SKYbrary"
+  },
+  {
+   "id": "c-manchester-28m-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The required clear space at overwing exits, and crew checking that the people sitting there can open them, trace to this accident.",
+   "sourceNote": "AAIB 8/88 recommendations 4.10-4.11; CAA access-space rules; SKYbrary and Wikipedia on exit-row briefing requirements (the \"willing and able\" wording is the later regulatory formulation)"
+  },
+  {
+   "id": "c-manchester-28m-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "manchester-28m"
+   ],
+   "text": "The jammed forward door was the right (R1), from a slide container lid design fault; the purser opened the left front door (L1) about 25 seconds after the aircraft stopped and freed R1 about 1 minute 10 seconds after stopping. (CORRECTION of c-12; not in the published post.)",
+   "sourceNote": "AAIB 8/88 sections 1.1 and 2.7, finding 100"
+  },
+  {
+   "id": "concept-overwing-access-rules",
+   "type": "concept",
+   "name": "Overwing exit access and exit-row ability rules"
+  },
+  {
+   "id": "story-manchester-28m",
+   "type": "story",
+   "title": "The Space Beside the Overwing Exit",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7478857977148416000 instagram: none facebook: none newsletter: funnel CTA in post (lnkd.in shortlink to the newsletter)"
   }
  ],
  "edges": [
@@ -3536,6 +4177,562 @@
    "type": "covers",
    "from": "story-shannon-thesis-1937",
    "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-record-tacoma-narrows-1",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-failure-tacoma-narrows-2",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-publication-tacoma-narrows-3",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "contributed",
+   "from": "leon-moisseiff",
+   "to": "tacoma-narrows",
+   "role": "designed"
+  },
+  {
+   "type": "contributed",
+   "from": "f-bert-farquharson",
+   "to": "tacoma-narrows",
+   "role": "investigated"
+  },
+  {
+   "type": "contributed",
+   "from": "kurt-billah",
+   "to": "tacoma-narrows",
+   "role": "corrected"
+  },
+  {
+   "type": "contributed",
+   "from": "robert-scanlan",
+   "to": "tacoma-narrows",
+   "role": "corrected"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-01",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-01",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-02",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-02",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-03",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-03",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-04",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-04",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-05",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-05",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-06",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-06",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-07",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-07",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-08",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-08",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-09",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-09",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-10",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-10",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-11",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-11",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-12",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-12",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-13",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-13",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-14",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-14",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-15",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-15",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-tacoma-narrows-16",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "cites",
+   "from": "c-tacoma-narrows-16",
+   "to": "src-tacoma-vcl"
+  },
+  {
+   "type": "corrects",
+   "from": "tacoma-narrows",
+   "to": "concept-resonance-explanation",
+   "claimId": "c-tacoma-narrows-10"
+  },
+  {
+   "type": "forced",
+   "from": "tacoma-narrows",
+   "to": "concept-windtunnel-standard",
+   "claimId": "c-tacoma-narrows-16"
+  },
+  {
+   "type": "covers",
+   "from": "story-tacoma-narrows",
+   "to": "tacoma-narrows"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-failure-liberty-ships-1",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-record-liberty-ships-2",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "contributed",
+   "from": "constance-tipper",
+   "to": "liberty-ships",
+   "role": "pioneered"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-01",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-01",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-02",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-02",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-03",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-03",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-04",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-04",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-05",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-05",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-06",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-06",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-07",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-07",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-08",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-08",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-09",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-09",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-10",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-10",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-11",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-11",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-liberty-ships-12",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "cites",
+   "from": "c-liberty-ships-12",
+   "to": "src-liberty-vcl"
+  },
+  {
+   "type": "corrects",
+   "from": "liberty-ships",
+   "to": "concept-workmanship-blame",
+   "claimId": "c-liberty-ships-06"
+  },
+  {
+   "type": "enabled",
+   "from": "liberty-ships",
+   "to": "concept-tipper-test",
+   "claimId": "c-liberty-ships-11"
+  },
+  {
+   "type": "covers",
+   "from": "story-liberty-ships",
+   "to": "liberty-ships"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-failure-manchester-28m-1",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-publication-manchester-28m-2",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "contributed",
+   "from": "arthur-bradbury",
+   "to": "manchester-28m",
+   "role": "led"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-01",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-01",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-02",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-02",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-03",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-03",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-04",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-04",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-05",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-05",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-06",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-06",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-07",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-07",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-08",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-08",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-09",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-09",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-10",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-10",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-11",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-11",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-12",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-12",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-13",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-13",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-14",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-14",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-15",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-15",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-manchester-28m-16",
+   "to": "manchester-28m"
+  },
+  {
+   "type": "cites",
+   "from": "c-manchester-28m-16",
+   "to": "src-manchester-vcl"
+  },
+  {
+   "type": "forced",
+   "from": "manchester-28m",
+   "to": "concept-overwing-access-rules",
+   "claimId": "c-manchester-28m-15"
+  },
+  {
+   "type": "covers",
+   "from": "story-manchester-28m",
+   "to": "manchester-28m"
   }
  ]
 }

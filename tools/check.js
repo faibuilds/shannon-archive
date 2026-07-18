@@ -337,6 +337,18 @@ let LOVELACE = null;
     .map((e) => e.from + "->" + e.to);
   if (badRole.length) problems.push("contributed without role: " + badRole.join(", "));
 
+  // Masked (unlaunched) line names must never appear structurally in the
+  // public graph: not as line node ids, not as lineId values. Free text may
+  // mention historical people who share these names; only the structural
+  // fields leak a line's existence.
+  const MASKED_LINES = ["petroski", "hammurabi", "barenyi", "tipper", "roebling"];
+  const lineLeaks = [];
+  for (const n of nodes) {
+    if (n.type === "line" && MASKED_LINES.includes(String(n.id).toLowerCase())) lineLeaks.push("line node " + n.id);
+    if (n.lineId && MASKED_LINES.includes(String(n.lineId).toLowerCase())) lineLeaks.push(n.id + " has lineId " + n.lineId);
+  }
+  if (lineLeaks.length) problems.push("masked line name in public graph: " + lineLeaks.join(", "));
+
   // Synthesis edges carry a claimId whose claim is verified.
   const SYNTH = new Set(["enabled", "forced", "responded-to"]);
   const badSynth = [];
