@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-07-12",
+ "updated": "2026-07-18",
  "line": "kelly",
  "nodes": [
   {
@@ -99,7 +99,7 @@
    "origin": "Soviet Union",
    "lineId": "kelly",
    "sealed": true,
-   "redactedName": "M\u25ae\u25ae-1\u25ae"
+   "redactedName": "M▮▮-1▮"
   },
   {
    "id": "ev-ff-sealed-1947",
@@ -240,7 +240,7 @@
    "origin": "United Kingdom",
    "lineId": "kelly",
    "sealed": true,
-   "redactedName": "H\u25aeRR\u25aeER"
+   "redactedName": "H▮RR▮ER"
   },
   {
    "id": "ev-ff-sealed-1966",
@@ -1006,12 +1006,6 @@
    "label": "X-1-1 retired to the National Air Museum after 82 airframe flights"
   },
   {
-   "id": "src-bellx1-vcl",
-   "type": "source",
-   "title": "EC VCL: Bell X-1 (Jul 2026)",
-   "kind": "reference"
-  },
-  {
    "id": "kevlar",
    "type": "artifact",
    "name": "Kevlar (poly-paraphenylene terephthalamide)",
@@ -1115,10 +1109,10 @@
   {
    "id": "lovelace-notes-1843",
    "type": "artifact",
-   "name": "Sketch of the Analytical Engine, with Notes by A.A.L.",
+   "name": "Sketch of the Analytical Engine, translation with Notes by A.A.L.",
    "category": "other",
    "origin": "United Kingdom",
-   "lineId": "unassigned",
+   "lineId": "lovelace",
    "sealed": true
   },
   {
@@ -1159,7 +1153,7 @@
    "name": "Boolean algebra (The Laws of Thought)",
    "category": "process",
    "origin": "United Kingdom",
-   "lineId": "unassigned",
+   "lineId": "lovelace",
    "sealed": true
   },
   {
@@ -1188,14 +1182,14 @@
    "name": "George Boole"
   },
   {
-   "id": "shannon-1937-thesis",
+   "id": "shannon-thesis-1937",
    "type": "artifact",
-   "name": "Claude Shannon 1937 master's thesis",
-   "category": "other",
+   "name": "A Symbolic Analysis of Relay and Switching Circuits",
+   "category": "process",
    "origin": "United States",
-   "lineId": "unassigned",
+   "lineId": "lovelace",
    "sealed": false,
-   "note": "Published EC story; block backfill pending"
+   "note": "Backfilled block; the Shannon story published before the emit step existed."
   },
   {
    "id": "concept-smeaton",
@@ -1303,7 +1297,7 @@
    "aboutIds": [
     "wright-wind-tunnel"
    ],
-   "status": "draft",
+   "status": "published",
    "platforms": {}
   },
   {
@@ -1313,7 +1307,7 @@
    "aboutIds": [
     "lovelace-notes-1843"
    ],
-   "status": "draft",
+   "status": "published",
    "platforms": {}
   },
   {
@@ -1323,8 +1317,684 @@
    "aboutIds": [
     "boolean-algebra"
    ],
-   "status": "draft",
+   "status": "published",
    "platforms": {}
+  },
+  {
+   "id": "lovelace",
+   "type": "line",
+   "name": "LOVELACE",
+   "engineer": "Ada Lovelace",
+   "domain": "Computing foundations",
+   "status": "live"
+  },
+  {
+   "id": "ev-rec-boole-medal",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1844
+   },
+   "subjectId": "boolean-algebra",
+   "label": "Royal Society awards Boole its first gold medal for mathematics"
+  },
+  {
+   "id": "ev-dec-boole-cork",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1849
+   },
+   "subjectId": "boolean-algebra",
+   "label": "Boole appointed first professor of mathematics at Queen's College Cork, holding no university degree"
+  },
+  {
+   "id": "ev-pub-thesis-1937",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1937
+   },
+   "subjectId": "shannon-thesis-1937",
+   "label": "Shannon completes the MIT master's thesis applying Boolean algebra to relay and switching circuits"
+  },
+  {
+   "id": "ev-pub-thesis-1938",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1938
+   },
+   "subjectId": "shannon-thesis-1937",
+   "label": "The thesis is published as a paper in the AIEE Transactions"
+  },
+  {
+   "id": "claude-shannon",
+   "type": "person",
+   "name": "Claude Shannon",
+   "note": "Archive namesake; also a LOVELACE plate author (1937 thesis)."
+  },
+  {
+   "id": "vannevar-bush",
+   "type": "person",
+   "name": "Vannevar Bush"
+  },
+  {
+   "id": "luigi-menabrea",
+   "type": "person",
+   "name": "Luigi Menabrea"
+  },
+  {
+   "id": "otto-lilienthal",
+   "type": "person",
+   "name": "Otto Lilienthal"
+  },
+  {
+   "id": "src-shannon-package-vcl",
+   "type": "source",
+   "title": "EC VCL: Shannon package (Claude Shannon story)",
+   "kind": "reference"
+  },
+  {
+   "id": "c-lovelace-notes-1843-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Augusta Ada Byron was born 10 December 1815, the same year as George Boole, daughter of the poet Lord Byron, and was raised on rigorous mathematics.",
+   "sourceNote": "standard biography, multiple sources in pass"
+  },
+  {
+   "id": "c-lovelace-notes-1843-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "In 1833, aged 17, Lovelace met Charles Babbage and saw his Difference Engine demonstrated.",
+   "sourceNote": "Two-Bit History"
+  },
+  {
+   "id": "c-lovelace-notes-1843-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "In 1840 Babbage gave his only public lecture on the Analytical Engine, in Turin; Luigi Menabrea published a French account in October 1842.",
+   "sourceNote": "Note G Wikipedia; Things Have History"
+  },
+  {
+   "id": "c-lovelace-notes-1843-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "The Analytical Engine was a general machine design with a memory store, arithmetic mill, and punched-card instructions, and was never built.",
+   "sourceNote": "Things Have History; standard references"
+  },
+  {
+   "id": "c-lovelace-notes-1843-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Wheatstone suggested the translation, Babbage the notes; Lovelace worked about nine months in regular discussion with Babbage.",
+   "sourceNote": "BBC Science Focus; Science Museum"
+  },
+  {
+   "id": "c-lovelace-notes-1843-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "The work was published in August 1843 in Taylor's Scientific Memoirs signed A.A.L.; of 66 pages, 41 are her notes.",
+   "sourceNote": "BBC Science Focus"
+  },
+  {
+   "id": "c-lovelace-notes-1843-07",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "The notes' length relative to the original is reported as roughly three times by most sources and more than twice by Scientific American 1999.",
+   "sourceNote": "Science Museum; Scientific American"
+  },
+  {
+   "id": "c-lovelace-notes-1843-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "It was the only extensive English paper on the Analytical Engine in Babbage's lifetime, and per Scientific American the only extended discussion of programming a computer for the next century.",
+   "sourceNote": "Science Museum; Scientific American 1999"
+  },
+  {
+   "id": "c-lovelace-notes-1843-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Note G is a step-by-step table for computing the recursively defined Bernoulli numbers, running 25 operations where Menabrea's longest example was 11, and containing a loop and superscript variable indexing.",
+   "sourceNote": "Things Have History; Note G Wikipedia; Project Lovelace"
+  },
+  {
+   "id": "c-lovelace-notes-1843-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Note G is called the first published algorithm, sometimes credited as the first computer program.",
+   "sourceNote": "Science Museum"
+  },
+  {
+   "id": "c-lovelace-notes-1843-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "During the work Lovelace caught an error in Babbage's Bernoulli formulas, recorded in his 1864 memoir.",
+   "sourceNote": "Note G Wikipedia"
+  },
+  {
+   "id": "c-lovelace-notes-1843-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "The published Note G table contains an error in operation 4, two variables swapped in a division, undetected for over a century until the program was run on modern computers; author or typesetter unknown.",
+   "sourceNote": "Things Have History; pinned to the standard Note G reconstruction (2nd audit)"
+  },
+  {
+   "id": "c-lovelace-notes-1843-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "In Note A Lovelace wrote the Engine might act upon other things besides number if their relations could be expressed symbolically, giving musical composition as an example.",
+   "sourceNote": "the Notes, via maketecheasier and Science Museum"
+  },
+  {
+   "id": "c-lovelace-notes-1843-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Note G was collaborative, Babbage supplying the mathematics and earlier unpublished fragments, Lovelace authoring the published instruction sequence.",
+   "sourceNote": "Note G Wikipedia; Misa scholarship via maketecheasier"
+  },
+  {
+   "id": "c-lovelace-notes-1843-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Lovelace never saw her program run; the Analytical Engine has never been built, then or since. Babbage left only trial parts at his death in 1871, an 1878 committee advised against construction, and Plan 28's February 2025 report leaves the full physical engine still unbuilt. The Science Museum's Difference Engine No. 2 (1991-2002) is a different, simpler, non-programmable machine.",
+   "sourceNote": "Wikipedia, Analytical engine; Plan 28 project reports (verified by live search, this session)"
+  },
+  {
+   "id": "c-lovelace-notes-1843-20",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Plan 28's research found it unclear whether Babbage's design could handle the indexed variables Lovelace's Bernoulli program required.",
+   "sourceNote": "Wikipedia, Analytical engine, citing Plan 28 as of May 2016 (BANKED, not used in the post; candidate beat for a future story)"
+  },
+  {
+   "id": "c-lovelace-notes-1843-17",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Lovelace died in 1852 aged 36, two years before Boole's Laws of Thought was published.",
+   "sourceNote": "Perplexity audit (standard dates, Wikipedia-cited)"
+  },
+  {
+   "id": "c-lovelace-notes-1843-18",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "The Lovelace objection, that the Engine has no pretensions to originate anything, later named by Turing in 1950, is attributed to Note G.",
+   "sourceNote": "EC VCL (famous attribution; not anchored this pass)"
+  },
+  {
+   "id": "c-lovelace-notes-1843-19",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "George Boole met Charles Babbage at the 1862 Great London Exposition and wrote to him on 15 October 1862 promising to acquaint himself with Menabrea's paper, the one Lovelace had annotated; Boole died two years later.",
+   "sourceNote": "Boole archive correspondence (Joseph Hill letter; Boole to Babbage, 15 Oct 1862), via agent audit"
+  },
+  {
+   "id": "c-lovelace-notes-1843-21",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Notes A-F are signed A.A.L. but Note G itself was misprinted A.L.L., a typo in her initials on the note containing the first printed bug.",
+   "sourceNote": "British Journal for the History of Mathematics (offprints study); HandWiki (BANKED; not used in the post)"
+  },
+  {
+   "id": "c-lovelace-notes-1843-22",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "lovelace-notes-1843"
+   ],
+   "text": "Stein (1984) and the Lovelace-Babbage letters establish her authorship of the technical content more strongly than Babbage's 1864 memoir concedes.",
+   "sourceNote": "Stein, Victorian Studies 1984, via final fact-check round (research memory; EC framing is deliberately the conservative memoir-anchored position)"
+  },
+  {
+   "id": "c-boolean-algebra-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "George Boole was born 2 November 1815 in Lincoln, England, to a family of modest means and was self-taught beyond primary school.",
+   "sourceNote": "Britannica; Stanford Encyclopedia of Philosophy"
+  },
+  {
+   "id": "c-boolean-algebra-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boole taught school from age 16 to support his family and opened his own school at 20, studying mathematics from journals.",
+   "sourceNote": "Britannica; Encyclopedia.com"
+  },
+  {
+   "id": "c-boolean-algebra-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boole's system appeared in The Mathematical Analysis of Logic (1847) and in full in An Investigation of the Laws of Thought (1854) as a two-valued algebra of logic.",
+   "sourceNote": "Stanford Encyclopedia of Philosophy; Britannica"
+  },
+  {
+   "id": "c-boolean-algebra-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boole wrote that logic should no longer be associated with metaphysics but with mathematics.",
+   "sourceNote": "Encyclopedia.com (1847 work)"
+  },
+  {
+   "id": "c-boolean-algebra-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "In 1844 the Royal Society awarded Boole its first gold medal for mathematics for On a General Method in Analysis.",
+   "sourceNote": "History-Computer"
+  },
+  {
+   "id": "c-boolean-algebra-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "In 1849 Boole, holding no university degree, was appointed first professor of mathematics at Queen's College Cork.",
+   "sourceNote": "Britannica; History-Computer"
+  },
+  {
+   "id": "c-boolean-algebra-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boole regarded the 1854 book as the mature statement of his ideas, titled as an investigation of the laws on which thought is founded.",
+   "sourceNote": "Britannica"
+  },
+  {
+   "id": "c-boolean-algebra-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "After 1854 Boole never published on logic again and was known in his lifetime chiefly for conventional mathematics.",
+   "sourceNote": "Wolfram bicentenary essay; Stanford Encyclopedia of Philosophy"
+  },
+  {
+   "id": "c-boolean-algebra-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boole received the Keith Medal in 1855, FRS in 1857, and honorary doctorates from Dublin and Oxford.",
+   "sourceNote": "History-Computer"
+  },
+  {
+   "id": "c-boolean-algebra-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "Boole married Mary Everest in 1855 and had five daughters.",
+   "sourceNote": "Encyclopedia.com"
+  },
+  {
+   "id": "c-boolean-algebra-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "In late 1864 Boole walked through a rainstorm, lectured in wet clothes, and died of pneumonia on 8 December 1864 at age 49.",
+   "sourceNote": "Stanford Encyclopedia of Philosophy; Encyclopedia.com; Wolfram"
+  },
+  {
+   "id": "c-boolean-algebra-14",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "The cause of death is reported as pneumonia by most sources and as fever-induced pleural effusion by History-Computer.",
+   "sourceNote": "Stanford Encyclopedia of Philosophy; Britannica; History-Computer"
+  },
+  {
+   "id": "c-boolean-algebra-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "The citizens of Lincoln installed a stained-glass window in Lincoln Cathedral in Boole's memory.",
+   "sourceNote": "Encyclopedia.com"
+  },
+  {
+   "id": "c-boolean-algebra-16",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "boolean-algebra"
+   ],
+   "text": "The account that Boole's wife treated his illness with cold water is widely retold but was not anchored to a reliable source in this research pass.",
+   "sourceNote": "EC VCL (research memory; open question)"
+  },
+  {
+   "id": "c-shannon-thesis-1937-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "shannon-thesis-1937"
+   ],
+   "text": "In 1937, 21-year-old Claude Shannon, tending the relay circuits of Vannevar Bush's Differential Analyzer at MIT, wrote a master's thesis showing that George Boole's two-valued algebra maps onto switching circuits.",
+   "sourceNote": "EC Shannon package VCL (Smithsonian, Britannica, MIT accounts)"
+  },
+  {
+   "id": "c-shannon-thesis-1937-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "shannon-thesis-1937"
+   ],
+   "text": "The correspondence runs both ways, circuits can be designed and simplified by algebra, and circuits can perform logic, so switches can compute.",
+   "sourceNote": "EC Shannon package VCL"
+  },
+  {
+   "id": "c-shannon-thesis-1937-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "shannon-thesis-1937"
+   ],
+   "text": "The thesis is routinely called the most important master's thesis ever written; Goldstine called it one of the most important.",
+   "sourceNote": "EC Shannon package VCL (consensus phrasing; Goldstine quoted as \"one of the most important\")"
+  },
+  {
+   "id": "c-shannon-thesis-1937-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "shannon-thesis-1937"
+   ],
+   "text": "Shannon knowingly used Boole's algebra, citing it in the thesis; there is no sign he knew of Lovelace's 1843 vision he was completing.",
+   "sourceNote": "the thesis itself (Boole cited); Convergence Map audit round (the hedged second half)"
+  },
+  {
+   "id": "c-shannon-thesis-1937-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "shannon-thesis-1937"
+   ],
+   "text": "Eleven years later at Bell Labs, Shannon published A Mathematical Theory of Communication (1948), founding information theory.",
+   "sourceNote": "EC Shannon package VCL"
+  },
+  {
+   "id": "c-shannon-thesis-1937-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "shannon-thesis-1937"
+   ],
+   "text": "Shannon lived to 2001, the only member of the Lovelace-Boole-Shannon arc who lived to see the digital age.",
+   "sourceNote": "standard record; Convergence Map audit round"
+  },
+  {
+   "id": "c-wright-wind-tunnel-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The Wrights designed their 1900 and 1901 gliders using the standard lift equation, Lilienthal's tables, and Smeaton's coefficient of 0.005, in use since the 1700s.",
+   "sourceNote": "NASA Glenn Research Center; Smithsonian NASM"
+  },
+  {
+   "id": "c-wright-wind-tunnel-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The 1901 glider developed roughly one third of predicted lift, with glides up to 300 feet.",
+   "sourceNote": "NASA Glenn Research Center"
+  },
+  {
+   "id": "c-wright-wind-tunnel-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The 1901 glider nose-dived repeatedly and once only the front elevator saved Wilbur's life.",
+   "sourceNote": "National Park Service"
+  },
+  {
+   "id": "c-wright-wind-tunnel-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The Wrights first tested the inherited data with a bicycle carrying a free-spinning horizontal wheel holding a model wing and a flat plate; the wing required an angle more than three times greater than Lilienthal's data predicted.",
+   "sourceNote": "Smithsonian NASM; NASA Glenn Research Center"
+  },
+  {
+   "id": "c-wright-wind-tunnel-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "In fall 1901 they built a six-foot wooden wind tunnel in their bicycle shop, single-speed, fan-driven, read through a viewing window as balance dial angles.",
+   "sourceNote": "NASA Glenn Research Center"
+  },
+  {
+   "id": "c-wright-wind-tunnel-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The balances measured the ratio of a model wing's lift to a flat plate's drag in the same airflow, canceling air density, speed, and Smeaton's constant from the measurement.",
+   "sourceNote": "NASA Glenn Research Center"
+  },
+  {
+   "id": "c-wright-wind-tunnel-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "They tested as many as 200 wing shapes made from 20-gauge steel strips, with detailed data recorded on dozens.",
+   "sourceNote": "NASA Glenn Research Center; Smithsonian NASM"
+  },
+  {
+   "id": "c-wright-wind-tunnel-08",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The number of shapes formally recorded is reported as about 30 by NASA and nearly 50 by the Smithsonian.",
+   "sourceNote": "NASA Glenn Research Center; Smithsonian NASM"
+  },
+  {
+   "id": "c-wright-wind-tunnel-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "In the formal series they changed one design variable at a time, isolating the effect of camber, aspect ratio, and tip shape.",
+   "sourceNote": "NASA Glenn Research Center"
+  },
+  {
+   "id": "c-wright-wind-tunnel-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "By mid-December 1901 the verdict was that Lilienthal's tables were largely correct and Smeaton's coefficient was wrong, with Lilienthal's camber inefficient.",
+   "sourceNote": "National Park Service"
+  },
+  {
+   "id": "c-wright-wind-tunnel-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The inherited 0.005 overstated the pressure by about fifty percent relative to the corrected value.",
+   "sourceNote": "arithmetic on c-11; EC VCL"
+  },
+  {
+   "id": "c-wright-wind-tunnel-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The 1902 glider, designed from the corrected data with longer, narrower wings and corrected camber, performed as calculated, with 700 or more glides that autumn, some over 600 feet.",
+   "sourceNote": "MiGFlug; National Park Service; wright-house"
+  },
+  {
+   "id": "c-wright-wind-tunnel-14",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The longest 1902 glide distance is reported variously as 622.5 and 662 feet.",
+   "sourceNote": "wright-house; standard accounts"
+  },
+  {
+   "id": "c-wright-wind-tunnel-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "By December 1901 the Wrights had the aerodynamic data needed for a successful flying machine, and the 1903 propellers were designed as rotating wings from the same data.",
+   "sourceNote": "Smithsonian NASM; standard accounts (propeller phrasing on audit watch)"
+  },
+  {
+   "id": "c-wright-wind-tunnel-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "Otto Lilienthal died in a glider crash in 1896.",
+   "sourceNote": "standard record"
+  },
+  {
+   "id": "c-wright-wind-tunnel-17",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "Wilbur's despair remark after the 1901 season exists in conflicting variants (fifty years and a thousand years) and was not anchored in this pass.",
+   "sourceNote": "EC VCL (research memory; open question)"
+  },
+  {
+   "id": "c-wright-wind-tunnel-18",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "wright-wind-tunnel"
+   ],
+   "text": "The claim that the balances were made from bicycle spokes and hacksaw blades is widely retold but the material specifics were not anchored in this pass.",
+   "sourceNote": "EC VCL (research memory; open question)"
+  },
+  {
+   "id": "concept-digital-circuit-design",
+   "type": "concept",
+   "name": "Digital circuit design (logic gates, every processor since)"
+  },
+  {
+   "id": "concept-number-machine-framing",
+   "type": "concept",
+   "name": "The number-machine framing of the Analytical Engine (Menabrea, Babbage)"
+  },
+  {
+   "id": "concept-wright-1902-glider",
+   "type": "concept",
+   "name": "Wright 1902 glider and 1903 Flyer"
+  },
+  {
+   "id": "story-shannon-thesis-1937",
+   "type": "story",
+   "title": "The Most Important Master's Thesis Ever Written",
+   "status": "published"
   }
  ],
  "edges": [
@@ -1916,248 +2586,104 @@
    "to": "bell-x-1"
   },
   {
-   "type": "contributed",
-   "from": "chuck-yeager",
-   "to": "bell-x-1",
-   "role": "tested",
-   "note": "Flew the first supersonic flight with two broken ribs"
-  },
-  {
-   "type": "contributed",
-   "from": "jack-ridley",
-   "to": "bell-x-1",
-   "role": "led",
-   "note": "Flight engineer; cut the broom handle for the hatch"
-  },
-  {
-   "type": "contributed",
-   "from": "dick-frost",
-   "to": "bell-x-1",
-   "role": "designed",
-   "note": "Proposed the worm-gear full-stabilizer drive"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-01",
-   "to": "bell-x-1"
-  },
-  {
    "type": "cites",
    "from": "c-bell-x-1-01",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-02",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-02",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-03",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-03",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-04",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-04",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-05",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-05",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-06",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-06",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-07",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-07",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-08",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-08",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-09",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-09",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-10",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-10",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-11",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-11",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-12",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-12",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-13",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-13",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-14",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-14",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-15",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-15",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-16",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-16",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-17",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-17",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-18",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-18",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-19",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-19",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "about",
-   "from": "c-bell-x-1-20",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "cites",
    "from": "c-bell-x-1-20",
-   "to": "src-bellx1-vcl"
-  },
-  {
-   "type": "enabled",
-   "from": "p-38",
-   "to": "bell-x-1",
-   "claimId": "c-bell-x-1-10"
-  },
-  {
-   "type": "enabled",
-   "from": "bell-x-1",
-   "to": "f-15",
-   "claimId": "c-bell-x-1-11"
-  },
-  {
-   "type": "responded-to",
-   "from": "bell-x-1",
-   "to": "p-38",
-   "claimId": "c-bell-x-1-06"
-  },
-  {
-   "type": "covers",
-   "from": "story-bell-x-1",
-   "to": "bell-x-1"
+   "to": "src-bell-x-1-vcl"
   },
   {
    "type": "event-of",
@@ -2311,7 +2837,7 @@
   {
    "type": "enabled",
    "from": "boolean-algebra",
-   "to": "shannon-1937-thesis",
+   "to": "shannon-thesis-1937",
    "claimId": "c-boolean-algebra-09"
   },
   {
@@ -2323,7 +2849,7 @@
   {
    "type": "enabled",
    "from": "lovelace-notes-1843",
-   "to": "shannon-1937-thesis",
+   "to": "shannon-thesis-1937",
    "claimId": "c-lovelace-notes-1843-14"
   },
   {
@@ -2357,6 +2883,659 @@
    "type": "covers",
    "from": "story-boolean-algebra",
    "to": "boolean-algebra"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-rec-boole-medal",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-dec-boole-cork",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-pub-thesis-1937",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-pub-thesis-1938",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "contributed",
+   "from": "claude-shannon",
+   "to": "shannon-thesis-1937",
+   "role": "pioneered"
+  },
+  {
+   "type": "contributed",
+   "from": "claude-shannon",
+   "to": "boolean-algebra",
+   "role": "corrected"
+  },
+  {
+   "type": "contributed",
+   "from": "vannevar-bush",
+   "to": "shannon-thesis-1937",
+   "role": "led"
+  },
+  {
+   "type": "contributed",
+   "from": "luigi-menabrea",
+   "to": "lovelace-notes-1843",
+   "role": "pioneered"
+  },
+  {
+   "type": "contributed",
+   "from": "otto-lilienthal",
+   "to": "wright-wind-tunnel",
+   "role": "corrected"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-01",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-01",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-02",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-02",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-03",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-03",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-04",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-04",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-05",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-05",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-06",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-06",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-07",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-07",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-08",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-08",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-09",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-09",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-10",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-10",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-11",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-11",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-12",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-12",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-13",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-13",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-15",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-15",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-16",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-16",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-20",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-20",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-17",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-17",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-18",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-18",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-19",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-19",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-21",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-21",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-lovelace-notes-1843-22",
+   "to": "lovelace-notes-1843"
+  },
+  {
+   "type": "cites",
+   "from": "c-lovelace-notes-1843-22",
+   "to": "src-lovelace-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-01",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-01",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-02",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-02",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-04",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-04",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-05",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-05",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-06",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-06",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-07",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-07",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-08",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-08",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-10",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-10",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-11",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-11",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-12",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-12",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-13",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-13",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-14",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-14",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-15",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-15",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-boolean-algebra-16",
+   "to": "boolean-algebra"
+  },
+  {
+   "type": "cites",
+   "from": "c-boolean-algebra-16",
+   "to": "src-boole-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-shannon-thesis-1937-01",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "cites",
+   "from": "c-shannon-thesis-1937-01",
+   "to": "src-shannon-package-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-shannon-thesis-1937-02",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "cites",
+   "from": "c-shannon-thesis-1937-02",
+   "to": "src-shannon-package-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-shannon-thesis-1937-03",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "cites",
+   "from": "c-shannon-thesis-1937-03",
+   "to": "src-shannon-package-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-shannon-thesis-1937-04",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "cites",
+   "from": "c-shannon-thesis-1937-04",
+   "to": "src-shannon-package-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-shannon-thesis-1937-05",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "cites",
+   "from": "c-shannon-thesis-1937-05",
+   "to": "src-shannon-package-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-shannon-thesis-1937-06",
+   "to": "shannon-thesis-1937"
+  },
+  {
+   "type": "cites",
+   "from": "c-shannon-thesis-1937-06",
+   "to": "src-shannon-package-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-01",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-01",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-02",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-02",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-03",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-03",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-04",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-04",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-05",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-05",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-06",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-06",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-07",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-07",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-08",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-08",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-09",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-09",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-10",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-10",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-12",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-12",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-13",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-13",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-14",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-14",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-15",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-15",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-16",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-16",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-17",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-17",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-wright-wind-tunnel-18",
+   "to": "wright-wind-tunnel"
+  },
+  {
+   "type": "cites",
+   "from": "c-wright-wind-tunnel-18",
+   "to": "src-wwt-vcl"
+  },
+  {
+   "type": "enabled",
+   "from": "shannon-thesis-1937",
+   "to": "concept-digital-circuit-design",
+   "claimId": "c-shannon-thesis-1937-02"
+  },
+  {
+   "type": "corrects",
+   "from": "lovelace-notes-1843",
+   "to": "concept-number-machine-framing",
+   "claimId": "c-lovelace-notes-1843-13"
+  },
+  {
+   "type": "enabled",
+   "from": "wright-wind-tunnel",
+   "to": "concept-wright-1902-glider",
+   "claimId": "c-wright-wind-tunnel-13"
+  },
+  {
+   "type": "covers",
+   "from": "story-shannon-thesis-1937",
+   "to": "shannon-thesis-1937"
   }
  ]
 }
