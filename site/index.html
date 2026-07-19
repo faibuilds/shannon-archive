@@ -294,6 +294,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .remark-body{flex:1;min-width:0}
 .remark-meta{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
 .remark-name{font-size:12px;font-weight:700;color:var(--steel)}
+a.remark-name{text-decoration:none;border-bottom:1px dotted var(--green-line)}
+a.remark-name:hover{color:var(--green)}
 .remark-title{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint)}
 .remark-text{font-size:13px;color:var(--steel-dim);line-height:1.7;white-space:pre-line}
 .remark-src{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-top:8px;display:inline-block;transition:color .2s}
@@ -653,7 +655,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.22 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07</span>
+    <span class="footer-stamp">SHANNON v1.23 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07</span>
   </div>
 </footer>
 
@@ -697,7 +699,7 @@ const AIRCRAFT = [
    posts:[{label:"Read the story", date:"Jul 4, 2026", url:"https://www.linkedin.com/posts/engineeringcommunity_the-p-38-lightning-was-among-the-fastest-activity-7479079929280831488-0byj"}],
    remarks:[
      {name:"", title:"", text:"", len:418},
-     {name:"Lakshmi N Sankar", title:"Regents Professor & Sikorsky Professor at Georgia Institute of Technology", text:"In transonic flow, shocks move downstream very slowly as they gather strength and the significant time lag between the wing motion and shock motion creates yet another cause for flutter", len:185, cleared:true},
+     {name:"Lakshmi N Sankar", title:"Regents Professor & Sikorsky Professor at Georgia Institute of Technology", profile:"https://www.linkedin.com/in/lakshmi-n-sankar-9a327251", text:"In transonic flow, shocks move downstream very slowly as they gather strength and the significant time lag between the wing motion and shock motion creates yet another cause for flutter", len:185, cleared:true},
      {name:"", title:"", text:"", len:139}
    ]},
 
@@ -831,8 +833,8 @@ const AIRCRAFT = [
 </svg>`,
    posts:[{label:"Read the story", date:"Apr 21, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7452200561015283712"}],
    remarks:[
-     {name:"Lee Hearn", title:"Sales Support Engineer", text:"It was based on a different philosophy. Costs were far lower than the F15 so they could build more. Its cockpit was also very similar to previous MIGs, something that was derided at the time, until the realisation that any pilots flying older MIGs could be easily reoriented to a new platform.", len:293, cleared:true},
-     {name:"Neil Wilkins", title:"Consulting Geologist", text:"Digital is less robust than analogue and tubes are more robust than transistors and microchips.", len:95, cleared:true}
+     {name:"Lee Hearn", title:"Sales Support Engineer", profile:"https://www.linkedin.com/in/lee-hearn-6996a370", text:"It was based on a different philosophy. Costs were far lower than the F15 so they could build more. Its cockpit was also very similar to previous MIGs, something that was derided at the time... until the realisation that any pilots flying older MIGs could be easily reoriented to a new platform. All more in line with Russian military thinking than western militaries. Pilots and machines considered far more expendable", len:419, cleared:true},
+     {name:"Neil Wilkins", title:"Consulting geologist", profile:"https://www.linkedin.com/in/neil-wilkinsa87bb952", text:"Digital is less robust than analogue and tubes are more robust than transistors and microchips.", len:95, cleared:true}
    ]},
 
   {id:"sealed-1966", name:"Harrier", redactedName:"H▮RR▮ER", year:1966, ff:"Aug 1966", origin:"United Kingdom", role:"attack", status:"soon", lines:[80,92,55]},
@@ -856,7 +858,7 @@ const AIRCRAFT = [
 </svg>`,
    posts:[{label:"Read the story", date:"Jun 4, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7468232263726432256"}],
    remarks:[
-     {name:"Roger Griffiths", title:"Retired Engineer", text:"Just pointing out that the swing-wing was invented by Barnes Wallace, the Brit who also invented the 'bouncing bomb', the 'Tall Boy' and 'Grand Slam' bombs, and the geodesic structure for the Wellington bomber, amongst other things.", len:232, cleared:true},
+     {name:"Roger Griffiths", title:"Retired engineer", profile:"https://www.linkedin.com/in/roger-griffiths-8b249939", text:"Just pointing out that the swing-wing was invented by Barnes Wallace, the Brit who also invented the 'bouncing bomb', the 'Tall Boy' and 'Grand Slam' bombs, and the geodesic structure for the Wellington bomber, amongst other things.", len:232, cleared:true},
      {name:"", title:"", text:"", len:136}
    ]},
 
@@ -944,7 +946,7 @@ const AIRCRAFT = [
      {label:"Part 2: Fly it or eject", date:"Mar 2, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7434162014987485184"}
    ],
    remarks:[
-     {name:"Kenneth McNaught", title:"Director Knowledge-Based Management Consultants Limited", text:"Lucky enough to have sat in the cockpit. It wasn't digital....", len:62, cleared:true},
+     {name:"Kenneth McNaught", title:"Director, Knowledge-Based Management Consultants Limited", profile:"https://www.linkedin.com/in/kenneth-mcnaught-uk", text:"Lucky enough to have sat in the cockpit. It wasn't digital....", len:62, cleared:true},
      {name:"", title:"", text:"", len:170},
      {name:"", title:"", text:"", len:333}
    ]},
@@ -1102,7 +1104,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
               <div class="remark">
                 <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
                 <div class="remark-body">
-                  <div class="remark-meta"><span class="remark-name">${esc(r.name)}</span><span class="remark-title">${esc(r.title)}</span></div>
+                  <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(r.profile)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
                   <p class="remark-text">${esc(r.text)}</p>
                   ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
                 </div>
