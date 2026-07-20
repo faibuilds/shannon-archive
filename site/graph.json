@@ -2636,6 +2636,249 @@
    "type": "story",
    "title": "The Space Beside the Overwing Exit",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7478857977148416000 instagram: none facebook: none newsletter: funnel CTA in post (lnkd.in shortlink to the newsletter)"
+  },
+  {
+   "id": "p-80",
+   "type": "artifact",
+   "name": "Lockheed P-80 Shooting Star",
+   "category": "fighter",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false,
+   "note": "Retro-VCL backfill; see blocks/shannon_p-80.md"
+  },
+  {
+   "id": "src-p80-vcl",
+   "type": "source",
+   "title": "EC VCL: P-80 Shooting Star (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-p-80-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1943,
+    "month": 6
+   },
+   "subjectId": "p-80",
+   "label": "AAF contracts Lockheed for a jet fighter around the British Halford H-1; Johnson promises a prototype in 180 days"
+  },
+  {
+   "id": "ev-record-p-80-2",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1943,
+    "month": 11
+   },
+   "subjectId": "p-80",
+   "label": "XP-80 Lulu Belle completed on day 143, seven days early"
+  },
+  {
+   "id": "ev-first-flight-p-80-3",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1944,
+    "month": 1
+   },
+   "subjectId": "p-80",
+   "label": "Milo Burcham flies Lulu Belle at Muroc; 490 mph the same day"
+  },
+  {
+   "id": "ev-record-p-80-4",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1944
+   },
+   "subjectId": "p-80",
+   "label": "Lulu Belle logs 502 mph, the first US aircraft past 500"
+  },
+  {
+   "id": "milo-burcham",
+   "type": "person",
+   "name": "Milo Burcham",
+   "note": "Chief test pilot; flew the first flight Jan 8, 1944; killed in a P-80 engine failure on takeoff, Oct 20, 1944."
+  },
+  {
+   "id": "nathan-price",
+   "type": "person",
+   "name": "Nathan Price",
+   "note": "Designed Lockheed's late-1930s L-1000 turbojet the government passed on; contributed heavily and anonymously to the P-80."
+  },
+  {
+   "id": "richard-bong",
+   "type": "person",
+   "name": "Richard Bong",
+   "note": "America's top ace (40 victories, P-38); killed in a P-80 on Aug 6, 1945, the day of Hiroshima."
+  },
+  {
+   "id": "c-p80-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "By 1943 the US lagged Germany, Britain, and by some accounts even Italy in jet engine development.",
+   "sourceNote": "HistoryNet"
+  },
+  {
+   "id": "c-p80-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "Lockheed's Nathan Price designed the L-1000 axial turbojet from the late 1930s; the government passed; Price contributed anonymously to the P-80.",
+   "sourceNote": "HistoryNet"
+  },
+  {
+   "id": "c-p80-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "Lockheed received Halford H-1B (de Havilland Goblin) drawings in March 1943; the AAF requested a fighter proposal around it in May; contract June 1943 with a 180-day requirement.",
+   "sourceNote": "Key.Aero; multiple"
+  },
+  {
+   "id": "c-p80-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "One account records the paper contract arriving only in October 1943, four months after construction began.",
+   "sourceNote": "Plane & Pilot (single source; texture nuance)"
+  },
+  {
+   "id": "c-p80-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "With no space at Burbank, the team bought a machine shop for tooling, built walls from Wright Cyclone engine packing crates, and roofed the site with a rented circus tent; the adjacent plant's stench named it after Li'l Abner's Skonk Works still.",
+   "sourceNote": "Smithsonian Air & Space; AMC Museum"
+  },
+  {
+   "id": "c-p80-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "Standing apart from all other Lockheed buildings, Johnson operated the site under his own rules.",
+   "sourceNote": "HistoryNet"
+  },
+  {
+   "id": "c-p80-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "The team numbered 128, worked ten-hour days six days a week through flu that thinned the room by half; a visiting de Havilland engine expert was jailed for jaywalking without a draft card.",
+   "sourceNote": "HistoryNet (128); Smithsonian; Key.Aero"
+  },
+  {
+   "id": "c-p80-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "The method was simultaneous design, development, and production.",
+   "sourceNote": "Plane & Pilot"
+  },
+  {
+   "id": "c-p80-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "The XP-80 Lulu Belle was completed on day 143, seven days ahead of the 180-day requirement.",
+   "sourceNote": "Lockheed Martin official; Smithsonian"
+  },
+  {
+   "id": "c-p80-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "On Nov 18, 1943 the inlet ducts collapsed in ground runs and destroyed the only engine; the replacement Halford was removed from the prototype de Havilland Vampire in England, grounding Britain's own prototype so the American jet could fly; it arrived Dec 28.",
+   "sourceNote": "Vintage Aviation News"
+  },
+  {
+   "id": "c-p80-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "First flight Jan 8, 1944 (Milo Burcham); after a rattled five-minute first hop, Johnson said \"Maybe you were overcontrolling\"; Burcham reflew the same day to 490 mph; Lulu Belle soon logged 502 mph, the first US aircraft past 500 mph in level flight.",
+   "sourceNote": "HistoryNet; Vintage Aviation News"
+  },
+  {
+   "id": "c-p80-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "The P-80 never fought in WWII; four YP-80As reached Europe before the war ended.",
+   "sourceNote": "Smithsonian; Key.Aero"
+  },
+  {
+   "id": "c-p80-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "Milo Burcham was killed in a P-80 on Oct 20, 1944; Richard Bong was killed in a P-80 on Aug 6, 1945.",
+   "sourceNote": "standard record; multiple"
+  },
+  {
+   "id": "c-p80-14",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "The Halford was Americanized as the GE J33; an F-80C is credited by official USAF records with the first jet-versus-jet victory, Korea, Nov 1950.",
+   "sourceNote": "National Interest; AMC Museum. The Soviets dispute the jet-versus-jet credit. NOT used in captions."
+  },
+  {
+   "id": "c-p80-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "p-80"
+   ],
+   "text": "The T-33 trainer derived from the P-80 trained generations of jet pilots; Kelly's 14 Rules, codifying the tent's method, remain in use at Skunk Works, whose later aircraft include the U-2, SR-71, and F-117.",
+   "sourceNote": "AMC Museum; Lockheed Martin official"
+  },
+  {
+   "id": "concept-skunk-works-method",
+   "type": "concept",
+   "name": "The Skunk Works method (Kelly's 14 Rules)"
+  },
+  {
+   "id": "concept-us-jet-lag",
+   "type": "concept",
+   "name": "US jet-propulsion lag (Me 262 era)"
+  },
+  {
+   "id": "story-p-80",
+   "type": "story",
+   "title": "The Tent Was the Reason",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7484776892714086400 instagram: none (LinkedIn-only per Fai) facebook: none (LinkedIn-only per Fai) newsletter: none (no newsletter for this post per Fai)"
   }
  ],
  "edges": [
@@ -4733,6 +4976,217 @@
    "type": "covers",
    "from": "story-manchester-28m",
    "to": "manchester-28m"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-decision-p-80-1",
+   "to": "p-80"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-record-p-80-2",
+   "to": "p-80"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-first-flight-p-80-3",
+   "to": "p-80"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-record-p-80-4",
+   "to": "p-80"
+  },
+  {
+   "type": "contributed",
+   "from": "kelly-johnson",
+   "to": "p-80",
+   "role": "led"
+  },
+  {
+   "type": "contributed",
+   "from": "milo-burcham",
+   "to": "p-80",
+   "role": "tested"
+  },
+  {
+   "type": "contributed",
+   "from": "nathan-price",
+   "to": "p-80",
+   "role": "pioneered"
+  },
+  {
+   "type": "contributed",
+   "from": "richard-bong",
+   "to": "p-80",
+   "role": "tested"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-01",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-01",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-02",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-02",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-03",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-03",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-04",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-04",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-05",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-05",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-06",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-06",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-07",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-07",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-08",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-08",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-09",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-09",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-10",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-10",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-11",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-11",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-12",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-12",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-13",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-13",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-14",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-14",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-p80-15",
+   "to": "p-80"
+  },
+  {
+   "type": "cites",
+   "from": "c-p80-15",
+   "to": "src-p80-vcl"
+  },
+  {
+   "type": "enabled",
+   "from": "p-80",
+   "to": "concept-skunk-works-method",
+   "claimId": "c-p80-15"
+  },
+  {
+   "type": "responded-to",
+   "from": "p-80",
+   "to": "concept-us-jet-lag",
+   "claimId": "c-p80-01"
+  },
+  {
+   "type": "covers",
+   "from": "story-p-80",
+   "to": "p-80"
   }
  ]
 }

@@ -3,15 +3,16 @@
   "line": "KELLY L-01",
   "linesLive": 2,
   "lines": [
-    { "id": "kelly", "name": "KELLY L-01", "total": 22, "lit": 14 },
+    { "id": "kelly", "name": "KELLY L-01", "total": 23, "lit": 15 },
     { "id": "lovelace", "name": "LOVELACE L-07", "total": 4, "lit": 3 }
   ],
-  "total": 22,
-  "lit": 14,
+  "total": 23,
+  "lit": 15,
   "cells": [
     1,
     0,
     0,
+    1,
     1,
     0,
     1,
@@ -32,7 +33,7 @@
     0,
     1
   ],
-  "lastLit": "Bell X-1",
+  "lastLit": "P-80 Shooting Star",
   "lastLitDate": "Jul 2026",
   "updated": "2026-07-18"
 }
