@@ -160,7 +160,7 @@ STORY
   links:
     linkedin: https://www.linkedin.com/posts/engineeringcommunity_when-we-told-the-story-of-the-wrights-and-activity-7483680998392549376-lpPZ
     instagram: none (not posted there per current flow)
-    facebook: PENDING-FROM-FAI (post is live; URL not yet supplied)
+    facebook: none (LinkedIn-only per Fai, confirmed Jul 2026)
     newsletter: none
 
 CONNECTIONS TO EXISTING ARCHIVE
