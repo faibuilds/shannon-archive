@@ -1,13 +1,14 @@
 {
   "archive": "SHANNON",
   "line": "KELLY L-01",
-  "linesLive": 2,
+  "linesLive": 3,
   "lines": [
-    { "id": "kelly", "name": "KELLY L-01", "total": 23, "lit": 15 },
-    { "id": "lovelace", "name": "LOVELACE L-07", "total": 4, "lit": 3 }
+    { "id": "kelly", "name": "KELLY L-01", "total": 24, "lit": 16 },
+    { "id": "lovelace", "name": "LOVELACE L-07", "total": 4, "lit": 3 },
+    { "id": "wright", "name": "WRIGHT L-08", "total": 1, "lit": 1 }
   ],
-  "total": 23,
-  "lit": 15,
+  "total": 24,
+  "lit": 16,
   "cells": [
     1,
     0,
@@ -15,6 +16,7 @@
     1,
     1,
     0,
+    1,
     1,
     0,
     1,

@@ -32,10 +32,10 @@ function crc32(buf) {
   return (c ^ 0xffffffff) >>> 0;
 }
 
-// --dropgreen: treat green-dominant pixels as background. Some source
-// sheets (engineering manuals) print dimension callouts in green over
-// black airframe geometry; this drops the annotations at decode time.
-let DROP_GREEN = false;
+// --dropgreen / --dropblue / --dropred: treat color-dominant pixels as
+// background. Source sheets and educational graphics print callouts in
+// color over grey geometry; these drop the annotations at decode time.
+let DROP_GREEN = false, DROP_BLUE = false, DROP_RED = false;
 
 // -------------------------------------------------------------- PNG decode
 function decodePNG(buf) {
@@ -102,10 +102,9 @@ function decodePNG(buf) {
       const o = i * ch; r = px[o]; g = px[o + 1]; b = px[o + 2];
       if (ch === 4) { const a = px[o + 3] / 255; r = 255 + (r - 255) * a; g = 255 + (g - 255) * a; b = 255 + (b - 255) * a; }
     }
-    if (DROP_GREEN && g > 80 && g > r * 1.3 && g > b * 1.3) {
-      lum[i] = 255; // annotation ink, not airframe
-      continue;
-    }
+    if (DROP_GREEN && g > 80 && g > r * 1.3 && g > b * 1.3) { lum[i] = 255; continue; }
+    if (DROP_BLUE && b > 80 && b > r * 1.3 && b > g * 1.3) { lum[i] = 255; continue; }
+    if (DROP_RED && r > 80 && r > g * 1.3 && r > b * 1.3) { lum[i] = 255; continue; }
     lum[i] = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
   }
   return { width, height, lum };
@@ -243,7 +242,7 @@ function planViewBox(lum, w, h, r, keep) {
 
 // ------------------------------------------------------------------- main
 const args = process.argv.slice(2);
-const BOOL_FLAGS = new Set(["--dropgreen"]);
+const BOOL_FLAGS = new Set(["--dropgreen", "--dropblue", "--dropred"]);
 const files = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i].startsWith("--")) { if (!BOOL_FLAGS.has(args[i])) i++; } // skip the option's value
@@ -260,6 +259,8 @@ const opt = (name, dflt) => {
 const MAXSIDE = Number(opt("maxside", 900));
 const PAD = 8;
 DROP_GREEN = args.includes("--dropgreen");
+DROP_BLUE = args.includes("--dropblue");
+DROP_RED = args.includes("--dropred");
 
 const img = decodePNG(fs.readFileSync(files[0]));
 let { width: w, height: h, lum } = img;

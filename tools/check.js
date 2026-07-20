@@ -161,19 +161,20 @@ let AIRCRAFT = null;
   }
 })();
 
-// Parse the LOVELACE array (second line) the same way, if present.
-let LOVELACE = null;
-(function parseLovelace() {
-  const marker = html.indexOf("const LOVELACE");
-  if (marker < 0) return; // line not launched in this build
+// Parse the other lines' plate arrays the same way, if present.
+function parseLineArray(constName) {
+  const marker = html.indexOf("const " + constName);
+  if (marker < 0) return null; // line not launched in this build
   const bracket = html.indexOf("[", marker);
   try {
-    const literal = extractLiteral(html, bracket);
-    LOVELACE = new Function("return " + literal + ";")();
+    return new Function("return " + extractLiteral(html, bracket) + ";")();
   } catch (e) {
-    fail("lovelace: LOVELACE array parses", e.message);
+    fail(constName.toLowerCase() + ": " + constName + " array parses", e.message);
+    return null;
   }
-})();
+}
+const LOVELACE = parseLineArray("LOVELACE");
+const WRIGHT = parseLineArray("WRIGHT");
 
 // ---------------------------------------------------------------------------
 // Check 4: Consistency. status.json lit == sum(cells) == covered plates,
@@ -195,21 +196,22 @@ let LOVELACE = null;
     const k = status.lines.find((l) => l.id === "kelly");
     if (!k) problems.push("status.lines missing kelly");
     else if (k.lit !== status.lit || k.total !== status.total) problems.push("status.lines kelly disagrees with top-level lit/total");
-    const lv = status.lines.find((l) => l.id === "lovelace");
-    if (LOVELACE) {
-      const lvCovered = LOVELACE.filter((p) => p.status === "covered").length;
-      if (!lv) problems.push("LOVELACE on site but missing from status.lines");
-      else {
-        if (lv.lit !== lvCovered) problems.push("status.lines lovelace lit=" + lv.lit + " but covered plates=" + lvCovered);
-        if (lv.total !== LOVELACE.length) problems.push("status.lines lovelace total=" + lv.total + " but plates=" + LOVELACE.length);
-      }
+    for (const [lineId, arr] of [["lovelace", LOVELACE], ["wright", WRIGHT]]) {
+      if (!arr) continue;
+      const entry = status.lines.find((l) => l.id === lineId);
+      const covered = arr.filter((p) => p.status === "covered").length;
+      if (!entry) { problems.push(lineId.toUpperCase() + " on site but missing from status.lines"); continue; }
+      if (entry.lit !== covered) problems.push("status.lines " + lineId + " lit=" + entry.lit + " but covered plates=" + covered);
+      if (entry.total !== arr.length) problems.push("status.lines " + lineId + " total=" + entry.total + " but plates=" + arr.length);
     }
     if (status.linesLive !== status.lines.length) problems.push("linesLive=" + status.linesLive + " but lines.length=" + status.lines.length);
-  } else if (LOVELACE) {
-    problems.push("LOVELACE on site but status.json has no lines block");
+  } else if (LOVELACE || WRIGHT) {
+    problems.push("extra lines on site but status.json has no lines block");
   }
   if (problems.length) fail(name, problems.join("; "));
-  else pass(name, "(kelly " + status.lit + "/" + status.total + (LOVELACE ? ", lovelace " + LOVELACE.filter((p) => p.status === "covered").length + "/" + LOVELACE.length : "") + ")");
+  else pass(name, "(kelly " + status.lit + "/" + status.total
+    + (LOVELACE ? ", lovelace " + LOVELACE.filter((p) => p.status === "covered").length + "/" + LOVELACE.length : "")
+    + (WRIGHT ? ", wright " + WRIGHT.filter((p) => p.status === "covered").length + "/" + WRIGHT.length : "") + ")");
 })();
 
 // ---------------------------------------------------------------------------
@@ -219,7 +221,7 @@ let LOVELACE = null;
 (function checkSealed() {
   const name = "sealed: no status:soon plate has a hook";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
-  const plates = AIRCRAFT.concat(LOVELACE || []);
+  const plates = AIRCRAFT.concat(LOVELACE || [], WRIGHT || []);
   const leaks = plates.filter((p) => p.status === "soon" && "hook" in p).map((p) => p.id || p.name);
   if (leaks.length) fail(name, "sealed plates with hook: " + leaks.join(", "));
   else pass(name, "(" + plates.length + " plates checked)");
@@ -233,7 +235,7 @@ let LOVELACE = null;
   const name = "art: only covered plates carry art, always credited";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
   const problems = [];
-  for (const p of AIRCRAFT) {
+  for (const p of AIRCRAFT.concat(LOVELACE || [], WRIGHT || [])) {
     if (p.status !== "covered" && ("art" in p || "artCredit" in p)) {
       problems.push(p.id + " has status " + p.status + " but carries art fields");
     }
