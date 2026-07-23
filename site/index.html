@@ -99,6 +99,79 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .nav-cta{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--steel);border:1px solid var(--line2);background:linear-gradient(180deg,var(--panel3),var(--panel2));box-shadow:var(--bevel);padding:9px 18px;transition:color .2s,border-color .2s}
 .nav-cta:hover{border-color:var(--green);color:var(--green)}
 
+/* ---------- FINDINGS ---------- */
+.findings{padding:64px 80px 10px;max-width:1180px;margin:0 auto}
+.findings-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.findings-tag{font-family:var(--stencil);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green)}
+.findings-sub{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint)}
+.finding{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--green);box-shadow:var(--bevel),var(--depth);padding:26px 30px 22px;position:relative}
+.finding-kind{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.finding-title{font-size:19px;font-weight:800;letter-spacing:-.2px;line-height:1.35;color:var(--steel);max-width:820px;margin-bottom:12px}
+.finding-body{font-size:13.5px;line-height:1.7;color:var(--steel-dim);max-width:760px}
+.finding-figure{margin:22px 0 6px;overflow-x:auto;padding-bottom:6px}
+.finding-figure svg{display:block;min-width:660px;width:100%;height:auto}
+.fnode{cursor:pointer}
+.fnode rect{fill:rgba(174,182,189,.05);stroke:#aeb6bd;stroke-width:1}
+.fnode:hover rect{stroke:var(--green);fill:rgba(16,185,129,.07)}
+.fnode text{fill:var(--steel);font-family:var(--mono);font-size:11px;letter-spacing:.5px}
+.fnode .fyear{fill:var(--green);font-size:9.5px;letter-spacing:1.5px}
+.fnode.terminal rect{stroke-dasharray:4 3;stroke:#5d636a}
+.fedge{stroke:var(--green);stroke-width:1.2;fill:none;opacity:.85}
+.fedge-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase}
+.finding-nav{display:flex;align-items:center;gap:10px;margin-top:16px}
+.finding-dot{width:22px;height:3px;background:var(--line2);border:none;cursor:pointer;padding:0;transition:background .2s}
+.finding-dot.on{background:var(--green)}
+.finding-method{font-family:var(--mono);font-size:9.5px;line-height:1.85;letter-spacing:.5px;color:var(--steel-faint);margin-top:18px;padding-top:14px;border-top:1px solid var(--line);max-width:880px}
+.finding-method b{color:var(--steel-dim);font-weight:600}
+
+/* ---------- THE BOARD ---------- */
+.board-wrap{margin-top:26px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);box-shadow:var(--bevel),var(--depth)}
+.board-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
+.board-title{font-family:var(--stencil);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--steel)}
+.board-title b{color:var(--green);font-weight:400}
+.board-filters{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.bfilter{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);background:var(--panel3);border:1px solid var(--line2);padding:5px 10px;cursor:pointer;transition:all .18s}
+.bfilter:hover{border-color:var(--green);color:var(--steel-dim)}
+.bfilter.on{border-color:var(--green);color:var(--green);background:rgba(16,185,129,.08)}
+.board-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.bstat{background:var(--panel);padding:14px 18px;cursor:pointer;transition:background .16s;position:relative}
+.bstat:hover{background:rgba(16,185,129,.05)}
+.bstat.on{background:rgba(16,185,129,.09)}
+.bstat.on::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green)}
+.bstat-v{font-family:var(--stencil);font-size:21px;letter-spacing:1px;color:var(--green);line-height:1.1}
+.bstat-k{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-top:5px;line-height:1.5}
+.board-caption{padding:15px 20px;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.6;color:var(--steel-dim);min-height:24px}
+.board-caption b{color:var(--steel);font-weight:700}
+.board-caption .bc-kicker{font-family:var(--mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:5px}
+.board-scroll{overflow-x:auto;padding:6px 0}
+.board-scroll svg{display:block;min-width:940px;width:100%;height:auto}
+.blane-band{fill:rgba(255,255,255,.012)}
+.blane-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase}
+.btick{stroke:var(--line2);stroke-width:.5}
+.btick-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8px;letter-spacing:1px}
+.btrace{stroke:var(--green);stroke-width:1;fill:none;opacity:.5;transition:opacity .18s,stroke-width .18s}
+.btrace.hot{opacity:1;stroke-width:1.8}
+.btrace.dim{opacity:.09}
+.bpad{cursor:pointer}
+.bpad rect{fill:var(--panel3);stroke:#8f959c;stroke-width:1;transition:all .18s}
+.bpad.lit rect{fill:rgba(16,185,129,.16);stroke:var(--green)}
+.bpad.sealed rect{stroke-dasharray:2 2;stroke:#4a5058;fill:var(--panel)}
+.bpad:hover rect{stroke:var(--green);fill:rgba(16,185,129,.3)}
+.bpad.dim{opacity:.22}
+.bpad-name{fill:var(--steel-dim);font-family:var(--mono);font-size:8px;letter-spacing:.5px;pointer-events:none;opacity:0;transition:opacity .15s}
+.bpad:hover .bpad-name,.bpad.named .bpad-name{opacity:1;fill:var(--steel)}
+.board-foot{display:flex;gap:18px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel-faint)}
+.board-foot span b{color:var(--green);font-weight:400}
+.ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10px}
+.ledger th{text-align:left;padding:9px 20px;border-bottom:1px solid var(--line);color:var(--steel-faint);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:400}
+.ledger td{padding:9px 20px;border-bottom:1px solid rgba(42,46,52,.6);color:var(--steel-dim)}
+.ledger tr:hover td{background:rgba(16,185,129,.04);color:var(--steel)}
+.ledger .lg-type{color:var(--green);text-transform:uppercase;font-size:8.5px;letter-spacing:1.2px}
+.ledger .lg-claim{color:var(--steel-faint);font-size:9px}
+.ledger .lg-lag{color:var(--steel);text-align:right}
+@media(max-width:940px){.board-bar{padding:12px 14px}.bstat{padding:12px 14px}.ledger th,.ledger td{padding:8px 12px}}
+@media(max-width:940px){.findings{padding:48px 20px 6px}.finding{padding:22px 20px 18px}.finding-title{font-size:16px}}
+
 /* ---------- BENCH ---------- */
 .bench{padding:70px 80px;border-top:1px solid var(--line)}
 .bench-head{max-width:1180px;margin:0 auto 26px}
@@ -154,8 +227,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .gauge-wrap{max-width:640px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);box-shadow:var(--bevel),var(--depth);padding:22px 24px;position:relative}
 .gauge-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-dim);margin-bottom:14px}
 .gauge-label b{color:var(--green);font-weight:600}
+.gauge-lines{display:flex;flex-direction:column;gap:9px}
+.gline{display:flex;align-items:center;gap:12px}
+.gline-label{flex:0 0 118px;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-dim);white-space:nowrap}
+.gline-label em{color:var(--steel-faint);font-style:normal}
+.gline-cells{flex:1;display:flex;gap:3px;min-width:0}
+.gline-count{flex:0 0 auto;font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--steel-faint);white-space:nowrap}
 .gauge-cells{display:flex;gap:4px}
-.cell{flex:1;height:16px;background:#0e1013;border:1px solid var(--line);box-shadow:inset 0 2px 4px rgba(0,0,0,.55);transition:background .3s,box-shadow .3s;cursor:pointer;padding:0}
+.cell{flex:1;min-width:5px;height:15px;background:#0e1013;border:1px solid var(--line);box-shadow:inset 0 2px 4px rgba(0,0,0,.55);transition:background .3s,box-shadow .3s;cursor:pointer;padding:0}
 .cell:hover{border-color:var(--steel-faint)}
 .cell.lit{background:var(--green);border-color:var(--green);box-shadow:0 0 10px var(--green-glow),inset 0 1px 0 rgba(255,255,255,.35);animation:breathe 4s ease-in-out infinite}
 .cell.lit:hover{filter:brightness(1.15)}
@@ -514,7 +593,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num" data-stat="total">0</div>
-      <div class="hero-stat-label">Airframes on the line</div>
+      <div class="hero-stat-label">Plates across the lines</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num"><span data-stat="lit">0</span><span class="accent">&nbsp;lit</span></div>
@@ -527,9 +606,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
 
   <div class="gauge-wrap brushed">
-    <div class="gauge-label"><span>Line coverage</span><b id="gauge-count"></b></div>
-    <div class="gauge-cells" id="gauge-cells"></div>
-    <div class="gauge-note"><span>One cell per airframe, in order. <b>Click a cell to jump to its plate.</b></span><span class="gauge-last" id="gauge-last"></span></div>
+    <div class="gauge-label"><span>Archive coverage</span><b id="gauge-count"></b></div>
+    <div class="gauge-lines" id="gauge-lines"></div>
+    <div class="gauge-note"><span>One cell per plate, by line. <b>Click a cell to jump to its plate.</b></span><span class="gauge-last" id="gauge-last"></span></div>
   </div>
 
   <div class="hero-scroll">Scroll</div>
@@ -554,6 +633,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="filter-count"><b id="visible-count"></b> airframes shown</div>
 </div>
+
+<section class="findings" id="findings">
+  <div class="findings-head">
+    <div class="findings-tag">Findings</div>
+    <div class="findings-sub">Connections the archive found, not the ones we went looking for</div>
+  </div>
+  <noscript>
+    <p>SHANNON is Engineering Community's public archive of engineering history, read as a connected graph. The findings below and the interactive board are generated from that graph. Every connection shown cites a verified claim and a named source.</p>
+    <p><b>Convergence.</b> Ada Lovelace wrote in 1843 that Babbage's Analytical Engine might act on things besides number, if their relations could be expressed symbolically. George Boole gave logic an algebra in 1854. In 1937 Claude Shannon, then 21, proved that Boolean algebra describes electrical switching circuits, and that correspondence underlies every digital device since. Two papers written eleven years and no contact apart meet in one thesis and end up in every processor.</p>
+    <p><b>Constraint genealogy.</b> NACA proposed an adjustable stabilizer during the P-38 Lightning compressibility investigation. It did not save the P-38. The idea waited until the Bell X-1, where a movable tail gave Chuck Yeager pitch authority past Mach 1. Every supersonic fighter that followed carries it, the F-15 Eagle among them.</p>
+    <p>The board plots every artifact in the archive by year of first flight and by line, and draws a trace for each connection that cites a verified claim. Three lines are live: Kelly for aircraft, Lovelace for the foundations of computing, and Wright for the foundations of flight.</p>
+  </noscript>
+  <div id="finding-slot"></div>
+  <div class="finding-nav" id="finding-nav"></div>
+
+  <div class="board-wrap">
+    <div class="board-bar">
+      <div class="board-title">The board <b>/ every artifact, every wired connection</b></div>
+      <div class="board-filters" id="board-filters"></div>
+    </div>
+    <div class="board-stats" id="board-stats"></div>
+    <div class="board-caption" id="board-caption"></div>
+    <div id="board-view"></div>
+    <div class="board-foot" id="board-foot"></div>
+  </div>
+
+  <p class="finding-method" id="finding-method"></p>
+</section>
 
 <section class="timeline-section">
   <div class="line-designation">
@@ -664,7 +771,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.28 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.29 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1305,19 +1412,364 @@ const WRIGHT = [
   wrTimeline.appendChild(block);
 }
 
+/* ---------- FINDINGS ----------
+   Each finding is an editorial reading of chains the archive already
+   holds. Every edge below names a real synthesis edge in graph.json and
+   the verified claim that licenses it; check.js fails the build if any
+   of them stops existing, so the site cannot display a connection its
+   evidence does not support. */
+const FINDINGS = [
+  {
+    kind: "Convergence",
+    title: "Two papers, eleven years and no contact apart, meet in 1937 and end up in every processor you own.",
+    body: "Lovelace wrote in 1843 that the Engine might act on things besides number, if their relations could be expressed symbolically. Boole gave logic an algebra in 1854 and died believing he had described how people think. He was wrong about minds. A 21-year-old tending a relay computer at MIT put the two together, and the correspondence he proved runs every digital device since.",
+    vh: 214,
+    nodes: [
+      {id:"lovelace-notes-1843", label:"The Notes by A.A.L.", year:"1843", x:6, y:20, w:190},
+      {id:"boolean-algebra", label:"Boolean algebra", year:"1854", x:6, y:134, w:190},
+      {id:"shannon-thesis-1937", label:"Shannon's thesis", year:"1937", x:352, y:77, w:190},
+      {id:null, label:"Digital circuit design", year:"Ever since", x:698, y:77, w:196, terminal:true}
+    ],
+    edges: [
+      {from:0, to:2, type:"enabled", claim:"c-lovelace-notes-1843-14"},
+      {from:1, to:2, type:"enabled", claim:"c-boolean-algebra-09"},
+      {from:2, to:3, type:"enabled", claim:"c-shannon-thesis-1937-02"}
+    ],
+    note: "Found by walking the graph, not by memory. The traversal that found it is itself a descendant of the chain."
+  },
+  {
+    kind: "Constraint genealogy",
+    title: "A fix that could not save the aircraft it was invented for waited seven years, broke the sound barrier, then became standard.",
+    body: "NACA proposed an adjustable stabilizer during the P-38 compressibility investigation. It did not save the P-38. The idea sat until the X-1, where a movable tail gave Yeager pitch authority past Mach 1 that a conventional elevator had lost. Every supersonic fighter that followed carries it, the F-15 among them.",
+    vh: 150,
+    nodes: [
+      {id:"p-38", label:"P-38 Lightning", year:"1939", x:6, y:52, w:190},
+      {id:"bell-x-1", label:"Bell X-1", year:"1946", x:352, y:52, w:190},
+      {id:"f-15", label:"F-15 Eagle", year:"1972", x:698, y:52, w:190}
+    ],
+    edges: [
+      {from:0, to:1, type:"enabled", claim:"c-bell-x-1-10"},
+      {from:1, to:2, type:"enabled", claim:"c-bell-x-1-11"}
+    ],
+    note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
+  }
+];
+const FINDING_STATS = { claims:157, verified:142, sources:13, edges:21, artifacts:32 };
+{
+  const slot = document.getElementById("finding-slot");
+  const nav = document.getElementById("finding-nav");
+  const NH = 52;
+  const render = (i) => {
+    const f = FINDINGS[i];
+    const cy = n => n.y + NH / 2;
+    const edges = f.edges.map(e => {
+      const a = f.nodes[e.from], b = f.nodes[e.to];
+      const x1 = a.x + a.w, y1 = cy(a), x2 = b.x - 8, y2 = cy(b);
+      const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+      const d = y1 === y2 ? `M${x1} ${y1} L${x2} ${y2}` : `M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`;
+      return `<path class="fedge" d="${d}"/>
+        <path class="fedge" d="M${x2} ${y2} l-6 -3.5 M${x2} ${y2} l-6 3.5"/>
+        <text class="fedge-label" x="${mx}" y="${my - 15}" text-anchor="middle">${esc(e.type)}</text>
+        <text class="fedge-label" x="${mx}" y="${my - 6}" text-anchor="middle">${esc(e.claim)}</text>`;
+    }).join("");
+    const nodes = f.nodes.map(n => `
+      <g class="fnode${n.terminal ? " terminal" : ""}"${n.id ? ` data-jump="${esc(n.id)}"` : ""}>
+        <rect x="${n.x}" y="${n.y}" width="${n.w}" height="${NH}"/>
+        <text class="fyear" x="${n.x + 12}" y="${n.y + 19}">${esc(n.year)}</text>
+        <text x="${n.x + 12}" y="${n.y + 37}">${esc(n.label)}</text>
+      </g>`).join("");
+    slot.innerHTML = `
+      <article class="finding">
+        <div class="finding-kind">Finding ${pad(i + 1)} &#183; ${esc(f.kind)}</div>
+        <h3 class="finding-title">${esc(f.title)}</h3>
+        <p class="finding-body">${esc(f.body)}</p>
+        <div class="finding-figure">
+          <svg viewBox="0 0 900 ${f.vh}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(f.title)}">
+            ${edges}${nodes}
+          </svg>
+        </div>
+        <p class="finding-body" style="font-size:12px;color:var(--steel-faint)">${esc(f.note)}</p>
+      </article>`;
+    slot.querySelectorAll("[data-jump]").forEach(el => el.addEventListener("click", () => {
+      const t = document.getElementById(el.dataset.jump);
+      if (!t) return;
+      t.classList.add("visible");
+      t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      t.classList.add("flash");
+      setTimeout(() => t.classList.remove("flash"), 2600);
+    }));
+    nav.querySelectorAll(".finding-dot").forEach((d, j) => d.classList.toggle("on", j === i));
+  };
+  nav.innerHTML = FINDINGS.map((f, i) => `<button class="finding-dot" aria-label="Finding ${i + 1}: ${esc(f.kind)}"></button>`).join("");
+  nav.querySelectorAll(".finding-dot").forEach((d, i) => d.addEventListener("click", () => render(i)));
+  document.getElementById("finding-method").innerHTML =
+    "<b>Method.</b> The archive is a directed graph. Every artifact, person, and source is a node. Every connection is a typed edge that has to cite a claim we verified, and chains are found by depth-first traversal of those edges rather than by intuition. "
+    + "<b>" + FINDING_STATS.claims + "</b> claims recorded, <b>" + FINDING_STATS.verified + "</b> verified, across <b>" + FINDING_STATS.artifacts
+    + "</b> artifacts and <b>" + FINDING_STATS.sources + "</b> sources, joined by <b>" + FINDING_STATS.edges + "</b> claim-cited connections. "
+    + "Conflicting and unverifiable material is kept in the record and never rendered. Two claims are marked false in public, because we published them before we checked.";
+  render(0);
+}
+
+/* ---------- THE BOARD ----------
+   Everything below is computed from graph.json at load. Nothing is
+   hand-listed: add a story, run the merge, and the board, the stats, and
+   the ledger all change by themselves. Artifacts are laid out by date
+   (x) and line (y), so a connection that crosses centuries or fields is
+   visibly a long trace. Concepts have no date, so they sit in an
+   outcomes lane under the artifact that produced them. */
+(async function board() {
+  const view = document.getElementById("board-view");
+  const SYNTH = ["enabled", "forced", "responded-to", "corrects"];
+  let g;
+  try {
+    const r = await fetch("graph.json", { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    g = await r.json();
+  } catch (e) {
+    view.innerHTML = `<p class="finding-body" style="padding:20px">The board could not load the archive graph. The findings above stand on their own.</p>`;
+    return;
+  }
+  const byId = new Map(g.nodes.map(n => [n.id, n]));
+  const yearOf = id => {
+    const ys = g.edges.filter(x => x.type === "event-of" && x.to === id)
+      .map(x => byId.get(x.from)).filter(n => n && n.date).map(n => n.date.year);
+    return ys.length ? Math.min(...ys) : null;
+  };
+  const arts = g.nodes.filter(n => n.type === "artifact").map(a => ({ ...a, year: yearOf(a.id) })).filter(a => a.year);
+  const syn = g.edges.filter(e => SYNTH.includes(e.type));
+  const LANES = [
+    { id: "kelly", label: "Kelly L-01" }, { id: "lovelace", label: "Lovelace L-07" },
+    { id: "wright", label: "Wright L-08" }, { id: "other", label: "Unassigned" },
+    { id: "concept", label: "Outcomes" }
+  ];
+  const laneOf = a => LANES.some(l => l.id === a.lineId) ? a.lineId : "other";
+
+  // Place concepts under the earliest artifact that produced them.
+  const concepts = [];
+  g.nodes.filter(n => n.type === "concept").forEach(c => {
+    const src = syn.filter(e => e.to === c.id).map(e => arts.find(a => a.id === e.from)).filter(Boolean);
+    if (src.length) concepts.push({ ...c, year: Math.min(...src.map(s => s.year)), lane: "concept" });
+  });
+  const placed = arts.map(a => ({ ...a, lane: laneOf(a) })).concat(concepts);
+  const pos = new Map();
+
+  const W = 1180, ML = 96, MR = 26, TOP = 26, LANE_H = 58;
+  const years = placed.map(p => p.year);
+  const Y0 = Math.floor(Math.min(...years) / 10) * 10 - 5, Y1 = Math.ceil(Math.max(...years) / 10) * 10 + 5;
+  const xOf = y => ML + ((y - Y0) / (Y1 - Y0)) * (W - ML - MR);
+  const laneY = i => TOP + i * LANE_H + LANE_H / 2;
+  const H = TOP + LANES.length * LANE_H + 26;
+
+  // Spread same-lane collisions vertically so nothing overlaps.
+  LANES.forEach((L, li) => {
+    const inLane = placed.filter(p => p.lane === L.id).sort((a, b) => a.year - b.year);
+    let lastX = -99, tier = 0;
+    inLane.forEach(p => {
+      const x = xOf(p.year);
+      tier = (x - lastX < 16) ? (tier + 1) % 3 : 0;
+      lastX = x;
+      pos.set(p.id, { x, y: laneY(li) + (tier - 1) * 13, p });
+    });
+  });
+
+  const state = { line: "all", type: "all", mode: "board", focus: "gap" };
+  const visible = p => state.line === "all" || p.lane === state.line || p.lane === "concept";
+  const edgeOk = e => (state.type === "all" || e.type === state.type) && pos.has(e.from) && pos.has(e.to)
+    && visible(pos.get(e.from).p) && visible(pos.get(e.to).p);
+
+  // ---- computed statistics ----
+  const lags = syn.filter(e => e.type === "enabled").map(e => {
+    const a = arts.find(x => x.id === e.from), b = arts.find(x => x.id === e.to);
+    return a && b ? { years: b.year - a.year, from: a, to: b, claim: e.claimId } : null;
+  }).filter(Boolean).sort((a, b) => b.years - a.years);
+  const deg = {};
+  syn.forEach(e => { deg[e.from] = (deg[e.from] || 0) + 1; deg[e.to] = (deg[e.to] || 0) + 1; });
+  const hub = Object.entries(deg).sort((a, b) => b[1] - a[1])[0];
+  const claims = g.nodes.filter(n => n.type === "claim");
+  const corrections = syn.filter(e => e.type === "corrects");
+  const correctEdges = corrections.map(e => [e.from, e.to]);
+  const avgLag = lags.length ? Math.round(lags.reduce((s, l) => s + l.years, 0) / lags.length) : 0;
+  const verified = claims.filter(c => c.status === "verified").length;
+  const short = id => esc(((byId.get(id) || {}).name || id).split("(")[0].trim());
+  const mx = lags[0];
+
+  // Each stat tile is a lens onto the board: clicking it lights the
+  // evidence for that number and captions what you are looking at.
+  const FOCI = {
+    gap: {
+      edges: mx ? [[mx.from.id, mx.to.id]] : [], nodes: [],
+      kicker: "Longest wait between an idea and its use",
+      html: mx ? `<b>${mx.years} years</b> separate ${short(mx.from.id)} (${mx.from.year}) from the work that finally used it, ${short(mx.to.id)} (${mx.to.year}). On the board it is the trace reaching furthest across time.` : "No dated chains yet."
+    },
+    mean: {
+      edges: syn.filter(e => e.type === "enabled" && arts.find(a => a.id === e.from) && arts.find(a => a.id === e.to)).map(e => [e.from, e.to]), nodes: [],
+      kicker: "Mean idea-to-use gap",
+      html: `On average <b>${avgLag} years</b> pass between an idea being recorded and the work that puts it to use. Every lit trace here is one of those waits.`
+    },
+    corrections: {
+      edges: correctEdges, nodes: [],
+      kicker: "Corrections to the record",
+      html: `<b>${corrections.length} times</b> the famous explanation was the wrong one, and the record shows what actually settled it. These are the traces marked <b>corrects</b>.`
+    },
+    verify: {
+      edges: [], nodes: [],
+      kicker: "Verified, of recorded",
+      html: `<b>${verified} of ${claims.length}</b> claims are verified. Conflicting and unverifiable material stays in the record, marked, and never rendered as fact. Two claims are marked false in public, because we published them before we checked.`
+    }
+  };
+  const STAT_TILES = [
+    ["gap", mx ? mx.years + " yrs" : "n/a", "Longest idea-to-use wait"],
+    ["mean", avgLag + " yrs", "Mean idea-to-use gap"],
+    ["corrections", corrections.length, "Corrections to the record"],
+    ["verify", verified + " / " + claims.length, "Claims verified, of recorded"]
+  ];
+  document.getElementById("board-stats").innerHTML = STAT_TILES.map(([key, v, k]) =>
+    `<div class="bstat" data-focus="${key}"><div class="bstat-v">${v}</div><div class="bstat-k">${esc(k)}</div></div>`).join("");
+  document.getElementById("board-stats").addEventListener("click", ev => {
+    const t = ev.target.closest(".bstat"); if (!t) return;
+    state.focus = t.dataset.focus;
+    paintFocus();
+  });
+
+  function paintFocus() {
+    const f = FOCI[state.focus];
+    const cap = document.getElementById("board-caption");
+    if (f) cap.innerHTML = `<span class="bc-kicker">${esc(f.kicker)}</span>${f.html}`;
+    document.querySelectorAll("#board-stats .bstat").forEach(t => t.classList.toggle("on", t.dataset.focus === state.focus));
+    const svg = view.querySelector("svg");
+    if (!svg) return;
+    const eset = new Set((f ? f.edges : []).map(([a, b]) => a + "|" + b));
+    const nset = new Set((f ? f.edges : []).flat().concat(f ? f.nodes : []));
+    const any = eset.size > 0;
+    svg.querySelectorAll(".btrace").forEach(t => {
+      const on = eset.has(t.dataset.a + "|" + t.dataset.b);
+      t.classList.toggle("hot", on); t.classList.toggle("dim", any && !on);
+    });
+    svg.querySelectorAll(".bpad").forEach(o => {
+      const on = nset.has(o.dataset.id);
+      o.classList.toggle("named", on); o.classList.toggle("dim", any && !on);
+    });
+  }
+
+  document.getElementById("board-foot").innerHTML =
+    `<span>Lit <b>&#9632;</b> published</span><span>Dashed <b>&#9633;</b> sealed</span>`
+    + `<span>Trace <b>&#8212;</b> a connection citing a verified claim</span>`
+    + `<span><b>${placed.length}</b> components</span><span><b>${syn.length}</b> traces</span>`
+    + `<span>Click a number above to light its evidence. Hover a component for its own links. Click one to open its plate.</span>`;
+
+  // ---- filters ----
+  const filters = [
+    ["line", "all", "All lines"], ["line", "kelly", "Kelly"], ["line", "lovelace", "Lovelace"], ["line", "wright", "Wright"],
+    ["type", "all", "All links"], ["type", "enabled", "Enabled"], ["type", "corrects", "Corrects"], ["type", "responded-to", "Responded to"],
+    ["mode", "board", "Board"], ["mode", "ledger", "Ledger"]
+  ];
+  const fbar = document.getElementById("board-filters");
+  fbar.innerHTML = filters.map(([k, v, label], i) =>
+    `<button class="bfilter${state[k] === v ? " on" : ""}" data-k="${k}" data-v="${v}"${(i === 4 || i === 8) ? ' style="margin-left:12px"' : ""}>${label}</button>`).join("");
+  fbar.addEventListener("click", ev => {
+    const b = ev.target.closest(".bfilter"); if (!b) return;
+    state[b.dataset.k] = b.dataset.v;
+    fbar.querySelectorAll(".bfilter").forEach(x => x.classList.toggle("on", state[x.dataset.k] === x.dataset.v));
+    draw();
+  });
+
+  // ---- renderers ----
+  function boardSvg() {
+    const ticks = [];
+    for (let y = Math.ceil(Y0 / 20) * 20; y <= Y1; y += 20) ticks.push(y);
+    const lanes = LANES.map((L, i) => `
+      <rect class="blane-band" x="${ML}" y="${TOP + i * LANE_H}" width="${W - ML - MR}" height="${LANE_H}"/>
+      <text class="blane-label" x="12" y="${laneY(i) + 3}">${esc(L.label)}</text>`).join("");
+    const axis = ticks.map(y => `
+      <line class="btick" x1="${xOf(y)}" y1="${TOP}" x2="${xOf(y)}" y2="${TOP + LANES.length * LANE_H}"/>
+      <text class="btick-label" x="${xOf(y)}" y="${TOP + LANES.length * LANE_H + 15}" text-anchor="middle">${y}</text>`).join("");
+    const traces = syn.filter(edgeOk).map(e => {
+      const a = pos.get(e.from), b = pos.get(e.to);
+      const mx = a.x + (b.x - a.x) * 0.58;
+      const d = `M${a.x} ${a.y} H${mx} V${b.y} H${b.x}`;
+      return `<path class="btrace" data-a="${esc(e.from)}" data-b="${esc(e.to)}" d="${d}"/>`;
+    }).join("");
+    const pads = placed.filter(visible).map(p => {
+      const { x, y } = pos.get(p.id);
+      const cls = p.lane === "concept" ? "sealed" : (p.sealed ? "sealed" : "lit");
+      const s = p.lane === "concept" ? 7 : 9;
+      return `<g class="bpad ${cls}" data-id="${esc(p.id)}" data-year="${p.year}">
+        <rect x="${x - s / 2}" y="${y - s / 2}" width="${s}" height="${s}"/>
+        <text class="bpad-name" x="${x}" y="${y - 9}" text-anchor="middle">${esc((p.name || p.id).split("(")[0].trim().slice(0, 26))}</text>
+      </g>`;
+    }).join("");
+    return `<div class="board-scroll"><svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Archive board: artifacts by date and line, with claim-cited connections">
+      ${lanes}${axis}${traces}${pads}</svg></div>`;
+  }
+
+  function ledgerHtml() {
+    const rows = syn.filter(edgeOk).map(e => {
+      const a = byId.get(e.from), b = byId.get(e.to);
+      const ya = arts.find(x => x.id === e.from), yb = arts.find(x => x.id === e.to);
+      const lag = ya && yb ? (yb.year - ya.year) + " yrs" : "";
+      return `<tr><td>${esc((a && a.name || e.from).split("(")[0].trim())}</td>
+        <td class="lg-type">${esc(e.type)}</td>
+        <td>${esc((b && b.name || e.to).split("(")[0].trim())}</td>
+        <td class="lg-claim">${esc(e.claimId || "")}</td>
+        <td class="lg-lag">${lag}</td></tr>`;
+    }).join("");
+    return `<table class="ledger"><thead><tr><th>From</th><th>Link</th><th>To</th><th>Cited claim</th><th style="text-align:right">Gap</th></tr></thead><tbody>${rows}</tbody></table>`;
+  }
+
+  function draw() {
+    view.innerHTML = state.mode === "board" ? boardSvg() : ledgerHtml();
+    if (state.mode !== "board") { paintFocus(); return; }
+    const svg = view.querySelector("svg");
+    svg.querySelectorAll(".bpad").forEach(pad => {
+      const id = pad.dataset.id;
+      pad.addEventListener("mouseenter", () => {
+        svg.querySelectorAll(".btrace").forEach(t => {
+          const on = t.dataset.a === id || t.dataset.b === id;
+          t.classList.toggle("hot", on); t.classList.toggle("dim", !on);
+        });
+        const linked = new Set([id]);
+        svg.querySelectorAll(".btrace").forEach(t => { if (t.dataset.a === id) linked.add(t.dataset.b); if (t.dataset.b === id) linked.add(t.dataset.a); });
+        svg.querySelectorAll(".bpad").forEach(o => { o.classList.toggle("named", linked.has(o.dataset.id)); o.classList.toggle("dim", !linked.has(o.dataset.id)); });
+      });
+      pad.addEventListener("mouseleave", paintFocus);
+      pad.addEventListener("click", () => {
+        const t = document.getElementById(id);
+        if (!t) return;
+        t.classList.add("visible");
+        t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+        t.classList.add("flash");
+        setTimeout(() => t.classList.remove("flash"), 2600);
+      });
+    });
+    paintFocus();
+  }
+  draw();
+})();
+
 /* ---------- SEGMENTED GAUGE (clickable) ---------- */
-const cellsWrap = document.getElementById("gauge-cells");
-sorted.forEach(a => {
-  const c = document.createElement("button");
-  c.className = "cell";
-  const sealedHidden = a.status !== "covered" && a.redactedName;
-  c.title = a.year + " · " + (sealedHidden ? "Sealed" : a.name) + (a.status==="covered" ? "" : " (sealed)");
-  c.setAttribute("aria-label", c.title);
-  c.dataset.lit = a.status==="covered" ? "1" : "0";
-  c.dataset.target = a.id;
-  cellsWrap.appendChild(c);
+/* ---------- ARCHIVE COVERAGE, one row per live line, all derived so the
+   numbers can never drift from the plate data ---------- */
+const GAUGE_LINES = [
+  { label: "Kelly", tag: "L-01", plates: sorted },
+  { label: "Lovelace", tag: "L-07", plates: LOVELACE },
+  { label: "Wright", tag: "L-08", plates: WRIGHT }
+];
+const linesWrap = document.getElementById("gauge-lines");
+GAUGE_LINES.forEach(L => {
+  const covered = L.plates.filter(a => a.status === "covered").length;
+  const row = document.createElement("div");
+  row.className = "gline";
+  const cells = L.plates.map(a => {
+    const sealedHidden = a.status !== "covered" && a.redactedName;
+    const title = a.year + " · " + (sealedHidden ? "Sealed" : a.name) + (a.status === "covered" ? "" : " (sealed)");
+    return `<button class="cell" data-lit="${a.status === "covered" ? 1 : 0}" data-target="${esc(a.id)}" title="${esc(title)}" aria-label="${esc(title)}"></button>`;
+  }).join("");
+  row.innerHTML = `<span class="gline-label">${esc(L.label)} <em>${esc(L.tag)}</em></span>`
+    + `<div class="gline-cells">${cells}</div>`
+    + `<span class="gline-count">${covered}/${L.plates.length}</span>`;
+  linesWrap.appendChild(row);
 });
-cellsWrap.addEventListener("click", e => {
+linesWrap.addEventListener("click", e => {
   const c = e.target.closest(".cell");
   if (!c) return;
   const el = document.getElementById(c.dataset.target);
@@ -1325,23 +1777,21 @@ cellsWrap.addEventListener("click", e => {
   el.classList.add("visible");
   el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
   el.classList.add("flash");
-  setTimeout(()=>el.classList.remove("flash"), 2600);
+  setTimeout(() => el.classList.remove("flash"), 2600);
 });
 
-/* ---------- COVERAGE, derived from AIRCRAFT so it can never drift ---------- */
-const coveredPlates = AIRCRAFT.filter(a => a.status === "covered");
-const litCount = coveredPlates.length;
-const totalCount = AIRCRAFT.length;
+// Archive-wide totals for the hero stats and gauge header.
+const ALL_PLATES = AIRCRAFT.concat(LOVELACE, WRIGHT);
+const litCount = ALL_PLATES.filter(a => a.status === "covered").length;
+const totalCount = ALL_PLATES.length;
 document.querySelector('[data-stat="total"]').dataset.count = totalCount;
 document.querySelector('[data-stat="lit"]').dataset.count = litCount;
-document.getElementById("gauge-count").textContent = litCount + " / " + totalCount + " airframes";
-document.getElementById("sealed-count").textContent =
-  (totalCount - litCount)
-  + (LOVELACE.length - LOVELACE.filter(a => a.status === "covered").length)
-  + (WRIGHT.length - WRIGHT.filter(a => a.status === "covered").length);
-const lastLit = coveredPlates
+document.getElementById("gauge-count").textContent = litCount + " / " + totalCount + " lit";
+document.getElementById("sealed-count").textContent = totalCount - litCount;
+const lastLit = ALL_PLATES
+  .filter(a => a.status === "covered")
   .map(a => {
-    const stamps = (a.posts || []).map(p => Date.parse(p.date)).filter(n => !isNaN(n));
+    const stamps = (a.posts || (a.post ? [a.post] : [])).map(p => Date.parse(p.date)).filter(n => !isNaN(n));
     return { a, t: stamps.length ? Math.max(...stamps) : -Infinity };
   })
   .sort((x, y) => y.t - x.t)[0];

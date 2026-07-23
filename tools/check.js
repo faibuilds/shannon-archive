@@ -258,12 +258,14 @@ const WRIGHT = parseLineArray("WRIGHT");
 (function checkCoverageLiterals() {
   const name = "coverage: no hardcoded coverage counts in index.html";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
-  const covered = AIRCRAFT.filter((p) => p.status === "covered").length;
-  const total = AIRCRAFT.length;
+  // Hero stats and gauge header are archive-wide: every live line's plates.
+  const allPlates = AIRCRAFT.concat(LOVELACE || [], WRIGHT || []);
+  const covered = allPlates.filter((p) => p.status === "covered").length;
+  const total = allPlates.length;
   const problems = [];
 
-  // Literal "N / M airframes" anywhere in the file.
-  const frac = html.match(/\b\d+\s*\/\s*\d+\s+airframes/g);
+  // Literal "N / M airframes" or "N / M lit" anywhere in the file.
+  const frac = html.match(/\b\d+\s*\/\s*\d+\s+(airframes|lit)\b/g);
   if (frac) problems.push("literal gauge text: " + frac.join(", "));
 
   // Literal digits directly before "lit" (e.g. "13 lit" or "13&nbsp;lit").
@@ -369,7 +371,67 @@ const WRIGHT = parseLineArray("WRIGHT");
 })();
 
 // ---------------------------------------------------------------------------
-// Check 9: Version stamp. Exactly one "SHANNON vX.Y / BUILT" in index.html.
+// Check 9: Findings integrity. Every edge a finding draws must exist in
+// graph.json as a synthesis edge citing that exact verified claim, and the
+// method line's counts must match the graph. The site cannot advertise a
+// connection its evidence does not support, and the numbers cannot drift.
+// ---------------------------------------------------------------------------
+(function checkFindings() {
+  const name = "findings: every drawn connection is backed by the graph";
+  const marker = html.indexOf("const FINDINGS");
+  if (marker < 0) { pass(name, "(no findings in this build)"); return; }
+  let FINDINGS, STATS, g;
+  try {
+    FINDINGS = new Function("return " + extractLiteral(html, html.indexOf("[", marker)) + ";")();
+    const sm = html.indexOf("const FINDING_STATS");
+    STATS = new Function("return " + extractLiteral(html, html.indexOf("{", sm)) + ";")();
+    g = JSON.parse(fs.readFileSync(GRAPH, "utf8"));
+  } catch (e) { fail(name, "unreadable: " + e.message); return; }
+
+  const byId = new Map(g.nodes.map((n) => [n.id, n]));
+  const SYNTH = new Set(["enabled", "forced", "responded-to", "corrects"]);
+  const problems = [];
+  let drawn = 0;
+
+  FINDINGS.forEach((f, fi) => {
+    f.edges.forEach((e) => {
+      drawn++;
+      const a = f.nodes[e.from], b = f.nodes[e.to];
+      const where = "finding " + (fi + 1) + " " + (a && a.label) + " -> " + (b && b.label);
+      if (!a || !b) { problems.push(where + ": node index out of range"); return; }
+      // Terminal nodes (concepts) have no plate id; match the graph edge by
+      // source id plus claim, which is unique enough to prove the link.
+      const match = g.edges.find((ge) =>
+        SYNTH.has(ge.type) && ge.type === e.type && ge.claimId === e.claim &&
+        ge.from === a.id && (b.id ? ge.to === b.id : true));
+      if (!match) { problems.push(where + ": no " + e.type + " edge citing " + e.claim + " in graph.json"); return; }
+      const claim = byId.get(e.claim);
+      if (!claim) problems.push(where + ": claim " + e.claim + " missing from graph");
+      else if (claim.status !== "verified") problems.push(where + ": claim " + e.claim + " is " + claim.status + ", not verified");
+    });
+    f.nodes.forEach((n) => {
+      if (n.id && !byId.has(n.id)) problems.push("finding " + (fi + 1) + ": node id " + n.id + " not in graph");
+    });
+  });
+
+  const claims = g.nodes.filter((n) => n.type === "claim");
+  const actual = {
+    claims: claims.length,
+    verified: claims.filter((c) => c.status === "verified").length,
+    sources: g.nodes.filter((n) => n.type === "source").length,
+    artifacts: g.nodes.filter((n) => n.type === "artifact").length,
+    edges: g.edges.filter((e) => SYNTH.has(e.type)).length,
+  };
+  for (const k of Object.keys(actual)) {
+    if (STATS[k] !== actual[k]) problems.push("method line says " + k + "=" + STATS[k] + " but graph has " + actual[k]);
+  }
+
+  if (problems.length) fail(name, problems.join("; "));
+  else pass(name, "(" + FINDINGS.length + " findings, " + drawn + " edges verified against graph)");
+})();
+
+// ---------------------------------------------------------------------------
+// Check 10: Version stamp. Exactly one "SHANNON vX.Y / BUILT" in index.html.
 // ---------------------------------------------------------------------------
 (function checkStamp() {
   const name = "version: exactly one SHANNON vX.Y / BUILT stamp";
