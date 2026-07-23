@@ -133,24 +133,229 @@
    "label": "First flight"
   },
   {
-   "id": "sealed-1954",
+   "id": "c-130",
    "type": "artifact",
-   "name": "C-130 Hercules",
+   "name": "Lockheed C-130 Hercules",
    "category": "transport",
    "origin": "United States",
    "lineId": "kelly",
-   "sealed": true
+   "sealed": false,
+   "note": "Unsealed from block; see blocks/shannon_c-130.md"
   },
   {
-   "id": "ev-ff-sealed-1954",
+   "id": "src-c130-vcl",
+   "type": "source",
+   "title": "EC VCL: C-130 Hercules (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-c-130-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1951,
+    "month": 2,
+    "day": 2
+   },
+   "subjectId": "c-130",
+   "label": "Air Force issues the GOR for a tactical transport after Korea exposes WWII piston transports as inadequate"
+  },
+  {
+   "id": "ev-decision-c-130-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1951
+   },
+   "subjectId": "c-130",
+   "label": "Kelly Johnson, reviewing Willis Hawkins's proposal, tells Hibbard it will destroy Lockheed and walks out; Hibbard signs anyway"
+  },
+  {
+   "id": "ev-decision-c-130-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1951,
+    "month": 7,
+    "day": 2
+   },
+   "subjectId": "c-130",
+   "label": "Lockheed wins the competition; contract for two YC-130 prototypes"
+  },
+  {
+   "id": "ev-first-flight-c-130-4",
    "type": "event",
    "eventType": "first-flight",
    "date": {
     "year": 1954,
-    "month": 8
+    "month": 8,
+    "day": 23
    },
-   "subjectId": "sealed-1954",
-   "label": "First flight"
+   "subjectId": "c-130",
+   "label": "YC-130 first flight from Burbank; Johnson flies chase in a P2V Neptune, following the aircraft he tried to kill"
+  },
+  {
+   "id": "ev-record-c-130-5",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 2024
+   },
+   "subjectId": "c-130",
+   "label": "70 years of continuous production, the longest of any military aircraft in history"
+  },
+  {
+   "id": "willis-hawkins",
+   "type": "person",
+   "name": "Willis Hawkins",
+   "note": "Led the preliminary design team; author of the Model 82 proposal; argued Hibbard into submitting over Johnson's objection."
+  },
+  {
+   "id": "hall-hibbard",
+   "type": "person",
+   "name": "Hall Hibbard",
+   "note": "Lockheed chief engineer; signed the proposal over his own star designer's objection."
+  },
+  {
+   "id": "c-c130-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Korea exposed WWII piston transports as inadequate; on Feb 2, 1951 the Air Force issued a GOR for a tactical transport, with RFPs to Boeing, Douglas, Fairchild, and Lockheed.",
+   "sourceNote": "Lockheed Martin Service News; Wikipedia"
+  },
+  {
+   "id": "c-c130-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "The requirement demanded 92 troops or 64 paratroopers, bulky cargo, about 1,100 nm radius, STOL from about 3,000-ft unpaved fields, about 125 knots for paratroop drops, and one-engine-out capability.",
+   "sourceNote": "Grokipedia citing the GOR; Lockheed Martin"
+  },
+  {
+   "id": "c-c130-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Lockheed's preliminary design team, led by Willis Hawkins, produced a 130-page proposal for the L-206 (later Model 82).",
+   "sourceNote": "Wikipedia; Code One"
+  },
+  {
+   "id": "c-c130-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Hall Hibbard sent the proposal to Kelly Johnson, 41, who disliked the slow, unarmed aircraft and said, 'If you sign that letter, you will destroy the Lockheed Company,' then walked out.",
+   "sourceNote": "Code One (Hawkins firsthand); Aviation Week; Lockheed Martin"
+  },
+  {
+   "id": "c-c130-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Hawkins argued that if the design were as bad as Johnson claimed the Air Force would reject it, so submitting cost nothing; Hibbard signed and Johnson ultimately signed too.",
+   "sourceNote": "Code One (Hawkins firsthand)"
+  },
+  {
+   "id": "c-c130-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Johnson's objection was values, not competence: he believed speed was aviation's future, so a slow unarmed hauler read as beneath Lockheed.",
+   "sourceNote": "Code One; Lockheed Martin"
+  },
+  {
+   "id": "c-c130-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Lockheed won on July 2, 1951; the Air Force contracted two YC-130 prototypes.",
+   "sourceNote": "Wikipedia; Code One"
+  },
+  {
+   "id": "c-c130-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "The defining airlifter features: a high wing (low fuselage for roll-on loading), a rear ramp under an upswept tail (drive-in loading and airdrop), a rectangular pressurized hold at truck-bed height, high-flotation gear for unpaved strips, and four Allison T56 turboprops chosen for low-speed torque and rough-field reliability.",
+   "sourceNote": "Grokipedia; Lockheed Martin; Wikipedia"
+  },
+  {
+   "id": "c-c130-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "First flight Aug 23, 1954 from Burbank, piloted by Stanley Beltz and Roy Wimmer, a 61-minute flight to Edwards.",
+   "sourceNote": "Wikipedia; Lockheed Martin Service News"
+  },
+  {
+   "id": "c-c130-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Kelly Johnson flew chase in a P2V Neptune on the first flight, following the aircraft he had tried to kill.",
+   "sourceNote": "Wikipedia; Lockheed Martin Service News"
+  },
+  {
+   "id": "c-c130-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "The C-130 is the longest continuously produced military aircraft in history, reaching 70 years of production in 2024; the C-130J remains in production.",
+   "sourceNote": "Wikipedia; Aviation Week"
+  },
+  {
+   "id": "c-c130-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Built in the thousands across dozens of variants, serving 60+ nations, in roles unimagined in 1951: gunship, tanker, hurricane hunter, firefighter, search and rescue, Antarctic resupply.",
+   "sourceNote": "widely documented (exact totals vary by source; figure hedged)"
+  },
+  {
+   "id": "c-c130-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "c-130"
+   ],
+   "text": "Johnson's speed-first philosophy produced the P-80, F-104, U-2, and SR-71; the same conviction blinded him to the C-130.",
+   "sourceNote": "Aviation Week; Lockheed Martin; internal to the KELLY line"
+  },
+  {
+   "id": "concept-c130-korea-airlift",
+   "type": "concept",
+   "name": "Korean War airlift inadequacy (WWII piston transports)"
+  },
+  {
+   "id": "story-c-130",
+   "type": "story",
+   "title": "The One Kelly Got Wrong",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7485840900389031937 instagram: none (LinkedIn-only per Fai) facebook: none (LinkedIn-only per Fai) newsletter: none (no newsletter per Fai)"
   },
   {
    "id": "u-2",
@@ -3121,8 +3326,182 @@
   },
   {
    "type": "event-of",
-   "from": "ev-ff-sealed-1954",
-   "to": "sealed-1954"
+   "from": "ev-decision-c-130-1",
+   "to": "c-130"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-decision-c-130-2",
+   "to": "c-130"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-decision-c-130-3",
+   "to": "c-130"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-first-flight-c-130-4",
+   "to": "c-130"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-record-c-130-5",
+   "to": "c-130"
+  },
+  {
+   "type": "contributed",
+   "from": "willis-hawkins",
+   "to": "c-130",
+   "role": "led"
+  },
+  {
+   "type": "contributed",
+   "from": "hall-hibbard",
+   "to": "c-130",
+   "role": "led"
+  },
+  {
+   "type": "contributed",
+   "from": "kelly-johnson",
+   "to": "c-130",
+   "role": "opposed"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-01",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-01",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-02",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-02",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-03",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-03",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-04",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-04",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-05",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-05",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-06",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-06",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-07",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-07",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-08",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-08",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-09",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-09",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-10",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-10",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-11",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-11",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-12",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-12",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-c130-13",
+   "to": "c-130"
+  },
+  {
+   "type": "cites",
+   "from": "c-c130-13",
+   "to": "src-c130-vcl"
+  },
+  {
+   "type": "responded-to",
+   "from": "c-130",
+   "to": "concept-c130-korea-airlift",
+   "claimId": "c-c130-01"
   },
   {
    "type": "event-of",

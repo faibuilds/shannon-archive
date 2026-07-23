@@ -771,7 +771,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.29 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.30 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -884,7 +884,9 @@ const AIRCRAFT = [
 </svg>`,
    posts:[{label:"Read the story", date:"Jul 19, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7484897833389543424"}]},
 
-  {id:"sealed-1954", name:"C-130 Hercules", year:1954, ff:"Aug 1954", origin:"United States", role:"transport", status:"soon", lines:[95,72,58]},
+  {id:"c-130", name:"C-130 Hercules", year:1954, ff:"Aug 1954", origin:"United States", role:"transport", status:"covered",
+   hook:"Kelly Johnson told Lockheed's chief engineer the C-130 would destroy the company, then walked out. The slow, unarmed hauler he tried to kill has stayed in production for 70 years, the longest run of any military aircraft, and outlasted every fast jet he championed.",
+   posts:[{label:"Read the story", date:"Jul 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7485840900389031937"}]},
 
   {id:"u-2", name:"U-2", variant:"Dragon Lady", year:1955, ff:"Aug 1955", origin:"United States", role:"recon", status:"covered",
    hook:"EVERY U-2 LANDING REQUIRES A SPORTS CAR DOING 100+ MPH DOWN THE RUNWAY, WITH ANOTHER PILOT BEHIND THE WHEEL.",
@@ -1454,7 +1456,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:157, verified:142, sources:13, edges:21, artifacts:32 };
+const FINDING_STATS = { claims:170, verified:155, sources:14, edges:22, artifacts:32 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

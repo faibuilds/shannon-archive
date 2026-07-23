@@ -3,12 +3,12 @@
   "line": "KELLY L-01",
   "linesLive": 3,
   "lines": [
-    { "id": "kelly", "name": "KELLY L-01", "total": 24, "lit": 16 },
+    { "id": "kelly", "name": "KELLY L-01", "total": 24, "lit": 17 },
     { "id": "lovelace", "name": "LOVELACE L-07", "total": 4, "lit": 3 },
     { "id": "wright", "name": "WRIGHT L-08", "total": 1, "lit": 1 }
   ],
   "total": 24,
-  "lit": 16,
+  "lit": 17,
   "cells": [
     1,
     0,
@@ -18,7 +18,7 @@
     0,
     1,
     1,
-    0,
+    1,
     1,
     1,
     1,
@@ -35,7 +35,7 @@
     0,
     1
   ],
-  "lastLit": "P-80 Shooting Star",
+  "lastLit": "C-130 Hercules",
   "lastLitDate": "Jul 2026",
-  "updated": "2026-07-18"
+  "updated": "2026-07-22"
 }
