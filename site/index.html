@@ -808,7 +808,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.32 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.33 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -859,6 +859,10 @@ const AIRCRAFT = [
   {id:"sealed-1942a", name:"Me 262", variant:"Schwalbe", year:1942, ff:"Jul 1942 (jet power)", origin:"Germany", role:"fighter", status:"soon", lines:[92,78,64]},
 
   {id:"sealed-1942b", name:"B-29 Superfortress", year:1942, ff:"Sep 1942", origin:"United States", role:"bomber", status:"soon", lines:[85,95,52]},
+
+  {id:"constellation", name:"Constellation", variant:"L-049", year:1943, ff:"Jan 1943", origin:"United States", role:"transport", status:"covered",
+   hook:"The most beautiful airliner ever built has three tails for one reason. A single tail tall enough would not fit in TWA's hangars.",
+   posts:[{label:"Read the story", date:"Jul 22, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7485936513386500096"}]},
 
   {id:"p-80", name:"P-80 Shooting Star", year:1944, ff:"Jan 1944", origin:"United States", role:"fighter", status:"covered",
    hook:"America's first operational jet fighter was built in 143 days, under a rented circus tent. The tent was not the obstacle. It was the reason.",
@@ -1492,7 +1496,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:170, verified:155, sources:14, edges:22, artifacts:32 };
+const FINDING_STATS = { claims:184, verified:168, sources:15, edges:23, artifacts:33 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

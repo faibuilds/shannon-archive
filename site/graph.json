@@ -3291,6 +3291,181 @@
    "engineer": "Wilbur and Orville Wright",
    "domain": "Aviation foundations",
    "status": "live"
+  },
+  {
+   "id": "constellation",
+   "type": "artifact",
+   "name": "Lockheed Constellation",
+   "category": "transport",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false,
+   "note": "Added from block 2026-07-22; see blocks/shannon_constellation.md"
+  },
+  {
+   "id": "src-constellation-vcl",
+   "type": "source",
+   "title": "EC VCL: Lockheed Constellation (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-constellation-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": { "year": 1939 },
+   "subjectId": "constellation",
+   "label": "TWA, driven by major stockholder Howard Hughes, asks Lockheed for a 40-passenger transcontinental airliner with about 3,500 mile range"
+  },
+  {
+   "id": "ev-first-flight-constellation-2",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": { "year": 1943, "month": 1, "day": 9 },
+   "subjectId": "constellation",
+   "label": "Constellation first flight"
+  },
+  {
+   "id": "ev-record-constellation-3",
+   "type": "event",
+   "eventType": "record",
+   "date": { "year": 1944, "month": 4, "day": 17 },
+   "subjectId": "constellation",
+   "label": "Hughes and TWA president Jack Frye fly Burbank to Washington in 6 hours 57 minutes; on the return trip they later give Orville Wright his last flight at Wright Field"
+  },
+  {
+   "id": "howard-hughes",
+   "type": "person",
+   "name": "Howard Hughes",
+   "note": "TWA major stockholder; set the requirement that forced the design and later flew the record transcontinental leg."
+  },
+  {
+   "id": "jack-frye",
+   "type": "person",
+   "name": "Jack Frye",
+   "note": "TWA president; co-pilot on the April 1944 record flight."
+  },
+  {
+   "id": "c-constellation-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "Lockheed had worked since 1937 on the L-044 Excalibur; in 1939 TWA, at Howard Hughes's instigation, requested a 40-passenger transcontinental airliner with about 3,500 miles range, beyond the Excalibur's capability, producing the L-049 Constellation.",
+   "sourceNote": "USNI Naval History; Military Wiki; Grokipedia"
+  },
+  {
+   "id": "c-constellation-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "The Lockheed team included president Robert Gross, chief engineer Hall Hibbard, and chief research engineer Kelly Johnson.",
+   "sourceNote": "united-states-lines; Grokipedia; Military Wiki"
+  },
+  {
+   "id": "c-constellation-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "A single vertical fin tall enough for the required directional stability would not have fit inside TWA's existing hangars, so Lockheed split the fin area into three shorter fins to keep overall height down.",
+   "sourceNote": "USNI Naval History; MiGFlug"
+  },
+  {
+   "id": "c-constellation-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "The triple tail also sat high enough to clear the prop wash and added stability.",
+   "sourceNote": "united-states-lines"
+  },
+  {
+   "id": "c-constellation-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "Directional stability scales with fin area and moment arm rather than the height of any single fin, so three shorter fins of equivalent total area preserve authority while reducing height, at the cost of additional parts, joints, junction drag, and tail structure.",
+   "sourceNote": "standard aerodynamics; house explanation derived from c-constellation-03 and -04"
+  },
+  {
+   "id": "c-constellation-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "The aircraft stood unusually tall for its era because its very long propellers required ground clearance.",
+   "sourceNote": "united-states-lines"
+  },
+  {
+   "id": "c-constellation-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "The fuselage sloped downward from the tail in the graceful dolphin curvature.",
+   "sourceNote": "united-states-lines; USNI; Military Wiki. The popular stretched-airfoil explanation is unverified and not used."
+  },
+  {
+   "id": "c-constellation-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "The Constellation had a fully pressurized cabin, among the first on an airliner, allowing cruise above 20,000 feet, over the weather that afflicted the DC-3 and DC-4, at more than 300 mph.",
+   "sourceNote": "MiGFlug; Grokipedia"
+  },
+  {
+   "id": "c-constellation-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "First flight January 9, 1943.",
+   "sourceNote": "Grokipedia; MiGFlug"
+  },
+  {
+   "id": "c-constellation-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "On April 17, 1944, the second production C-69, piloted by Howard Hughes and Jack Frye, flew Burbank to Washington in 6 hours 57 minutes, about 2,300 miles at roughly 330 mph.",
+   "sourceNote": "Military Wiki"
+  },
+  {
+   "id": "c-constellation-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "On the return trip the aircraft stopped at Wright Field and gave Orville Wright his last flight, more than 40 years after his first; he remarked that the Constellation's wingspan was longer than the distance of his first flight. The Wright Field stop is dated April 26, 1944; the April 17 record leg was outbound.",
+   "sourceNote": "Military Wiki"
+  },
+  {
+   "id": "c-constellation-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "The L-049 Constellation's wingspan of 123 feet exceeds the 120 feet covered by the first powered flight. The 123 ft 5 in figure is the later C-121 stretch.",
+   "sourceNote": "Grokipedia specs; Wright first-flight record (EC Wright wind tunnel VCL)"
+  },
+  {
+   "id": "c-constellation-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["constellation"],
+   "text": "856 Constellations were built across numerous models, most powered by four 18-cylinder Wright R-3350 radials; the type served as Eisenhower's presidential aircraft and in the Berlin Airlift.",
+   "sourceNote": "Military Wiki"
+  },
+  {
+   "id": "c-constellation-14",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": ["constellation"],
+   "text": "Willis Hawkins maintained the Excalibur program was purely a cover for the Constellation.",
+   "sourceNote": "Military Wiki (Hawkins); USNI hedges it as 'some aviation authorities contend'; the L-044 was a legitimate funded study predating Hughes, so the pure-cover framing is disputed. Texture only, not used in copy."
+  },
+  {
+   "id": "concept-constellation-twa-req",
+   "type": "concept",
+   "name": "TWA transcontinental airliner requirement (Hughes, 1939)"
+  },
+  {
+   "id": "story-constellation",
+   "type": "story",
+   "title": "The Shape of a Constraint",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7485936513386500096 instagram: none (LinkedIn-only per Fai) facebook: none (LinkedIn-only per Fai) newsletter: none (no newsletter per Fai)"
   }
  ],
  "edges": [
@@ -5942,6 +6117,44 @@
    "type": "covers",
    "from": "story-f-104",
    "to": "f-104"
-  }
+  },
+  { "type": "event-of", "from": "ev-decision-constellation-1", "to": "constellation" },
+  { "type": "event-of", "from": "ev-first-flight-constellation-2", "to": "constellation" },
+  { "type": "event-of", "from": "ev-record-constellation-3", "to": "constellation" },
+  { "type": "contributed", "from": "kelly-johnson", "to": "constellation", "role": "led" },
+  { "type": "contributed", "from": "hall-hibbard", "to": "constellation", "role": "led" },
+  { "type": "contributed", "from": "howard-hughes", "to": "constellation", "role": "commissioned" },
+  { "type": "contributed", "from": "jack-frye", "to": "constellation", "role": "commissioned" },
+  { "type": "contributed", "from": "orville-wright", "to": "constellation", "role": "witnessed" },
+  { "type": "about", "from": "c-constellation-01", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-01", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-02", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-02", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-03", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-03", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-04", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-04", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-05", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-05", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-06", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-06", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-07", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-07", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-08", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-08", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-09", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-09", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-10", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-10", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-11", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-11", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-12", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-12", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-13", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-13", "to": "src-constellation-vcl" },
+  { "type": "about", "from": "c-constellation-14", "to": "constellation" },
+  { "type": "cites", "from": "c-constellation-14", "to": "src-constellation-vcl" },
+  { "type": "responded-to", "from": "constellation", "to": "concept-constellation-twa-req", "claimId": "c-constellation-01" },
+  { "type": "covers", "from": "story-constellation", "to": "constellation" }
  ]
 }
