@@ -522,6 +522,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   .support-cell{padding:38px 28px}
   footer{padding:36px 20px}
 }
+/* ---- v1.31: findings entry point + mobile refinement ---- */
+.nav-findings{background:none;border:none;color:var(--steel-dim);font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:7px 6px;transition:color .2s;cursor:pointer;white-space:nowrap}
+.nav-findings:hover{color:var(--green)}
+.to-findings{display:none;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--green-line);color:var(--green);font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:13px;text-decoration:none;box-shadow:var(--bevel)}
+.to-findings:hover{border-color:var(--green)}
+.finding-hint{display:none;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint);padding:12px 20px 0}
+.pending-note{font-size:12px;color:var(--steel-faint);line-height:1.6;margin-top:2px}
+.gauge-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.8px;color:var(--steel-faint);margin-top:12px;line-height:1.5}
+@media (max-width:760px){
+  body{display:flex;flex-direction:column;overflow-x:clip}
+  body>*{min-width:0}
+  .findings{order:5}
+  .alerts{order:6}
+  .bench{order:7}
+  .lore{order:8}
+  .support{order:9}
+  footer{order:10}
+  .to-findings{display:flex}
+  .finding-hint{display:block}
+}
+@media (max-width:600px){
+  .gline{flex-wrap:wrap;gap:5px 8px}
+  .gline-label{flex:0 0 auto}
+  .gline-count{margin-left:auto}
+  .gline-cells{flex:1 1 100%;order:3;gap:2px}
+  .cell{min-width:0}
+}
 </style>
 </head>
 <body>
@@ -535,6 +562,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <div class="nav-wordmark">Shannon<span>.</span></div>
   </a>
   <div class="nav-right">
+    <a class="nav-findings" href="#findings">Findings</a>
     <div class="nav-tag">EC Archive / Three lines live</div>
     <a class="nav-cta nav-support" href="https://buymeacoffee.com/engineeringcommunity" target="_blank" rel="noopener">Support</a>
     <a class="nav-cta nav-linkedin" href="https://www.linkedin.com/company/engineeringcommunity/" target="_blank" rel="noopener">Follow on LinkedIn</a>
@@ -544,13 +572,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 <div class="bulletin">
   <span class="b-lamp"></span>
   <span class="b-tag">Bulletin</span>
-  <span class="b-text">WRIGHT L-08 is live and the F-104 joins KELLY. Crew remarks unseal as each engineer confirms.</span>
+  <span class="b-text">The C-130 joins KELLY, the plate its own designer opposed. Crew remarks appear as each commenter agrees.</span>
 </div>
 
 <header class="hero">
   <div class="milestone">
     <span class="milestone-num">350,000</span>
-    <span class="milestone-text">And growing, across platforms.<br>SHANNON is our thank you.</span>
+    <span class="milestone-text">And growing, across Instagram, Facebook, LinkedIn and the newsletter.<br>SHANNON is our thank you.</span>
   </div>
   <h1>Why they look<br>the way <em>they do.</em></h1>
   <p class="hero-sub">SHANNON is Engineering Community's story archive: the engineering behind aircraft, failures, machines, materials, and the rules written after things went wrong. It opens with <strong>KELLY, Line 01: military aircraft</strong>, eight decades of airframes shaped by constraints. Lit plates link to the full story. Sealed plates open as we publish.</p>
@@ -609,6 +637,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <div class="gauge-label"><span>Archive coverage</span><b id="gauge-count"></b></div>
     <div class="gauge-lines" id="gauge-lines"></div>
     <div class="gauge-note"><span>One cell per plate, by line. <b>Click a cell to jump to its plate.</b></span><span class="gauge-last" id="gauge-last"></span></div>
+    <div class="gauge-sub">Kelly L-01 is our first line, and still carries most of the archive.</div>
   </div>
 
   <div class="hero-scroll">Scroll</div>
@@ -634,6 +663,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="filter-count"><b id="visible-count"></b> airframes shown</div>
 </div>
 
+<a class="to-findings" href="#findings">See the findings and board &darr;</a>
+
 <section class="findings" id="findings">
   <div class="findings-head">
     <div class="findings-tag">Findings</div>
@@ -649,6 +680,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="finding-nav" id="finding-nav"></div>
 
   <div class="board-wrap">
+    <div class="finding-hint">Best explored on a larger screen.</div>
     <div class="board-bar">
       <div class="board-title">The board <b>/ every artifact, every wired connection</b></div>
       <div class="board-filters" id="board-filters"></div>
@@ -771,7 +803,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.30 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.31 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -886,7 +918,7 @@ const AIRCRAFT = [
 
   {id:"c-130", name:"C-130 Hercules", year:1954, ff:"Aug 1954", origin:"United States", role:"transport", status:"covered",
    hook:"Kelly Johnson told Lockheed's chief engineer the C-130 would destroy the company, then walked out. The slow, unarmed hauler he tried to kill has stayed in production for 70 years, the longest run of any military aircraft, and outlasted every fast jet he championed.",
-   posts:[{label:"Read the story", date:"Jul 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7485840900389031937"}]},
+   posts:[{label:"Read the story", date:"Jul 22, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7485840900389031937"}]},
 
   {id:"u-2", name:"U-2", variant:"Dragon Lady", year:1955, ff:"Aug 1955", origin:"United States", role:"recon", status:"covered",
    hook:"EVERY U-2 LANDING REQUIRES A SPORTS CAR DOING 100+ MPH DOWN THE RUNWAY, WITH ANOTHER PILOT BEHIND THE WHEEL.",
@@ -1235,31 +1267,30 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
             <div class="more-posts-label">More on the ${esc(a.name.split(" ")[0])}</div>
             ${extra.map(p => `<a class="post-chip" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
           </div>` : ""}
-        ${a.remarks && a.remarks.length ? `
-          <div class="remarks">
-            <div class="remarks-label">Crew remarks</div>
-            ${a.remarks.map(r => r.cleared ? `
-              <div class="remark">
-                <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
-                <div class="remark-body">
-                  <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(r.profile)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
-                  <p class="remark-text">${esc(r.text)}</p>
-                  ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
-                </div>
-              </div>` : `
-              <div class="remark pending">
-                <span class="pending-stamp">Awaiting consent</span>
-                <div class="avatar">&#9646;&#9646;</div>
-                <div class="remark-body">
-                  <div class="remark-meta"><span class="pending-name"></span><span class="pending-title"></span></div>
-                  <div class="pending-text">
-                    ${redactLines(r.len || 120).map(w => `<div class="pl" style="width:${w}%"></div>`).join("")}
-                  </div>
-                </div>
-              </div>`).join("")}
-            <p class="remarks-note">Remarks stay sealed until each engineer confirms.</p>
-            <button class="remark-submit" data-form="GxyoQZ" data-form-title="Crew remarks">Submit a remark &rarr;</button>
-          </div>` : ""}
+        <div class="remarks">
+          <div class="remarks-label">Crew remarks</div>
+          ${(a.remarks && a.remarks.length ? a.remarks : [{placeholder:true}]).map(r => r.cleared ? `
+            <div class="remark">
+              <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
+              <div class="remark-body">
+                <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(r.profile)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
+                <p class="remark-text">${esc(r.text)}</p>
+                ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
+              </div>
+            </div>` : `
+            <div class="remark pending">
+              <span class="pending-stamp">Awaiting consent</span>
+              <div class="avatar">&#9646;&#9646;</div>
+              <div class="remark-body">
+                <div class="remark-meta"><span class="pending-name"></span><span class="pending-title"></span></div>
+                ${r.placeholder ? `<p class="pending-note">A comment from the post will appear here once its author agrees to be featured.</p>` : `<div class="pending-text">
+                  ${redactLines(r.len || 120).map(w => `<div class="pl" style="width:${w}%"></div>`).join("")}
+                </div>`}
+              </div>
+            </div>`).join("")}
+          <p class="remarks-note">We feature comments from the posts here, each with the writer's consent. Blanked until they agree.</p>
+          <button class="remark-submit" data-form="GxyoQZ" data-form-title="Crew remarks">Submit a remark &rarr;</button>
+        </div>
         </div>
         ${hasArt ? `
         <div class="plate-art">
