@@ -532,6 +532,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 /* ---- v1.31: findings entry point + mobile refinement ---- */
 .nav-findings{background:none;border:none;color:var(--steel-dim);font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;padding:7px 6px;transition:color .2s;cursor:pointer;white-space:nowrap}
 .nav-findings:hover{color:var(--green)}
+/* Below 600px only Findings and Support ride in the nav. Keeping the LinkedIn
+   CTA on 421-440px phones (the Pro Max sizes) overflowed the bar and shoved
+   Support off the right edge. The logo already links to Engineering Community. */
+@media (max-width:600px){ .nav-linkedin{display:none} }
 .to-findings{display:none;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--green-line);color:var(--green);font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:13px;text-decoration:none;box-shadow:var(--bevel)}
 .to-findings:hover{border-color:var(--green)}
 .finding-hint{display:none;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint);padding:12px 20px 0}
@@ -555,8 +559,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   .gline{flex-wrap:wrap;gap:5px 8px}
   .gline-label{flex:0 0 auto}
   .gline-count{margin-left:auto}
-  .gline-cells{flex:1 1 100%;order:3;gap:2px}
-  .cell{min-width:0}
+  /* Taller tap area: the cells stay slim but the bar you can tap is roomy,
+     and the snap-to-nearest handler turns any tap in it into a jump. */
+  .gline-cells{flex:1 1 100%;order:3;gap:2px;padding:7px 0;cursor:pointer}
+  .cell{min-width:0;height:16px}
 }
 </style>
 </head>
@@ -818,7 +824,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.40 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.41 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1844,7 +1850,20 @@ GAUGE_LINES.forEach(L => {
   linesWrap.appendChild(row);
 });
 linesWrap.addEventListener("click", e => {
-  const c = e.target.closest(".cell");
+  let c = e.target.closest(".cell");
+  if (!c) {
+    // Cells are a few px wide on a phone, so a near miss lands in a gap.
+    // Snap any tap inside a line's cell bar to the nearest cell by x.
+    const bar = e.target.closest(".gline-cells");
+    if (!bar) return;
+    let best = null, bestD = Infinity;
+    bar.querySelectorAll(".cell").forEach(cell => {
+      const r = cell.getBoundingClientRect();
+      const d = Math.abs((r.left + r.right) / 2 - e.clientX);
+      if (d < bestD) { bestD = d; best = cell; }
+    });
+    c = best;
+  }
   if (!c) return;
   const el = document.getElementById(c.dataset.target);
   if (!el) return;
