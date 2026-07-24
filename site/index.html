@@ -818,7 +818,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.39 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.40 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1935,23 +1935,21 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 if (!reduceMotion) {
   const io = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
-  }, { threshold:.1 });
+  }, { threshold:.1, rootMargin:"0px 0px -10% 0px" });
   document.querySelectorAll(".plate").forEach(c => io.observe(c));
-  /* Safety net. Plates start hidden and are revealed on intersection, so an
-     observer that never fires would leave the archive looking empty. Fall back
-     to a scroll check rather than a blind timer, so a plate still reveals as
-     it reaches the screen and the stagger reads on the way down. */
+  /* Safety net for a stalled observer. Every plate is below the hero fold, so
+     it should only reveal once you have actually scrolled. The sweep runs on
+     real scroll and resize (never a blind timer), and bails at scrollY 0, so a
+     mobile URL bar inflating innerHeight at load cannot reveal anything early. */
   const sweepPlates = () => {
+    if ((window.scrollY || document.documentElement.scrollTop || 0) < 1) return;
     document.querySelectorAll(".plate:not(.visible)").forEach(c => {
       const r = c.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.92 && r.bottom > 0) c.classList.add("visible");
+      if (r.top < window.innerHeight * 0.88 && r.bottom > 0) c.classList.add("visible");
     });
   };
   window.addEventListener("scroll", sweepPlates, { passive:true });
   window.addEventListener("resize", sweepPlates, { passive:true });
-  const platesFirstCheck = () => setTimeout(sweepPlates, 400);
-  if (document.readyState === "complete") platesFirstCheck();
-  else window.addEventListener("load", platesFirstCheck, { once:true });
 } else {
   document.querySelectorAll(".plate").forEach(c => c.classList.add("visible"));
 }
@@ -1996,34 +1994,31 @@ function revealHero(){
     if (c.dataset.lit==="1") setTimeout(() => c.classList.add("lit"), reduceMotion ? 0 : 250 + i*70);
   });
 }
+/* The negative bottom margin means the gauge must be genuinely up into the
+   viewport before it counts as intersecting, not merely touching the bottom
+   edge. That is what stops it firing at load, when a mobile URL bar makes the
+   layout viewport read taller than what you can actually see. */
 const heroIO = new IntersectionObserver(es => {
   es.forEach(e => {
     if (!e.isIntersecting) return;
     revealHero();
     heroIO.disconnect();
   });
-}, { threshold:.3 });
+}, { threshold:.3, rootMargin:"0px 0px -18% 0px" });
 heroIO.observe(document.querySelector(".gauge-wrap"));
-/* Safety net. These counters start at 0 in the markup, so a stalled observer
-   would leave the archive reading zero. Fall back to a scroll check rather
-   than a blind timer, so the count and the cell stagger still run when the
-   gauge actually reaches the screen instead of finishing before you arrive. */
+/* Safety net for a stalled observer. The gauge is below the hero fold, so it
+   only reveals once you have scrolled. Runs on real scroll and resize, and
+   bails at scrollY 0, so nothing counts up before you reach it. */
 const sweepHero = () => {
   if (heroRevealed) return;
+  if ((window.scrollY || document.documentElement.scrollTop || 0) < 1) return;
   const g = document.querySelector(".gauge-wrap");
   if (!g) return;
   const r = g.getBoundingClientRect();
-  if (r.top < window.innerHeight * 0.85 && r.bottom > 0) revealHero();
+  if (r.top < window.innerHeight * 0.82 && r.bottom > 0) revealHero();
 };
 window.addEventListener("scroll", sweepHero, { passive:true });
 window.addEventListener("resize", sweepHero, { passive:true });
-/* Run the first check only once layout has settled. On phones an early timer
-   measures a half laid out page and a pre-collapse innerHeight (the URL bar
-   is still expanded), which reports the gauge as on screen when it is not,
-   so the count and the cell stagger finished before you scrolled down. */
-const heroFirstCheck = () => setTimeout(sweepHero, 400);
-if (document.readyState === "complete") heroFirstCheck();
-else window.addEventListener("load", heroFirstCheck, { once:true });
 
 /* The milestone sits above the gauge, so it counts on its own trigger. */
 const msNum = document.querySelector(".milestone-num[data-count]");
