@@ -818,7 +818,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.38 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.39 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1949,7 +1949,9 @@ if (!reduceMotion) {
   };
   window.addEventListener("scroll", sweepPlates, { passive:true });
   window.addEventListener("resize", sweepPlates, { passive:true });
-  setTimeout(sweepPlates, 1500);
+  const platesFirstCheck = () => setTimeout(sweepPlates, 400);
+  if (document.readyState === "complete") platesFirstCheck();
+  else window.addEventListener("load", platesFirstCheck, { once:true });
 } else {
   document.querySelectorAll(".plate").forEach(c => c.classList.add("visible"));
 }
@@ -2015,7 +2017,13 @@ const sweepHero = () => {
 };
 window.addEventListener("scroll", sweepHero, { passive:true });
 window.addEventListener("resize", sweepHero, { passive:true });
-setTimeout(sweepHero, 1500);
+/* Run the first check only once layout has settled. On phones an early timer
+   measures a half laid out page and a pre-collapse innerHeight (the URL bar
+   is still expanded), which reports the gauge as on screen when it is not,
+   so the count and the cell stagger finished before you scrolled down. */
+const heroFirstCheck = () => setTimeout(sweepHero, 400);
+if (document.readyState === "complete") heroFirstCheck();
+else window.addEventListener("load", heroFirstCheck, { once:true });
 
 /* The milestone sits above the gauge, so it counts on its own trigger. */
 const msNum = document.querySelector(".milestone-num[data-count]");
