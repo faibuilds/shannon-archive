@@ -541,6 +541,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
    CTA on 421-440px phones (the Pro Max sizes) overflowed the bar and shoved
    Support off the right edge. The logo already links to Engineering Community. */
 @media (max-width:600px){ .nav-linkedin{display:none} }
+/* Support is the one CTA that must survive on a phone. Below 560px the nav
+   carries the logo and Support only: the Findings link was the laptop entry
+   point and phones already get the "See the findings and board" button by the
+   plates. Support never shrinks, so large-text accessibility settings cannot
+   squeeze it off the bar either. */
+@media (max-width:560px){
+  .nav-findings{display:none}
+  .nav-right{gap:10px}
+  .nav-support{flex-shrink:0;white-space:nowrap}
+}
 .to-findings{display:none;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--green-line);color:var(--green);font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:13px;text-decoration:none;box-shadow:var(--bevel)}
 .to-findings:hover{border-color:var(--green)}
 .finding-hint{display:none;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint);padding:12px 20px 0}
@@ -830,7 +840,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.43 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.44 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
