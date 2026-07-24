@@ -535,7 +535,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 .to-findings{display:none;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--green-line);color:var(--green);font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:13px;text-decoration:none;box-shadow:var(--bevel)}
 .to-findings:hover{border-color:var(--green)}
 .finding-hint{display:none;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint);padding:12px 20px 0}
-.pending-note{font-size:12px;color:var(--steel-faint);line-height:1.6;margin-top:2px}
+.remarks-invite{font-size:12.5px;line-height:1.65;color:var(--steel-faint);margin:-4px 0 14px;max-width:640px}
 .gauge-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.8px;color:var(--steel-faint);margin-top:12px;line-height:1.5}
 @media (max-width:760px){
   body{display:flex;flex-direction:column}
@@ -628,14 +628,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num" data-stat="total">0</div>
-      <div class="hero-stat-label">Plates across the lines</div>
+      <div class="hero-stat-label">Plates on Kelly L-01</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num"><span data-stat="lit">0</span><span class="accent">&nbsp;lit</span></div>
-      <div class="hero-stat-label">Stories published</div>
+      <div class="hero-stat-label">Kelly stories published</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num"><span data-count="7">0</span>M+</div>
+      <div class="hero-stat-num"><span data-count="10">0</span>M+</div>
       <div class="hero-stat-label">Views across platforms</div>
     </div>
   </div>
@@ -810,7 +810,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.35 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.36 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1285,6 +1285,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
           </div>` : ""}
         <div class="remarks">
           <div class="remarks-label">Crew remarks</div>
+          <p class="remarks-invite">Flew it, built it, or kept it flying? Tell us what you saw. Comments appear here once their author agrees.</p>
           ${(a.remarks && a.remarks.length ? a.remarks : [{placeholder:true}]).map(r => r.cleared ? `
             <div class="remark">
               <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
@@ -1299,12 +1300,11 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
               <div class="avatar">&#9646;&#9646;</div>
               <div class="remark-body">
                 <div class="remark-meta"><span class="pending-name"></span><span class="pending-title"></span></div>
-                ${r.placeholder ? `<p class="pending-note">A comment from the post will appear here once its author agrees to be featured.</p>` : `<div class="pending-text">
+                <div class="pending-text">
                   ${redactLines(r.len || 120).map(w => `<div class="pl" style="width:${w}%"></div>`).join("")}
-                </div>`}
+                </div>
               </div>
             </div>`).join("")}
-          <p class="remarks-note">We feature comments from the posts here, each with the writer's consent. Blanked until they agree.</p>
           <button class="remark-submit" data-form="GxyoQZ" data-form-title="Crew remarks">Submit a remark &rarr;</button>
         </div>
         </div>
@@ -1829,12 +1829,14 @@ linesWrap.addEventListener("click", e => {
   setTimeout(() => el.classList.remove("flash"), 2600);
 });
 
-// Archive-wide totals for the hero stats and gauge header.
+// The gauge header carries the archive-wide picture across all three lines.
+// The hero stats are scoped to KELLY, the first line, and are labelled so.
 const ALL_PLATES = AIRCRAFT.concat(LOVELACE, WRIGHT);
 const litCount = ALL_PLATES.filter(a => a.status === "covered").length;
 const totalCount = ALL_PLATES.length;
-document.querySelector('[data-stat="total"]').dataset.count = totalCount;
-document.querySelector('[data-stat="lit"]').dataset.count = litCount;
+document.querySelector('[data-stat="total"]').dataset.count = AIRCRAFT.length;
+document.querySelector('[data-stat="lit"]').dataset.count =
+  AIRCRAFT.filter(a => a.status === "covered").length;
 document.getElementById("gauge-count").textContent = litCount + " / " + totalCount + " lit";
 document.getElementById("sealed-count").textContent = totalCount - litCount;
 const lastLit = ALL_PLATES
@@ -1883,13 +1885,18 @@ if (!reduceMotion) {
   }, { threshold:.1 });
   document.querySelectorAll(".plate").forEach(c => io.observe(c));
   /* Safety net. Plates start hidden and are revealed on intersection, so an
-     observer that never fires would leave the archive looking empty. If
-     nothing has revealed at all, show them. */
-  setTimeout(() => {
-    if (!document.querySelector(".plate.visible")) {
-      document.querySelectorAll(".plate").forEach(c => c.classList.add("visible"));
-    }
-  }, 2500);
+     observer that never fires would leave the archive looking empty. Fall back
+     to a scroll check rather than a blind timer, so a plate still reveals as
+     it reaches the screen and the stagger reads on the way down. */
+  const sweepPlates = () => {
+    document.querySelectorAll(".plate:not(.visible)").forEach(c => {
+      const r = c.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.92 && r.bottom > 0) c.classList.add("visible");
+    });
+  };
+  window.addEventListener("scroll", sweepPlates, { passive:true });
+  window.addEventListener("resize", sweepPlates, { passive:true });
+  setTimeout(sweepPlates, 1500);
 } else {
   document.querySelectorAll(".plate").forEach(c => c.classList.add("visible"));
 }
@@ -1943,8 +1950,19 @@ const heroIO = new IntersectionObserver(es => {
 }, { threshold:.3 });
 heroIO.observe(document.querySelector(".gauge-wrap"));
 /* Safety net. These counters start at 0 in the markup, so a stalled observer
-   would leave the archive reading zero plates. */
-setTimeout(revealHero, 3000);
+   would leave the archive reading zero. Fall back to a scroll check rather
+   than a blind timer, so the count and the cell stagger still run when the
+   gauge actually reaches the screen instead of finishing before you arrive. */
+const sweepHero = () => {
+  if (heroRevealed) return;
+  const g = document.querySelector(".gauge-wrap");
+  if (!g) return;
+  const r = g.getBoundingClientRect();
+  if (r.top < window.innerHeight * 0.85 && r.bottom > 0) revealHero();
+};
+window.addEventListener("scroll", sweepHero, { passive:true });
+window.addEventListener("resize", sweepHero, { passive:true });
+setTimeout(sweepHero, 1500);
 
 /* The milestone sits above the gauge, so it counts on its own trigger. */
 const msNum = document.querySelector(".milestone-num[data-count]");
