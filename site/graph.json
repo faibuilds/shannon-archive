@@ -3892,6 +3892,11 @@
    "claimId": "c-c130-01"
   },
   {
+   "type": "covers",
+   "from": "story-c-130",
+   "to": "c-130"
+  },
+  {
    "type": "event-of",
    "from": "ev-ff-u-2",
    "to": "u-2"
@@ -4165,6 +4170,11 @@
    "type": "about",
    "from": "c-f15-response",
    "to": "f-15"
+  },
+  {
+   "type": "about",
+   "from": "c-f15-response",
+   "to": "mig-25"
   },
   {
    "type": "responded-to",

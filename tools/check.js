@@ -353,8 +353,10 @@ const WRIGHT = parseLineArray("WRIGHT");
   }
   if (lineLeaks.length) problems.push("masked line name in public graph: " + lineLeaks.join(", "));
 
-  // Synthesis edges carry a claimId whose claim is verified.
-  const SYNTH = new Set(["enabled", "forced", "responded-to"]);
+  // Synthesis edges carry a claimId whose claim is verified AND about at
+  // least one endpoint, so an edge cannot borrow an unrelated claim.
+  // corrects edges follow the same discipline as the constitution trio.
+  const SYNTH = new Set(["enabled", "forced", "responded-to", "corrects"]);
   const badSynth = [];
   for (const e of edges) {
     if (!SYNTH.has(e.type)) continue;
@@ -363,8 +365,30 @@ const WRIGHT = parseLineArray("WRIGHT");
     if (!c) badSynth.push(e.from + "->" + e.to + " (claimId " + e.claimId + " missing)");
     else if (c.type !== "claim") badSynth.push(e.from + "->" + e.to + " (claimId " + e.claimId + " not a claim)");
     else if (c.status !== "verified") badSynth.push(e.from + "->" + e.to + " (claim " + e.claimId + " status=" + c.status + ")");
+    else if (!(c.aboutIds || []).includes(e.from) && !(c.aboutIds || []).includes(e.to))
+      badSynth.push(e.from + "->" + e.to + " (claim " + e.claimId + " is about neither endpoint)");
   }
   if (badSynth.length) problems.push("synthesis edge claim issues: " + badSynth.join(", "));
+
+  // A claim's aboutIds field and its about-edges are dual encodings of the
+  // same fact; they must agree or the board and the ledger drift apart.
+  const badAbout = [];
+  for (const n of nodes) {
+    if (n.type !== "claim") continue;
+    const viaEdges = edges.filter((e) => e.type === "about" && e.from === n.id).map((e) => e.to).sort();
+    const viaField = (n.aboutIds || []).slice().sort();
+    if (JSON.stringify(viaEdges) !== JSON.stringify(viaField))
+      badAbout.push(n.id + " field:[" + viaField + "] edges:[" + viaEdges + "]");
+  }
+  if (badAbout.length) problems.push("claim aboutIds disagree with about edges: " + badAbout.join(", "));
+
+  // Every unsealed artifact carries a published story, so it must have a
+  // covers edge; a story node without one is an orphan the site cannot reach.
+  const noCovers = nodes
+    .filter((n) => n.type === "artifact" && n.sealed === false)
+    .filter((a) => !edges.some((e) => e.type === "covers" && e.to === a.id))
+    .map((a) => a.id);
+  if (noCovers.length) problems.push("unsealed artifact without a covers edge: " + noCovers.join(", "));
 
   if (problems.length) fail(name, problems.join(" | "));
   else pass(name, "(" + nodes.length + " nodes, " + edges.length + " edges)");
