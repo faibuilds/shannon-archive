@@ -559,8 +559,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 .filters:not(.on-kelly) .kelly-only{display:none}
 .gauge-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.8px;color:var(--steel-faint);margin-top:12px;line-height:1.5}
 @media (max-width:760px){
-  body{display:flex;flex-direction:column}
-  body>*{min-width:0}
+  /* overflow-x:clip (not hidden) keeps the layout viewport at device width
+     without creating a scroll container, so sticky and the observers are
+     untouched. Without it the findings block widened the document to ~982px,
+     and since the fixed nav spans the layout viewport it stretched too and
+     parked Support and Findings off the right edge of the screen. */
+  body{display:flex;flex-direction:column;overflow-x:clip}
+  body>*{min-width:0;max-width:100%}
+  /* The wide board and finding diagrams scroll inside their own containers;
+     these must not be allowed to push the page wider than the phone. */
+  .findings,.findings-head,.finding,.finding-nav,.finding-hint,
+  .board-wrap,.board-bar,.board-stats,.board-caption,.board-foot{min-width:0;max-width:100%}
   .findings{order:5}
   .alerts{order:6}
   .bench{order:7}
@@ -840,7 +849,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.44 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.45 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -2020,7 +2029,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 if (!reduceMotion) {
   const io = new IntersectionObserver(es => {
     es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); } });
-  }, { threshold:.1, rootMargin:"0px 0px -10% 0px" });
+  }, { threshold:.05, rootMargin:"0px 0px 12% 0px" });
   document.querySelectorAll(".plate").forEach(c => io.observe(c));
   /* Safety net for a stalled observer. Every plate is below the hero fold, so
      it should only reveal once you have actually scrolled. The sweep runs on
@@ -2030,7 +2039,7 @@ if (!reduceMotion) {
     if ((window.scrollY || document.documentElement.scrollTop || 0) < 1) return;
     document.querySelectorAll(".plate:not(.visible)").forEach(c => {
       const r = c.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.88 && r.bottom > 0) c.classList.add("visible");
+      if (r.top < window.innerHeight * 1.02 && r.bottom > 0) c.classList.add("visible");
     });
   };
   window.addEventListener("scroll", sweepPlates, { passive:true });
