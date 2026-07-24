@@ -3466,6 +3466,219 @@
    "type": "story",
    "title": "The Shape of a Constraint",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7485936513386500096 instagram: none (LinkedIn-only per Fai) facebook: none (LinkedIn-only per Fai) newsletter: none (no newsletter per Fai)"
+  },
+  {
+   "id": "a-12",
+   "type": "artifact",
+   "name": "Lockheed A-12",
+   "category": "recon",
+   "origin": "United States",
+   "lineId": "kelly",
+   "sealed": false,
+   "note": "Project OXCART. Added from block 2026-07-23; see blocks/shannon_a-12.md"
+  },
+  {
+   "id": "src-a12-vcl",
+   "type": "source",
+   "title": "EC VCL: Lockheed A-12 OXCART (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-a-12-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": { "year": 1956, "month": 8, "day": 16 },
+   "subjectId": "a-12",
+   "label": "Bissell convenes the first meeting on reducing the U-2's radar cross section, becoming Project RAINBOW, which fails"
+  },
+  {
+   "id": "ev-decision-a-12-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": { "year": 1958, "month": 4, "day": 21 },
+   "subjectId": "a-12",
+   "label": "Kelly Johnson makes his first notes on a Mach 3 aircraft, initially U-3, evolving into Archangel I"
+  },
+  {
+   "id": "ev-decision-a-12-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": { "year": 1958, "month": 11 },
+   "subjectId": "a-12",
+   "label": "Land Panel provisionally selects Convair's FISH over Lockheed's A-3"
+  },
+  {
+   "id": "ev-decision-a-12-4",
+   "type": "event",
+   "eventType": "decision",
+   "date": { "year": 1959, "month": 6 },
+   "subjectId": "a-12",
+   "label": "Panel provisionally selects Lockheed's A-11 over FISH and orders both companies to redesign"
+  },
+  {
+   "id": "ev-decision-a-12-5",
+   "type": "event",
+   "eventType": "decision",
+   "date": { "year": 1959, "month": 9, "day": 14 },
+   "subjectId": "a-12",
+   "label": "CIA selects the A-12 over Convair's KINGFISH; Project OXCART established"
+  },
+  {
+   "id": "ev-first-flight-a-12-6",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": { "year": 1962, "month": 4 },
+   "subjectId": "a-12",
+   "label": "A-12 first flight at Groom Lake"
+  },
+  {
+   "id": "ev-record-a-12-7",
+   "type": "event",
+   "eventType": "record",
+   "date": { "year": 1965 },
+   "subjectId": "a-12",
+   "label": "Declared fully operational at design specifications, sustained Mach 3.2 at 90,000 feet"
+  },
+  {
+   "id": "richard-bissell",
+   "type": "person",
+   "name": "Richard Bissell",
+   "note": "CIA Deputy Director for Plans; convened the RCS work that became RAINBOW and drove the U-2 successor program."
+  },
+  {
+   "id": "edwin-land",
+   "type": "person",
+   "name": "Edwin Land",
+   "note": "Chaired the review panel that twice declined to select Lockheed's design before the A-12 won."
+  },
+  {
+   "id": "francis-gary-powers",
+   "type": "person",
+   "name": "Francis Gary Powers",
+   "note": "His U-2 was shot down over the Soviet Union in May 1960, during A-12 development, confirming the threat the program answered."
+  },
+  {
+   "id": "c-a12-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "After Soviet protests over U-2 overflights, Bissell convened the first meeting on reducing the U-2's radar cross section on Aug 16, 1956; the resulting Project RAINBOW failed to reduce RCS enough.",
+   "sourceNote": "Skytamer timeline; Wikipedia; CIA/Robarge"
+  },
+  {
+   "id": "c-a12-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "On April 21, 1958 Johnson made his first notes on a Mach 3 aircraft, initially called U-3, which evolved into Archangel I.",
+   "sourceNote": "Skytamer"
+  },
+  {
+   "id": "c-a12-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Johnson and Bissell agreed there should be one more round before satellites made aircraft reconnaissance obsolete for covert work.",
+   "sourceNote": "Johnson quoted in Wikipedia; CIA/Robarge"
+  },
+  {
+   "id": "c-a12-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "The U-2 program was code-named ANGEL, so the successor designs were nicknamed ARCHANGEL, running A-1 through A-11; the A-12 was the twelfth internal design effort.",
+   "sourceNote": "Wikipedia; The Aviationist; National Interest"
+  },
+  {
+   "id": "c-a12-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "In Nov 1958 the Land Panel provisionally selected Convair's FISH over Lockheed's A-3; in June 1959 it provisionally selected Lockheed's A-11 over FISH and instructed both companies to redesign.",
+   "sourceNote": "Skytamer"
+  },
+  {
+   "id": "c-a12-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "On Sept 14, 1959 the CIA selected the A-12 over Convair's KINGFISH and established Project OXCART.",
+   "sourceNote": "Skytamer; Wikipedia"
+  },
+  {
+   "id": "c-a12-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "CIA representatives initially favoured Convair's design for its smaller radar cross section; the A-12 won on slightly better specifications, much lower projected cost, and track record, Convair's B-58 having run late and over budget while Lockheed delivered the U-2 on time and under budget.",
+   "sourceNote": "Wikipedia (explicit)"
+  },
+  {
+   "id": "c-a12-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Sustained Mach 3.2 heats the airframe past 250 degrees C, beyond aluminium's tolerance, so the aircraft was built overwhelmingly from titanium alloy.",
+   "sourceNote": "MiGFlug; CIA/Robarge"
+  },
+  {
+   "id": "c-a12-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Titanium forced new manufacturing: Skunk Works had to invent new tools, welding methods, and inspection procedures. Titanium conducts heat poorly, so cutting heat concentrates at the tool edge and destroys conventional tooling, and hot titanium absorbs oxygen and nitrogen from air and embrittles, requiring inert-gas shielded welding.",
+   "sourceNote": "MiGFlug; CIA.gov OXCART (innovations in titanium fabrication); mechanism is standard materials engineering"
+  },
+  {
+   "id": "c-a12-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Much of the titanium was reportedly acquired covertly through shell companies from Soviet-controlled sources, the only place to obtain it in quantity.",
+   "sourceNote": "Declassified CIA documents and Ben Rich's memoir; dummy corporations purchased rutile ore through third countries sourcing from the USSR. Attribution and the 'much of' hedge are carried in the copy."
+  },
+  {
+   "id": "c-a12-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Testing was conducted from Groom Lake, a dry lakebed in Nevada.",
+   "sourceNote": "19FortyFive; standard record"
+  },
+  {
+   "id": "c-a12-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "In 1965 the A-12 was declared fully operational at its design specifications, sustained Mach 3.2 at 90,000 feet, after hundreds of hours flown at high personal risk by CIA and Lockheed pilots.",
+   "sourceNote": "CIA.gov OXCART page (official)"
+  },
+  {
+   "id": "c-a12-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Fifteen A-12s were built (12 single-seat recon, 1 two-seat trainer, 2 M-21 drone carriers; the 32 SR-71s and 3 YF-12s are separate programs); the type retired in 1968, and the two-seat Air Force derivative, the SR-71, became far better known.",
+   "sourceNote": "The Aviationist; MiGFlug; standard record"
+  },
+  {
+   "id": "c-a12-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["a-12"],
+   "text": "Titanium's reactivity caused documented shop failures: cadmium traces from plated wrenches produced galvanic corrosion and bolt failure at temperature, and spot welds failed seasonally because Burbank raised chlorine levels in summer municipal water against algae, attacking the titanium during washing.",
+   "sourceNote": "Ben Rich. Banked, held out of the post for length, cleared for comment-thread use."
+  },
+  {
+   "id": "concept-u2-vulnerability",
+   "type": "concept",
+   "name": "U-2 vulnerability to Soviet air defences"
+  },
+  {
+   "id": "story-a-12",
+   "type": "story",
+   "title": "Eleven Drafts to Archangel",
+   "status": "published linkedin: https://www.linkedin.com/posts/engineeringcommunity_by-1956-the-u-2-was-already-living-on-borrowed-activity-7486167263507566592-soPs instagram: published (URL pending from Fai) facebook: published (URL pending from Fai) newsletter: none (no newsletter per Fai)"
   }
  ],
  "edges": [
@@ -6155,6 +6368,48 @@
   { "type": "about", "from": "c-constellation-14", "to": "constellation" },
   { "type": "cites", "from": "c-constellation-14", "to": "src-constellation-vcl" },
   { "type": "responded-to", "from": "constellation", "to": "concept-constellation-twa-req", "claimId": "c-constellation-01" },
-  { "type": "covers", "from": "story-constellation", "to": "constellation" }
+  { "type": "covers", "from": "story-constellation", "to": "constellation" },
+  { "type": "event-of", "from": "ev-decision-a-12-1", "to": "a-12" },
+  { "type": "event-of", "from": "ev-decision-a-12-2", "to": "a-12" },
+  { "type": "event-of", "from": "ev-decision-a-12-3", "to": "a-12" },
+  { "type": "event-of", "from": "ev-decision-a-12-4", "to": "a-12" },
+  { "type": "event-of", "from": "ev-decision-a-12-5", "to": "a-12" },
+  { "type": "event-of", "from": "ev-first-flight-a-12-6", "to": "a-12" },
+  { "type": "event-of", "from": "ev-record-a-12-7", "to": "a-12" },
+  { "type": "contributed", "from": "kelly-johnson", "to": "a-12", "role": "led" },
+  { "type": "contributed", "from": "richard-bissell", "to": "a-12", "role": "commissioned" },
+  { "type": "contributed", "from": "edwin-land", "to": "a-12", "role": "reviewed" },
+  { "type": "contributed", "from": "francis-gary-powers", "to": "a-12", "role": "witnessed" },
+  { "type": "about", "from": "c-a12-01", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-01", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-02", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-02", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-03", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-03", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-04", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-04", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-05", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-05", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-06", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-06", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-07", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-07", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-08", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-08", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-09", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-09", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-10", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-10", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-11", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-11", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-12", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-12", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-13", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-13", "to": "src-a12-vcl" },
+  { "type": "about", "from": "c-a12-14", "to": "a-12" },
+  { "type": "cites", "from": "c-a12-14", "to": "src-a12-vcl" },
+  { "type": "responded-to", "from": "a-12", "to": "concept-u2-vulnerability", "claimId": "c-a12-01" },
+  { "type": "enabled", "from": "a-12", "to": "sr-71", "claimId": "c-a12-13" },
+  { "type": "covers", "from": "story-a-12", "to": "a-12" }
  ]
 }

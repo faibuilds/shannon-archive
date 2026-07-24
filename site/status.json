@@ -3,18 +3,18 @@
   "line": "KELLY L-01",
   "linesLive": 3,
   "lines": [
-    { "id": "kelly", "name": "KELLY L-01", "total": 25, "lit": 18 },
+    { "id": "kelly", "name": "KELLY L-01", "total": 26, "lit": 19 },
     { "id": "lovelace", "name": "LOVELACE L-07", "total": 4, "lit": 3 },
     { "id": "wright", "name": "WRIGHT L-08", "total": 1, "lit": 1 }
   ],
-  "total": 25,
-  "lit": 18,
+  "total": 26,
+  "lit": 19,
   "cells": [
     1, 0, 0, 1, 1, 1, 0, 1, 1, 1,
-    1, 1, 1, 1, 0, 1, 1, 1, 1, 0,
-    1, 1, 0, 0, 1
+    1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
+    0, 1, 1, 0, 0, 1
   ],
-  "lastLit": "Lockheed Constellation",
+  "lastLit": "Lockheed A-12",
   "lastLitDate": "Jul 2026",
-  "updated": "2026-07-22"
+  "updated": "2026-07-23"
 }

@@ -810,7 +810,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.36 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.37 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -959,6 +959,10 @@ const AIRCRAFT = [
      {name:"", title:"", text:"", len:38},
      {name:"", title:"", text:"", len:121}
    ]},
+
+  {id:"a-12", name:"A-12", variant:"OXCART", year:1962, ff:"Apr 1962", origin:"United States", role:"recon", status:"covered",
+   hook:"The SR-71's shape came from an aircraft called the A-12. The A stands for Archangel. The 12 means eleven designs came first and failed.",
+   posts:[{label:"Read the story", date:"Jul 23, 2026", url:"https://www.linkedin.com/posts/engineeringcommunity_by-1956-the-u-2-was-already-living-on-borrowed-activity-7486167263507566592-soPs"}]},
 
   {id:"sr-71", name:"SR-71 Blackbird", year:1964, ff:"Dec 1964", origin:"United States", role:"recon", status:"covered",
    hook:"THE SR-71 CRUISED AT MACH 3.2 BUT HAD NO INTERNAL STARTER. TO START IT, THEY USED A CART WITH TWO BUICK V8s MAKING 600+ HP.",
@@ -1503,7 +1507,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:184, verified:168, sources:15, edges:23, artifacts:33 };
+const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifacts:34 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
