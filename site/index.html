@@ -161,7 +161,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .bpad:hover rect{stroke:var(--green);fill:rgba(16,185,129,.3)}
 .bpad.dim{opacity:.22}
 .bpad-name{fill:var(--steel-dim);font-family:var(--mono);font-size:8px;letter-spacing:.5px;pointer-events:none;opacity:0;transition:opacity .15s}
-.bpad:hover .bpad-name,.bpad.named .bpad-name{opacity:1;fill:var(--steel)}
+.bpad:hover .bpad-name,.bpad.named .bpad-name,.bpad.sel .bpad-name{opacity:1;fill:var(--steel)}
+/* The component you tapped on a touch screen, held until you tap elsewhere. */
+.bpad.sel rect{stroke:var(--green);stroke-width:2;fill:rgba(16,185,129,.34)}
+.bpad.sel{opacity:1}
 .board-foot{display:flex;gap:18px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel-faint)}
 .board-foot span b{color:var(--green);font-weight:400}
 .ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10px}
@@ -827,7 +830,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.42 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.43 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1678,6 +1681,9 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
   // Connections that run plate to plate, not plate to idea: the archive
   // wiring its own entries to each other.
   const pairEdges = syn.filter(e => arts.find(a => a.id === e.from) && arts.find(a => a.id === e.to)).map(e => [e.from, e.to]);
+  // Touch has no hover, so the board switches to tap-to-inspect there.
+  const noHover = window.matchMedia("(hover: none)").matches;
+  let inspected = null;
 
   // Each stat tile is a lens onto the board: clicking it lights the
   // evidence for that number and captions what you are looking at.
@@ -1740,14 +1746,18 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
     svg.querySelectorAll(".bpad").forEach(o => {
       const on = nset.has(o.dataset.id);
       o.classList.toggle("named", on); o.classList.toggle("dim", any && !on);
+      o.classList.remove("sel");
     });
+    inspected = null;
   }
 
   document.getElementById("board-foot").innerHTML =
     `<span>Lit <b>&#9632;</b> published</span><span>Dashed <b>&#9633;</b> sealed</span>`
     + `<span>Trace <b>&#8212;</b> a connection citing a verified claim</span>`
     + `<span><b>${placed.length}</b> components</span><span><b>${syn.length}</b> traces</span>`
-    + `<span>Click a number above to light its evidence. Hover a component for its own links. Click one to open its plate.</span>`;
+    + (noHover
+      ? `<span>Tap a number above to light its evidence. Tap a component to see what it connects to, tap it again to open its plate.</span>`
+      : `<span>Click a number above to light its evidence. Hover a component for its own links. Click one to open its plate.</span>`);
 
   // ---- filters ----
   const filters = [
@@ -1808,29 +1818,63 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
     return `<table class="ledger"><thead><tr><th>From</th><th>Link</th><th>To</th><th>Cited claim</th><th style="text-align:right">Gap</th></tr></thead><tbody>${rows}</tbody></table>`;
   }
 
+  /* Touch has no hover, so on a phone the "hover a component for its links"
+     affordance does not exist and a tap jumped straight to the plate. There,
+     the first tap inspects (lights the component's traces and names what it
+     connects to) and a second tap on the same one opens its plate. */
+  function lightPad(svg, id) {
+    svg.querySelectorAll(".btrace").forEach(t => {
+      const on = t.dataset.a === id || t.dataset.b === id;
+      t.classList.toggle("hot", on); t.classList.toggle("dim", !on);
+    });
+    const linked = new Set([id]);
+    svg.querySelectorAll(".btrace").forEach(t => { if (t.dataset.a === id) linked.add(t.dataset.b); if (t.dataset.b === id) linked.add(t.dataset.a); });
+    svg.querySelectorAll(".bpad").forEach(o => { o.classList.toggle("named", linked.has(o.dataset.id)); o.classList.toggle("dim", !linked.has(o.dataset.id)); });
+  }
+
+  const plain = id => esc((((byId.get(id) || {}).name) || id).split("(")[0].trim());
+
+  function padCaption(id) {
+    const links = syn.filter(edgeOk).filter(e => e.from === id || e.to === id).map(e => {
+      const other = e.from === id ? e.to : e.from;
+      return `<b>${esc(e.type)}</b> ${e.from === id ? "&rarr;" : "&larr;"} ${plain(other)}`;
+    });
+    const body = links.length
+      ? links.join(" &nbsp;·&nbsp; ")
+      : "No claim-cited connection recorded for this one yet.";
+    return `<span class="bc-kicker">${plain(id)}</span>${body}. <b>Tap again to open its plate.</b>`;
+  }
+
+  function openPlate(id) {
+    const t = document.getElementById(id);
+    if (!t) return;
+    t.classList.add("visible");
+    t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    t.classList.add("flash");
+    setTimeout(() => t.classList.remove("flash"), 2600);
+  }
+
   function draw() {
     view.innerHTML = state.mode === "board" ? boardSvg() : ledgerHtml();
+    inspected = null;
     if (state.mode !== "board") { paintFocus(); return; }
     const svg = view.querySelector("svg");
     svg.querySelectorAll(".bpad").forEach(pad => {
       const id = pad.dataset.id;
-      pad.addEventListener("mouseenter", () => {
-        svg.querySelectorAll(".btrace").forEach(t => {
-          const on = t.dataset.a === id || t.dataset.b === id;
-          t.classList.toggle("hot", on); t.classList.toggle("dim", !on);
-        });
-        const linked = new Set([id]);
-        svg.querySelectorAll(".btrace").forEach(t => { if (t.dataset.a === id) linked.add(t.dataset.b); if (t.dataset.b === id) linked.add(t.dataset.a); });
-        svg.querySelectorAll(".bpad").forEach(o => { o.classList.toggle("named", linked.has(o.dataset.id)); o.classList.toggle("dim", !linked.has(o.dataset.id)); });
-      });
-      pad.addEventListener("mouseleave", paintFocus);
+      if (!noHover) {
+        pad.addEventListener("mouseenter", () => lightPad(svg, id));
+        pad.addEventListener("mouseleave", paintFocus);
+      }
       pad.addEventListener("click", () => {
-        const t = document.getElementById(id);
-        if (!t) return;
-        t.classList.add("visible");
-        t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-        t.classList.add("flash");
-        setTimeout(() => t.classList.remove("flash"), 2600);
+        if (noHover && inspected !== id) {
+          inspected = id;
+          lightPad(svg, id);
+          svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === id));
+          document.getElementById("board-caption").innerHTML = padCaption(id);
+          return;
+        }
+        inspected = null;
+        openPlate(id);
       });
     });
     paintFocus();
