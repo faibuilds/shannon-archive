@@ -103,7 +103,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .findings{padding:64px 80px 10px;max-width:1180px;margin:0 auto}
 .findings-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .findings-tag{font-family:var(--stencil);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green)}
-.findings-sub{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint)}
+.findings-lead{font-family:var(--font);font-size:clamp(19px,2.4vw,27px);line-height:1.24;font-weight:700;letter-spacing:-.3px;color:var(--steel);margin:11px 0 9px;max-width:800px}
+.findings-lead::after{content:'';display:block;width:38px;height:2px;background:var(--green);margin-top:14px;opacity:.85}
+.findings-sub{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);max-width:720px;line-height:1.7}
 .finding{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--green);box-shadow:var(--bevel),var(--depth);padding:26px 30px 22px;position:relative}
 .finding-kind{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
 .finding-title{font-size:19px;font-weight:800;letter-spacing:-.2px;line-height:1.35;color:var(--steel);max-width:820px;margin-bottom:12px}
@@ -689,7 +691,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 <section class="findings" id="findings">
   <div class="findings-head">
     <div class="findings-tag">Findings</div>
-    <div class="findings-sub">Connections the archive found, not the ones we went looking for</div>
+    <h2 class="findings-lead">The archive is a graph, not a list. These are the connections it holds.</h2>
+    <div class="findings-sub">Found by walking it, and drawn only where a verified claim supports the link. Explore the whole machine on the board below.</div>
   </div>
   <noscript>
     <p>SHANNON is Engineering Community's public archive of engineering history, read as a connected graph. The findings below and the interactive board are generated from that graph. Every connection shown cites a verified claim and a named source.</p>
@@ -824,7 +827,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.41 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.42 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1672,6 +1675,9 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
   const verified = claims.filter(c => c.status === "verified").length;
   const short = id => esc(((byId.get(id) || {}).name || id).split("(")[0].trim());
   const mx = lags[0];
+  // Connections that run plate to plate, not plate to idea: the archive
+  // wiring its own entries to each other.
+  const pairEdges = syn.filter(e => arts.find(a => a.id === e.from) && arts.find(a => a.id === e.to)).map(e => [e.from, e.to]);
 
   // Each stat tile is a lens onto the board: clicking it lights the
   // evidence for that number and captions what you are looking at.
@@ -1685,6 +1691,11 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
       edges: syn.filter(e => e.type === "enabled" && arts.find(a => a.id === e.from) && arts.find(a => a.id === e.to)).map(e => [e.from, e.to]), nodes: [],
       kicker: "Mean idea-to-use gap",
       html: `On average <b>${avgLag} years</b> pass between an idea being recorded and the work that puts it to use. Every lit trace here is one of those waits.`
+    },
+    pairs: {
+      edges: pairEdges, nodes: [],
+      kicker: "Plate wired to plate",
+      html: `<b>${pairEdges.length} of the connections</b> run plate to plate, not plate to idea. That is the difference between a list and an archive that knows how its own entries relate. The A-12 to the SR-71 that inherited its shape is one; the P-38 to the X-1 that finally used its fix is another.`
     },
     corrections: {
       edges: correctEdges, nodes: [],
@@ -1700,6 +1711,7 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
   const STAT_TILES = [
     ["gap", mx ? mx.years + " yrs" : "n/a", "Longest idea-to-use wait"],
     ["mean", avgLag + " yrs", "Mean idea-to-use gap"],
+    ["pairs", pairEdges.length, "Plate-to-plate links"],
     ["corrections", corrections.length, "Corrections to the record"],
     ["verify", verified + " / " + claims.length, "Claims verified, of recorded"]
   ];
