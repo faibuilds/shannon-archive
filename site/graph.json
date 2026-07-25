@@ -4645,6 +4645,135 @@
    "type": "story",
    "title": "The Waterway That Designed a Battleship",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7461643579170668544 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "nasa-printed-chamber",
+   "type": "artifact",
+   "name": "NASA 3D-printed combustion chamber (GRCop-42, Marshall 2021)",
+   "category": "process",
+   "origin": "United States",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill; see blocks/shannon_nasa-printed-chamber.md"
+  },
+  {
+   "id": "src-nasachamber-vcl",
+   "type": "source",
+   "title": "EC V5 fact-check: NASA GRCop-42 printed chamber (2021 Marshall hot-fire; NASA paper and trade coverage)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-failure-nasachamber-1",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 2021,
+    "month": 2,
+    "day": 9
+   },
+   "subjectId": "nasa-printed-chamber",
+   "label": "A 3D-printed GRCop-42 combustion chamber is hot-fire tested at Marshall (Test Stand 115); about 9 seconds in, the nozzle extension fails first, then the chamber wall tears and the barrel separates"
+  },
+  {
+   "id": "ev-publication-nasachamber-2",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 2021
+   },
+   "subjectId": "nasa-printed-chamber",
+   "label": "Sectioning reveals the chamber split along a build-interruption witness line, at porosity three orders of magnitude above a clean print; NASA's lesson is process rigor, not abandoning the method"
+  },
+  {
+   "id": "c-nasachamber-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "In February 2021, at NASA's Marshall Space Flight Center, a combustion chamber, 3D-printed from GRCop-42, a copper alloy NASA developed to survive a rocket engine's heat, went on the test stand.",
+   "sourceNote": "EC V5 fact-check (NASA paper; date and place Feb 9 2021, Marshall Test Stand 115; GRCop-42 copper-chromium-niobium alloy, both confirmed)"
+  },
+  {
+   "id": "c-nasachamber-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "About nine seconds into the burn the first crack appeared in the experimental nozzle, which fragmented and broke away; a couple of seconds later hot gas tore through the chamber wall and the barrel fully separated.",
+   "sourceNote": "EC V5 fact-check (NASA paper; about 9 s, carbon-carbon nozzle extension fails first, then the chamber, sequence confirmed)"
+  },
+  {
+   "id": "c-nasachamber-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "During the print months earlier the build had stopped and restarted four times (a power loss, a brownout, and two points where overflow powder was cleared by hand); each interruption can leave a faint horizontal witness line where it resumed.",
+   "sourceNote": "EC V5 fact-check (NASA paper; build-interruption witness line confirmed)"
+  },
+  {
+   "id": "c-nasachamber-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "The chamber had split exactly along one of those witness lines.",
+   "sourceNote": "EC V5 fact-check (NASA paper; failure originated at a build-interruption witness line)"
+  },
+  {
+   "id": "c-nasachamber-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "The interruptions themselves did not doom the part: NASA printed test bars with the same deliberate pauses and those came out perfectly strong, so a clean restart does not weaken the metal.",
+   "sourceNote": "EC V5 fact-check (NASA paper; replica-interruption test bars showed no degradation, confirmed as the paper's finding)"
+  },
+  {
+   "id": "c-nasachamber-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "Sectioning found porosity, microscopic voids, at levels three orders of magnitude (a thousand times) higher than a clean print should have, lack-of-fusion defects pointing to a subtle process problem during the interrupted layer that build logs and nominal laser readings never revealed.",
+   "sourceNote": "EC V5 fact-check (NASA paper; three orders of magnitude higher than typical GRCop-42 directly confirmed, multiple sources)"
+  },
+  {
+   "id": "c-nasachamber-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "The pre-test CT scans were focused on verifying powder removal, not on hunting for witness lines, so a part with a built-in weak spot passed every check and only revealed the defect when cut open after failure.",
+   "sourceNote": "EC V5 fact-check (NASA paper; inspection focus consistent with the build-records-looked-fine narrative)"
+  },
+  {
+   "id": "c-nasachamber-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nasa-printed-chamber"
+   ],
+   "text": "NASA's lesson was not \"stop interrupting builds\" or \"don't trust the alloy\" but process rigor: print witness coupons alongside the real part that can be cut open and tested, inspect for the specific failure mode, and never assume a clean-looking build is a sound one.",
+   "sourceNote": "EC V5 fact-check (consistent with the paper's conclusions)"
+  },
+  {
+   "id": "concept-am-hidden-defect",
+   "type": "concept",
+   "name": "Additive-manufacturing defects invisible to build logs and standard inspection"
+  },
+  {
+   "id": "story-nasa-printed-chamber",
+   "type": "story",
+   "title": "The Scar That Recorded the Pause",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7470222146330329088 instagram: none facebook: none newsletter: none"
   }
  ],
  "edges": [
@@ -7572,6 +7701,107 @@
   {"type":"cites","from":"c-iowa-10","to":"src-uss-iowa-vcl"},
   {"type":"enabled","from":"uss-iowa","to":"concept-iowa-constraints","claimId":"c-iowa-05"},
   {"type":"responded-to","from":"uss-iowa","to":"concept-canal-lock-constraint","claimId":"c-iowa-03"},
-  {"type":"covers","from":"story-uss-iowa","to":"uss-iowa"}
+  {"type":"covers","from":"story-uss-iowa","to":"uss-iowa"},
+  {
+   "type": "event-of",
+   "from": "ev-failure-nasachamber-1",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-publication-nasachamber-2",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-01",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-01",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-02",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-02",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-03",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-03",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-04",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-04",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-05",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-05",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-06",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-06",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-07",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-07",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-nasachamber-08",
+   "to": "nasa-printed-chamber"
+  },
+  {
+   "type": "cites",
+   "from": "c-nasachamber-08",
+   "to": "src-nasachamber-vcl"
+  },
+  {
+   "type": "responded-to",
+   "from": "nasa-printed-chamber",
+   "to": "concept-am-hidden-defect",
+   "claimId": "c-nasachamber-06"
+  },
+  {
+   "type": "covers",
+   "from": "story-nasa-printed-chamber",
+   "to": "nasa-printed-chamber"
+  }
  ]
 }
