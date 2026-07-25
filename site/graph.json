@@ -3679,6 +3679,691 @@
    "type": "story",
    "title": "Eleven Drafts to Archangel",
    "status": "published linkedin: https://www.linkedin.com/posts/engineeringcommunity_by-1956-the-u-2-was-already-living-on-borrowed-activity-7486167263507566592-soPs instagram: published (URL pending from Fai) facebook: published (URL pending from Fai) newsletter: none (no newsletter per Fai)"
+  },
+  {
+   "id": "ronan-point",
+   "type": "artifact",
+   "name": "Ronan Point",
+   "category": "structure",
+   "origin": "United Kingdom",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL; see blocks/shannon_ronan-point.md"
+  },
+  {
+   "id": "src-ronan-point-vcl",
+   "type": "source",
+   "title": "EC VCL: Ronan Point (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-completion-ronan-point-1",
+   "type": "event",
+   "eventType": "completion",
+   "date": {"year":1968,"month":3},
+   "subjectId": "ronan-point",
+   "label": "Ronan Point, a 22-storey Large Panel System tower, opens in Canning Town, Newham, East London"
+  },
+  {
+   "id": "ev-failure-ronan-point-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {"year":1968,"month":5,"day":16},
+   "subjectId": "ronan-point",
+   "label": "A gas explosion in an 18th-floor corner flat blows out a load-bearing flank wall; the south-east corner progressively collapses top to bottom"
+  },
+  {
+   "id": "ev-decision-ronan-point-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1970},
+   "subjectId": "ronan-point",
+   "label": "The 5th Amendment to the UK Building Regulations introduces disproportionate collapse: a building must not collapse to an extent disproportionate to its cause"
+  },
+  {
+   "id": "ivy-hodge",
+   "type": "person",
+   "name": "Ivy Hodge",
+   "note": "Resident of flat 90 on the 18th floor; lit a match for her gas stove at about 5:45am on 16 May 1968 and survived the explosion that triggered the collapse. That she survived is the point: the blast was small; the building's response was the disaster."
+  },
+  {
+   "id": "c-ronan-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "Ronan Point was a 22-storey tower in Canning Town, Newham, East London, opened March 1968.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "It was built using a Large Panel System (Taylor Woodrow Anglian / Larsen-Nielsen), precast concrete panels bolted together with no structural frame.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "At about 5:45am on 16 May 1968, resident Ivy Hodge lit a match for her gas stove in flat 90, an 18th-floor corner flat.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "A gas explosion, from a faulty connection on the cooker supply, blew out a load-bearing flank wall panel supporting the flats above.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "With the wall gone, the floors above lost support and fell, each pancaking onto the next, a progressive collapse of the building's south-east corner, top to bottom.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "Four of the 260 residents died and 17 were injured; the toll was low because the building had just opened and most flats above were unoccupied.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "The Tribunal found the progressive collapse was inherent in the design, not just bad workmanship; the building lacked alternate load paths.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "The Larsen-Nielsen system was designed for buildings up to about 6 storeys; it was extended to 22.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "Investigation found appalling workmanship at joints (some load-bearing joints with less than 50 percent mortar; some later found packed with newspaper and tin cans).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "The disaster led to the 5th Amendment to the UK Building Regulations (1970), introducing disproportionate collapse: a building must not collapse to an extent disproportionate to the cause.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "As an interim measure, buildings over five storeys built after November 1968 had to resist an explosive pressure of about 34 kPa (about 5 psi).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "The concept spread internationally; US and other codes adopted structural integrity and robustness provisions traceable to Ronan Point.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "The fix in principle is to tie elements together at joints and provide alternate load paths so loads redistribute if one element fails.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-ronan-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["ronan-point"],
+   "text": "The disaster effectively ended Large Panel System construction in the UK.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "concept-ronan-load-paths",
+   "type": "concept",
+   "name": "Absence of alternate load paths in Large Panel System design"
+  },
+  {
+   "id": "concept-disproportionate-collapse",
+   "type": "concept",
+   "name": "Disproportionate-collapse building regulation (structural robustness as a discipline)"
+  },
+  {
+   "id": "story-ronan-point",
+   "type": "story",
+   "title": "The Building That Fell Like a House of Cards",
+   "status": "published linkedin: none located instagram: none (login wall) facebook: not linked (per Fai, FB/IG urls not added yet) newsletter: none"
+  },
+  {
+   "id": "dh-comet",
+   "type": "artifact",
+   "name": "de Havilland DH.106 Comet 1",
+   "category": "airframe",
+   "origin": "United Kingdom",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL; see blocks/shannon_dh-comet.md"
+  },
+  {
+   "id": "src-dh-comet-vcl",
+   "type": "source",
+   "title": "EC VCL: de Havilland Comet 1 (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-completion-dh-comet-1",
+   "type": "event",
+   "eventType": "completion",
+   "date": {"year":1952,"month":5,"day":2},
+   "subjectId": "dh-comet",
+   "label": "Comet 1 enters BOAC service as the world's first commercial jet airliner (G-ALYP, London to Johannesburg)"
+  },
+  {
+   "id": "ev-failure-dh-comet-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {"year":1954,"month":1,"day":10},
+   "subjectId": "dh-comet",
+   "label": "BOAC Flight 781 (G-ALYP) breaks up off Elba, all 35 dead"
+  },
+  {
+   "id": "ev-failure-dh-comet-3",
+   "type": "event",
+   "eventType": "failure",
+   "date": {"year":1954,"month":4,"day":8},
+   "subjectId": "dh-comet",
+   "label": "SAA Flight 201 (chartered Comet G-ALYY) breaks up near Naples, all 21 dead"
+  },
+  {
+   "id": "ev-decision-dh-comet-4",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1954,"month":4,"day":12},
+   "subjectId": "dh-comet",
+   "label": "Certificate of Airworthiness revoked; the fleet is permanently grounded"
+  },
+  {
+   "id": "ev-publication-dh-comet-5",
+   "type": "event",
+   "eventType": "publication",
+   "date": {"year":1954},
+   "subjectId": "dh-comet",
+   "label": "RAE Farnborough, under Sir Arnold Hall, seals a fuselage in a water tank and pressure-cycles it to failure, identifying metal fatigue"
+  },
+  {
+   "id": "arnold-hall",
+   "type": "person",
+   "name": "Sir Arnold Hall",
+   "note": "Led the RAE Farnborough investigation; devised the water-tank pressure-cycling test that reproduced the fatigue failure and settled the cause."
+  },
+  {
+   "id": "c-comet-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "The Comet was the world's first commercial jet airliner, in BOAC service from 2 May 1952 (G-ALYP, London to Johannesburg).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "BOAC Flight 781 (G-ALYP Yoke Peter) broke up at about 27,000 ft off Elba on 10 Jan 1954, all 35 dead.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "SAA Flight 201 (chartered BOAC Comet G-ALYY) broke up near Naples on 8 April 1954, all 21 dead.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "A third Comet (BOAC 783, Calcutta, May 1953) was lost to a different cause, storm overstress, not fatigue, and is kept distinct from the fatigue narrative.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "The Certificate of Airworthiness was revoked on 12 April 1954 and the fleet permanently grounded.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "The RAE Farnborough investigation was led by Sir Arnold Hall.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "A complete fuselage (G-ALYU Yoke Uncle) was sealed in a water tank and pressure-cycled.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "G-ALYU burst after about 3,057 tank cycles (plus about 1,230 prior real flights), phrased as the equivalent of a few thousand flights.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "The cause was metal fatigue in the pressurized skin from repeated pressurization and depressurization.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "The initiating crack was at the corner of a squarish ADF window in the roof, not a passenger window.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "The ADF windows were apertures for navigation aerials, closed with panels, not passenger windows.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "Contributing manufacturing factors: surrounds meant to be bonded were riveted instead, and punched holes left stress raisers, presented as contributing detail, not the sole cause.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-comet-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["dh-comet"],
+   "text": "Metal fatigue at pressurization scale was poorly understood at the time.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "concept-cabin-fatigue",
+   "type": "concept",
+   "name": "Cabin-scale metal fatigue unaccounted for in 1950s design"
+  },
+  {
+   "id": "concept-failsafe-certification",
+   "type": "concept",
+   "name": "Fail-safe design philosophy and fatigue testing in airliner certification"
+  },
+  {
+   "id": "story-dh-comet",
+   "type": "story",
+   "title": "The First Jet Age Was Paid For in Advance",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7473283069932695553 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "crumple-zone",
+   "type": "artifact",
+   "name": "The Crumple Zone (Barenyi safety body, patent DBP 854157)",
+   "category": "process",
+   "origin": "Germany",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL; see blocks/shannon_crumple-zone.md"
+  },
+  {
+   "id": "src-crumple-zone-vcl",
+   "type": "source",
+   "title": "EC VCL: The Crumple Zone (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-crumple-zone-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1951,"month":1,"day":23},
+   "subjectId": "crumple-zone",
+   "label": "Daimler-Benz files patent DBP 854157, a safety body with a rigid passenger cell and deformable crumple zones front and rear"
+  },
+  {
+   "id": "ev-decision-crumple-zone-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1952,"month":8,"day":28},
+   "subjectId": "crumple-zone",
+   "label": "Patent 854157 is granted"
+  },
+  {
+   "id": "ev-completion-crumple-zone-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {"year":1959},
+   "subjectId": "crumple-zone",
+   "label": "The safety body enters series production in the Mercedes-Benz W111 Fintail"
+  },
+  {
+   "id": "bela-barenyi",
+   "type": "person",
+   "name": "Bela Barenyi",
+   "note": "Daimler-Benz engineer (1907-1997; at the company 1939-1974). Challenged the belief that a safe car must be rigid, and patented the opposite: a rigid passenger cell with crumple zones that absorb energy by deforming. Held a very large number of patents (Mercedes cites more than 2,500)."
+  },
+  {
+   "id": "c-crumple-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "Bela Barenyi was a Daimler-Benz engineer who developed the crumple-zone safety body.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "He challenged the prevailing belief that a safe car had to be rigid, showing kinetic energy must be absorbed through deformation to protect occupants.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "He divided the car body into three sections: a rigid, non-deforming passenger cell with deformable crumple zones at front and rear.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "Patent No. 854157 (safety body with rigid passenger cell and crumple zones) was filed 23 January 1951 and granted 28 August 1952.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "It was first put into series production in the 1959 Mercedes-Benz W111 (Tail Fin / Fintail).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "The physics is impulse-momentum: force times time equals change in momentum; momentum change is fixed by mass and speed, so extending the collision time lowers the average and peak force on occupants.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "A rigid car stops almost instantly, producing a huge force spike transferred to occupants; a crumpling car extends the stop by a few tenths of a second, dramatically lowering peak force.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "Barenyi held a very large number of patents (Mercedes cites more than 2,500).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "Crumple zones are now standard on virtually every car, validated through crash-test regimes (NHTSA, IIHS).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-crumple-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["crumple-zone"],
+   "text": "The weaker-is-safer reframe: rigid older cars transferred full force to occupants; deformable modern cars are far safer.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "concept-crash-protection",
+   "type": "concept",
+   "name": "Modern occupant crash protection (deformable structures on virtually every car)"
+  },
+  {
+   "id": "story-crumple-zone",
+   "type": "story",
+   "title": "The Car That Destroys Itself to Save You",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7475124634624090114 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "boeing-747",
+   "type": "artifact",
+   "name": "Boeing 747",
+   "category": "airframe",
+   "origin": "United States",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL; see blocks/shannon_boeing-747.md"
+  },
+  {
+   "id": "src-boeing-747-vcl",
+   "type": "source",
+   "title": "EC VCL: Boeing 747 (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-boeing-747-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1965},
+   "subjectId": "boeing-747",
+   "label": "Pan Am president Juan Trippe asks Boeing for an airliner 2.5x the 707, about 30 percent lower seat-mile cost; Trippe and Bill Allen seal it in a handshake (If you build it, I'll buy it)"
+  },
+  {
+   "id": "ev-decision-boeing-747-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1965},
+   "subjectId": "boeing-747",
+   "label": "Joe Sutter, pulled off the 737 program, is named chief engineer and holds out for a single-deck, twin-aisle wide-body over Trippe's double-decker"
+  },
+  {
+   "id": "ev-completion-boeing-747-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {"year":1968,"month":9,"day":30},
+   "subjectId": "boeing-747",
+   "label": "First 747 rolls out of the new Everett factory, then the largest building in the world by volume"
+  },
+  {
+   "id": "ev-first-flight-boeing-747-4",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {"year":1969,"month":2,"day":9},
+   "subjectId": "boeing-747",
+   "label": "747 first flight"
+  },
+  {
+   "id": "ev-completion-boeing-747-5",
+   "type": "event",
+   "eventType": "completion",
+   "date": {"year":1970,"month":1,"day":22},
+   "subjectId": "boeing-747",
+   "label": "Enters service with Pan Am (New York to London)"
+  },
+  {
+   "id": "joe-sutter",
+   "type": "person",
+   "name": "Joe Sutter",
+   "note": "Boeing chief engineer for the 747, 44 at the time. Rejected the double-decker for a twin-aisle wide-body, the layout that became the long-haul default. Led The Incredibles."
+  },
+  {
+   "id": "juan-trippe",
+   "type": "person",
+   "name": "Juan Trippe",
+   "note": "Pan Am president; set the 400-passenger brief that started the program and, after touring both mockups, told Sutter he made the right decision."
+  },
+  {
+   "id": "bill-allen",
+   "type": "person",
+   "name": "Bill Allen",
+   "note": "Boeing president; agreed to build the 747 on a handshake with Trippe."
+  },
+  {
+   "id": "c-747-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "In 1965 Pan Am president Juan Trippe asked Boeing president Bill Allen for an airliner about 2.5x the size of the 707, cutting seat-mile cost by about 30 percent.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "The If you build it, I'll buy it exchange between Trippe and Allen is documented.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "Joe Sutter was pulled off the 737 program in 1965 and named 747 chief engineer, aged 44 (born March 21, 1921).",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "29 months elapsed from conception to rollout.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "Trippe wanted a double-decker (single-aisle, two levels stacked); single-aisle was the only proven commercial layout in 1965.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "The FAA required 90-second emergency evacuation; double-decker layouts could not meet it with 1960s engineering.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "Plywood mockups of both layouts were built side by side; after touring them, Trippe told Sutter You made the right decision.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "Sutter pushed for and won a wide-body twin-aisle layout.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "The hump exists because the cockpit was moved up off the nose to allow nose-loading for freighter conversion; the first hump was hemispherical, later teardrop-shaped to cut drag.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "Both Boeing and Trippe expected supersonic transports to replace the 747 within a decade, so it was designed for easy freighter conversion.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "Sutter's team grew to about 4,500 engineers, nicknamed The Incredibles; the Everett factory was the largest building in the world by volume.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-747-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["boeing-747"],
+   "text": "The Boeing 2707 SST was cancelled; Concorde flew commercially for 27 years (1976-2003); the 747 stayed in production 55 years and 1,574 were built; the twin-aisle wide-body is now the long-haul default.",
+   "sourceNote": "EC V5 numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "concept-747-brief",
+   "type": "concept",
+   "name": "Trippe's 400-passenger, low-seat-cost transcontinental brief"
+  },
+  {
+   "id": "concept-widebody-standard",
+   "type": "concept",
+   "name": "The twin-aisle wide-body as the long-haul standard"
+  },
+  {
+   "id": "story-boeing-747-origin",
+   "type": "story",
+   "title": "The Handshake That Built the 747",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7467117185874808832 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "story-boeing-747-incredibles",
+   "type": "story",
+   "title": "The Incredibles: 29 Months to the 747",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7477980995791765505 instagram: none (login wall) facebook: none confirmed newsletter: none"
   }
  ],
  "edges": [
@@ -6420,6 +7105,138 @@
   { "type": "cites", "from": "c-a12-14", "to": "src-a12-vcl" },
   { "type": "responded-to", "from": "a-12", "to": "concept-u2-vulnerability", "claimId": "c-a12-01" },
   { "type": "enabled", "from": "a-12", "to": "sr-71", "claimId": "c-a12-13" },
-  { "type": "covers", "from": "story-a-12", "to": "a-12" }
+  { "type": "covers", "from": "story-a-12", "to": "a-12" },
+  {"type":"event-of","from":"ev-completion-ronan-point-1","to":"ronan-point"},
+  {"type":"event-of","from":"ev-failure-ronan-point-2","to":"ronan-point"},
+  {"type":"event-of","from":"ev-decision-ronan-point-3","to":"ronan-point"},
+  {"type":"contributed","from":"ivy-hodge","to":"ronan-point","role":"witnessed"},
+  {"type":"about","from":"c-ronan-01","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-01","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-02","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-02","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-03","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-03","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-04","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-04","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-05","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-05","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-06","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-06","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-07","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-07","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-08","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-08","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-09","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-09","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-10","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-10","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-11","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-11","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-12","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-12","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-13","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-13","to":"src-ronan-point-vcl"},
+  {"type":"about","from":"c-ronan-14","to":"ronan-point"},
+  {"type":"cites","from":"c-ronan-14","to":"src-ronan-point-vcl"},
+  {"type":"responded-to","from":"ronan-point","to":"concept-ronan-load-paths","claimId":"c-ronan-05"},
+  {"type":"enabled","from":"ronan-point","to":"concept-disproportionate-collapse","claimId":"c-ronan-10"},
+  {"type":"covers","from":"story-ronan-point","to":"ronan-point"},
+  {"type":"event-of","from":"ev-completion-dh-comet-1","to":"dh-comet"},
+  {"type":"event-of","from":"ev-failure-dh-comet-2","to":"dh-comet"},
+  {"type":"event-of","from":"ev-failure-dh-comet-3","to":"dh-comet"},
+  {"type":"event-of","from":"ev-decision-dh-comet-4","to":"dh-comet"},
+  {"type":"event-of","from":"ev-publication-dh-comet-5","to":"dh-comet"},
+  {"type":"contributed","from":"arnold-hall","to":"dh-comet","role":"investigated"},
+  {"type":"about","from":"c-comet-01","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-01","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-02","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-02","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-03","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-03","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-04","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-04","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-05","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-05","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-06","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-06","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-07","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-07","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-08","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-08","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-09","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-09","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-10","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-10","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-11","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-11","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-12","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-12","to":"src-dh-comet-vcl"},
+  {"type":"about","from":"c-comet-13","to":"dh-comet"},
+  {"type":"cites","from":"c-comet-13","to":"src-dh-comet-vcl"},
+  {"type":"responded-to","from":"dh-comet","to":"concept-cabin-fatigue","claimId":"c-comet-09"},
+  {"type":"enabled","from":"dh-comet","to":"concept-failsafe-certification","claimId":"c-comet-10"},
+  {"type":"covers","from":"story-dh-comet","to":"dh-comet"},
+  {"type":"event-of","from":"ev-decision-crumple-zone-1","to":"crumple-zone"},
+  {"type":"event-of","from":"ev-decision-crumple-zone-2","to":"crumple-zone"},
+  {"type":"event-of","from":"ev-completion-crumple-zone-3","to":"crumple-zone"},
+  {"type":"contributed","from":"bela-barenyi","to":"crumple-zone","role":"pioneered"},
+  {"type":"about","from":"c-crumple-01","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-01","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-02","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-02","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-03","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-03","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-04","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-04","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-05","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-05","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-06","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-06","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-07","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-07","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-08","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-08","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-09","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-09","to":"src-crumple-zone-vcl"},
+  {"type":"about","from":"c-crumple-10","to":"crumple-zone"},
+  {"type":"cites","from":"c-crumple-10","to":"src-crumple-zone-vcl"},
+  {"type":"enabled","from":"crumple-zone","to":"concept-crash-protection","claimId":"c-crumple-09"},
+  {"type":"covers","from":"story-crumple-zone","to":"crumple-zone"},
+  {"type":"event-of","from":"ev-decision-boeing-747-1","to":"boeing-747"},
+  {"type":"event-of","from":"ev-decision-boeing-747-2","to":"boeing-747"},
+  {"type":"event-of","from":"ev-completion-boeing-747-3","to":"boeing-747"},
+  {"type":"event-of","from":"ev-first-flight-boeing-747-4","to":"boeing-747"},
+  {"type":"event-of","from":"ev-completion-boeing-747-5","to":"boeing-747"},
+  {"type":"contributed","from":"joe-sutter","to":"boeing-747","role":"led"},
+  {"type":"contributed","from":"juan-trippe","to":"boeing-747","role":"commissioned"},
+  {"type":"contributed","from":"bill-allen","to":"boeing-747","role":"led"},
+  {"type":"about","from":"c-747-01","to":"boeing-747"},
+  {"type":"cites","from":"c-747-01","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-02","to":"boeing-747"},
+  {"type":"cites","from":"c-747-02","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-03","to":"boeing-747"},
+  {"type":"cites","from":"c-747-03","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-04","to":"boeing-747"},
+  {"type":"cites","from":"c-747-04","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-05","to":"boeing-747"},
+  {"type":"cites","from":"c-747-05","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-06","to":"boeing-747"},
+  {"type":"cites","from":"c-747-06","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-07","to":"boeing-747"},
+  {"type":"cites","from":"c-747-07","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-08","to":"boeing-747"},
+  {"type":"cites","from":"c-747-08","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-09","to":"boeing-747"},
+  {"type":"cites","from":"c-747-09","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-10","to":"boeing-747"},
+  {"type":"cites","from":"c-747-10","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-11","to":"boeing-747"},
+  {"type":"cites","from":"c-747-11","to":"src-boeing-747-vcl"},
+  {"type":"about","from":"c-747-12","to":"boeing-747"},
+  {"type":"cites","from":"c-747-12","to":"src-boeing-747-vcl"},
+  {"type":"responded-to","from":"boeing-747","to":"concept-747-brief","claimId":"c-747-01"},
+  {"type":"enabled","from":"boeing-747","to":"concept-widebody-standard","claimId":"c-747-08"},
+  {"type":"covers","from":"story-boeing-747-origin","to":"boeing-747"},
+  {"type":"covers","from":"story-boeing-747-incredibles","to":"boeing-747"}
  ]
 }
