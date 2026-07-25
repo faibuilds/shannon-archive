@@ -4372,6 +4372,279 @@
    "aboutIds": ["manchester-28m"],
    "text": "55 of the 137 aboard died (53 passengers and 2 cabin crew; one passenger died six days later); 82 survived.",
    "sourceNote": "Wikipedia; Grokipedia. Added per the exit-row VCL Rule 2d flag; the published caption left the toll implicit."
+  },
+  {
+   "id": "diesel-engine",
+   "type": "artifact",
+   "name": "Rudolf Diesel and the Compression-Ignition Engine",
+   "category": "process",
+   "origin": "Germany",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL; see blocks/shannon_diesel-engine.md"
+  },
+  {
+   "id": "src-diesel-engine-vcl",
+   "type": "source",
+   "title": "EC VCL: Rudolf Diesel (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-publication-diesel-1",
+   "type": "event",
+   "eventType": "publication",
+   "date": {"year":1897,"month":2,"day":17},
+   "subjectId": "diesel-engine",
+   "label": "Diesel's first working engine runs at Maschinenfabrik Augsburg (now MAN), about 26 percent efficient when steam managed about 10 percent"
+  },
+  {
+   "id": "ev-record-diesel-2",
+   "type": "event",
+   "eventType": "record",
+   "date": {"year":1900},
+   "subjectId": "diesel-engine",
+   "label": "Diesel demonstrates the engine running on peanut oil at the Paris Exposition, envisioning crop fuel for farmers"
+  },
+  {
+   "id": "ev-failure-diesel-3",
+   "type": "event",
+   "eventType": "failure",
+   "date": {"year":1913},
+   "subjectId": "diesel-engine",
+   "label": "Diesel vanishes from the SS Dresden at sea, nearly broke; his death is officially ruled a suicide"
+  },
+  {
+   "id": "rudolf-diesel",
+   "type": "person",
+   "name": "Rudolf Diesel",
+   "note": "Inventor of the compression-ignition engine (1858-1913). Built it for efficiency and fuel flexibility, demonstrated it on peanut oil, and envisioned crop fuel freeing resource-poor regions from coal and oil. Died nearly broke as petroleum refiners adapted a cheap byproduct into today's diesel fuel."
+  },
+  {
+   "id": "c-diesel-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "Rudolf Diesel was born March 18, 1858 in Paris to German parents and died in 1913.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "The 1897 engine achieved about 26 percent efficiency versus steam's roughly 10 percent.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "The first working engine ran on 17 February 1897 at Maschinenfabrik Augsburg (now MAN).",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "It used compression ignition: no spark plug; compressed air is hot enough to self-ignite injected fuel.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "The first-generation engine was a single cylinder, about 10 feet tall, about 5 tonnes, about 20 hp, and stationary.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "It was designed to run on multiple fuels, including vegetable and peanut oil, because compression ignition wants a heavy, slow-burning fuel and is indifferent to its source.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "Diesel demonstrated the engine running on peanut oil at the 1900 Paris Exposition and envisioned crop fuel for farmers and resource-poor regions.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "Petroleum refiners later adapted a cheap distillation byproduct, today's diesel fuel, which displaced his crop-oil vision.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "In 1913 Diesel vanished from the SS Dresden at sea; a bag with about 20,000 marks and records of his debts were involved, and his death was officially ruled a suicide.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-diesel-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["diesel-engine"],
+   "text": "Biodiesel revived Diesel's original vegetable-oil vision a century later, and modern biodiesel can be used as a drop-in fuel.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "concept-compression-ignition",
+   "type": "concept",
+   "name": "High-efficiency compression-ignition power for shipping, rail, and heavy transport"
+  },
+  {
+   "id": "story-diesel-engine",
+   "type": "story",
+   "title": "The Engine Born Green",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7467903242740592640 instagram: none (login wall) facebook: none confirmed newsletter: yes"
+  },
+  {
+   "id": "uss-iowa",
+   "type": "artifact",
+   "name": "USS Iowa-class Battleship (constrained by the Panama Canal)",
+   "category": "structure",
+   "origin": "United States",
+   "lineId": "unassigned",
+   "sealed": false,
+   "note": "Retro-VCL; see blocks/shannon_uss-iowa.md"
+  },
+  {
+   "id": "src-uss-iowa-vcl",
+   "type": "source",
+   "title": "EC VCL: USS Iowa / Panama Canal constraint (Jul 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-record-iowa-1",
+   "type": "event",
+   "eventType": "record",
+   "date": {"year":1898,"month":5,"day":24},
+   "subjectId": "uss-iowa",
+   "label": "USS Oregon completes a 66-day, about 14,000 nm voyage from San Francisco around South America to Florida; the Navy's official history says it swept away all opposition to a canal"
+  },
+  {
+   "id": "ev-completion-iowa-2",
+   "type": "event",
+   "eventType": "completion",
+   "date": {"year":1914},
+   "subjectId": "uss-iowa",
+   "label": "The Panama Canal opens with lock chambers 110 feet wide, long before 1940s fast battleships existed"
+  },
+  {
+   "id": "ev-decision-iowa-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {"year":1938},
+   "subjectId": "uss-iowa",
+   "label": "The US Navy begins designing the Iowa-class with one non-negotiable requirement, that it transit the Panama Canal, fixing the beam at 108 ft 2 in"
+  },
+  {
+   "id": "c-iowa-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "In 1898 the battleship USS Oregon sailed from San Francisco around South America to reach Cuba; the voyage took 66 days and covered 14,000 nautical miles.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "The US Navy's official history records that the voyage swept away all opposition to building a canal across Central America.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "The Panama Canal opened in 1914 with lock chambers 110 feet wide, long before anyone knew what a 1940s fast battleship would look like.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "When the Navy began designing the Iowa-class in 1938, one non-negotiable requirement was that any new battleship transit the Panama Canal.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "The Iowa-class beam was 108 feet 2 inches, less than a foot of clearance on each side of the 110-foot locks.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "The 18-inch guns the Navy originally studied required barbettes too wide for the canal, so the option was rejected before a barrel was cast and the 16-inch Mark 7 was developed instead; NavWeaps calls it possibly the best battleship gun ever put into service.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "Previous American fast battleships used external armor belts that needed more beam than the canal allowed, so Iowa's designers moved the armor inside the hull as an internal inclined belt set inboard from the outer plating.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "The canal-limited beam pushed designers toward a long, relatively slender hull; combined with 212,000 shaft horsepower, that gave Iowa enough speed to become the fastest battleship ever built.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "Japan's Yamato had no canal to worry about and carried 18-inch guns, heavier armor, and a wider hull, but at 27 knots could not keep pace with carrier task forces; Iowa escorted carriers across the Pacific while Yamato was sunk by aircraft without meeting the ships it was built to fight.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "c-iowa-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["uss-iowa"],
+   "text": "The canal locks that shaped the Iowa are still 110 feet wide.",
+   "sourceNote": "EC numbered VCL, verbatim per Rule 1"
+  },
+  {
+   "id": "concept-iowa-constraints",
+   "type": "concept",
+   "name": "The Iowa-class design constraints (16-inch Mark 7 guns, internal inclined armor belt, slender high-speed hull)"
+  },
+  {
+   "id": "concept-canal-lock-constraint",
+   "type": "concept",
+   "name": "The Panama Canal's 110-foot lock width as a fixed external constraint on naval architecture"
+  },
+  {
+   "id": "story-uss-iowa",
+   "type": "story",
+   "title": "The Waterway That Designed a Battleship",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7461643579170668544 instagram: none (login wall) facebook: none confirmed newsletter: none"
   }
  ],
  "edges": [
@@ -7247,6 +7520,58 @@
   {"type":"covers","from":"story-boeing-747-origin","to":"boeing-747"},
   {"type":"covers","from":"story-boeing-747-incredibles","to":"boeing-747"},
   {"type":"about","from":"c-manchester-28m-17","to":"manchester-28m"},
-  {"type":"cites","from":"c-manchester-28m-17","to":"src-manchester-vcl"}
+  {"type":"cites","from":"c-manchester-28m-17","to":"src-manchester-vcl"},
+  {"type":"event-of","from":"ev-publication-diesel-1","to":"diesel-engine"},
+  {"type":"event-of","from":"ev-record-diesel-2","to":"diesel-engine"},
+  {"type":"event-of","from":"ev-failure-diesel-3","to":"diesel-engine"},
+  {"type":"contributed","from":"rudolf-diesel","to":"diesel-engine","role":"pioneered"},
+  {"type":"about","from":"c-diesel-01","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-01","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-02","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-02","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-03","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-03","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-04","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-04","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-05","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-05","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-06","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-06","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-07","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-07","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-08","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-08","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-09","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-09","to":"src-diesel-engine-vcl"},
+  {"type":"about","from":"c-diesel-10","to":"diesel-engine"},
+  {"type":"cites","from":"c-diesel-10","to":"src-diesel-engine-vcl"},
+  {"type":"enabled","from":"diesel-engine","to":"concept-compression-ignition","claimId":"c-diesel-04"},
+  {"type":"covers","from":"story-diesel-engine","to":"diesel-engine"},
+  {"type":"event-of","from":"ev-record-iowa-1","to":"uss-iowa"},
+  {"type":"event-of","from":"ev-completion-iowa-2","to":"uss-iowa"},
+  {"type":"event-of","from":"ev-decision-iowa-3","to":"uss-iowa"},
+  {"type":"about","from":"c-iowa-01","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-01","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-02","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-02","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-03","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-03","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-04","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-04","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-05","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-05","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-06","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-06","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-07","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-07","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-08","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-08","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-09","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-09","to":"src-uss-iowa-vcl"},
+  {"type":"about","from":"c-iowa-10","to":"uss-iowa"},
+  {"type":"cites","from":"c-iowa-10","to":"src-uss-iowa-vcl"},
+  {"type":"enabled","from":"uss-iowa","to":"concept-iowa-constraints","claimId":"c-iowa-05"},
+  {"type":"responded-to","from":"uss-iowa","to":"concept-canal-lock-constraint","claimId":"c-iowa-03"},
+  {"type":"covers","from":"story-uss-iowa","to":"uss-iowa"}
  ]
 }
