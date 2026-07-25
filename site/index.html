@@ -147,6 +147,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .board-caption .bc-kicker{font-family:var(--mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:5px}
 .board-scroll{overflow-x:auto;padding:6px 0}
 .board-scroll svg{display:block;min-width:940px;width:100%;height:auto}
+/* Mobile swipe hint: the board is wider than a phone and nothing said so.
+   A hand slides through a swipe over the board, then retires. */
+#board-view{position:relative}
+.swipe-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:5;opacity:0;transition:opacity .45s}
+.swipe-hint.show{opacity:1}
+.swipe-hint-pill{display:flex;flex-direction:column;align-items:center;gap:7px;background:rgba(11,12,16,.85);border:1px solid var(--line2);box-shadow:var(--bevel),0 8px 26px rgba(0,0,0,.5);padding:15px 24px 12px}
+.swipe-hint-row{display:flex;align-items:center;gap:3px;animation:swipe-slide 1.9s ease-in-out 3}
+.swipe-hint-row svg{display:block}
+.swipe-chev{opacity:.25;animation:chev-pulse 1.9s ease-in-out 3}
+.swipe-chev.c2{animation-delay:.12s}
+.swipe-hint-label{font-family:var(--mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-dim)}
+@keyframes swipe-slide{0%{transform:translateX(17px)}55%{transform:translateX(-17px)}100%{transform:translateX(17px)}}
+@keyframes chev-pulse{0%,100%{opacity:.2}45%{opacity:1}}
+@media (hover:hover){.swipe-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.swipe-hint{display:none}}
 .blane-band{fill:rgba(255,255,255,.012)}
 .blane-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase}
 .btick{stroke:var(--line2);stroke-width:.5}
@@ -620,7 +635,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <span class="milestone-text">And growing, across Instagram, Facebook, LinkedIn and the newsletter.<br>SHANNON is our thank you.</span>
   </div>
   <h1>Why they look<br>the way <em>they do.</em></h1>
-  <p class="hero-sub">SHANNON is Engineering Community's story archive: the engineering behind aircraft, failures, machines, materials, and the rules written after things went wrong. It opens with <strong>KELLY, Line 01: military aircraft</strong>, eight decades of airframes shaped by constraints. Lit plates link to the full story. Sealed plates open as we publish.</p>
+  <p class="hero-sub">SHANNON is Engineering Community's story archive: the engineering behind aircraft, computing, failures, materials, and the rules written after things went wrong. Each story is recorded as verified claims in <strong>one connected graph</strong>, so plates wire to the plates they enabled, answered, or corrected. The more it holds, the more it finds: an idea that waited 95 years for its use, a fix that crossed three decades, connections nobody went looking for. Lit plates link to the full story. Sealed plates open as we publish.</p>
 
   <div class="lines">
     <button class="line-tag active" data-line="kelly">
@@ -849,7 +864,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.45 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
+    <span class="footer-stamp">SHANNON v1.46 / BUILT 07.2026 / KELLY L-01 + LOVELACE L-07 + WRIGHT L-08</span>
   </div>
 </footer>
 
@@ -1898,7 +1913,45 @@ const FINDING_STATS = { claims:198, verified:182, sources:16, edges:25, artifact
     });
     paintFocus();
   }
+
+  /* Mobile swipe hint. The board is wider than a phone and nothing said so.
+     Shows once the board is on screen, touch devices only, and retires for
+     good the first time the visitor actually swipes the board sideways. */
+  let hintEl = null, hintShown = false, hintDone = false;
+  try { hintDone = localStorage.getItem("sh-swipe-learned") === "1"; } catch (e) {}
+  function retireHint(learned) {
+    if (learned) { hintDone = true; try { localStorage.setItem("sh-swipe-learned", "1"); } catch (e) {} }
+    if (!hintEl) return;
+    const el = hintEl; hintEl = null;
+    el.classList.remove("show");
+    setTimeout(() => el.remove(), 500);
+  }
+  function maybeShowHint() {
+    if (!noHover || hintShown || hintDone || state.mode !== "board") return;
+    const scroller = view.querySelector(".board-scroll");
+    if (!scroller || scroller.scrollWidth <= scroller.clientWidth + 24) return;
+    const r = view.getBoundingClientRect();
+    if (!(r.top < window.innerHeight * 0.85 && r.bottom > window.innerHeight * 0.2)) return;
+    hintShown = true;
+    const chev = c => `<svg class="swipe-chev ${c}" viewBox="0 0 8 14" width="8" height="14"><path d="M7 1 1 7l6 6" stroke="#10b981" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    hintEl = document.createElement("div");
+    hintEl.className = "swipe-hint";
+    hintEl.innerHTML = `<div class="swipe-hint-pill"><div class="swipe-hint-row">${chev("c1")}${chev("c2")}`
+      + `<svg viewBox="0 0 26 30" width="28" height="32" aria-hidden="true">`
+      + `<path d="M5 5.8a6.2 6.2 0 0 1 10.4 0" stroke="#10b981" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".9"/>`
+      + `<g fill="#b9c0c7"><rect x="8" y="2.6" width="4.4" height="14" rx="2.2"/>`
+      + `<path d="M8 14h11.2c2.5 0 4.4 2 4.4 4.5 0 4.4-3.4 8-7.8 8h-2.6c-2.9 0-5.4-2-6-4.8l-.9-4c-.4-1.8.9-3.5 2.7-3.7z"/></g></svg>`
+      + `</div><div class="swipe-hint-label">Swipe &#183; more of the board</div></div>`;
+    view.appendChild(hintEl);
+    void hintEl.offsetHeight; /* flush styles so the fade-in transition runs */
+    hintEl.classList.add("show");
+    scroller.addEventListener("scroll", () => retireHint(true), { once: true, passive: true });
+    setTimeout(() => retireHint(false), 7500);
+  }
+  window.addEventListener("scroll", maybeShowHint, { passive: true });
+
   draw();
+  maybeShowHint();
 })();
 
 /* ---------- SEGMENTED GAUGE (clickable) ---------- */
