@@ -170,3 +170,16 @@ CONNECTIONS TO EXISTING ARCHIVE
   discipline distinct from accident prevention. Candidate for the masked
   regulation line; no KELLY contact.
 === END BLOCK ===
+
+--- 2026-07-24 update (v1.48) ---
+LINE: assigned to HAMMURABI (regulation written in blood), the second plate
+beside the panic bar. Masked in the public graph: lineId moved from
+"unassigned" to "undisclosed" (hammurabi is an unlaunched masked line).
+EXIT-ROW BLOCK (#7) RECONCILED: Fai sent a block id "exit-row" (Exit-Row
+Seating Rules) for the same disaster. It is the SAME published post as this
+artifact's story (identical LinkedIn activity 7478857977148416000, title "The
+Space Beside the Overwing Exit"). Not re-ingested; this existing VCL is richer
+(16 claims vs 12). No duplicate artifact, no duplicate claims (Rule 1).
+Added: c-manchester-28m-17, the 55-of-137 death toll, per the block's Rule 2d
+flag (the caption left it implicit). "First hammurabi plate (panic bar)" is
+not yet in the graph.

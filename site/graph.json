@@ -2634,7 +2634,7 @@
    "name": "British Airtours Flight 28M (Boeing 737-236 G-BGJL, Manchester)",
    "category": "process",
    "origin": "United Kingdom",
-   "lineId": "unassigned",
+   "lineId": "undisclosed",
    "sealed": false,
    "note": "Retro-VCL backfill; see blocks/shannon_manchester-28m.md"
   },
@@ -4364,6 +4364,14 @@
    "type": "story",
    "title": "The Incredibles: 29 Months to the 747",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7477980995791765505 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "c-manchester-28m-17",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": ["manchester-28m"],
+   "text": "55 of the 137 aboard died (53 passengers and 2 cabin crew; one passenger died six days later); 82 survived.",
+   "sourceNote": "Wikipedia; Grokipedia. Added per the exit-row VCL Rule 2d flag; the published caption left the toll implicit."
   }
  ],
  "edges": [
@@ -7237,6 +7245,8 @@
   {"type":"responded-to","from":"boeing-747","to":"concept-747-brief","claimId":"c-747-01"},
   {"type":"enabled","from":"boeing-747","to":"concept-widebody-standard","claimId":"c-747-08"},
   {"type":"covers","from":"story-boeing-747-origin","to":"boeing-747"},
-  {"type":"covers","from":"story-boeing-747-incredibles","to":"boeing-747"}
+  {"type":"covers","from":"story-boeing-747-incredibles","to":"boeing-747"},
+  {"type":"about","from":"c-manchester-28m-17","to":"manchester-28m"},
+  {"type":"cites","from":"c-manchester-28m-17","to":"src-manchester-vcl"}
  ]
 }
