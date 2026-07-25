@@ -4774,6 +4774,651 @@
    "type": "story",
    "title": "The Scar That Recorded the Pause",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7470222146330329088 instagram: none facebook: none newsletter: none"
+  },
+  {
+   "id": "alexnet",
+   "type": "artifact",
+   "name": "AlexNet and the CUDA bet (Semiconductor Series, Part 4)",
+   "category": "process",
+   "origin": "Canada / United States",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 4 of 5; see blocks/shannon_alexnet.md"
+  },
+  {
+   "id": "src-alexnet-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: AlexNet and the CUDA bet (published caption; Jon Peddie Research; neurohive; AlexNet technical histories)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-completion-alexnet-1",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 2006,
+    "month": 11
+   },
+   "subjectId": "alexnet",
+   "label": "NVIDIA ships the G80, the first gaming GPU architected to run general-purpose code, not just graphics"
+  },
+  {
+   "id": "ev-completion-alexnet-2",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 2007
+   },
+   "subjectId": "alexnet",
+   "label": "NVIDIA releases CUDA, a free platform letting any programmer use a GPU as a parallel computer"
+  },
+  {
+   "id": "ev-record-alexnet-3",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 2012,
+    "month": 9
+   },
+   "subjectId": "alexnet",
+   "label": "AlexNet wins ImageNet with a top-5 error of 15.3% versus the 26.2% runner-up, the largest margin the competition had seen; the deep-learning era begins"
+  },
+  {
+   "id": "alex-krizhevsky",
+   "type": "person",
+   "name": "Alex Krizhevsky",
+   "note": "University of Toronto graduate student; trained AlexNet on two GTX 580 gaming cards at his parents' house, wrote it in CUDA and C++."
+  },
+  {
+   "id": "ilya-sutskever",
+   "type": "person",
+   "name": "Ilya Sutskever",
+   "note": "Toronto graduate student; co-created AlexNet, choosing to train a deep neural network to learn features rather than hand-build them."
+  },
+  {
+   "id": "geoffrey-hinton",
+   "type": "person",
+   "name": "Geoffrey Hinton",
+   "note": "Krizhevsky and Sutskever's advisor; long-time proponent of neural networks whose approach AlexNet vindicated."
+  },
+  {
+   "id": "jensen-huang",
+   "type": "person",
+   "name": "Jensen Huang",
+   "note": "NVIDIA co-founder and CEO. In 1996 cut the company to about 40 people and secured Sega's $5 million to keep it alive; years later backed the CUDA bet over investor skepticism. The through-line of the Semiconductor Series."
+  },
+  {
+   "id": "c-alexnet-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "In 2012 computer vision was a hand-built discipline: researchers wrote algorithms by hand to detect edges, corners, and textures, and competed annually at ImageNet.",
+   "sourceNote": "Published caption; corroborated by AlexNet histories (hand-engineered SIFT/HOG features fed to SVMs before 2012)"
+  },
+  {
+   "id": "c-alexnet-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "Alex Krizhevsky and Ilya Sutskever, working under Geoffrey Hinton at the University of Toronto, skipped hand-built features and trained a deep neural network to learn them, running it on two NVIDIA GeForce GTX 580 gaming cards (about $500 each) at Krizhevsky's parents' house; training took about six days.",
+   "sourceNote": "Published caption; Jon Peddie Research; neurohive (two GTX 580s, about 6 days, the Toronto trio all confirmed)"
+  },
+  {
+   "id": "c-alexnet-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "AlexNet won ImageNet with a top-5 error rate of 15.3%, past the 26.2% runner-up, the largest margin the competition had ever seen.",
+   "sourceNote": "Published caption; multiple independent sources (15.3% vs 26.2%, about an 11-point margin)"
+  },
+  {
+   "id": "c-alexnet-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "AlexNet was written in CUDA and C++.",
+   "sourceNote": "Published caption; neurohive; AlexNet technical accounts"
+  },
+  {
+   "id": "c-alexnet-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "Those gaming cards could train a neural network only because of a decision NVIDIA made six years earlier.",
+   "sourceNote": "Published caption (framing supported by the G80 and CUDA history)"
+  },
+  {
+   "id": "c-alexnet-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "In 2006 NVIDIA shipped the G80, the first gaming GPU architected to run general-purpose code, not just graphics; in 2007 it released CUDA, a free platform letting any programmer use a GPU as a parallel computer.",
+   "sourceNote": "Published caption; Jon Peddie Research (GeForce 8800 GTX on G80, Nov 2006, 128 unified shader processors; CUDA 2007)"
+  },
+  {
+   "id": "c-alexnet-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "At the time the market for general-purpose GPU computing barely existed; investors questioned the spend and AMD stayed focused on graphics. Jensen Huang later said, \"Our shareholders were skeptical of CUDA. But we persevered.\"",
+   "sourceNote": "Published caption (Huang quote as attributed; investor skepticism and AMD's graphics focus widely documented)"
+  },
+  {
+   "id": "c-alexnet-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "alexnet"
+   ],
+   "text": "In 2012 NVIDIA was worth less than $10 billion; today it is worth around $5 trillion, and the CUDA bet is a main reason why.",
+   "sourceNote": "Published caption (shipped figures $10B / $5T, superseding an earlier $1B / $3T draft; consistent with NVIDIA's roughly 2012 valuation and later growth)"
+  },
+  {
+   "id": "concept-deep-learning-era",
+   "type": "concept",
+   "name": "The modern deep-learning era (GPU-trained deep neural networks)"
+  },
+  {
+   "id": "concept-gpgpu-bet",
+   "type": "concept",
+   "name": "NVIDIA's 2006-2007 general-purpose GPU bet (G80 and CUDA)"
+  },
+  {
+   "id": "story-alexnet",
+   "type": "story",
+   "title": "The Bet That Looked Irrational",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7466536288733724672 instagram: none (login wall) facebook: none confirmed newsletter: yes"
+  },
+  {
+   "id": "asml-euv",
+   "type": "artifact",
+   "name": "ASML and EUV lithography (Semiconductor Series, Part 3)",
+   "category": "process",
+   "origin": "Netherlands",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 3 of 5; see blocks/shannon_asml-euv.md"
+  },
+  {
+   "id": "src-asml-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: ASML and EUV lithography (published caption; ASML, ZEISS SMT, TRUMPF/world-of-photonics, Silicon Canals, TrendForce)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-asml-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 2000
+   },
+   "subjectId": "asml-euv",
+   "label": "By the 2000s, with 193 nm DUV light stretched by immersion and multi-patterning, the most advanced chip layers need a shorter wavelength; ASML industrializes extreme ultraviolet lithography"
+  },
+  {
+   "id": "ev-completion-asml-2",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 2010
+   },
+   "subjectId": "asml-euv",
+   "label": "Through the 2010s EUV enters volume manufacturing; Intel, TSMC, and Samsung help fund ASML's next-generation lithography development"
+  },
+  {
+   "id": "c-asml-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "Lithography prints patterns onto silicon; for years the industry stretched 193 nm deep-ultraviolet light with immersion, multi-patterning, and process tricks, but the most advanced chip layers needed a different answer.",
+   "sourceNote": "Published caption; ASML (DUV immersion and multi-patterning history)"
+  },
+  {
+   "id": "c-asml-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "ASML helped industrialize extreme ultraviolet lithography using 13.5 nm light, more than 14 times shorter than the 193 nm deep-UV light used before.",
+   "sourceNote": "Published caption; ASML (13.5 nanometers, more than 14 times shorter than DUV light)"
+  },
+  {
+   "id": "c-asml-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "EUV light is absorbed by almost everything, air and glass included, and normal lenses do not work, so ASML's machines guide the light through high vacuum using mirrors instead of lenses.",
+   "sourceNote": "Published caption; ZEISS (EUV absorbed by all materials including air; reflective optics in a vacuum chamber)"
+  },
+  {
+   "id": "c-asml-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "There is no simple EUV bulb; ASML generates the light by firing laser pulses at fast-moving droplets of molten tin, a first pulse reshaping the droplet and a second vaporizing it into plasma.",
+   "sourceNote": "Published caption; ASML (laser-produced-plasma source; pre-pulse flattens, main pulse vaporizes); ZEISS; TRUMPF"
+  },
+  {
+   "id": "c-asml-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "That tin-droplet process happens up to 50,000 times per second.",
+   "sourceNote": "Published caption; ASML and ZEISS (50,000 times every second; 50,000 droplets of tin every second)"
+  },
+  {
+   "id": "c-asml-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "The plasma reaches about 220,000 degrees C, almost 40 times hotter than the surface of the Sun.",
+   "sourceNote": "Published caption; ZEISS and world-of-photonics (nearly 220,000 degrees Celsius, almost 40 times hotter than the sun)"
+  },
+  {
+   "id": "c-asml-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "The EUV light from the plasma is collected by mirrors, guided through the machine, and used to expose patterns into photoresist on a wafer, repeatedly, inside factories that need precision, uptime, cleanliness, and repeatability.",
+   "sourceNote": "Published caption; ASML; Silicon Canals (collector mirror, optical column, mask, wafer)"
+  },
+  {
+   "id": "c-asml-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "ASML did not just build a machine that makes light; it industrialized a form of light difficult to create, collect, transport, and use.",
+   "sourceNote": "Published caption (characterisation supported by the technical claims above)"
+  },
+  {
+   "id": "c-asml-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "asml-euv"
+   ],
+   "text": "Because advanced chipmakers needed EUV so badly, Intel, TSMC, and Samsung helped fund ASML's next-generation lithography development.",
+   "sourceNote": "Published caption; TrendForce (Intel, TSMC, Samsung as main clients and co-investors in ASML's development)"
+  },
+  {
+   "id": "concept-duv-wavelength-limit",
+   "type": "concept",
+   "name": "The 193 nm DUV wavelength limit for the most advanced chip layers"
+  },
+  {
+   "id": "story-asml-euv",
+   "type": "story",
+   "title": "Molten Tin Into Plasma, Plasma Into Light",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7459895063620268032 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "chip-design-1987",
+   "type": "artifact",
+   "name": "TSMC and the pure-play foundry (Semiconductor Series, Part 2)",
+   "category": "process",
+   "origin": "Taiwan",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 2 of 5; see blocks/shannon_chip-design-1987.md"
+  },
+  {
+   "id": "src-tsmc-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: TSMC and the pure-play foundry (published caption; Wikipedia, Britannica, Semiwiki, Quartr, ownership and history references)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-publication-tsmc-1",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1958
+   },
+   "subjectId": "chip-design-1987",
+   "label": "Morris Chang joins Texas Instruments, the same year Jack Kilby invents the integrated circuit there"
+  },
+  {
+   "id": "ev-decision-tsmc-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1985
+   },
+   "subjectId": "chip-design-1987",
+   "label": "Taiwan's government recruits Chang, aged 54, to lead its industrial technology institute (ITRI)"
+  },
+  {
+   "id": "ev-completion-tsmc-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1987,
+    "month": 2,
+    "day": 21
+   },
+   "subjectId": "chip-design-1987",
+   "label": "TSMC is founded on the pure-play foundry model with roughly $220 million in starting capital; Chang is 56"
+  },
+  {
+   "id": "morris-chang",
+   "type": "person",
+   "name": "Morris Chang",
+   "note": "Founder of TSMC. Failed the MIT PhD qualifying exam twice, spent 25 years at Texas Instruments rising to senior VP, earned a Stanford PhD, left in 1983, was recruited by Taiwan in 1985, and founded TSMC in 1987 on a model that eliminated the capital barrier to chip design. He invented the industry structure, not the chip."
+  },
+  {
+   "id": "jack-kilby",
+   "type": "person",
+   "name": "Jack Kilby",
+   "note": "Invented the integrated circuit at Texas Instruments in 1958, the year Chang joined TI (context, not the post's subject)."
+  },
+  {
+   "id": "c-tsmc-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "In 1987, designing a chip meant spending hundreds of millions of dollars to build the factory to manufacture it; capital was the ultimate engineering constraint.",
+   "sourceNote": "Published caption; corroborated by TSMC histories (high fab costs blocked chip designers)"
+  },
+  {
+   "id": "c-tsmc-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "After failing the MIT PhD qualifying exam twice, Chang joined Texas Instruments in 1958, the same year Jack Kilby invented the integrated circuit there; he spent 25 years at TI, rose to senior VP, earned a Stanford PhD, and left in 1983 after being passed over for CEO.",
+   "sourceNote": "Published caption; Wikipedia; Semiwiki (25 years at TI; Kilby's IC 1958; Stanford PhD)"
+  },
+  {
+   "id": "c-tsmc-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "In 1985 Taiwan's government recruited Chang, aged 54, to lead its industrial technology institute (ITRI).",
+   "sourceNote": "Published caption; Britannica; chroniclejournal (recruited 1985 to head ITRI)"
+  },
+  {
+   "id": "c-tsmc-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "Chang pitched a \"pure-play foundry\": a factory that would only manufacture chips for other companies and never compete on design, eliminating the capital barrier for would-be chip designers.",
+   "sourceNote": "Published caption; multiple (pure-play foundry model, TSMC's defining innovation)"
+  },
+  {
+   "id": "c-tsmc-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "He took the idea to Intel and to Texas Instruments and both said no; Philips agreed, taking a 27.6% equity stake alongside the Taiwan government's 48.3%.",
+   "sourceNote": "Published caption; Wikipedia (Intel and TI turned Chang down; Philips 27.6% stake); Taiwan government about 48.3%. Philips stake cited as 27.5 to 27.6% across sources; the caption's 27.6% matches Wikipedia."
+  },
+  {
+   "id": "c-tsmc-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "TSMC was founded on February 21, 1987, with Chang aged 56 and roughly $220 million in starting capital.",
+   "sourceNote": "Published caption; multiple (Feb 21, 1987 founding confirmed). The $220M capital figure is the caption's own; some sources cite a lower initial paid-in figure (about NT$1.3bn, US$45M) versus total capitalisation, so the exact number varies by definition; carried as the caption stated."
+  },
+  {
+   "id": "c-tsmc-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "By removing the manufacturing barrier, TSMC allowed specialized \"fabless\" startups to exist: NVIDIA, Qualcomm, Broadcom, and Marvell, all of which, in Chang's words, \"started with us when they were small.\"",
+   "sourceNote": "Published caption; Britannica (TSMC made the fabless model viable, enabling NVIDIA, AMD, MediaTek and others); Chang quote as attributed"
+  },
+  {
+   "id": "c-tsmc-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "Today TSMC produces roughly 90% of the world's most advanced chips, including Apple M-series chips, flagship Snapdragons, and NVIDIA's H100 AI processors.",
+   "sourceNote": "Published caption; chroniclejournal (nearly 90% of the world's cutting-edge logic chips); business-model sources (about 90% of sub-5nm)"
+  },
+  {
+   "id": "c-tsmc-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "By Chang's own accounting, the company captures roughly 110% of total pure-play foundry industry profit, meaning its profits exceed all competitors' combined losses by 10%.",
+   "sourceNote": "Published caption (attributed to Chang's own accounting; the caption's stated framing rather than an independently reproduced figure, carried as attributed)"
+  },
+  {
+   "id": "c-tsmc-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "chip-design-1987"
+   ],
+   "text": "Chang did not invent the chip; he invented the industry structure, and by eliminating the manufacturing barrier he unleashed the explosion of chip design that drives the modern tech economy.",
+   "sourceNote": "Published caption (characterisation supported by the fabless-ecosystem claims above)"
+  },
+  {
+   "id": "concept-fabless-industry",
+   "type": "concept",
+   "name": "The fabless semiconductor industry (design-only companies like NVIDIA, Qualcomm, Broadcom, Marvell)"
+  },
+  {
+   "id": "story-chip-design-1987",
+   "type": "story",
+   "title": "He Invented the Industry, Not the Chip",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7455076409850478592 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "nvidia-riva",
+   "type": "artifact",
+   "name": "NVIDIA's RIVA 128 and the 1996 near-death (Semiconductor Series, Part 1)",
+   "category": "process",
+   "origin": "United States",
+   "lineId": "undisclosed",
+   "sealed": false,
+   "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 1 of 5, earliest plate in the chain; see blocks/shannon_nvidia-riva.md"
+  },
+  {
+   "id": "src-riva-vcl",
+   "type": "source",
+   "title": "EC retro-VCL: NVIDIA RIVA 128 and the 1996 near-death (published caption; Wikipedia, Tom's Hardware, Yahoo Finance, BGR, 86Box, vintage3d)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-failure-riva-1",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1996
+   },
+   "subjectId": "nvidia-riva",
+   "label": "NVIDIA has one month of payroll left; the NV1 has failed and Microsoft's DirectX has made its architecture obsolete"
+  },
+  {
+   "id": "ev-decision-riva-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1996
+   },
+   "subjectId": "nvidia-riva",
+   "label": "Jensen Huang cuts headcount from about 100 to about 40 and flies to Sega, securing a $5 million investment despite cancelling the NV2 chip"
+  },
+  {
+   "id": "ev-completion-riva-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1997,
+    "month": 8
+   },
+   "subjectId": "nvidia-riva",
+   "label": "RIVA 128 ships with about one month of payroll left; NVIDIA sells over one million units in four months"
+  },
+  {
+   "id": "ev-completion-riva-4",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1999
+   },
+   "subjectId": "nvidia-riva",
+   "label": "NVIDIA goes public"
+  },
+  {
+   "id": "shoichiro-irimajiri",
+   "type": "person",
+   "name": "Shoichiro Irimajiri",
+   "note": "Sega CEO who agreed to invest $5 million in NVIDIA after the NV2 contract collapsed, providing the runway that saved the company."
+  },
+  {
+   "id": "c-riva-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "In 1996 NVIDIA had one month of payroll left: its first chip had failed and Microsoft had made its architecture obsolete in a single product announcement.",
+   "sourceNote": "Published caption; Wikipedia RIVA 128; Tom's Hardware (1996 near-bankruptcy, DirectX obsoleting NV1)"
+  },
+  {
+   "id": "c-riva-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "NVIDIA was three years old and had bet the company on the NV1, which used quadrilaterals for 3D instead of triangles, matching Sega's Saturn to try to win the console-to-PC port market; Sega even signed an exclusive contract for the next-generation chip.",
+   "sourceNote": "Published caption; Wikipedia; vintage3d; Grokipedia (NV1 quadratic/quadrilateral rendering; Sega partnership)"
+  },
+  {
+   "id": "c-riva-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "Then Microsoft launched DirectX, which standardized on triangle primitives only; the PC industry followed, the NV1 flopped, and the Sega NV2 follow-up contract was effectively dead.",
+   "sourceNote": "Published caption; Wikipedia; Grokipedia (Direct3D triangle standard; NV1 failure; NV2 cancellation)"
+  },
+  {
+   "id": "c-riva-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "Jensen Huang cut headcount from around 100 to 40.",
+   "sourceNote": "Published caption; Wikipedia (laid off half of about 100); Medium/TheBigCollapse (shrinking to just 30)"
+  },
+  {
+   "id": "c-riva-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "Huang flew to Sega's headquarters, told CEO Shoichiro Irimajiri that NVIDIA couldn't deliver the NV2, and asked him to invest $5 million anyway; Sega said yes.",
+   "sourceNote": "Published caption; Yahoo Finance; Tom's Hardware; BGR (Huang proposed converting owed contract money into a $5M equity investment; Irimajiri agreed)"
+  },
+  {
+   "id": "c-riva-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "That cash bought NVIDIA months, not years, of runway; a normal chip cycle took well over a year of tape-outs and re-spins, which NVIDIA could not afford even once.",
+   "sourceNote": "Published caption; BGR (six months to live); industry norms"
+  },
+  {
+   "id": "c-riva-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "Huang spent roughly a third of the remaining money on emulation software; the emulator was so slow that a single frame took about 30 seconds, but it let NVIDIA design and verify a new chip entirely in software and send it straight to SGS-Thomson for first silicon, with the company finished if that silicon failed.",
+   "sourceNote": "Published caption; Medium/Hermansson ($1M in the bank, half spent on the emulator); 86Box (SGS-Thomson milestone payments; driver emulation architecture)"
+  },
+  {
+   "id": "c-riva-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "The chip was RIVA 128; it shipped in August 1997 when NVIDIA again had about one month of payroll left, supported only 8 of the 24 alpha blend modes it was supposed to, but performance crushed competitors, and NVIDIA sold over one million units in four months.",
+   "sourceNote": "Published caption; Wikipedia RIVA 128 (released Aug 25, 1997, about 1 month of payroll); Yahoo/BGR (about 1 million units in four months)"
+  },
+  {
+   "id": "c-riva-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "nvidia-riva"
+   ],
+   "text": "NVIDIA survived, went public in 1999, and the simulation-first approach that began as a desperation hack became a permanent advantage that helps it ship better silicon on first tape-out than most rivals; the company is worth around $5 trillion today.",
+   "sourceNote": "Published caption; Wikipedia (1999 IPO); RIVA 128 as the turnaround product. $5T valuation carried as the caption's own current-value claim."
+  },
+  {
+   "id": "concept-directx-triangle-standard",
+   "type": "concept",
+   "name": "DirectX's triangle-only standard rendering NV1's quadrilateral architecture obsolete"
+  },
+  {
+   "id": "concept-simulation-first-culture",
+   "type": "concept",
+   "name": "NVIDIA's simulation-first (design-in-software, first-silicon) engineering culture"
+  },
+  {
+   "id": "story-nvidia-riva",
+   "type": "story",
+   "title": "The Bet They Had to Make",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7454615820393136128 instagram: none (login wall) facebook: none confirmed newsletter: none"
   }
  ],
  "edges": [
@@ -7802,6 +8447,108 @@
    "type": "covers",
    "from": "story-nasa-printed-chamber",
    "to": "nasa-printed-chamber"
-  }
+  },
+  {"type":"event-of","from":"ev-completion-alexnet-1","to":"alexnet"},
+  {"type":"event-of","from":"ev-completion-alexnet-2","to":"alexnet"},
+  {"type":"event-of","from":"ev-record-alexnet-3","to":"alexnet"},
+  {"type":"contributed","from":"alex-krizhevsky","to":"alexnet","role":"led"},
+  {"type":"contributed","from":"ilya-sutskever","to":"alexnet","role":"led"},
+  {"type":"contributed","from":"geoffrey-hinton","to":"alexnet","role":"led"},
+  {"type":"contributed","from":"jensen-huang","to":"alexnet","role":"led"},
+  {"type":"about","from":"c-alexnet-01","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-01","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-02","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-02","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-03","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-03","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-04","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-04","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-05","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-05","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-06","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-06","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-07","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-07","to":"src-alexnet-vcl"},
+  {"type":"about","from":"c-alexnet-08","to":"alexnet"},
+  {"type":"cites","from":"c-alexnet-08","to":"src-alexnet-vcl"},
+  {"type":"enabled","from":"alexnet","to":"concept-deep-learning-era","claimId":"c-alexnet-03"},
+  {"type":"responded-to","from":"alexnet","to":"concept-gpgpu-bet","claimId":"c-alexnet-06"},
+  {"type":"covers","from":"story-alexnet","to":"alexnet"},
+  {"type":"event-of","from":"ev-decision-asml-1","to":"asml-euv"},
+  {"type":"event-of","from":"ev-completion-asml-2","to":"asml-euv"},
+  {"type":"about","from":"c-asml-01","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-01","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-02","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-02","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-03","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-03","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-04","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-04","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-05","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-05","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-06","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-06","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-07","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-07","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-08","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-08","to":"src-asml-vcl"},
+  {"type":"about","from":"c-asml-09","to":"asml-euv"},
+  {"type":"cites","from":"c-asml-09","to":"src-asml-vcl"},
+  {"type":"responded-to","from":"asml-euv","to":"concept-duv-wavelength-limit","claimId":"c-asml-01"},
+  {"type":"covers","from":"story-asml-euv","to":"asml-euv"},
+  {"type":"event-of","from":"ev-publication-tsmc-1","to":"chip-design-1987"},
+  {"type":"event-of","from":"ev-decision-tsmc-2","to":"chip-design-1987"},
+  {"type":"event-of","from":"ev-completion-tsmc-3","to":"chip-design-1987"},
+  {"type":"contributed","from":"morris-chang","to":"chip-design-1987","role":"pioneered"},
+  {"type":"contributed","from":"jack-kilby","to":"chip-design-1987","role":"pioneered"},
+  {"type":"about","from":"c-tsmc-01","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-01","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-02","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-02","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-03","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-03","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-04","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-04","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-05","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-05","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-06","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-06","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-07","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-07","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-08","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-08","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-09","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-09","to":"src-tsmc-vcl"},
+  {"type":"about","from":"c-tsmc-10","to":"chip-design-1987"},
+  {"type":"cites","from":"c-tsmc-10","to":"src-tsmc-vcl"},
+  {"type":"enabled","from":"chip-design-1987","to":"concept-fabless-industry","claimId":"c-tsmc-07"},
+  {"type":"covers","from":"story-chip-design-1987","to":"chip-design-1987"},
+  {"type":"event-of","from":"ev-failure-riva-1","to":"nvidia-riva"},
+  {"type":"event-of","from":"ev-decision-riva-2","to":"nvidia-riva"},
+  {"type":"event-of","from":"ev-completion-riva-3","to":"nvidia-riva"},
+  {"type":"event-of","from":"ev-completion-riva-4","to":"nvidia-riva"},
+  {"type":"contributed","from":"jensen-huang","to":"nvidia-riva","role":"led"},
+  {"type":"contributed","from":"shoichiro-irimajiri","to":"nvidia-riva","role":"led"},
+  {"type":"about","from":"c-riva-01","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-01","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-02","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-02","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-03","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-03","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-04","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-04","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-05","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-05","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-06","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-06","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-07","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-07","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-08","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-08","to":"src-riva-vcl"},
+  {"type":"about","from":"c-riva-09","to":"nvidia-riva"},
+  {"type":"cites","from":"c-riva-09","to":"src-riva-vcl"},
+  {"type":"responded-to","from":"nvidia-riva","to":"concept-directx-triangle-standard","claimId":"c-riva-03"},
+  {"type":"enabled","from":"nvidia-riva","to":"concept-simulation-first-culture","claimId":"c-riva-07"},
+  {"type":"covers","from":"story-nvidia-riva","to":"nvidia-riva"}
  ]
 }

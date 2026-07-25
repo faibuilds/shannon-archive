@@ -345,7 +345,7 @@ const WRIGHT = parseLineArray("WRIGHT");
   // public graph: not as line node ids, not as lineId values. Free text may
   // mention historical people who share these names; only the structural
   // fields leak a line's existence.
-  const MASKED_LINES = ["petroski", "hammurabi", "barenyi", "tipper", "roebling", "sutter", "carnot"];
+  const MASKED_LINES = ["petroski", "hammurabi", "barenyi", "tipper", "roebling", "sutter", "carnot", "noyce"];
   const lineLeaks = [];
   for (const n of nodes) {
     if (n.type === "line" && MASKED_LINES.includes(String(n.id).toLowerCase())) lineLeaks.push("line node " + n.id);
