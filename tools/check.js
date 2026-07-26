@@ -242,7 +242,9 @@ const NOYCE = parseLineArray("NOYCE");
   const name = "art: only covered plates carry art, always credited";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
   const problems = [];
-  for (const p of AIRCRAFT.concat(LOVELACE || [], WRIGHT || [])) {
+  const everyPlate = AIRCRAFT.concat(LOVELACE || [], WRIGHT || [], PETROSKI || [],
+    HAMMURABI || [], BARENYI || [], TIPPER || [], SUTTER || [], CARNOT || [], NOYCE || []);
+  for (const p of everyPlate) {
     if (p.status !== "covered" && ("art" in p || "artCredit" in p)) {
       problems.push(p.id + " has status " + p.status + " but carries art fields");
     }
@@ -250,7 +252,7 @@ const NOYCE = parseLineArray("NOYCE");
       problems.push(p.id + " has art without artCredit");
     }
   }
-  const withArt = AIRCRAFT.filter((p) => "art" in p).length;
+  const withArt = everyPlate.filter((p) => "art" in p).length;
   if (problems.length) fail(name, problems.join("; "));
   else pass(name, "(" + withArt + " plate(s) with art)");
 })();

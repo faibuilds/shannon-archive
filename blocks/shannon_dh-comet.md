@@ -1,5 +1,13 @@
 === SHANNON BLOCK (ingestion record) ===
 STATUS: LIVE since 2026-07-25 (v1.52) on L-09 SUTTER. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
+ART: HELD 2026-07-26 after a source hunt (P-80 precedent). No clean
+  public-domain 3-view of the Comet 1 found: the only Commons drawing is
+  Kaboldy's, CC-BY-SA-3.0 (license rejected per house standard) and a Comet
+  4B anyway (wrong mark). The Cohen inquiry report CAP 127 (HMSO 1955, Crown
+  copyright expired 2005, would be PD) is behind bot-blocks at ASN and Scribd;
+  FAA lessons-learned 403s scrapers. Watch for: a scanned CAP 127 with a
+  general-arrangement figure, or a PD-UK-Gov RAE drawing. The 747 plate got
+  art (NASA EG-0012-02); the Comet ships artless for now.
 ARTIFACT id: dh-comet | name: de Havilland DH.106 Comet 1 | category: airframe | origin: United Kingdom
 INTENDED LINE: SUTTER (commercial aviation). MASKED in the public graph:
   lineId is "undisclosed". NOTE: sutter is a NEW line name, not one of the
