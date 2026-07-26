@@ -175,6 +175,13 @@ function parseLineArray(constName) {
 }
 const LOVELACE = parseLineArray("LOVELACE");
 const WRIGHT = parseLineArray("WRIGHT");
+const PETROSKI = parseLineArray("PETROSKI");
+const HAMMURABI = parseLineArray("HAMMURABI");
+const BARENYI = parseLineArray("BARENYI");
+const TIPPER = parseLineArray("TIPPER");
+const SUTTER = parseLineArray("SUTTER");
+const CARNOT = parseLineArray("CARNOT");
+const NOYCE = parseLineArray("NOYCE");
 
 // ---------------------------------------------------------------------------
 // Check 4: Consistency. status.json lit == sum(cells) == covered plates,
@@ -196,7 +203,7 @@ const WRIGHT = parseLineArray("WRIGHT");
     const k = status.lines.find((l) => l.id === "kelly");
     if (!k) problems.push("status.lines missing kelly");
     else if (k.lit !== status.lit || k.total !== status.total) problems.push("status.lines kelly disagrees with top-level lit/total");
-    for (const [lineId, arr] of [["lovelace", LOVELACE], ["wright", WRIGHT]]) {
+    for (const [lineId, arr] of [["petroski", PETROSKI], ["hammurabi", HAMMURABI], ["barenyi", BARENYI], ["tipper", TIPPER], ["lovelace", LOVELACE], ["wright", WRIGHT], ["sutter", SUTTER], ["carnot", CARNOT], ["noyce", NOYCE]]) {
       if (!arr) continue;
       const entry = status.lines.find((l) => l.id === lineId);
       const covered = arr.filter((p) => p.status === "covered").length;
@@ -205,7 +212,7 @@ const WRIGHT = parseLineArray("WRIGHT");
       if (entry.total !== arr.length) problems.push("status.lines " + lineId + " total=" + entry.total + " but plates=" + arr.length);
     }
     if (status.linesLive !== status.lines.length) problems.push("linesLive=" + status.linesLive + " but lines.length=" + status.lines.length);
-  } else if (LOVELACE || WRIGHT) {
+  } else if (LOVELACE || WRIGHT || PETROSKI || HAMMURABI || BARENYI || TIPPER || SUTTER || CARNOT || NOYCE) {
     problems.push("extra lines on site but status.json has no lines block");
   }
   if (problems.length) fail(name, problems.join("; "));
@@ -345,13 +352,17 @@ const WRIGHT = parseLineArray("WRIGHT");
   // public graph: not as line node ids, not as lineId values. Free text may
   // mention historical people who share these names; only the structural
   // fields leak a line's existence.
-  const MASKED_LINES = ["petroski", "hammurabi", "barenyi", "tipper", "roebling", "sutter", "carnot", "noyce"];
+  const MASKED_LINES = ["roebling"];
   const lineLeaks = [];
   for (const n of nodes) {
     if (n.type === "line" && MASKED_LINES.includes(String(n.id).toLowerCase())) lineLeaks.push("line node " + n.id);
     if (n.lineId && MASKED_LINES.includes(String(n.lineId).toLowerCase())) lineLeaks.push(n.id + " has lineId " + n.lineId);
   }
   if (lineLeaks.length) problems.push("masked line name in public graph: " + lineLeaks.join(", "));
+  // The real name of a masked line must not appear in the deployed HTML
+  // either. The roster shows it glyph-masked (e.g. R▮▮BL▮NG), which is fine.
+  const htmlLeaks = MASKED_LINES.filter((m) => new RegExp("\\b" + m + "\\b", "i").test(html));
+  if (htmlLeaks.length) problems.push("masked line name in index.html: " + htmlLeaks.join(", "));
 
   // Synthesis edges carry a claimId whose claim is verified AND about at
   // least one endpoint, so an edge cannot borrow an unrelated claim.

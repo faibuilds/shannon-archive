@@ -12,6 +12,62 @@
    "status": "live"
   },
   {
+   "id": "petroski",
+   "type": "line",
+   "name": "PETROSKI",
+   "engineer": "Henry Petroski",
+   "domain": "Engineering failures",
+   "status": "live"
+  },
+  {
+   "id": "hammurabi",
+   "type": "line",
+   "name": "HAMMURABI",
+   "engineer": "Hammurabi",
+   "domain": "Regulation, written in blood",
+   "status": "live"
+  },
+  {
+   "id": "barenyi",
+   "type": "line",
+   "name": "BARENYI",
+   "engineer": "Bela Barenyi",
+   "domain": "Automotive safety",
+   "status": "live"
+  },
+  {
+   "id": "tipper",
+   "type": "line",
+   "name": "TIPPER",
+   "engineer": "Constance Tipper",
+   "domain": "Materials",
+   "status": "live"
+  },
+  {
+   "id": "sutter",
+   "type": "line",
+   "name": "SUTTER",
+   "engineer": "Joe Sutter",
+   "domain": "Commercial aviation",
+   "status": "live"
+  },
+  {
+   "id": "carnot",
+   "type": "line",
+   "name": "CARNOT",
+   "engineer": "Sadi Carnot",
+   "domain": "Prime movers",
+   "status": "live"
+  },
+  {
+   "id": "noyce",
+   "type": "line",
+   "name": "NOYCE",
+   "engineer": "Robert Noyce",
+   "domain": "Semiconductors",
+   "status": "live"
+  },
+  {
    "id": "p-38",
    "type": "artifact",
    "name": "P-38 Lightning",
@@ -1216,7 +1272,7 @@
    "name": "Kevlar (poly-paraphenylene terephthalamide)",
    "category": "material",
    "origin": "United States",
-   "lineId": "undisclosed",
+   "lineId": "tipper",
    "sealed": true
   },
   {
@@ -2207,7 +2263,7 @@
    "name": "Tacoma Narrows Bridge (1940)",
    "category": "other",
    "origin": "United States",
-   "lineId": "undisclosed",
+   "lineId": "petroski",
    "sealed": false,
    "note": "Retro-VCL backfill; see blocks/shannon_tacoma-narrows.md"
   },
@@ -2455,7 +2511,7 @@
    "name": "Liberty ship program (wartime welded fleet)",
    "category": "process",
    "origin": "United States",
-   "lineId": "undisclosed",
+   "lineId": "tipper",
    "sealed": false,
    "note": "Retro-VCL backfill; see blocks/shannon_liberty-ships.md"
   },
@@ -2634,7 +2690,7 @@
    "name": "British Airtours Flight 28M (Boeing 737-236 G-BGJL, Manchester)",
    "category": "process",
    "origin": "United Kingdom",
-   "lineId": "undisclosed",
+   "lineId": "hammurabi",
    "sealed": false,
    "note": "Retro-VCL backfill; see blocks/shannon_manchester-28m.md"
   },
@@ -3686,7 +3742,7 @@
    "name": "Ronan Point",
    "category": "structure",
    "origin": "United Kingdom",
-   "lineId": "undisclosed",
+   "lineId": "petroski",
    "sealed": false,
    "note": "Retro-VCL; see blocks/shannon_ronan-point.md"
   },
@@ -3860,7 +3916,7 @@
    "name": "de Havilland DH.106 Comet 1",
    "category": "airframe",
    "origin": "United Kingdom",
-   "lineId": "undisclosed",
+   "lineId": "sutter",
    "sealed": false,
    "note": "Retro-VCL; see blocks/shannon_dh-comet.md"
   },
@@ -4042,7 +4098,7 @@
    "name": "The Crumple Zone (Barenyi safety body, patent DBP 854157)",
    "category": "process",
    "origin": "Germany",
-   "lineId": "undisclosed",
+   "lineId": "barenyi",
    "sealed": false,
    "note": "Retro-VCL; see blocks/shannon_crumple-zone.md"
   },
@@ -4179,7 +4235,7 @@
    "name": "Boeing 747",
    "category": "airframe",
    "origin": "United States",
-   "lineId": "undisclosed",
+   "lineId": "sutter",
    "sealed": false,
    "note": "Retro-VCL; see blocks/shannon_boeing-747.md"
   },
@@ -4379,7 +4435,7 @@
    "name": "Rudolf Diesel and the Compression-Ignition Engine",
    "category": "process",
    "origin": "Germany",
-   "lineId": "undisclosed",
+   "lineId": "carnot",
    "sealed": false,
    "note": "Retro-VCL; see blocks/shannon_diesel-engine.md"
   },
@@ -4652,7 +4708,7 @@
    "name": "NASA 3D-printed combustion chamber (GRCop-42, Marshall 2021)",
    "category": "process",
    "origin": "United States",
-   "lineId": "undisclosed",
+   "lineId": "tipper",
    "sealed": false,
    "note": "Retro-VCL backfill; see blocks/shannon_nasa-printed-chamber.md"
   },
@@ -4781,7 +4837,7 @@
    "name": "AlexNet and the CUDA bet (Semiconductor Series, Part 4)",
    "category": "process",
    "origin": "Canada / United States",
-   "lineId": "undisclosed",
+   "lineId": "noyce",
    "sealed": false,
    "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 4 of 5; see blocks/shannon_alexnet.md"
   },
@@ -4949,7 +5005,7 @@
    "name": "ASML and EUV lithography (Semiconductor Series, Part 3)",
    "category": "process",
    "origin": "Netherlands",
-   "lineId": "undisclosed",
+   "lineId": "noyce",
    "sealed": false,
    "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 3 of 5; see blocks/shannon_asml-euv.md"
   },
@@ -5086,7 +5142,7 @@
    "name": "TSMC and the pure-play foundry (Semiconductor Series, Part 2)",
    "category": "process",
    "origin": "Taiwan",
-   "lineId": "undisclosed",
+   "lineId": "noyce",
    "sealed": false,
    "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 2 of 5; see blocks/shannon_chip-design-1987.md"
   },
@@ -5257,7 +5313,7 @@
    "name": "NVIDIA's RIVA 128 and the 1996 near-death (Semiconductor Series, Part 1)",
    "category": "process",
    "origin": "United States",
-   "lineId": "undisclosed",
+   "lineId": "noyce",
    "sealed": false,
    "note": "Retro-VCL backfill (Rule 2, built post-publication); Semiconductor Series Part 1 of 5, earliest plate in the chain; see blocks/shannon_nvidia-riva.md"
   },

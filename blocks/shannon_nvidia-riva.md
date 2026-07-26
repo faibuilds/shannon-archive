@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-11 NOYCE. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: nvidia-riva | name: NVIDIA's RIVA 128 and the 1996 near-death
   (Semiconductor Series, Part 1) | category: process | origin: United States
 INTENDED LINE: NOYCE (semiconductors, named for Robert Noyce). MASKED in the

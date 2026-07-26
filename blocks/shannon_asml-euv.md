@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-11 NOYCE. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: asml-euv | name: ASML and EUV lithography (Semiconductor Series,
   Part 3) | category: process | origin: Netherlands
 INTENDED LINE: NOYCE (semiconductors). MASKED: lineId "undisclosed". See the

@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-02 PETROSKI. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: ronan-point | name: Ronan Point | category: structure | origin: United Kingdom
 INTENDED LINE: PETROSKI (engineering failures). MASKED in the public graph:
   lineId is "undisclosed" (petroski is an unlaunched line; the name never

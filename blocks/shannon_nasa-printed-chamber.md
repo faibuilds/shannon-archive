@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-05 TIPPER. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: nasa-printed-chamber | name: NASA 3D-printed combustion chamber
   (GRCop-42, Marshall 2021) | category: process | origin: United States
 INTENDED LINE: TIPPER (materials, how materials behave and fail). MASKED in

@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-10 CARNOT. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: diesel-engine | name: Rudolf Diesel and the Compression-Ignition Engine | category: process | origin: Germany
 INTENDED LINE: CARNOT (mechanical engineering / prime movers and process),
   FOUNDING plate, named for Sadi Carnot. MASKED in the public graph: lineId

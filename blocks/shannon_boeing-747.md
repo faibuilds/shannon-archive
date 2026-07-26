@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-09 SUTTER. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: boeing-747 | name: Boeing 747 | category: airframe | origin: United States
 INTENDED LINE: SUTTER (commercial aviation), named for Joe Sutter. MASKED in
   the public graph: lineId is "undisclosed". Added 2026-07-24 (v1.47).

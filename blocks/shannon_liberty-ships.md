@@ -1,4 +1,5 @@
 === SHANNON BLOCK ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-05 TIPPER. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 NOTE: retroactive VCL backfill. The story published 2026-06 before the
   emit SOP existed and Fai could not locate the original VCL, so this one
   was rebuilt from the published post text with every claim re-verified

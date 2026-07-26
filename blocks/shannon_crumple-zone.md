@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-04 BARENYI. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: crumple-zone | name: The Crumple Zone (Barenyi safety body, patent DBP 854157) | category: process | origin: Germany
 INTENDED LINE: BARENYI (automotive safety), named for Bela Barenyi in this
   story. MASKED in the public graph: lineId is "undisclosed" (barenyi is an

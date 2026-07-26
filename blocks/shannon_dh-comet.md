@@ -1,4 +1,5 @@
 === SHANNON BLOCK (ingestion record) ===
+STATUS: LIVE since 2026-07-25 (v1.52) on L-09 SUTTER. The line is public now; any "pending Fai" or "not a live public line" notes below are historical.
 ARTIFACT id: dh-comet | name: de Havilland DH.106 Comet 1 | category: airframe | origin: United Kingdom
 INTENDED LINE: SUTTER (commercial aviation). MASKED in the public graph:
   lineId is "undisclosed". NOTE: sutter is a NEW line name, not one of the
