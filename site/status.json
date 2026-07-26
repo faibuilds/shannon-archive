@@ -12,7 +12,7 @@
     { "id": "wright", "name": "WRIGHT L-08", "total": 1, "lit": 1 },
     { "id": "sutter", "name": "SUTTER L-09", "total": 2, "lit": 2 },
     { "id": "carnot", "name": "CARNOT L-10", "total": 1, "lit": 1 },
-    { "id": "noyce", "name": "NOYCE L-11", "total": 4, "lit": 4 }
+    { "id": "noyce", "name": "NOYCE L-11", "total": 5, "lit": 5 }
   ],
   "total": 26,
   "lit": 19,

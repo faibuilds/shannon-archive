@@ -5475,6 +5475,247 @@
    "type": "story",
    "title": "The Bet They Had to Make",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7454615820393136128 instagram: none (login wall) facebook: none confirmed newsletter: none"
+  },
+  {
+   "id": "point-contact-transistor",
+   "type": "artifact",
+   "name": "The point-contact transistor (Bell Labs, 1947)",
+   "category": "process",
+   "origin": "United States",
+   "lineId": "noyce",
+   "sealed": false,
+   "note": "New post (full EC SOP VCL); NOYCE origin plate; see blocks/shannon_point-contact-transistor.md"
+  },
+  {
+   "id": "src-transistor-vcl",
+   "type": "source",
+   "title": "EC VCL: point-contact transistor (dual Perplexity and Gemini audit; IEEE Spectrum, Computer History Museum, Wikipedia, ETHW, The Register, ScienceDirect, CHM Revolution, allaboutcircuits)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-publication-transistor-1",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1945,
+    "month": 4
+   },
+   "subjectId": "point-contact-transistor",
+   "label": "William Shockley conceives a field-effect amplifier at Bell Labs; it fails to work as intended"
+  },
+  {
+   "id": "ev-completion-transistor-2",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1947,
+    "month": 12,
+    "day": 16
+   },
+   "subjectId": "point-contact-transistor",
+   "label": "Bardeen and Brattain's point-contact device amplifies a signal through germanium, the first working transistor"
+  },
+  {
+   "id": "ev-publication-transistor-3",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1947,
+    "month": 12,
+    "day": 23
+   },
+   "subjectId": "point-contact-transistor",
+   "label": "The device is demonstrated to Bell Labs officials, amplifying a voice with no vacuum tube in the circuit; Shockley calls it a magnificent Christmas present"
+  },
+  {
+   "id": "ev-publication-transistor-4",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1948
+   },
+   "subjectId": "point-contact-transistor",
+   "label": "Within months Shockley conceives the junction transistor, the sturdier manufacturable design; John Pierce names the device transistor by colleague vote"
+  },
+  {
+   "id": "ev-record-transistor-5",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1956
+   },
+   "subjectId": "point-contact-transistor",
+   "label": "Bardeen, Brattain, and Shockley share the Nobel Prize in Physics"
+  },
+  {
+   "id": "john-bardeen",
+   "type": "person",
+   "name": "John Bardeen",
+   "note": "Bell Labs theorist. Diagnosed why Shockley's field-effect amplifier failed (surface states blocking the field), then with Brattain built the point-contact device around the obstacle. Shared the 1956 Nobel; later won a second Nobel in Physics in 1972 for superconductivity, the only person to win two in the field."
+  },
+  {
+   "id": "walter-brattain",
+   "type": "person",
+   "name": "Walter Brattain",
+   "note": "Bell Labs experimental physicist. Solved the contact-spacing problem with a razor: one strip of gold foil over a plastic triangle, sliced at the tip to make two contacts a blade's width apart. Shared the 1956 Nobel."
+  },
+  {
+   "id": "william-shockley",
+   "type": "person",
+   "name": "William Shockley",
+   "note": "Organized the solid-state group; his 1945 field-effect idea failed, but the junction transistor he then conceived became the manufacturable design. Shared the 1956 Nobel. Later founded Shockley Semiconductor, whose defectors (the Traitorous Eight, including Robert Noyce, the line's namesake) founded Fairchild."
+  },
+  {
+   "id": "john-pierce",
+   "type": "person",
+   "name": "John Pierce",
+   "note": "Bell Labs engineer who coined the name transistor (transconductance or transfer, plus varistor), chosen by colleague vote in 1948."
+  },
+  {
+   "id": "c-transistor-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "Before transistors, electronics relied on vacuum tubes: electrodes in an evacuated bulb functioning as amplifiers and switches, hot, fragile, power-hungry, with a warm-up delay.",
+   "sourceNote": "VCL [1][3] (IEEE Spectrum; ETHW demonstration account)"
+  },
+  {
+   "id": "c-transistor-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "Bell Labs pursued a solid-state replacement for the unreliable vacuum tubes and electromechanical switches in the Bell Telephone System.",
+   "sourceNote": "VCL [2] (Computer History Museum)"
+  },
+  {
+   "id": "c-transistor-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "In April 1945 Shockley conceived a field-effect amplifier; it failed to work as intended.",
+   "sourceNote": "VCL [5] (Computer History Museum; Gemini-confirmed)"
+  },
+  {
+   "id": "c-transistor-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "John Bardeen worked out why: electrons gathering at the semiconductor's surface (surface states) were blocking the electric field from penetrating the material.",
+   "sourceNote": "VCL [6] (Computer History Museum)"
+  },
+  {
+   "id": "c-transistor-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "Bardeen and Brattain then pursued a point-contact approach through the surface rather than the field effect.",
+   "sourceNote": "VCL [7] (IEEE Spectrum)"
+  },
+  {
+   "id": "c-transistor-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "The design required two gold contacts touching the germanium closer together than anyone could mount two separate wires; Brattain attached one strip of gold foil over the point of a plastic triangle and sliced through the gold at the tip, producing two isolated contacts a blade's width apart (under about 0.1 mm at the surface).",
+   "sourceNote": "VCL [8][9] (Wikipedia; allaboutcircuits; Gemini gave about 0.002 in)"
+  },
+  {
+   "id": "c-transistor-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "On December 16, 1947, the critical experiment worked: a block of germanium with two closely spaced gold contacts held by a spring; the voltage on one contact modulated the current through the other, amplifying the input up to 100 times.",
+   "sourceNote": "VCL [8][10] (Wikipedia; Computer History Museum)"
+  },
+  {
+   "id": "c-transistor-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "Mechanism: the germanium surface had an excess of electrons; the incoming signal injected holes (an absence of electrons that carries current), creating a thin layer with a scarcity of electrons and letting a small change at one contact steer a larger current at the other.",
+   "sourceNote": "VCL [11] (Wikipedia; experimentally discovered, not predicted)"
+  },
+  {
+   "id": "c-transistor-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "On December 23, 1947, the device was demonstrated to lab officials, switched in and out of an audio circuit so they could hear the amplification, instant, with no warm-up; Shockley called it a magnificent Christmas present.",
+   "sourceNote": "VCL [12][13] (ETHW; Computer History Museum, quote as attributed)"
+  },
+  {
+   "id": "c-transistor-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "In 1948 Shockley conceived the more robust junction transistor (built 1951), the first practical and manufacturable transistor design.",
+   "sourceNote": "VCL [16] (CHM Revolution; ScienceDirect; US Patent 2,569,347)"
+  },
+  {
+   "id": "c-transistor-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "The device was named transistor by engineer John Pierce, a combination of transconductance or transfer and varistor, chosen by colleague vote in 1948.",
+   "sourceNote": "VCL [14] (The Register, quoting the Bell Labs voting paper)"
+  },
+  {
+   "id": "c-transistor-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "Bardeen, Brattain, and Shockley shared the 1956 Nobel Prize in Physics.",
+   "sourceNote": "VCL [17] (CHM Revolution)"
+  },
+  {
+   "id": "c-transistor-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "point-contact-transistor"
+   ],
+   "text": "ENIAC, completed in 1946, ran on about 18,000 vacuum tubes and filled a room; modern chips hold billions of transistors.",
+   "sourceNote": "VCL (ENIAC about 17,468 tubes, about 18,000 defensible; present-day comparison)"
+  },
+  {
+   "id": "concept-vacuum-tube-limits",
+   "type": "concept",
+   "name": "The vacuum tube's limits (heat, fragility, power draw, no miniaturization) as the barrier to modern electronics"
+  },
+  {
+   "id": "concept-solid-state-lineage",
+   "type": "concept",
+   "name": "The junction transistor and every solid-state device downstream of it"
+  },
+  {
+   "id": "story-point-contact-transistor",
+   "type": "story",
+   "title": "The Digital Age Fits Through a Razor Cut",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487033383554850816 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -8605,6 +8846,44 @@
   {"type":"cites","from":"c-riva-09","to":"src-riva-vcl"},
   {"type":"responded-to","from":"nvidia-riva","to":"concept-directx-triangle-standard","claimId":"c-riva-03"},
   {"type":"enabled","from":"nvidia-riva","to":"concept-simulation-first-culture","claimId":"c-riva-07"},
-  {"type":"covers","from":"story-nvidia-riva","to":"nvidia-riva"}
+  {"type":"covers","from":"story-nvidia-riva","to":"nvidia-riva"},
+  {"type":"event-of","from":"ev-publication-transistor-1","to":"point-contact-transistor"},
+  {"type":"event-of","from":"ev-completion-transistor-2","to":"point-contact-transistor"},
+  {"type":"event-of","from":"ev-publication-transistor-3","to":"point-contact-transistor"},
+  {"type":"event-of","from":"ev-publication-transistor-4","to":"point-contact-transistor"},
+  {"type":"event-of","from":"ev-record-transistor-5","to":"point-contact-transistor"},
+  {"type":"contributed","from":"john-bardeen","to":"point-contact-transistor","role":"pioneered"},
+  {"type":"contributed","from":"walter-brattain","to":"point-contact-transistor","role":"pioneered"},
+  {"type":"contributed","from":"william-shockley","to":"point-contact-transistor","role":"led"},
+  {"type":"contributed","from":"john-pierce","to":"point-contact-transistor","role":"pioneered"},
+  {"type":"about","from":"c-transistor-01","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-01","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-02","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-02","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-03","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-03","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-04","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-04","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-05","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-05","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-06","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-06","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-07","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-07","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-08","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-08","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-09","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-09","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-10","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-10","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-11","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-11","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-12","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-12","to":"src-transistor-vcl"},
+  {"type":"about","from":"c-transistor-13","to":"point-contact-transistor"},
+  {"type":"cites","from":"c-transistor-13","to":"src-transistor-vcl"},
+  {"type":"responded-to","from":"point-contact-transistor","to":"concept-vacuum-tube-limits","claimId":"c-transistor-01"},
+  {"type":"enabled","from":"point-contact-transistor","to":"concept-solid-state-lineage","claimId":"c-transistor-10"},
+  {"type":"covers","from":"story-point-contact-transistor","to":"point-contact-transistor"}
  ]
 }
