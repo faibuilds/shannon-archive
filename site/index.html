@@ -572,6 +572,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 .remarks-invite{font-size:12.5px;line-height:1.65;color:var(--steel-faint);margin:-4px 0 14px;max-width:640px}
 /* Status and Role are KELLY's filters, so they hide on the other lines. */
 .filters:not(.on-kelly) .kelly-only{display:none}
+/* Ten lines made the sticky bar tall on a phone, blanketing the content
+   under it. On mobile it collapses to one thin strip: the current line
+   plus a + that becomes a cross. It also slides away entirely once you
+   scroll past the last line section, so the board is never covered. */
+.filters-toggle{display:none}
+@media (max-width:760px){
+  .filters{display:block;padding:0;transition:transform .28s}
+  .filters-toggle{display:flex;width:100%;align-items:center;gap:10px;padding:12px 20px;background:none;border:0;font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-faint);cursor:pointer}
+  .ftg-current{color:var(--green);font-weight:700;letter-spacing:1.5px}
+  .ftg-x{margin-left:auto;position:relative;width:14px;height:14px;transition:transform .25s}
+  .ftg-x::before,.ftg-x::after{content:"";position:absolute;left:50%;top:50%;background:var(--steel-dim)}
+  .ftg-x::before{width:12px;height:1.6px;transform:translate(-50%,-50%)}
+  .ftg-x::after{width:1.6px;height:12px;transform:translate(-50%,-50%)}
+  .filters.open .ftg-x{transform:rotate(45deg)}
+  .filters .filter-group,.filters .filter-count{display:none}
+  .filters.open .filter-group{display:flex;padding:0 20px}
+  .filters.open .filter-group + .filter-group{margin-top:10px}
+  .filters.open{padding-bottom:12px}
+  .filters .pill{padding:6px 11px;font-size:9.5px}
+  .filters.past-lines{transform:translateY(-140%);pointer-events:none}
+}
 .gauge-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:.8px;color:var(--steel-faint);margin-top:12px;line-height:1.5}
 @media (max-width:760px){
   /* overflow-x:clip (not hidden) keeps the layout viewport at device width
@@ -710,6 +731,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 </header>
 
 <div class="filters on-kelly" id="filters">
+  <button class="filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters">
+    <span class="ftg-label">Line</span>
+    <span class="ftg-current" id="ftg-current">Kelly</span>
+    <span class="ftg-x" aria-hidden="true"></span>
+  </button>
   <div class="filter-group">
     <span class="filter-group-label">Line</span>
     <button class="pill line-jump active" data-jump="kelly">Kelly</button>
@@ -953,7 +979,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.53 / BUILT 07.2026 / 10 LINES LIVE, L-06 IN FABRICATION</span>
+    <span class="footer-stamp">SHANNON v1.54 / BUILT 07.2026 / 10 LINES LIVE, L-06 IN FABRICATION</span>
   </div>
 </footer>
 
@@ -2252,10 +2278,29 @@ linesWrap.addEventListener("click", e => {
     filtersEl.classList.toggle("on-kelly", cur === null || cur === "kelly");
     document.querySelectorAll(".line-jump").forEach(b =>
       b.classList.toggle("active", b.dataset.jump === (cur || "kelly")));
+    const curLabel = document.getElementById("ftg-current");
+    if (curLabel) {
+      const act = document.querySelector(".line-jump.active");
+      if (act) curLabel.textContent = act.textContent;
+    }
+    /* Past the last line section the jump bar has nothing to point at, so
+       it slides away instead of riding over the board and footer. */
+    const lastSec = document.getElementById("noyce");
+    filtersEl.classList.toggle("past-lines", !!lastSec && lastSec.getBoundingClientRect().bottom < 60);
   };
+  const ftg = document.getElementById("filters-toggle");
+  const closeBar = () => {
+    filtersEl.classList.remove("open");
+    if (ftg) ftg.setAttribute("aria-expanded", "false");
+  };
+  if (ftg) ftg.addEventListener("click", () => {
+    const open = filtersEl.classList.toggle("open");
+    ftg.setAttribute("aria-expanded", open ? "true" : "false");
+  });
   document.querySelectorAll(".line-jump").forEach(b => b.addEventListener("click", () => {
     const el = document.getElementById(b.dataset.jump);
     if (el) el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    closeBar(); /* picked a line, put the strip away */
   }));
   window.addEventListener("scroll", syncLine, { passive:true });
   window.addEventListener("resize", syncLine, { passive:true });
