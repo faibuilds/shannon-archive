@@ -5716,6 +5716,224 @@
    "type": "story",
    "title": "The Digital Age Fits Through a Razor Cut",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487033383554850816 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "planar-process-ic",
+   "type": "artifact",
+   "name": "The Traitorous Eight, the planar process, and the integrated circuit (Fairchild, 1957-1959)",
+   "category": "process",
+   "origin": "United States",
+   "lineId": "noyce",
+   "sealed": false,
+   "note": "New post (full EC SOP VCL); second NOYCE plate, the plate the line is named for; see blocks/shannon_planar-process-ic.md"
+  },
+  {
+   "id": "src-planar-vcl",
+   "type": "source",
+   "title": "EC VCL: Traitorous Eight and the planar process (dual Perplexity and Gemini audit; Wikipedia, Britannica, PBS American Experience, ETHW, Linda Hall Library, History Tools, IT History Society)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-planar-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1957,
+    "month": 6
+   },
+   "subjectId": "planar-process-ic",
+   "label": "Eight Shockley Semiconductor scientists meet secretly at San Francisco's Clift Hotel to plan their departure; ten one-dollar bills are signed as the founding contract"
+  },
+  {
+   "id": "ev-completion-planar-2",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1957,
+    "month": 9
+   },
+   "subjectId": "planar-process-ic",
+   "label": "Fairchild Semiconductor is formed with Sherman Fairchild's $1.3M backing (dates vary by source; the post states only 1957)"
+  },
+  {
+   "id": "ev-publication-planar-3",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1958
+   },
+   "subjectId": "planar-process-ic",
+   "label": "Jean Hoerni conceives the planar process, leaving silicon's own grown oxide in place to seal transistor junctions against contamination"
+  },
+  {
+   "id": "ev-publication-planar-4",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1959
+   },
+   "subjectId": "planar-process-ic",
+   "label": "Noyce conceives the monolithic integrated circuit on Hoerni's planar surface; Fairchild files the planar patent; Fairchild Camera exercises its buyout and each founder receives $250,000"
+  },
+  {
+   "id": "jean-hoerni",
+   "type": "person",
+   "name": "Jean Hoerni",
+   "note": "Swiss-born physicist (1924-1997), one of the eight. Solved a contamination yield problem by leaving silicon's grown oxide over the junctions, against industry practice, and in doing so produced the flat insulated surface that made printed wiring possible. The enabling was a consequence, not the goal."
+  },
+  {
+   "id": "robert-noyce",
+   "type": "person",
+   "name": "Robert Noyce",
+   "note": "The line's namesake (1927-1990). Led the eight out of Shockley's lab; in 1959 realized the wafer need not be cut apart, components could be connected by metal lines printed over Hoerni's glass through etched holes. Co-inventor of the IC with Kilby; later co-founded Intel."
+  },
+  {
+   "id": "gordon-moore",
+   "type": "person",
+   "name": "Gordon Moore",
+   "note": "One of the eight; later co-founder of Intel and author of Moore's Law. One of the two leaders of the walkout alongside Noyce."
+  },
+  {
+   "id": "sherman-fairchild",
+   "type": "person",
+   "name": "Sherman Fairchild",
+   "note": "Put up $1.3 million to start Fairchild Semiconductor, retaining the buyout option exercised in 1959."
+  },
+  {
+   "id": "c-planar-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Shockley started Shockley Semiconductor Laboratory in 1956 in Mountain View and recruited young PhD graduates to develop semiconductor devices.",
+   "sourceNote": "VCL [1] (ETHW; Wikipedia)"
+  },
+  {
+   "id": "c-planar-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "His management was authoritarian and unpopular, accentuated by his research focus not proving fruitful; by early 1957 the engineers tried to have him removed from management, were refused, and eight resigned.",
+   "sourceNote": "VCL [2][3] (Wikipedia; Britannica)"
+  },
+  {
+   "id": "c-planar-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "The eight: Julius Blank, Victor Grinich, Jean Hoerni, Eugene Kleiner, Jay Last, Gordon Moore, Robert Noyce, Sheldon Roberts; Shockley described their leaving as a \"betrayal\" and they became known as the traitorous eight.",
+   "sourceNote": "VCL [4][5] (Wikipedia; PBS; ETHW)"
+  },
+  {
+   "id": "c-planar-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "In June 1957 they met secretly at San Francisco's Clift Hotel; they signed ten one-dollar bills, one for each of the eight and two for the bankers, as symbolic contracts.",
+   "sourceNote": "VCL [6][7] (PBS; Linda Hall Library; Gemini confirmed Arthur Rock produced the bills and all ten signatories signed all ten)"
+  },
+  {
+   "id": "c-planar-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Each engineer contributed $500 of his own money; when the stakes were later sold back to Fairchild, each received $250,000.",
+   "sourceNote": "VCL [8] (Britannica; Gemini: $500 was roughly a month's salary; buyout exercised 1959)"
+  },
+  {
+   "id": "c-planar-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Sherman Fairchild put up $1.3 million to start Fairchild Semiconductor, retaining a buyout option.",
+   "sourceNote": "VCL [9] (PBS)"
+  },
+  {
+   "id": "c-planar-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "In 1958 Hoerni engineered a process leaving a layer of silicon oxide on top of transistors, sealing junctions against dirt, dust, and contaminants; his motivation was the contamination that plagued production, a yield problem.",
+   "sourceNote": "VCL [11][12] (Britannica; conception 1958, patent filed 1959)"
+  },
+  {
+   "id": "c-planar-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Industry practice was to etch the oxide away to reach the silicon; Hoerni left it on, and reliability jumped. The process also left the wafer under a flat, electrically insulating sheet, which was not the goal.",
+   "sourceNote": "VCL [12][13] (Britannica; History Tools; Gemini confirmed the mesa-process contrast)"
+  },
+  {
+   "id": "c-planar-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Standard practice was to build components together on one wafer, cut them apart, and wire the pieces back together by hand; circuits had grown more complex than could be reliably assembled.",
+   "sourceNote": "VCL [14] (Britannica)"
+  },
+  {
+   "id": "c-planar-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Noyce realized cutting was unnecessary: components could be created in the same wafer and connected by depositing lines of conductive metal across the oxide, through small holes etched in the protective coating.",
+   "sourceNote": "VCL [15][16] (Britannica; Linda Hall Library)"
+  },
+  {
+   "id": "c-planar-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Fairchild filed a patent application for the planar process in 1959.",
+   "sourceNote": "VCL [17] (Britannica)"
+  },
+  {
+   "id": "c-planar-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "planar-process-ic"
+   ],
+   "text": "Jack Kilby at Texas Instruments reached a similar IC concept about six months earlier; after roughly a decade of litigation ending in a split decision and cross-licensing, both are recognized as co-inventors; Noyce's monolithic silicon version, built on Hoerni's glass, was the manufacturable one.",
+   "sourceNote": "VCL [18][19] (Britannica; IT History Society; Gemini: Kilby Sept 1958, germanium with flying wires)"
+  },
+  {
+   "id": "concept-junction-contamination",
+   "type": "concept",
+   "name": "Transistor junction contamination (the yield problem Hoerni was solving) and the hand-wiring limit on circuit complexity"
+  },
+  {
+   "id": "concept-monolithic-ic",
+   "type": "concept",
+   "name": "The monolithic integrated circuit, printed wiring on a sealed wafer, the foundation of all chip manufacture since"
+  },
+  {
+   "id": "story-planar-process-ic",
+   "type": "story",
+   "title": "The Decision Not to Cut",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487391943396704256 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -8884,6 +9102,42 @@
   {"type":"cites","from":"c-transistor-13","to":"src-transistor-vcl"},
   {"type":"responded-to","from":"point-contact-transistor","to":"concept-vacuum-tube-limits","claimId":"c-transistor-01"},
   {"type":"enabled","from":"point-contact-transistor","to":"concept-solid-state-lineage","claimId":"c-transistor-10"},
-  {"type":"covers","from":"story-point-contact-transistor","to":"point-contact-transistor"}
+  {"type":"covers","from":"story-point-contact-transistor","to":"point-contact-transistor"},
+  {"type":"event-of","from":"ev-decision-planar-1","to":"planar-process-ic"},
+  {"type":"event-of","from":"ev-completion-planar-2","to":"planar-process-ic"},
+  {"type":"event-of","from":"ev-publication-planar-3","to":"planar-process-ic"},
+  {"type":"event-of","from":"ev-publication-planar-4","to":"planar-process-ic"},
+  {"type":"contributed","from":"jean-hoerni","to":"planar-process-ic","role":"pioneered"},
+  {"type":"contributed","from":"robert-noyce","to":"planar-process-ic","role":"pioneered"},
+  {"type":"contributed","from":"gordon-moore","to":"planar-process-ic","role":"pioneered"},
+  {"type":"contributed","from":"william-shockley","to":"planar-process-ic","role":"opposed"},
+  {"type":"contributed","from":"sherman-fairchild","to":"planar-process-ic","role":"commissioned"},
+  {"type":"about","from":"c-planar-01","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-01","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-02","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-02","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-03","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-03","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-04","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-04","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-05","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-05","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-06","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-06","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-07","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-07","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-08","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-08","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-09","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-09","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-10","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-10","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-11","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-11","to":"src-planar-vcl"},
+  {"type":"about","from":"c-planar-12","to":"planar-process-ic"},
+  {"type":"cites","from":"c-planar-12","to":"src-planar-vcl"},
+  {"type":"responded-to","from":"planar-process-ic","to":"concept-junction-contamination","claimId":"c-planar-07"},
+  {"type":"enabled","from":"planar-process-ic","to":"concept-monolithic-ic","claimId":"c-planar-10"},
+  {"type":"covers","from":"story-planar-process-ic","to":"planar-process-ic"}
  ]
 }
