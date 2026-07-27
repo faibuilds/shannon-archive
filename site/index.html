@@ -979,7 +979,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.57 / BUILT 07.2026 / 10 LINES LIVE, L-06 IN FABRICATION</span>
+    <span class="footer-stamp">SHANNON v1.58 / BUILT 07.2026 / 10 LINES LIVE, L-06 IN FABRICATION</span>
   </div>
 </footer>
 
@@ -1060,7 +1060,10 @@ const AIRCRAFT = [
 </svg>`,
    posts:[{label:"Read the story", date:"Jul 12, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7481975843528003584"},
           {label:"Instagram", date:"", url:"https://www.instagram.com/p/Dar0WXCysq5/"},
-          {label:"Facebook", date:"", url:"https://www.facebook.com/share/p/18xFQ9QRqk/"}]},
+          {label:"Facebook", date:"", url:"https://www.facebook.com/share/p/18xFQ9QRqk/"}],
+   remarks:[
+     {name:"Massimiliano \"Max\" F.", title:"", text:"The great epoch of Chuck Yeager (The right stuff), the LM's Skunk Works and Clarence Leonard \"Kelly\" Johnson", len:106, cleared:true}
+   ]},
 
   {id:"sealed-1947", name:"MiG-15", redactedName:"M▮▮-1▮", year:1947, ff:"Dec 1947", origin:"Soviet Union", role:"fighter", status:"soon", lines:[88,60,75]},
 
@@ -1513,7 +1516,10 @@ const LOVELACE = [
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7483449637639704576"}},
   {id:"boolean-algebra", name:"Boolean algebra", year:1854, pub:"1854", origin:"United Kingdom", field:"Logic as algebra", status:"covered",
    hook:"In 1854, a shoemaker's son with no degree wrote a book on how humans think. Minds never ran on it. Every machine you own does instead.",
-   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7482230815133945856"}},
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7482230815133945856"},
+   remarks:[
+     {name:"John Crowley", title:"", text:"Claude Shannon's master's thesis in 1938 was published, it gave a rigorous foundation to field of circuit design digital logic by applying Boolean algebra to circuit simplification. The paper has been called the most influential and important master's thesis ever.", len:258, cleared:true}
+   ]},
   {id:"turing-1936", name:"TURING", year:1936, pub:"1936", status:"soon", lines:[88,64,76]},
   {id:"shannon-thesis-1937", name:"Shannon's thesis", year:1937, pub:"1937", origin:"United States", field:"Logic in circuits", status:"covered",
    hook:"In 1937, a 21-year-old's MIT master's thesis showed how electrical switches could perform logic. Every digital device since runs on that idea.",
@@ -1586,7 +1592,12 @@ const LOVELACE = [
 const WRIGHT = [
   {id:"wright-wind-tunnel", name:"The 1901 wind tunnel", year:1901, verdict:"Dec 1901", origin:"United States", field:"The instrument", status:"covered",
    hook:"In 1901, every lift calculation on Earth used a constant from the 1700s. Two bicycle mechanics checked it. It was off by fifty percent.",
-   post:{label:"Read the story", url:"https://www.linkedin.com/posts/engineeringcommunity_when-we-told-the-story-of-the-wrights-and-activity-7483680998392549376-lpPZ"}}
+   post:{label:"Read the story", url:"https://www.linkedin.com/posts/engineeringcommunity_when-we-told-the-story-of-the-wrights-and-activity-7483680998392549376-lpPZ"},
+   remarks:[
+     {name:"Bill Platt", title:"Naval Architect", text:"The strangest thing about the Wrights was their transition from being the very essence of science, to being fearful hoarders and patent and lawsuit obsessed tycoons. They stopped inventing. And aeronautics passed them by.", len:217, cleared:true},
+     {name:"Brian Berthold", title:"", text:"Where are those naysayers complaining about too small, too slow, wrong Reynolds number??? Good thing they weren't around then.", len:124, cleared:true, note:"Consent conditional (LinkedIn, Jul 2026): feature on the site only; do not use this comment to train AI."},
+     {name:"Matias Soto", title:"PhD", text:"The Wright brothers are constantly referred as bicycle mechanics, as if that meant they were uneducated or ignorant. History shows they were avid readers and students of science and mathematics, and constantly experimented with high tech. Through that process they became the leading experts in their field.", len:303, cleared:true, note:"Attribution caveat (LinkedIn, Jul 2026): credit as relaying, not as the original source of the facts."}
+   ]}
 ];
 {
   const wrTimeline = document.getElementById("wright-timeline");
