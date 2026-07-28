@@ -36,7 +36,16 @@ STORY: story-horten-ho-229 "Parallel Wings: The Myth the Smithsonian
   LinkedIn was none located). IG pending from Fai. LinkedIn: none. Newsletter:
   none.
 
-PLATE ART: PENDING Fai approval. Workflow found THREE genuinely worldwide-PD
+PLATE ART: BUILT + shipped 2026-07-27 (v1.61) as a steel SILHOUETTE from the
+  CC0 Go 229 V3 drawing (Nuricom1, CC0), via a pure-JS jpeg-js/pngjs pipeline
+  (no ImageMagick in env; see scratchpad make_horten_art.js): house line colour
+  sampled from b-2.png, full planform isolated by largest-connected-component
+  (drops the side-view inset), Balkenkreuz holes filled, trimmed; 55 FT span
+  line. A first cut manually x-cropped and clipped the RIGHT WINGTIP; fixed by
+  switching to component isolation. It is a silhouette, not a panel-line drawing
+  like the other plates, because the only worldwide-PD/CC0 sources are coloured
+  recognition illustrations. Original research retained below.
+  Workflow found THREE genuinely worldwide-PD
   sources on Wikimedia Commons (the PD-US SVG 3-view was set aside as US-only
   and shaky for a 1944 German drawing):
   - CC0, Go 229 V3 2-view (top planform + side): File:KN_Horten_Ho9V3_Go229_
