@@ -6107,6 +6107,206 @@
    "type": "story",
    "title": "Steering Without a Tail (Part 2)",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487634253258616832 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "horten-ho-229",
+   "type": "artifact",
+   "name": "Horten Ho 229 (and the B-2 copying myth)",
+   "category": "airframe",
+   "origin": "Germany",
+   "lineId": "kelly",
+   "sealed": false,
+   "note": "Retro-VCL (Rule 2, published FB post); Myth vs Reality plate adjacent to b-2; see blocks/shannon_horten-ho-229.md"
+  },
+  {
+   "id": "src-horten-vcl",
+   "type": "source",
+   "title": "EC VCL: Horten Ho 229 and the B-2 copying myth (Rule 2 from the published caption; Smithsonian NASM collection and conservation analysis, Northrop Grumman 2008 replica radar test via National Geographic, B-2 Part 1 VCL). Timeline independently re-confirmed 2026-07-27.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-ff-horten-1",
+   "type": "event",
+   "eventType": "first-flight",
+   "date": {
+    "year": 1945,
+    "month": 2,
+    "day": 2
+   },
+   "subjectId": "horten-ho-229",
+   "label": "Jet-powered Ho 229 V2 flies, nearly three years before Northrop's jet-powered YB-49 (October 1947)"
+  },
+  {
+   "id": "ev-failure-horten-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1945,
+    "month": 2,
+    "day": 18
+   },
+   "subjectId": "horten-ho-229",
+   "label": "Ho 229 V2 crashes after engine failure, killing pilot Erwin Ziller"
+  },
+  {
+   "id": "ev-decision-horten-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1945,
+    "month": 4
+   },
+   "subjectId": "horten-ho-229",
+   "label": "Patton's Third Army captures the incomplete Ho 229 V3, which never flew; it is now held by the Smithsonian"
+  },
+  {
+   "id": "ev-publication-horten-4",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 2008
+   },
+   "subjectId": "horten-ho-229",
+   "label": "Northrop Grumman builds a full-scale Ho 229 replica and tests it against WWII-era British radar: detected at about 80% of the range of a conventional fighter"
+  },
+  {
+   "id": "reimar-horten",
+   "type": "person",
+   "name": "Reimar Horten",
+   "note": "With brother Walter, designed the Horten flying wings from 1933 gliders to the jet Ho 229. In 1983 claimed he had planned charcoal in the wood glue for radar absorption; the claim came decades postwar as stealth became public, and the Smithsonian found no evidence of charcoal in the V3."
+  },
+  {
+   "id": "walter-horten",
+   "type": "person",
+   "name": "Walter Horten",
+   "note": "Co-designer of the Horten flying wings."
+  },
+  {
+   "id": "erwin-ziller",
+   "type": "person",
+   "name": "Erwin Ziller",
+   "note": "Luftwaffe test pilot killed in the Ho 229 V2 crash of 18 February 1945 after engine failure."
+  },
+  {
+   "id": "c-horten-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "The incomplete Ho 229 V3 is held by the Smithsonian and closely resembles the B-2 in planform: same general shape, same lack of tail.",
+   "sourceNote": "published caption; Smithsonian NASM collection (V3, on view at Udvar-Hazy)"
+  },
+  {
+   "id": "c-horten-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "Northrop's first flying wing-type aircraft flew in 1929; his first true flying wing, the N-1M, flew in 1940.",
+   "sourceNote": "published caption; Smithsonian NASM (N-1M). Independently confirmed: the 1929 machine was flying-wing-type with tail booms, not a true all-wing."
+  },
+  {
+   "id": "c-horten-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "The Horten brothers started with gliders in 1933; their jet-powered Ho 229 V2 flew on 2 February 1945.",
+   "sourceNote": "published caption; Smithsonian; V4-era research"
+  },
+  {
+   "id": "c-horten-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "Northrop's jet-powered YB-49 did not fly until October 1947; the Hortens beat Northrop to jet power by almost three years, but Northrop had flown wings for over a decade before the Hortens powered theirs.",
+   "sourceNote": "published caption; B-2 Part 1 VCL (YB-49 21 Oct 1947)"
+  },
+  {
+   "id": "c-horten-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "In 1983 Reimar Horten claimed he had planned to mix charcoal into the wood glue to absorb radar; the claim came decades after the war, as stealth technology was becoming public.",
+   "sourceNote": "published caption; Smithsonian restoration coverage (claim dated to Horten's 1983 writing in Nurflugel)"
+  },
+  {
+   "id": "c-horten-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "The Smithsonian analyzed the V3 and found no evidence of charcoal in the glue.",
+   "sourceNote": "published caption; Smithsonian NASM conservation analysis"
+  },
+  {
+   "id": "c-horten-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "In 2008 Northrop Grumman built a replica and tested it against WWII British radar; it was detected at about 80% of the range of a conventional fighter, a modest reduction, not stealth.",
+   "sourceNote": "published caption; Northrop Grumman replica program (National Geographic documentary test; the Chain Home radar case)"
+  },
+  {
+   "id": "c-horten-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "The Hortens were chasing speed and range, not stealth.",
+   "sourceNote": "published caption; consistent with the 3x1000 design goal in the historical record"
+  },
+  {
+   "id": "c-horten-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "The Ho 229 V2 crashed on 18 February 1945 after engine failure, killing pilot Erwin Ziller; two months later Patton's Third Army captured the V3, which never flew.",
+   "sourceNote": "published caption; Smithsonian; standard Ho 229 histories"
+  },
+  {
+   "id": "c-horten-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "Northrop's engineers studied the captured aircraft, but his team already had years of its own flight data; the claim that Northrop stole the flying wing from Nazi Germany is a myth.",
+   "sourceNote": "published caption (the timeline claims c-horten-02, c-horten-03, c-horten-04 are the supporting evidence)"
+  },
+  {
+   "id": "c-horten-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "horten-ho-229"
+   ],
+   "text": "The flying wing concept dates back to 1876, and both teams believed it was the future; both failed because the technology to stabilize a tailless aircraft did not yet exist, and the B-2 exists because computing caught up.",
+   "sourceNote": "published caption; B-2 Part 1 VCL (stability and computing thesis)"
+  },
+  {
+   "id": "concept-b2-myth-corrected",
+   "type": "concept",
+   "name": "The B-2 copying myth corrected: parallel invention, not lineage, and the B-2 traces to computing catching up rather than captured German work"
+  },
+  {
+   "id": "story-horten-ho-229",
+   "type": "story",
+   "title": "Parallel Wings: The Myth the Smithsonian Disproved",
+   "status": "published linkedin: none located facebook: https://www.facebook.com/share/p/1LWQuZQA6L/ instagram: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -9341,6 +9541,38 @@
   {"type":"cites","from":"c-b2s-11","to":"src-b2-steering-vcl"},
   {"type":"responded-to","from":"b-2","to":"concept-flying-wing-instability","claimId":"c-b2s-02"},
   {"type":"enabled","from":"b-2","to":"concept-computed-stability","claimId":"c-b2s-05"},
-  {"type":"covers","from":"story-b2-steering","to":"b-2"}
+  {"type":"covers","from":"story-b2-steering","to":"b-2"},
+  {"type":"event-of","from":"ev-ff-horten-1","to":"horten-ho-229"},
+  {"type":"event-of","from":"ev-failure-horten-2","to":"horten-ho-229"},
+  {"type":"event-of","from":"ev-decision-horten-3","to":"horten-ho-229"},
+  {"type":"event-of","from":"ev-publication-horten-4","to":"horten-ho-229"},
+  {"type":"contributed","from":"reimar-horten","to":"horten-ho-229","role":"designed"},
+  {"type":"contributed","from":"walter-horten","to":"horten-ho-229","role":"designed"},
+  {"type":"contributed","from":"erwin-ziller","to":"horten-ho-229","role":"died"},
+  {"type":"about","from":"c-horten-01","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-01","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-02","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-02","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-03","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-03","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-04","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-04","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-05","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-05","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-06","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-06","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-07","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-07","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-08","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-08","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-09","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-09","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-10","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-10","to":"src-horten-vcl"},
+  {"type":"about","from":"c-horten-11","to":"horten-ho-229"},
+  {"type":"cites","from":"c-horten-11","to":"src-horten-vcl"},
+  {"type":"responded-to","from":"horten-ho-229","to":"concept-flying-wing-instability","claimId":"c-horten-08"},
+  {"type":"enabled","from":"horten-ho-229","to":"concept-b2-myth-corrected","claimId":"c-horten-10"},
+  {"type":"covers","from":"story-horten-ho-229","to":"horten-ho-229"}
  ]
 }

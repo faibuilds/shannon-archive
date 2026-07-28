@@ -3,7 +3,7 @@
   "line": "KELLY L-01",
   "linesLive": 10,
   "lines": [
-    { "id": "kelly", "name": "KELLY L-01", "total": 26, "lit": 19 },
+    { "id": "kelly", "name": "KELLY L-01", "total": 27, "lit": 20 },
     { "id": "petroski", "name": "PETROSKI L-02", "total": 2, "lit": 2 },
     { "id": "hammurabi", "name": "HAMMURABI L-03", "total": 1, "lit": 1 },
     { "id": "barenyi", "name": "BARENYI L-04", "total": 1, "lit": 1 },
@@ -14,14 +14,14 @@
     { "id": "carnot", "name": "CARNOT L-10", "total": 1, "lit": 1 },
     { "id": "noyce", "name": "NOYCE L-11", "total": 6, "lit": 6 }
   ],
-  "total": 26,
-  "lit": 19,
+  "total": 27,
+  "lit": 20,
   "cells": [
-    1, 0, 0, 1, 1, 1, 0, 1, 1, 1,
-    1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
-    0, 1, 1, 0, 0, 1
+    1, 0, 0, 1, 1, 1, 1, 0, 1, 1,
+    1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
+    1, 0, 1, 1, 0, 0, 1
   ],
   "lastLit": "Lockheed A-12",
   "lastLitDate": "Jul 2026",
-  "updated": "2026-07-25"
+  "updated": "2026-07-27"
 }
