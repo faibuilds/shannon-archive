@@ -5934,6 +5934,179 @@
    "type": "story",
    "title": "The Decision Not to Cut",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487391943396704256 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "src-b2-steering-vcl",
+   "type": "source",
+   "title": "EC VCL: B-2 steering without a tail, Part 2 (V5.1 SOP, dual Perplexity and Gemini audit; DTIC aeroservoelastic paper, USAF fact sheet, 131st BW, This Day in Aviation, White Eagle Aerospace, The Aviationist, Target Lock, HowStuffWorks)",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-completion-b2s-1",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1997,
+    "month": 1,
+    "day": 1
+   },
+   "subjectId": "b-2",
+   "label": "B-2 enters USAF service"
+  },
+  {
+   "id": "ev-failure-b2s-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 2008,
+    "month": 2
+   },
+   "subjectId": "b-2",
+   "label": "Spirit of Kansas lost at Guam, the type's only loss; both pilots eject safely (reserved as Part 3)"
+  },
+  {
+   "id": "bruce-hinds",
+   "type": "person",
+   "name": "Bruce J. Hinds",
+   "note": "Northrop chief test pilot; commanded the B-2's first flight."
+  },
+  {
+   "id": "richard-couch",
+   "type": "person",
+   "name": "Richard S. Couch",
+   "note": "USAF colonel, B-2 Combined Test Force commander; co-pilot on the first flight."
+  },
+  {
+   "id": "glen-edwards",
+   "type": "person",
+   "name": "Glen Edwards",
+   "note": "Killed flight-testing the YB-49 in 1948; Edwards AFB, where the B-2 first landed, carries his name."
+  },
+  {
+   "id": "c-b2s-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "A conventional aircraft controls yaw with a rudder on a vertical tail; the B-2 has no vertical fin, so split rudders and elevons control yaw, with pitch and roll handled by the elevons.",
+   "sourceNote": "The Aviationist; USAF fact sheet"
+  },
+  {
+   "id": "c-b2s-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "Flying wings without rear stabilizers tend to wander in yaw; this instability defeated Northrop's 1940s flying wings.",
+   "sourceNote": "HowStuffWorks; Part 1 VCL. Adjudicated: phrased at program level; the 1948 crash's specific cause was never definitively established, so instability is not stated as the cause of the crash itself."
+  },
+  {
+   "id": "c-b2s-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "The control suite is three sets of elevons per side for pitch and roll, a centerline gust load alleviation surface (GLAS) for pitch and turbulence loads, and upper and lower split drag rudders at the wingtips for yaw.",
+   "sourceNote": "DTIC aeroservoelastic paper (primary); Target Lock; Gemini confirmed layout (one outer plus two inner elevons per side)"
+  },
+  {
+   "id": "c-b2s-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "The drag rudders are a four-part split-flap system, each assembly with an upper and lower appendage; used independently they turn the aircraft, used together they act as speed brakes.",
+   "sourceNote": "Target Lock; The Aviationist"
+  },
+  {
+   "id": "c-b2s-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "To turn, the flight computer opens the split rudder on one wingtip only; drag pulls that wing back and the nose yaws toward the open side. Opening upper and lower surfaces together cancels the lift change, leaving nearly pure drag.",
+   "sourceNote": "wionews; The National Interest (asymmetric drag, directional authority without fins); mechanism-level lift-cancellation kept without figures"
+  },
+  {
+   "id": "c-b2s-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "The B-2 is aerodynamically unstable; a human pilot could not keep it level manually. A quadruple-redundant fly-by-wire system makes thousands of corrections per second, so precisely the pilots usually feel nothing.",
+   "sourceNote": "wionews; HowStuffWorks; Part 1 VCL"
+  },
+  {
+   "id": "c-b2s-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "Air Force finite-element analysis projects the airframe sound to about 40,000 flight hours; the rudder attachment points at the wingtips are the highest-stress areas, projected to fail first.",
+   "sourceNote": "The Aviationist (banked; not in the published caption)"
+  },
+  {
+   "id": "c-b2s-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "On July 17, 1989, AV-1 (82-1066) flew from Air Force Plant 42, Palmdale, to Edwards AFB, crewed by Hinds and Couch, gear down for the entire flight as a precaution, with F-16 chase.",
+   "sourceNote": "This Day in Aviation; 131st BW (USAF); White Eagle Aerospace; Edwards AFB anniversary coverage"
+  },
+  {
+   "id": "c-b2s-09",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "Flight duration is stated only as about two hours.",
+   "sourceNote": "1h52m (This Day in Aviation) vs 2h12m (White Eagle) vs 2h20m (131st BW). The caption deliberately prints no precise figure."
+  },
+  {
+   "id": "c-b2s-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "Edwards AFB is named for Capt. Glen Edwards, killed flight-testing the YB-49 in 1948; the B-2's first flight ended with a landing there, forty-one years later.",
+   "sourceNote": "Part 1 VCL (Rule 1 reuse); first-flight sources"
+  },
+  {
+   "id": "c-b2s-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-2"
+   ],
+   "text": "One B-2 has been lost in the type's history: Spirit of Kansas, February 2008, Guam; both pilots ejected safely.",
+   "sourceNote": "White Eagle Aerospace; Wikipedia. Gemini pre-verified the Part 3 mechanism (condensation in port transducer units feeding incorrect airspeed to the air-data computer); full VCL reserved for Part 3."
+  },
+  {
+   "id": "concept-flying-wing-instability",
+   "type": "concept",
+   "name": "Flying-wing yaw instability without a tail, the problem that defeated every pre-computer flying wing"
+  },
+  {
+   "id": "concept-computed-stability",
+   "type": "concept",
+   "name": "Computed stability as a design philosophy: drag manufactured on demand as a steering force, under quadruple-redundant fly-by-wire"
+  },
+  {
+   "id": "story-b2-steering",
+   "type": "story",
+   "title": "Steering Without a Tail (Part 2)",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487634253258616832 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -9138,6 +9311,36 @@
   {"type":"cites","from":"c-planar-12","to":"src-planar-vcl"},
   {"type":"responded-to","from":"planar-process-ic","to":"concept-junction-contamination","claimId":"c-planar-07"},
   {"type":"enabled","from":"planar-process-ic","to":"concept-monolithic-ic","claimId":"c-planar-10"},
-  {"type":"covers","from":"story-planar-process-ic","to":"planar-process-ic"}
+  {"type":"covers","from":"story-planar-process-ic","to":"planar-process-ic"},
+  {"type":"event-of","from":"ev-completion-b2s-1","to":"b-2"},
+  {"type":"event-of","from":"ev-failure-b2s-2","to":"b-2"},
+  {"type":"contributed","from":"bruce-hinds","to":"b-2","role":"tested"},
+  {"type":"contributed","from":"richard-couch","to":"b-2","role":"tested"},
+  {"type":"contributed","from":"glen-edwards","to":"b-2","role":"died"},
+  {"type":"about","from":"c-b2s-01","to":"b-2"},
+  {"type":"cites","from":"c-b2s-01","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-02","to":"b-2"},
+  {"type":"cites","from":"c-b2s-02","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-03","to":"b-2"},
+  {"type":"cites","from":"c-b2s-03","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-04","to":"b-2"},
+  {"type":"cites","from":"c-b2s-04","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-05","to":"b-2"},
+  {"type":"cites","from":"c-b2s-05","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-06","to":"b-2"},
+  {"type":"cites","from":"c-b2s-06","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-07","to":"b-2"},
+  {"type":"cites","from":"c-b2s-07","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-08","to":"b-2"},
+  {"type":"cites","from":"c-b2s-08","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-09","to":"b-2"},
+  {"type":"cites","from":"c-b2s-09","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-10","to":"b-2"},
+  {"type":"cites","from":"c-b2s-10","to":"src-b2-steering-vcl"},
+  {"type":"about","from":"c-b2s-11","to":"b-2"},
+  {"type":"cites","from":"c-b2s-11","to":"src-b2-steering-vcl"},
+  {"type":"responded-to","from":"b-2","to":"concept-flying-wing-instability","claimId":"c-b2s-02"},
+  {"type":"enabled","from":"b-2","to":"concept-computed-stability","claimId":"c-b2s-05"},
+  {"type":"covers","from":"story-b2-steering","to":"b-2"}
  ]
 }

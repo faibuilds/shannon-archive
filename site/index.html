@@ -558,7 +558,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 @media (max-width:600px){ .nav-linkedin{display:none} }
 /* Support is the one CTA that must survive on a phone. Below 560px the nav
    carries the logo and Support only: the Findings link was the laptop entry
-   point and phones already get the "See the findings and board" button by the
+   point and phones already get the "Jump to the findings and board" button by the
    plates. Support never shrinks, so large-text accessibility settings cannot
    squeeze it off the bar either. */
 @media (max-width:560px){
@@ -768,7 +768,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="filter-count kelly-only"><b id="visible-count"></b> airframes shown</div>
 </div>
 
-<a class="to-findings" href="#findings">See the findings and board &darr;</a>
+<a class="to-findings" href="#findings">Jump to the findings and board &darr;</a>
 
 <section class="findings" id="findings">
   <div class="findings-head">
@@ -979,7 +979,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.58 / BUILT 07.2026 / 10 LINES LIVE, L-06 IN FABRICATION</span>
+    <span class="footer-stamp">SHANNON v1.59 / BUILT 07.2026 / 10 LINES LIVE, L-06 IN FABRICATION</span>
   </div>
 </footer>
 
@@ -1327,7 +1327,8 @@ const AIRCRAFT = [
     <text x="133.3" y="131">172 FT &#183; SPAN</text>
   </g>
 </svg>`,
-   posts:[{label:"Read the story", date:"Mar 8, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7436525695503331328"}],
+   posts:[{label:"Read the story", date:"Mar 8, 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7436525695503331328"},
+          {label:"Steering without a tail (Part 2)", date:"Jul 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7487634253258616832"}],
    remarks:[
      {name:"", title:"", text:"", len:366},
      {name:"", title:"", text:"", len:391},
@@ -1855,7 +1856,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:337, verified:321, sources:29, edges:46, artifacts:47 };
+const FINDING_STATS = { claims:348, verified:331, sources:30, edges:48, artifacts:47 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
