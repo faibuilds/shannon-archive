@@ -183,6 +183,7 @@ const TIPPER = parseLineArray("TIPPER");
 const SUTTER = parseLineArray("SUTTER");
 const CARNOT = parseLineArray("CARNOT");
 const NOYCE = parseLineArray("NOYCE");
+const ROEBLING = parseLineArray("ROEBLING");
 
 // ---------------------------------------------------------------------------
 // Check 4: Consistency. status.json lit == sum(cells) == covered plates,
@@ -204,7 +205,7 @@ const NOYCE = parseLineArray("NOYCE");
     const k = status.lines.find((l) => l.id === "kelly");
     if (!k) problems.push("status.lines missing kelly");
     else if (k.lit !== status.lit || k.total !== status.total) problems.push("status.lines kelly disagrees with top-level lit/total");
-    for (const [lineId, arr] of [["petroski", PETROSKI], ["hammurabi", HAMMURABI], ["barenyi", BARENYI], ["tipper", TIPPER], ["lovelace", LOVELACE], ["wright", WRIGHT], ["sutter", SUTTER], ["carnot", CARNOT], ["noyce", NOYCE]]) {
+    for (const [lineId, arr] of [["petroski", PETROSKI], ["hammurabi", HAMMURABI], ["barenyi", BARENYI], ["tipper", TIPPER], ["roebling", ROEBLING], ["lovelace", LOVELACE], ["wright", WRIGHT], ["sutter", SUTTER], ["carnot", CARNOT], ["noyce", NOYCE]]) {
       if (!arr) continue;
       const entry = status.lines.find((l) => l.id === lineId);
       const covered = arr.filter((p) => p.status === "covered").length;
@@ -355,7 +356,7 @@ const NOYCE = parseLineArray("NOYCE");
   // public graph: not as line node ids, not as lineId values. Free text may
   // mention historical people who share these names; only the structural
   // fields leak a line's existence.
-  const MASKED_LINES = ["roebling"];
+  const MASKED_LINES = [];
   const lineLeaks = [];
   for (const n of nodes) {
     if (n.type === "line" && MASKED_LINES.includes(String(n.id).toLowerCase())) lineLeaks.push("line node " + n.id);

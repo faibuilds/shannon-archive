@@ -12,6 +12,14 @@
    "status": "live"
   },
   {
+   "id": "roebling",
+   "type": "line",
+   "name": "ROEBLING",
+   "engineer": "The Roebling family",
+   "domain": "Structures",
+   "status": "live"
+  },
+  {
    "id": "petroski",
    "type": "line",
    "name": "PETROSKI",
@@ -6307,6 +6315,451 @@
    "type": "story",
    "title": "Parallel Wings: The Myth the Smithsonian Disproved",
    "status": "published linkedin: none located facebook: https://www.facebook.com/share/p/1LWQuZQA6L/ instagram: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "brooklyn-bridge",
+   "type": "artifact",
+   "name": "Brooklyn Bridge (the wire fraud and the correction)",
+   "category": "structure",
+   "origin": "United States",
+   "lineId": "roebling",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP); founding plate of a masked structures line; see blocks/shannon_brooklyn-bridge.md"
+  },
+  {
+   "id": "src-brooklyn-vcl",
+   "type": "source",
+   "title": "EC VCL: Brooklyn Bridge wire fraud (V5.1 SOP, dual Perplexity and Gemini audit; StructureMag Griggs series, McCullough The Great Bridge, Daily Beast, Sheffielder, LSU law review, TRB). Independently re-verified 2026-07-27.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-bb-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1876,
+    "month": 12
+   },
+   "subjectId": "brooklyn-bridge",
+   "label": "The Board, ready to award the wire contract to Roebling's firm for Bessemer steel, yields to public pressure and awards it to J. Lloyd Haigh for crucible steel; trustee Abram Hewitt holds the mortgage on Haigh's mill"
+  },
+  {
+   "id": "ev-failure-bb-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1878,
+    "month": 7,
+    "day": 5
+   },
+   "subjectId": "brooklyn-bridge",
+   "label": "Engineers prove Haigh's overnight wire-swap fraud; of eighty rings tested, five meet standard; an estimated 221 tons of condemned wire is already spun into the cables"
+  },
+  {
+   "id": "ev-decision-bb-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1878,
+    "month": 7,
+    "day": 22
+   },
+   "subjectId": "brooklyn-bridge",
+   "label": "Roebling privately informs trustee Henry Murphy; the Board suppresses the fraud, declines to prosecute, and orders Roebling to continue buying from Haigh"
+  },
+  {
+   "id": "ev-completion-bb-4",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1878,
+    "month": 10,
+    "day": 5
+   },
+   "subjectId": "brooklyn-bridge",
+   "label": "The last wire goes over at 4:45 PM, eight months ahead of schedule; 150 extra wires per cable, supplied by Haigh free of charge, restore the margin"
+  },
+  {
+   "id": "ev-completion-bb-5",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1883,
+    "month": 5,
+    "day": 24
+   },
+   "subjectId": "brooklyn-bridge",
+   "label": "The Brooklyn Bridge opens"
+  },
+  {
+   "id": "washington-roebling",
+   "type": "person",
+   "name": "Washington Roebling",
+   "note": "Chief engineer, directing by field glasses from Brooklyn Heights due to caisson disease. Distrusted Haigh from the start, ordered every ring tested instead of sampling, predicted the bribery attempts, caught the fraud, proposed switching suppliers, was overruled, and engineered around the crime. NOT John Augustus Roebling (died 1869), whom several sources misattribute."
+  },
+  {
+   "id": "j-lloyd-haigh",
+   "type": "person",
+   "name": "J. Lloyd Haigh",
+   "note": "Wire contractor. Swapped certified wire for rejected wire overnight, recycling good wire through inspection repeatedly; estimated $300,000 in illegitimate profits, including about $60,000 from selling Bessemer steel at crucible prices. Never prosecuted for the bridge fraud; his business failed within about two years and he later served prison time for separate check crimes."
+  },
+  {
+   "id": "abram-hewitt",
+   "type": "person",
+   "name": "Abram Hewitt",
+   "note": "Bridge trustee, later mayor of New York; held the mortgage on Haigh's mill and pushed the contract award in his own financial interest."
+  },
+  {
+   "id": "henry-murphy",
+   "type": "person",
+   "name": "Henry Murphy",
+   "note": "Trustee who received Roebling's private report on July 22, 1878; the Board's suppression followed. In September 1878 he quietly moved the wrapping-wire contract to Roebling's Sons, no explanation published."
+  },
+  {
+   "id": "c-bb-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "In December 1876 the wire contract went to J. Lloyd Haigh for crucible steel rather than to the Roebling family firm; trustee Abram Hewitt's conflict-of-interest resolution had barred the Roebling firm, which Washington Roebling co-owned, from bidding.",
+   "sourceNote": "StructureMag; McCullough. Independently re-verified 2026-07-27: the published 'after public pressure' framing is not the documented cause (Hewitt's Sept 1876 conflict-of-interest resolution barring the Roebling firm, plus his mortgage on Haigh's mill per c-bb-02); the Bessemer-vs-crucible bid attribution is disputed between StructureMag and McCullough, so which steel the Roebling firm bid is not asserted."
+  },
+  {
+   "id": "c-bb-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Trustee Abram Hewitt owned the mortgage on Haigh's mill and pushed the award in his own financial interest.",
+   "sourceNote": "Daily Beast; traces to McCullough"
+  },
+  {
+   "id": "c-bb-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Roebling ordered every ring of wire tested at Haigh's factory before delivery, rather than sampling, and warned his inspectors to expect bribes; Haigh unsuccessfully attempted to bribe the inspectors.",
+   "sourceNote": "StructureMag; Daily Beast"
+  },
+  {
+   "id": "c-bb-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Haigh replaced accepted wire with rejected wire overnight, delivering the rejected wire under genuine certificates while certified wire cycled back through inspection repeatedly.",
+   "sourceNote": "StructureMag; McCullough"
+  },
+  {
+   "id": "c-bb-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Suspicion hardened in mid-June 1878; proof came July 5, 1878. Of eighty rings then tested, five met the standard.",
+   "sourceNote": "McCullough; Sheffielder"
+  },
+  {
+   "id": "c-bb-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Haigh's illegitimate profits were estimated at $300,000.",
+   "sourceNote": "McCullough"
+  },
+  {
+   "id": "c-bb-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Roebling estimated as much as 221 tons of rejected wire had been spun into the cables (an estimate, qualified as such in the caption; the hook compresses per house pattern).",
+   "sourceNote": "StructureMag; McCullough; LSU law review"
+  },
+  {
+   "id": "c-bb-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "A suspension cable is built in the air one wire at a time, thousands of parallel wires spun over sixteen months (June 11, 1877 to October 5, 1878) and compacted into one bundle; the bad wire was interleaved at random depths and could not be removed without unspinning months of work in reverse.",
+   "sourceNote": "StructureMag (spinning dates); TRB (irremovability); standard parallel-wire cable construction"
+  },
+  {
+   "id": "c-bb-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "The cables were designed with a safety factor of six; the fraud left an estimated factor of five (Roebling's own figure; one secondary source says four, logged and rejected).",
+   "sourceNote": "StructureMag; Daily Beast. Conflict logged: The Wave says four"
+  },
+  {
+   "id": "c-bb-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "Because a cable's strength is the sum of its parallel wires, weakness cannot be subtracted but strength can be added around it; Roebling ordered 150 extra wires spun into each cable, supplied by Haigh free of charge.",
+   "sourceNote": "StructureMag; McCullough; Daily Beast (mechanism level)"
+  },
+  {
+   "id": "c-bb-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "The Board chose not to make the fraud public, declined to switch suppliers, and ordered Roebling to continue with Haigh, suppressing the information after being informed on July 22, 1878.",
+   "sourceNote": "StructureMag; Daily Beast; McCullough. Adjudicated: the trustees knew is documented (Roebling's report), not inference; softening rejected."
+  },
+  {
+   "id": "c-bb-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "In September 1878 the wrapping-wire contract was quietly moved from Haigh to John A. Roebling's Sons at Murphy's direction, with no explanation published; the press and Hewitt stayed silent.",
+   "sourceNote": "McCullough"
+  },
+  {
+   "id": "c-bb-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "A good share of what Haigh delivered was not crucible steel but Bessemer, the cheap steel the trustees had rejected, sold at the crucible price; Roebling estimated about $60,000 from this deception alone.",
+   "sourceNote": "McCullough (a good percentage; caption wording aligned to source per adjudication)"
+  },
+  {
+   "id": "c-bb-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "brooklyn-bridge"
+   ],
+   "text": "The last wire went over on October 5, 1878, at 4:45 PM, eight months sooner than Roebling expected; the bridge opened May 24, 1883, and the condemned wire remains in the cables today.",
+   "sourceNote": "McCullough; StructureMag; Sheffielder; multiple"
+  },
+  {
+   "id": "concept-irreversible-cable",
+   "type": "concept",
+   "name": "Condemned wire irreversibly spun into the parallel-wire cables, a manufacturing process with no reverse gear"
+  },
+  {
+   "id": "concept-margin-defense",
+   "type": "concept",
+   "name": "Margin as the working defense against the unknown, including crime: parallel-path addition restoring what subtraction could not"
+  },
+  {
+   "id": "story-brooklyn-wire-fraud",
+   "type": "story",
+   "title": "The Correction, Not the Cure",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7487732702331420674 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "london-sewers",
+   "type": "artifact",
+   "name": "Bazalgette's London sewers (the doubling)",
+   "category": "structure",
+   "origin": "United Kingdom",
+   "lineId": "roebling",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP); second ROEBLING plate, margin purchased in advance; see blocks/shannon_london-sewers.md"
+  },
+  {
+   "id": "src-sewer-vcl",
+   "type": "source",
+   "title": "EC VCL: Bazalgette's London sewers (V5.1 SOP, dual Perplexity and Gemini audit; Institution of Civil Engineers, The Engineer, restoremag, MIT Press/Halliday, Interessia, Wikipedia, ScienceDirect, BBC, Britannica). Independently re-verified 2026-07-27.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-failure-sewer-1",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1854
+   },
+   "subjectId": "london-sewers",
+   "label": "John Snow traces a cholera outbreak to the Broad Street pump in Soho and argues the disease is waterborne, not airborne; he is largely disbelieved"
+  },
+  {
+   "id": "ev-failure-sewer-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1858,
+    "month": 6
+   },
+   "subjectId": "london-sewers",
+   "label": "The Great Stink; the Thames as an open sewer drives Parliament to debate leaving London. John Snow dies this month, his theory still rejected"
+  },
+  {
+   "id": "ev-decision-sewer-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1858
+   },
+   "subjectId": "london-sewers",
+   "label": "Bazalgette sizes the sewers for the densest population at the most generous output, then doubles the pipe diameter"
+  },
+  {
+   "id": "ev-completion-sewer-4",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1875
+   },
+   "subjectId": "london-sewers",
+   "label": "The intercepting-sewer system is substantially complete (built 1859-1875): 82 miles of main sewers, 1,100+ miles of street sewers, 300+ million bricks"
+  },
+  {
+   "id": "ev-completion-sewer-5",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 2025
+   },
+   "subjectId": "london-sewers",
+   "label": "The Thames Tideway Tunnel opens; the delivery company is named Bazalgette Tunnel Ltd and the riverfront Bazalgette Embankment"
+  },
+  {
+   "id": "joseph-bazalgette",
+   "type": "person",
+   "name": "Joseph Bazalgette",
+   "note": "Chief engineer of the Metropolitan Board of Works (1819-1891). Hired to defeat a smell under a wrong theory of disease; his sewers stopped cholera as an undesigned consequence of moving sewage out of the tidal river Londoners drank from. Personally reviewed every connection; thousands of surviving plans carry his handwritten notes."
+  },
+  {
+   "id": "john-snow",
+   "type": "person",
+   "name": "John Snow",
+   "note": "Physician (1813-1858). Correctly identified cholera as waterborne via the 1854 Broad Street pump, was disbelieved, and died in June 1858 during the Great Stink itself, unvindicated; the waterborne theory of cholera gained acceptance from about 1866, though germ theory proper matured later. The man who understood the disease could not stop it; the engineer who did not understand it did."
+  },
+  {
+   "id": "c-sewer-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "In 1854 John Snow traced a cholera outbreak to the Broad Street pump in Soho and argued cholera spread through contaminated water, not bad air; he was largely disbelieved.",
+   "sourceNote": "VCL (Britannica; Wikipedia John Snow; standard record)"
+  },
+  {
+   "id": "c-sewer-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "Snow died in June 1858, during the Great Stink, his theory still rejected; it took roughly another eight years (to about 1866) for acceptance.",
+   "sourceNote": "VCL [14] (Interessia; standard record; Snow died 16 June 1858)"
+  },
+  {
+   "id": "c-sewer-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "In the hot summer of 1858 the Thames was an open sewer; waste from over two million Londoners poured in and the tide carried it through the city, piled up to six feet high on the banks. Parliament soaked its curtains in chloride of lime and debated leaving London. It was called the Great Stink.",
+   "sourceNote": "VCL [1][2] (MIT Press/Halliday; The Engineer; slideshare record)"
+  },
+  {
+   "id": "c-sewer-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "Bazalgette, chief engineer of the Metropolitan Board of Works, was tasked with removing the smell; the prevailing miasma theory held that foul air caused disease.",
+   "sourceNote": "VCL [13] (ICE; standard record)"
+  },
+  {
+   "id": "c-sewer-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "He built 82 miles of intercepting sewers running parallel to the river, fed by more than 1,100 miles of street sewers, sloping east on gravity to carry waste far downstream; more than 300 million bricks, Portland cement used at unprecedented scale.",
+   "sourceNote": "VCL [5][6][7] (ICE; The Engineer; restoremag). Bricks kept as more than 300 million (318M/320M conflict logged)"
+  },
+  {
+   "id": "c-sewer-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "Bazalgette used the densest population and most generous output to compute the pipe diameter needed, then doubled it, recorded by the Institution of Civil Engineers as: \"We're only going to do this once and there's always the unforeseen.\"",
+   "sourceNote": "VCL [10] (Institution of Civil Engineers, verbatim quote, 14 words)"
+  },
+  {
+   "id": "c-sewer-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "The doubling multiplies gravity-flow capacity roughly sixfold, because cross-sectional area grows with the square of the diameter (x4) and Manning velocity with d^(2/3) (x about 1.6), giving flow proportional to d^(8/3) (about 6.3x). A system sized for four million serves nine million today.",
+   "sourceNote": "VCL [12] (standard hydraulics; Gemini independently re-derived 4 x 1.58 = about 6.3; kept over Perplexity's too-specific objection per adjudication doctrine, take the derivable number over the softening)"
+  },
+  {
+   "id": "c-sewer-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "London drank from the same tidal Thames the sewage washed through; by carrying waste downstream, Bazalgette removed it from the drinking supply and stopped cholera, a waterborne disease he did not know he was fighting.",
+   "sourceNote": "VCL [4][13] (standard record; the myth-vs-reality core). Adjudicated: framed as reducing cholera, not ended a single epidemic (precision fix taken)"
+  },
+  {
+   "id": "c-sewer-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "london-sewers"
+   ],
+   "text": "The combined system now spills into the Thames in heavy rain, so London built the Thames Tideway Tunnel (25 km, opened 2025) to cut overflows by about 95%; the delivery company is Bazalgette Tunnel Ltd and the new riverside is Bazalgette Embankment.",
+   "sourceNote": "VCL [15][17] (Wikipedia; ScienceDirect; BBC). Cost deliberately omitted (source conflict)"
+  },
+  {
+   "id": "concept-great-stink",
+   "type": "concept",
+   "name": "The Great Stink and the tidal river that was both London's sewer and its drinking source"
+  },
+  {
+   "id": "concept-margin-purchased",
+   "type": "concept",
+   "name": "Margin deliberately purchased against an unknown future: a doubling that absorbed 160 years of unforeseen growth"
+  },
+  {
+   "id": "concept-accidental-cholera-end",
+   "type": "concept",
+   "name": "The accidental end of waterborne cholera in London, a right result from a wrong theory"
+  },
+  {
+   "id": "story-london-sewers",
+   "type": "story",
+   "title": "The Fix for a Smell That Stopped Cholera",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488101455703207936 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -9573,6 +10026,75 @@
   {"type":"cites","from":"c-horten-11","to":"src-horten-vcl"},
   {"type":"responded-to","from":"horten-ho-229","to":"concept-flying-wing-instability","claimId":"c-horten-08"},
   {"type":"enabled","from":"horten-ho-229","to":"concept-b2-myth-corrected","claimId":"c-horten-10"},
-  {"type":"covers","from":"story-horten-ho-229","to":"horten-ho-229"}
+  {"type":"covers","from":"story-horten-ho-229","to":"horten-ho-229"},
+  {"type":"event-of","from":"ev-decision-bb-1","to":"brooklyn-bridge"},
+  {"type":"event-of","from":"ev-failure-bb-2","to":"brooklyn-bridge"},
+  {"type":"event-of","from":"ev-decision-bb-3","to":"brooklyn-bridge"},
+  {"type":"event-of","from":"ev-completion-bb-4","to":"brooklyn-bridge"},
+  {"type":"event-of","from":"ev-completion-bb-5","to":"brooklyn-bridge"},
+  {"type":"contributed","from":"washington-roebling","to":"brooklyn-bridge","role":"led"},
+  {"type":"contributed","from":"j-lloyd-haigh","to":"brooklyn-bridge","role":"opposed"},
+  {"type":"contributed","from":"abram-hewitt","to":"brooklyn-bridge","role":"opposed"},
+  {"type":"contributed","from":"henry-murphy","to":"brooklyn-bridge","role":"commissioned"},
+  {"type":"about","from":"c-bb-01","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-01","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-02","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-02","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-03","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-03","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-04","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-04","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-05","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-05","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-06","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-06","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-07","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-07","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-08","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-08","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-09","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-09","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-10","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-10","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-11","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-11","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-12","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-12","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-13","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-13","to":"src-brooklyn-vcl"},
+  {"type":"about","from":"c-bb-14","to":"brooklyn-bridge"},
+  {"type":"cites","from":"c-bb-14","to":"src-brooklyn-vcl"},
+  {"type":"responded-to","from":"brooklyn-bridge","to":"concept-irreversible-cable","claimId":"c-bb-08"},
+  {"type":"enabled","from":"brooklyn-bridge","to":"concept-margin-defense","claimId":"c-bb-10"},
+  {"type":"covers","from":"story-brooklyn-wire-fraud","to":"brooklyn-bridge"},
+  {"type":"event-of","from":"ev-failure-sewer-1","to":"london-sewers"},
+  {"type":"event-of","from":"ev-failure-sewer-2","to":"london-sewers"},
+  {"type":"event-of","from":"ev-decision-sewer-3","to":"london-sewers"},
+  {"type":"event-of","from":"ev-completion-sewer-4","to":"london-sewers"},
+  {"type":"event-of","from":"ev-completion-sewer-5","to":"london-sewers"},
+  {"type":"contributed","from":"joseph-bazalgette","to":"london-sewers","role":"led"},
+  {"type":"contributed","from":"john-snow","to":"london-sewers","role":"pioneered"},
+  {"type":"about","from":"c-sewer-01","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-01","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-02","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-02","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-03","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-03","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-04","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-04","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-05","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-05","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-06","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-06","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-07","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-07","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-08","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-08","to":"src-sewer-vcl"},
+  {"type":"about","from":"c-sewer-09","to":"london-sewers"},
+  {"type":"cites","from":"c-sewer-09","to":"src-sewer-vcl"},
+  {"type":"responded-to","from":"london-sewers","to":"concept-great-stink","claimId":"c-sewer-03"},
+  {"type":"enabled","from":"london-sewers","to":"concept-margin-purchased","claimId":"c-sewer-06"},
+  {"type":"enabled","from":"london-sewers","to":"concept-accidental-cholera-end","claimId":"c-sewer-08"},
+  {"type":"covers","from":"story-london-sewers","to":"london-sewers"}
  ]
 }
