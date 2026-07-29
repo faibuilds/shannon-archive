@@ -6760,6 +6760,228 @@
    "type": "story",
    "title": "The Fix for a Smell That Stopped Cholera",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488101455703207936 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "quebec-bridge",
+   "type": "artifact",
+   "name": "Quebec Bridge (the margin spent in the design office)",
+   "category": "structure",
+   "origin": "Canada",
+   "lineId": "roebling",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP); third ROEBLING plate, margin SPENT; completes the safety-factor trilogy; see blocks/shannon_quebec-bridge.md"
+  },
+  {
+   "id": "src-quebec-vcl",
+   "type": "source",
+   "title": "EC VCL: Quebec Bridge collapse (V5.1 SOP, dual Perplexity and Gemini audit; Royal Commission via BCcampus pressbooks, StructureMag/Griggs, Pearson & Delatte ASCE, ENR, Canadian Encyclopedia, Scope of Work, UNC Charlotte ASCE cases, ProQuest). Iron Ring myth independently re-verified 2026-07-27.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-qb-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1900
+   },
+   "subjectId": "quebec-bridge",
+   "label": "Construction begins; Cooper has stretched the main span from 490 m to 549 m to avoid deep-water piers, and his specifications allow steel stresses beyond standard limits; the heavier dead load of the longer span is never properly recalculated"
+  },
+  {
+   "id": "ev-failure-qb-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1907,
+    "month": 8,
+    "day": 27
+   },
+   "subjectId": "quebec-bridge",
+   "label": "Chord A9L measured 57 mm out of line; ironworkers stay home; foreman E.R. Kinloch halts work; management restarts it"
+  },
+  {
+   "id": "ev-failure-qb-3",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1907,
+    "month": 8,
+    "day": 29
+   },
+   "subjectId": "quebec-bridge",
+   "label": "Cooper, shown the measurements by inspector Norman McLure in New York, wires Add no more load at 12:16 PM; it reaches Phoenix Bridge Company offices at 1:15 PM and is never relayed to the site; near 5:30 chord A9L buckles and the south arm falls in 15 seconds; 75 of 86 men die, 33 of them Mohawk ironworkers from Kahnawà:ke"
+  },
+  {
+   "id": "ev-failure-qb-4",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1916,
+    "month": 9,
+    "day": 11
+   },
+   "subjectId": "quebec-bridge",
+   "label": "During rebuilding, the center span falls while being hoisted, killing 13"
+  },
+  {
+   "id": "ev-completion-qb-5",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1917
+   },
+   "subjectId": "quebec-bridge",
+   "label": "Completed; opened 1919; still the longest cantilever span in the world"
+  },
+  {
+   "id": "ev-decision-qb-6",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1925
+   },
+   "subjectId": "quebec-bridge",
+   "label": "The Ritual of the Calling of an Engineer and the Iron Ring are instituted in Canada, motivated in part by this disaster"
+  },
+  {
+   "id": "theodore-cooper",
+   "type": "person",
+   "name": "Theodore Cooper",
+   "note": "Consulting engineer (1839-1919), one of America's most celebrated; the bridge was to be his final masterpiece. Stretched the span, wrote the permissive specifications, approved Szlapka's chord design, doubted the warnings for weeks, and converted on the last morning; his stop order was his final act on the project. Royal Commission: errors in judgment. Never prosecuted."
+  },
+  {
+   "id": "peter-szlapka",
+   "type": "person",
+   "name": "Peter Szlapka",
+   "note": "Phoenix Bridge Company designing engineer; designed the failed compression chords Cooper approved. (One weak source misnames him Proulx; rejected.)"
+  },
+  {
+   "id": "norman-mclure",
+   "type": "person",
+   "name": "Norman McLure",
+   "note": "Site inspector who carried the deflection measurements to Cooper in New York on the final morning."
+  },
+  {
+   "id": "er-kinloch",
+   "type": "person",
+   "name": "E.R. Kinloch",
+   "note": "Foreman who halted work on August 27; management restarted it."
+  },
+  {
+   "id": "c-qb-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "Cooper stretched the main span from 490 m to 549 m to avoid deep-water piers, making it the longest cantilever ever attempted.",
+   "sourceNote": "watts&wild synthesis of record; Canadian Encyclopedia"
+  },
+  {
+   "id": "c-qb-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "The dead load of the longer span was never properly recalculated, and Cooper's specifications allowed steel stresses beyond standard limits; the safety margin was consumed from both ends before erection.",
+   "sourceNote": "Scope of Work; ProQuest (organizational-culture study); Royal Commission findings via pressbooks"
+  },
+  {
+   "id": "c-qb-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "In a cantilever the dead load is mostly the steel's own weight; a longer span demands more steel, which adds load, which demands more steel (the feedback that amplified the estimate error).",
+   "sourceNote": "standard structural mechanics; confirmed in audit"
+  },
+  {
+   "id": "c-qb-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "Chord A9L was 57 mm out of line two days before the collapse; ironworkers stayed home; foreman Kinloch halted work; management restarted it, the on-site chief engineer citing \"the moral effect of holding up the work would be very bad.\"",
+   "sourceNote": "ENR; Scope of Work; UNC Charlotte case studies (quote verbatim)"
+  },
+  {
+   "id": "c-qb-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "On Aug 29 McLure presented the measurements to Cooper in New York; at 12:16 PM Cooper wired \"Add no more load to bridge till after due consideration of facts\"; it reached Phoenixville at 1:15 PM; executives discussed it and never warned the site.",
+   "sourceNote": "StructureMag; pressbooks; Gemini confirmed (quote verbatim)"
+  },
+  {
+   "id": "c-qb-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "Near 5:30 PM chord A9L buckled (A9R immediately after) and the south arm fell into the St. Lawrence in 15 seconds; 75 of the 86 men on the bridge died.",
+   "sourceNote": "Pearson & Delatte (ASCE); pressbooks. Time conflict logged: 5:30 / 5:32 / 5:37; near 5:30 only, never precise"
+  },
+  {
+   "id": "c-qb-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "Thirty-three of the dead were Mohawk ironworkers from Kahnawà:ke, which lost a generation of its high-steel men in one afternoon.",
+   "sourceNote": "Canadian Encyclopedia; ENR; Gemini confirmed. Caption detail only, kept out of all hooks by editorial decision"
+  },
+  {
+   "id": "c-qb-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "The Royal Commission found the collapse \"cannot be attributed directly to any cause other than errors in judgment\" by Szlapka (design) and Cooper (approval), and faulted the company for appointing no experienced chief engineer on site; no one was prosecuted.",
+   "sourceNote": "Royal Commission via pressbooks (quote verbatim)"
+  },
+  {
+   "id": "c-qb-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "Rebuilt heavier, the center span fell during hoisting on 11 September 1916, killing 13; completed 1917, opened 1919; it remains the longest cantilever span in the world.",
+   "sourceNote": "Canadian Encyclopedia; Gemini confirmed record status"
+  },
+  {
+   "id": "c-qb-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "quebec-bridge"
+   ],
+   "text": "The Iron Ring and the Ritual of the Calling of an Engineer were instituted in Canada in 1925, motivated in part by this disaster; the rings are plain (cold-rolled or stainless) steel, not forged from the wreckage, and the ritual postdates the cleanup by years.",
+   "sourceNote": "Scope of Work; pressbooks; Gemini (material + 1925). Independently re-confirmed 2026-07-27: the wreckage-origin story is a myth; rings are plain iron/steel; ritual instituted 1925 (Haultain 1922, Kipling wrote it)"
+  },
+  {
+   "id": "concept-deadload-feedback",
+   "type": "concept",
+   "name": "The dead-load feedback of a record cantilever span, amplified by an estimate that was never rechecked"
+  },
+  {
+   "id": "concept-iron-ring",
+   "type": "concept",
+   "name": "The Iron Ring and the institutionalization of the engineer's obligation in Canada (1925)"
+  },
+  {
+   "id": "story-quebec-bridge",
+   "type": "story",
+   "title": "The Margin Spent in the Design Office",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488318955988684801 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -10095,6 +10317,39 @@
   {"type":"responded-to","from":"london-sewers","to":"concept-great-stink","claimId":"c-sewer-03"},
   {"type":"enabled","from":"london-sewers","to":"concept-margin-purchased","claimId":"c-sewer-06"},
   {"type":"enabled","from":"london-sewers","to":"concept-accidental-cholera-end","claimId":"c-sewer-08"},
-  {"type":"covers","from":"story-london-sewers","to":"london-sewers"}
+  {"type":"covers","from":"story-london-sewers","to":"london-sewers"},
+  {"type":"event-of","from":"ev-decision-qb-1","to":"quebec-bridge"},
+  {"type":"event-of","from":"ev-failure-qb-2","to":"quebec-bridge"},
+  {"type":"event-of","from":"ev-failure-qb-3","to":"quebec-bridge"},
+  {"type":"event-of","from":"ev-failure-qb-4","to":"quebec-bridge"},
+  {"type":"event-of","from":"ev-completion-qb-5","to":"quebec-bridge"},
+  {"type":"event-of","from":"ev-decision-qb-6","to":"quebec-bridge"},
+  {"type":"contributed","from":"theodore-cooper","to":"quebec-bridge","role":"led"},
+  {"type":"contributed","from":"peter-szlapka","to":"quebec-bridge","role":"designed"},
+  {"type":"contributed","from":"norman-mclure","to":"quebec-bridge","role":"tested"},
+  {"type":"contributed","from":"er-kinloch","to":"quebec-bridge","role":"opposed"},
+  {"type":"about","from":"c-qb-01","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-01","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-02","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-02","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-03","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-03","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-04","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-04","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-05","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-05","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-06","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-06","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-07","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-07","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-08","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-08","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-09","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-09","to":"src-quebec-vcl"},
+  {"type":"about","from":"c-qb-10","to":"quebec-bridge"},
+  {"type":"cites","from":"c-qb-10","to":"src-quebec-vcl"},
+  {"type":"responded-to","from":"quebec-bridge","to":"concept-deadload-feedback","claimId":"c-qb-03"},
+  {"type":"enabled","from":"quebec-bridge","to":"concept-iron-ring","claimId":"c-qb-10"},
+  {"type":"covers","from":"story-quebec-bridge","to":"quebec-bridge"}
  ]
 }

@@ -653,7 +653,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 <div class="bulletin">
   <span class="b-lamp"></span>
   <span class="b-tag">Bulletin</span>
-  <span class="b-text">Roebling goes live: the structures line opens with the Brooklyn Bridge wire fraud and Bazalgette's London sewers. All eleven lines are now live, from the bridge that shook itself apart to the sewer that stopped cholera by accident.</span>
+  <span class="b-text">The Roebling line is complete: its three plates trace one quantity, the safety margin, bought in advance at London, absorbed by a fraud at Brooklyn, and spent in the design office at Quebec. All eleven lines are live.</span>
 </div>
 
 <header class="hero">
@@ -996,7 +996,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.63 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.64 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1775,7 +1775,9 @@ const ROEBLING = [
   {id:"brooklyn-bridge", name:"Brooklyn Bridge", year:1876, date:"1876 to 1883", origin:"United States", field:"Suspension bridge", status:"covered",
    hook:"THE BROOKLYN BRIDGE'S CABLES CONTAIN 221 TONS OF WIRE THAT FAILED INSPECTION. THE ENGINEER WHO CAUGHT THE FRAUD COULDN'T REMOVE IT. IT'S STILL THERE.",
    posts:[{label:"Read the story", date:"Jul 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7487732702331420674"}]},
-  {id:"sealed-quebec", name:"Quebec Bridge", redactedName:"Q▮▮B▮C BR▮DG▮", year:1907, status:"soon", lines:[70,88,58]}
+  {id:"quebec-bridge", name:"Quebec Bridge", year:1907, date:"1907", origin:"Canada", field:"Cantilever bridge", status:"covered",
+   hook:"THE ORDER TO STOP WORK ON THE QUEBEC BRIDGE REACHED THE COMPANY AT 1:15 PM. NOBODY RELAYED IT TO THE SITE. NEAR 5:30 THE BRIDGE FELL, KILLING 75 MEN.",
+   posts:[{label:"Read the story", date:"Jul 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7488318955988684801"}]}
 ];
 function renderLine(lineId, arr, meta){
   const wrap = document.getElementById(lineId + "-timeline");
@@ -1854,7 +1856,7 @@ function renderLine(lineId, arr, meta){
   ["sutter", SUTTER, {num:"1952 to 1969", thesis:"Commercial aviation: the jets that opened the sky, and what the first of them paid to learn.", dateLabel:"Milestone", domain:"Commercial aviation", invite:INVITE_FLOWN}],
   ["carnot", CARNOT, {num:"1897", thesis:"Prime movers: the engines that turn fuel into work, and the people who bet their lives on them.", dateLabel:"First run", domain:"Prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
-  ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: the safety factor that keeps a span standing, and what happens when it is defrauded, or bought in advance against an unknown future.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
+  ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: one quantity, the safety margin, told three ways. Bought in advance at London, absorbed by a crime at Brooklyn, spent in the design office at Quebec.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
 ].forEach(([id, arr, meta]) => renderLine(id, arr, meta));
 
 /* ---------- FINDINGS ----------
@@ -1899,7 +1901,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:382, verified:365, sources:33, edges:55, artifacts:50 };
+const FINDING_STATS = { claims:392, verified:375, sources:34, edges:57, artifacts:51 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
