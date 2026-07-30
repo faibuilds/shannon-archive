@@ -6982,6 +6982,240 @@
    "type": "story",
    "title": "The Margin Spent in the Design Office",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488318955988684801 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "vasa",
+   "type": "artifact",
+   "name": "Vasa (the failure everybody watched coming)",
+   "category": "ship",
+   "origin": "Sweden",
+   "lineId": "petroski",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP); third PETROSKI plate beside Tacoma Narrows and Ronan Point; see blocks/shannon_vasa.md"
+  },
+  {
+   "id": "src-vasa-vcl",
+   "type": "source",
+   "title": "EC VCL: Vasa (V5.1 SOP, dual Perplexity and Gemini audit; Fairley case study faculty.up.edu, Britannica, Psych Safety, SimScale, Britannia Naval Research Association, abandonedspaces, historysphere, noonpi, Wikipedia). Ballast figure dual-audit corrected 72 to ~120 tonnes.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-decision-vasa-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1625,
+    "month": 1,
+    "day": 16
+   },
+   "subjectId": "vasa",
+   "label": "King Gustav II Adolf directs Admiral Fleming to contract Henrik and Arend Hybertsson for four ships"
+  },
+  {
+   "id": "ev-decision-vasa-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1625,
+    "month": 11,
+    "day": 30
+   },
+   "subjectId": "vasa",
+   "label": "The King enlarges the order for more armament; subsequently he requires two enclosed gun decks, and the 111-foot keel already laid is stretched to 135 feet rather than starting over; nobody in Sweden has built a two-deck warship"
+  },
+  {
+   "id": "ev-failure-vasa-3",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1627
+   },
+   "subjectId": "vasa",
+   "label": "Henrik Hybertsson dies (ill since 1626), leaving assistant Hein Jakobsson a half-finished ship with no drawings"
+  },
+  {
+   "id": "ev-failure-vasa-4",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1628,
+    "month": 8
+   },
+   "subjectId": "vasa",
+   "label": "Stability test at the quay: 30 men run side to side; halted by Vice-Admiral Klas Fleming after three passes for fear she would capsize at her mooring; she is cleared to sail anyway"
+  },
+  {
+   "id": "ev-failure-vasa-5",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1628,
+    "month": 8,
+    "day": 10
+   },
+   "subjectId": "vasa",
+   "label": "About 1,300 meters into the maiden voyage a light gust heels her to port, the heavy side; water enters the open gun ports (1.2 m above waterline) in a runaway loop; she sinks in minutes; about 30 of roughly 150 aboard drown"
+  },
+  {
+   "id": "ev-decision-vasa-6",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1628,
+    "month": 9
+   },
+   "subjectId": "vasa",
+   "label": "Inquest before Admiralty and Privy Council; the King demands punishment for imprudence and negligence; no one is punished; blame falls on the dead shipwright"
+  },
+  {
+   "id": "ev-completion-vasa-7",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1961
+   },
+   "subjectId": "vasa",
+   "label": "Raised nearly intact after 333 years; the four mismatched rulers come to light; preserved in polyethylene glycol at the Vasa Museum, Stockholm"
+  },
+  {
+   "id": "gustav-ii-adolf",
+   "type": "person",
+   "name": "Gustav II Adolf",
+   "note": "King of Sweden. Ordered, enlarged, and re-ordered the ship, demanded two gun decks, approved the dimensions, pressed for speed from his war in Prussia, and demanded punishment for a sinking his own approvals had built."
+  },
+  {
+   "id": "henrik-hybertsson",
+   "type": "person",
+   "name": "Henrik Hybertsson",
+   "note": "Dutch master shipwright; had never built a two-gun-deck ship; carried the design in his head per Dutch practice; ill from 1626, died 1627. The inquest's only blamed party, being dead."
+  },
+  {
+   "id": "hein-jakobsson",
+   "type": "person",
+   "name": "Hein Jakobsson",
+   "note": "Hybertsson's assistant; inherited a half-finished ship, no drawings, and the King's modifications."
+  },
+  {
+   "id": "klas-fleming",
+   "type": "person",
+   "name": "Klas Fleming",
+   "note": "Vice-Admiral who supervised construction, ran the 30-man stability test, stopped it for fear of capsize at the quay, reportedly said he wished the King were there, and let her sail."
+  },
+  {
+   "id": "c-vasa-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "The documented order chain: January 1625 contract; November 1625 enlargement; the King's requirement of two enclosed gun decks; the 111-foot keel stretched to 135 feet rather than relaid; no one in Sweden had built a two-deck warship.",
+   "sourceNote": "Fairley case study (faculty.up.edu, primary-quality timeline); Britannica"
+  },
+  {
+   "id": "c-vasa-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "In 1628 no methods existed to calculate a ship's centre of gravity or stability; you found out how a ship sailed by sailing it.",
+   "sourceNote": "Psych Safety; SimScale"
+  },
+  {
+   "id": "c-vasa-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "Hybertsson fell ill in 1626 and died in 1627; Dutch shipwrights built without drawings; Jakobsson inherited the project; the King wrote from Prussia urging more firepower, faster.",
+   "sourceNote": "Britannica; historysphere"
+  },
+  {
+   "id": "c-vasa-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "The armament and weight aloft: 64 guns including forty-eight 24-pounders (about five percent of the 1,210-tonne displacement), a second enclosed gun deck, towering stern, heavy sculpture.",
+   "sourceNote": "abandonedspaces; Britannia Naval Research Association"
+  },
+  {
+   "id": "c-vasa-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "The ballast trap: about 120 tonnes of stone filled a hold sized for the original smaller ship; more ballast would have dragged the lower gun ports, 1.2 m above the waterline, down to the water. Stability demanded she sit deeper; her guns demanded she sit higher; the design had no exit.",
+   "sourceNote": "Vasa Museum records via dual audit (both auditors independently corrected the initial 72-tonne figure from a weak source to about 120 tonnes); Britannia NRA"
+  },
+  {
+   "id": "c-vasa-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "The stability test: 30 men ran side to side; halted after three passes by Vice-Admiral Klas Fleming for fear of capsize at the quay; he reportedly said he wished the King were there; the ship sailed anyway.",
+   "sourceNote": "multiple (abandonedspaces, Britannica, SimScale, Britannia NRA); wished the King were there carried as reported"
+  },
+  {
+   "id": "c-vasa-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "Four rulers were found after the 1961 raising, two in Swedish feet of twelve inches, two in Amsterdam feet of eleven; the ship came out heavier to port; modern survey shows her more askew than previously believed, port gun ports misaligned; she heeled to port when she sank and is measurably lopsided today.",
+   "sourceNote": "Psych Safety; Britannica; Britannia NRA; Wikipedia. Foot difference never given in millimeters (13.8 vs 16 mm conflict logged)"
+  },
+  {
+   "id": "c-vasa-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "August 10, 1628: about 1,300 meters into the maiden voyage a light gust heeled her to port; water entered the open ports on the low side in a positive feedback loop (inflow adds low-side weight, increasing heel, submerging more ports); she sank in minutes; about 30 of roughly 150 aboard drowned before the watching crowd.",
+   "sourceNote": "SimScale; Britannica; casualty and distance figures kept approximate by design"
+  },
+  {
+   "id": "c-vasa-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "The King called it \"imprudence and negligence\" and demanded punishment; the September 1628 inquest punished no one; blame fell on the dead Hybertsson; the King had approved the plans, the shipwright was dead, the admiral had tested and sailed her, and responsibility was distributed until no single decision looked fatal.",
+   "sourceNote": "abandonedspaces (quote); Psych Safety (the distributed-responsibility analysis); noonpi"
+  },
+  {
+   "id": "c-vasa-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "vasa"
+   ],
+   "text": "Located 1956, raised 1961 nearly intact after 333 years, preserved in polyethylene glycol, displayed at the Vasa Museum, Stockholm.",
+   "sourceNote": "Britannica; abandonedspaces"
+  },
+  {
+   "id": "concept-overconstrained-design",
+   "type": "concept",
+   "name": "An over-constrained design: a one-deck hull stretched into a two-deck ship, where stability and armament made incompatible demands on the same waterline"
+  },
+  {
+   "id": "concept-permission-not-knowledge",
+   "type": "concept",
+   "name": "Failure as a permission problem rather than a knowledge problem: the test existed, ran, failed, and the organization sailed her anyway"
+  },
+  {
+   "id": "story-vasa",
+   "type": "story",
+   "title": "The Failure Everybody Watched Coming",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488524925805277184 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -10350,6 +10584,40 @@
   {"type":"cites","from":"c-qb-10","to":"src-quebec-vcl"},
   {"type":"responded-to","from":"quebec-bridge","to":"concept-deadload-feedback","claimId":"c-qb-03"},
   {"type":"enabled","from":"quebec-bridge","to":"concept-iron-ring","claimId":"c-qb-10"},
-  {"type":"covers","from":"story-quebec-bridge","to":"quebec-bridge"}
+  {"type":"covers","from":"story-quebec-bridge","to":"quebec-bridge"},
+  {"type":"event-of","from":"ev-decision-vasa-1","to":"vasa"},
+  {"type":"event-of","from":"ev-decision-vasa-2","to":"vasa"},
+  {"type":"event-of","from":"ev-failure-vasa-3","to":"vasa"},
+  {"type":"event-of","from":"ev-failure-vasa-4","to":"vasa"},
+  {"type":"event-of","from":"ev-failure-vasa-5","to":"vasa"},
+  {"type":"event-of","from":"ev-decision-vasa-6","to":"vasa"},
+  {"type":"event-of","from":"ev-completion-vasa-7","to":"vasa"},
+  {"type":"contributed","from":"gustav-ii-adolf","to":"vasa","role":"commissioned"},
+  {"type":"contributed","from":"henrik-hybertsson","to":"vasa","role":"designed"},
+  {"type":"contributed","from":"hein-jakobsson","to":"vasa","role":"built"},
+  {"type":"contributed","from":"klas-fleming","to":"vasa","role":"tested"},
+  {"type":"about","from":"c-vasa-01","to":"vasa"},
+  {"type":"cites","from":"c-vasa-01","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-02","to":"vasa"},
+  {"type":"cites","from":"c-vasa-02","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-03","to":"vasa"},
+  {"type":"cites","from":"c-vasa-03","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-04","to":"vasa"},
+  {"type":"cites","from":"c-vasa-04","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-05","to":"vasa"},
+  {"type":"cites","from":"c-vasa-05","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-06","to":"vasa"},
+  {"type":"cites","from":"c-vasa-06","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-07","to":"vasa"},
+  {"type":"cites","from":"c-vasa-07","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-08","to":"vasa"},
+  {"type":"cites","from":"c-vasa-08","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-09","to":"vasa"},
+  {"type":"cites","from":"c-vasa-09","to":"src-vasa-vcl"},
+  {"type":"about","from":"c-vasa-10","to":"vasa"},
+  {"type":"cites","from":"c-vasa-10","to":"src-vasa-vcl"},
+  {"type":"responded-to","from":"vasa","to":"concept-overconstrained-design","claimId":"c-vasa-05"},
+  {"type":"enabled","from":"vasa","to":"concept-permission-not-knowledge","claimId":"c-vasa-06"},
+  {"type":"covers","from":"story-vasa","to":"vasa"}
  ]
 }

@@ -4,7 +4,7 @@
   "linesLive": 11,
   "lines": [
     { "id": "kelly", "name": "KELLY L-01", "total": 27, "lit": 20 },
-    { "id": "petroski", "name": "PETROSKI L-02", "total": 2, "lit": 2 },
+    { "id": "petroski", "name": "PETROSKI L-02", "total": 3, "lit": 3 },
     { "id": "hammurabi", "name": "HAMMURABI L-03", "total": 1, "lit": 1 },
     { "id": "barenyi", "name": "BARENYI L-04", "total": 1, "lit": 1 },
     { "id": "tipper", "name": "TIPPER L-05", "total": 2, "lit": 2 },
