@@ -996,7 +996,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.65 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.66 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2649,7 +2649,7 @@ window.addEventListener("load", () => {
   if (!el || !el.classList.contains("plate")) return;
   el.classList.add("visible");
   setTimeout(() => {
-    el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
     el.classList.add("flash");
     setTimeout(()=>el.classList.remove("flash"), 2600);
   }, 300);
