@@ -7216,6 +7216,223 @@
    "type": "story",
    "title": "The Failure Everybody Watched Coming",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488524925805277184 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "pascaline",
+   "type": "artifact",
+   "name": "The Pascaline (Pascal's calculator)",
+   "category": "machine",
+   "origin": "France",
+   "lineId": "lovelace",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP, dual audit); oldest artifact on LOVELACE and the line's deep root; reaches forward to Leibniz. Published LinkedIn lead used the father-and-son hook: IN 1642, A 19-YEAR-OLD WATCHED HIS FATHER DROWN IN TAX ARITHMETIC EVERY NIGHT. SO HE BUILT HIM A MACHINE. IT TOOK 50 PROTOTYPES. NINE STILL EXIST. See blocks/shannon_pascaline.md"
+  },
+  {
+   "id": "src-pascaline-vcl",
+   "type": "source",
+   "title": "EC VCL: The Pascaline (V5.1 SOP, dual Perplexity and Gemini audit; Wikipedia Pascaline and Blaise Pascal, Britannica, idw-online for Schickard and Hammer 1957, Artnet for the dated Nov 2025 Christie's halt, standard computer-architecture references for the complement lineage). Self-caught round-number fix: 380 years corrected to nearly four centuries.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-invention-pascaline-1",
+   "type": "event",
+   "eventType": "invention",
+   "date": {
+    "year": 1623
+   },
+   "subjectId": "pascaline",
+   "label": "Wilhelm Schickard designs a calculating clock; it is destroyed and its existence lost until 1957, so it never reaches the public"
+  },
+  {
+   "id": "ev-decision-pascaline-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1642
+   },
+   "subjectId": "pascaline",
+   "label": "Blaise Pascal, 19, begins building an adding machine in Rouen to relieve his father Etienne, tax commissioner for Upper Normandy, of nightly arithmetic"
+  },
+  {
+   "id": "ev-completion-pascaline-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1645
+   },
+   "subjectId": "pascaline",
+   "label": "After about 50 prototypes, Pascal presents the machine publicly and dedicates it to Chancellor Seguier"
+  },
+  {
+   "id": "ev-decision-pascaline-4",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1649
+   },
+   "subjectId": "pascaline",
+   "label": "Royal privilege granted, exclusive rights in France, the first calculator patent"
+  },
+  {
+   "id": "ev-completion-pascaline-5",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1654
+   },
+   "subjectId": "pascaline",
+   "label": "About twenty machines sold; production ceases as Pascal turns to religion and philosophy"
+  },
+  {
+   "id": "ev-publication-pascaline-6",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1957
+   },
+   "subjectId": "pascaline",
+   "label": "Franz Hammer finds Schickard's letters to Kepler with the 1623 drawings, revising the first calculator history three centuries on"
+  },
+  {
+   "id": "ev-failure-pascaline-7",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 2025,
+    "month": 11
+   },
+   "subjectId": "pascaline",
+   "label": "One of the nine survivors comes within hours of a Christie's Paris auction before a tribunal suspends its export license; it stays in France"
+  },
+  {
+   "id": "blaise-pascal",
+   "type": "person",
+   "name": "Blaise Pascal",
+   "note": "Built the machine at 19 for his father, iterating about 50 prototypes. Solved mechanical carry with the gravity sautoir and subtraction with the method of complements. Left the project around 1654 for the Pensees. 1623 to 1662."
+  },
+  {
+   "id": "etienne-pascal",
+   "type": "person",
+   "name": "Etienne Pascal",
+   "note": "Blaise's father, tax commissioner for Upper Normandy, whose nightly perplexity of computations was the machine's reason to exist. The first office user of a calculator."
+  },
+  {
+   "id": "wilhelm-schickard",
+   "type": "person",
+   "name": "Wilhelm Schickard",
+   "note": "Designed a calculating clock in 1623, earlier than the Pascaline, but it was destroyed and unknown until 1957. First to invent, not first to make one exist in the world."
+  },
+  {
+   "id": "gottfried-leibniz",
+   "type": "person",
+   "name": "Gottfried Leibniz",
+   "note": "Tried to add automatic multiplication to the Pascaline, could not, and invented his own stepped-drum machine after 1671. The LOVELACE line's forward thread and next candidate."
+  },
+  {
+   "id": "c-pasc-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "In 1642 Pascal, aged 19, began building an adding machine in Rouen to relieve his father Etienne's nightly tax arithmetic, which Etienne called the \"perplexity\" of the computations; about 50 prototypes preceded the 1645 public presentation.",
+   "sourceNote": "Wikipedia (Pascaline); Britannica; both auditors confirmed the perplexity quote"
+  },
+  {
+   "id": "c-pasc-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "The machine added and subtracted directly on stylus-set dials; the accounting version worked in mixed bases (20 sols per livre, 12 deniers per sol) because French currency was not decimal.",
+   "sourceNote": "Wikipedia; Gemini confirmed the 12 and 20 gearing before the base-10 section"
+  },
+  {
+   "id": "c-pasc-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "The carry was solved by the sautoir, a weighted lever lifted as a wheel climbs toward 9 and dropped by gravity at the 9 to 0 transition to advance the next wheel, so the operator's force does not grow with the length of the carry chain, unlike direct gearing where one stroke drives the whole meshed train and can jam.",
+   "sourceNote": "both auditors confirmed the gravity-stored local-energy mechanism; mechanism level, no force figures"
+  },
+  {
+   "id": "c-pasc-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "Because the sautoir works in one rotational direction, the wheels could not reverse, so subtraction was done by adding the nines' complement of each digit and discarding the end overflow (worked example: 8 minus 3 = 8 plus 7 = 15, drop the carried 1, leaves 5).",
+   "sourceNote": "both auditors confirmed the method of complements; arithmetic re-verified digit by digit"
+  },
+  {
+   "id": "c-pasc-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "Modern binary computers subtract the same way, by two's complement (flip bits, add 1, add, discard overflow), because their adders also run one way; the technique lineage from nines' to two's complement is direct.",
+   "sourceNote": "standard computer architecture; Gemini called it the exact same mathematical trick. Phrased as technique lineage, not causation. Caption qualified to no SEPARATE subtraction circuit per adjudication"
+  },
+  {
+   "id": "c-pasc-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "Schickard's 1623 calculating clock predated the Pascaline but was destroyed and unknown until Franz Hammer found his letters to Kepler in 1957; Schickard was first to invent, Pascal first to make one exist publicly.",
+   "sourceNote": "idw-online; both auditors confirmed"
+  },
+  {
+   "id": "c-pasc-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "The Pascaline was first shown publicly, first used in an office, first sold (about twenty by 1654), first patented (royal privilege 1649), and first to survive; nine remain.",
+   "sourceNote": "Wikipedia; both auditors confirmed nine survivors and the firsts"
+  },
+  {
+   "id": "c-pasc-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "In November 2025 one of the nine came within hours of a Christie's Paris auction before a tribunal suspended its export license, keeping it in France.",
+   "sourceNote": "Artnet, dated Nov 19 2025 (primary news, dated). CONFLICT LOGGED: Gemini stated Nov 2023 without a source and added unverified details; the dated report wins"
+  },
+  {
+   "id": "c-pasc-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "pascaline"
+   ],
+   "text": "Leibniz tried to add automatic multiplication to the Pascaline, could not, and built his own stepped-drum machine after 1671.",
+   "sourceNote": "standard history; could not per adjudication, was failed"
+  },
+  {
+   "id": "concept-mechanical-carry",
+   "type": "concept",
+   "name": "The mechanical carry problem: in directly geared machines one stroke drives the whole meshed train, so the operator's force grows with the length of the carry chain until it jams"
+  },
+  {
+   "id": "concept-complement-subtraction",
+   "type": "concept",
+   "name": "Subtraction by complement on one-way hardware: add the complement and discard the overflow, the nines' complement ancestor of the two's complement every binary processor still uses"
+  },
+  {
+   "id": "story-pascaline",
+   "type": "story",
+   "title": "The Machine That Could Only Add",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488837692206546944 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
   }
  ],
  "edges": [
@@ -10618,6 +10835,38 @@
   {"type":"cites","from":"c-vasa-10","to":"src-vasa-vcl"},
   {"type":"responded-to","from":"vasa","to":"concept-overconstrained-design","claimId":"c-vasa-05"},
   {"type":"enabled","from":"vasa","to":"concept-permission-not-knowledge","claimId":"c-vasa-06"},
-  {"type":"covers","from":"story-vasa","to":"vasa"}
+  {"type":"covers","from":"story-vasa","to":"vasa"},
+  {"type":"event-of","from":"ev-invention-pascaline-1","to":"pascaline"},
+  {"type":"event-of","from":"ev-decision-pascaline-2","to":"pascaline"},
+  {"type":"event-of","from":"ev-completion-pascaline-3","to":"pascaline"},
+  {"type":"event-of","from":"ev-decision-pascaline-4","to":"pascaline"},
+  {"type":"event-of","from":"ev-completion-pascaline-5","to":"pascaline"},
+  {"type":"event-of","from":"ev-publication-pascaline-6","to":"pascaline"},
+  {"type":"event-of","from":"ev-failure-pascaline-7","to":"pascaline"},
+  {"type":"contributed","from":"blaise-pascal","to":"pascaline","role":"designed"},
+  {"type":"contributed","from":"etienne-pascal","to":"pascaline","role":"commissioned"},
+  {"type":"contributed","from":"wilhelm-schickard","to":"pascaline","role":"pioneered"},
+  {"type":"contributed","from":"gottfried-leibniz","to":"pascaline","role":"opposed"},
+  {"type":"about","from":"c-pasc-01","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-01","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-02","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-02","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-03","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-03","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-04","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-04","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-05","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-05","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-06","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-06","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-07","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-07","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-08","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-08","to":"src-pascaline-vcl"},
+  {"type":"about","from":"c-pasc-09","to":"pascaline"},
+  {"type":"cites","from":"c-pasc-09","to":"src-pascaline-vcl"},
+  {"type":"responded-to","from":"pascaline","to":"concept-mechanical-carry","claimId":"c-pasc-03"},
+  {"type":"enabled","from":"pascaline","to":"concept-complement-subtraction","claimId":"c-pasc-05"},
+  {"type":"covers","from":"story-pascaline","to":"pascaline"}
  ]
 }

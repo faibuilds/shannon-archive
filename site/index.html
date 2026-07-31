@@ -823,7 +823,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="line-designation">
     <div class="line-designation-inner brushed">
       <span class="ld-name">Lovelace <b>/ Line 07</b></span>
-      <span class="ld-note">Named for the woman who saw, in 1843, that a computing machine was never about numbers. Ordered by publication date.</span>
+      <span class="ld-note">Named for the woman who saw, in 1843, that a computing machine was never about numbers. Ordered oldest first.</span>
     </div>
   </div>
   <div class="timeline" id="lovelace-timeline"></div>
@@ -996,7 +996,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.66 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.67 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1542,9 +1542,13 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
 });
 
 /* ---------- LOVELACE LINE (L-07, computing foundations) ----------
-   Ordered by publication date. One sealed plate (TURING, 1936) sits
-   between the lit 1854 and 1937 plates by design. */
+   Oldest first. The Pascaline (1642) is the line's deep root and reaches
+   forward to Leibniz. One sealed plate (TURING, 1936) sits between the
+   lit 1854 and 1937 plates by design. */
 const LOVELACE = [
+  {id:"pascaline", name:"The Pascaline", year:1642, pub:"Built 1642 to 1645", origin:"France", field:"The first calculator", status:"covered",
+   hook:"YOUR COMPUTER CANNOT SUBTRACT. IT ADDS COMPLEMENTS INSTEAD, A TRICK FIRST BUILT IN BRASS IN 1642, BY A 19-YEAR-OLD WHOSE WHEELS ONLY TURNED ONE WAY.",
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7488837692206546944"}},
   {id:"lovelace-notes-1843", name:"The Notes by A.A.L.", year:1843, pub:"Aug 1843", origin:"United Kingdom", field:"The first program", status:"covered",
    hook:"The first published computer program appeared in 1843, for a machine that has never been built. Its author saw what it meant. Nobody else did for a century.",
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7483449637639704576"}},
@@ -1904,7 +1908,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:402, verified:385, sources:35, edges:59, artifacts:52 };
+const FINDING_STATS = { claims:411, verified:394, sources:36, edges:61, artifacts:53 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
