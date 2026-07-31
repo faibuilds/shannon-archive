@@ -1,0 +1,8 @@
+{
+  "fighter": "Fighter",
+  "bomber": "Bomber",
+  "attack": "Attack",
+  "recon": "Reconnaissance",
+  "experimental": "Experimental",
+  "transport": "Transport"
+}

@@ -1,0 +1,388 @@
+{
+  "lovelace": [
+    {
+      "id": "lovelace-notes-1843",
+      "name": "The Notes by A.A.L.",
+      "year": 1843,
+      "pub": "Aug 1843",
+      "origin": "United Kingdom",
+      "field": "The first program",
+      "status": "covered",
+      "hook": "The first published computer program appeared in 1843, for a machine that has never been built. Its author saw what it meant. Nobody else did for a century.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7483449637639704576"
+      }
+    },
+    {
+      "id": "boolean-algebra",
+      "name": "Boolean algebra",
+      "year": 1854,
+      "pub": "1854",
+      "origin": "United Kingdom",
+      "field": "Logic as algebra",
+      "status": "covered",
+      "hook": "In 1854, a shoemaker's son with no degree wrote a book on how humans think. Minds never ran on it. Every machine you own does instead.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7482230815133945856"
+      },
+      "remarks": [
+        {
+          "name": "John Crowley",
+          "title": "",
+          "text": "Claude Shannon's master's thesis in 1938 was published, it gave a rigorous foundation to field of circuit design digital logic by applying Boolean algebra to circuit simplification. The paper has been called the most influential and important master's thesis ever.",
+          "len": 258,
+          "cleared": true
+        }
+      ]
+    },
+    {
+      "id": "turing-1936",
+      "name": "TURING",
+      "year": 1936,
+      "pub": "1936",
+      "status": "soon",
+      "lines": [
+        88,
+        64,
+        76
+      ]
+    },
+    {
+      "id": "shannon-thesis-1937",
+      "name": "Shannon's thesis",
+      "year": 1937,
+      "pub": "1937",
+      "origin": "United States",
+      "field": "Logic in circuits",
+      "status": "covered",
+      "hook": "In 1937, a 21-year-old's MIT master's thesis showed how electrical switches could perform logic. Every digital device since runs on that idea.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7481004009353515009"
+      }
+    }
+  ],
+  "wright": [
+    {
+      "id": "wright-wind-tunnel",
+      "name": "The 1901 wind tunnel",
+      "year": 1901,
+      "verdict": "Dec 1901",
+      "origin": "United States",
+      "field": "The instrument",
+      "status": "covered",
+      "hook": "In 1901, every lift calculation on Earth used a constant from the 1700s. Two bicycle mechanics checked it. It was off by fifty percent.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/posts/engineeringcommunity_when-we-told-the-story-of-the-wrights-and-activity-7483680998392549376-lpPZ"
+      },
+      "remarks": [
+        {
+          "name": "Bill Platt",
+          "title": "Naval Architect",
+          "text": "The strangest thing about the Wrights was their transition from being the very essence of science, to being fearful hoarders and patent and lawsuit obsessed tycoons. They stopped inventing. And aeronautics passed them by.",
+          "len": 217,
+          "cleared": true
+        },
+        {
+          "name": "Brian Berthold",
+          "title": "",
+          "text": "Where are those naysayers complaining about too small, too slow, wrong Reynolds number??? Good thing they weren't around then.",
+          "len": 124,
+          "cleared": true,
+          "note": "Consent conditional (LinkedIn, Jul 2026): feature on the site only; do not use this comment to train AI."
+        },
+        {
+          "name": "Matias Soto",
+          "title": "PhD",
+          "text": "The Wright brothers are constantly referred as bicycle mechanics, as if that meant they were uneducated or ignorant. History shows they were avid readers and students of science and mathematics, and constantly experimented with high tech. Through that process they became the leading experts in their field.",
+          "len": 303,
+          "cleared": true,
+          "note": "Attribution caveat (LinkedIn, Jul 2026): credit as relaying, not as the original source of the facts."
+        }
+      ]
+    }
+  ],
+  "petroski": [
+    {
+      "id": "tacoma-narrows",
+      "name": "Tacoma Narrows Bridge",
+      "year": 1940,
+      "date": "7 Nov 1940",
+      "origin": "United States",
+      "field": "Suspension bridge",
+      "status": "covered",
+      "hook": "In 1940 a four-month-old bridge tore itself apart in a 42 mph wind. It was strong enough. Nobody had asked whether it was stiff enough.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7478593943018819584"
+      }
+    },
+    {
+      "id": "ronan-point",
+      "name": "Ronan Point",
+      "year": 1968,
+      "date": "16 May 1968",
+      "origin": "United Kingdom",
+      "field": "System-built tower",
+      "status": "covered",
+      "hook": "In 1968 a gas stove flexed one wall panel out of a new 22-storey tower. A whole corner fell to the ground, flat by flat.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.facebook.com/share/p/1CrNm2r2hH/"
+      }
+    }
+  ],
+  "hammurabi": [
+    {
+      "id": "manchester-28m",
+      "name": "British Airtours Flight 28M",
+      "year": 1985,
+      "date": "22 Aug 1985",
+      "origin": "United Kingdom",
+      "field": "Airliner evacuation",
+      "status": "covered",
+      "hook": "In 1985, 55 people died feet from an exit they could not reach. The gap beside the overwing door was built to the width of the rule, not the width of a person.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7478857977148416000"
+      }
+    }
+  ],
+  "barenyi": [
+    {
+      "id": "crumple-zone",
+      "name": "The crumple zone",
+      "year": 1951,
+      "date": "1951, DBP 854157",
+      "origin": "Germany",
+      "field": "Passenger car safety",
+      "status": "covered",
+      "hook": "In 1951 Bela Barenyi patented a car built to destroy itself. Rigid in the middle, folding at the ends, on purpose. Patent DBP 854157 is in every car you have ridden since.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7475124634624090114"
+      }
+    }
+  ],
+  "tipper": [
+    {
+      "id": "liberty-ships",
+      "name": "Liberty ships",
+      "year": 1943,
+      "date": "16 Jan 1943",
+      "origin": "United States",
+      "field": "Welded cargo ship",
+      "status": "covered",
+      "hook": "In January 1943 the tanker Schenectady cracked nearly in two at her dock, in calm water. The welds held. The steel turned brittle in the cold.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7473840985081372672"
+      }
+    },
+    {
+      "id": "nasa-printed-chamber",
+      "name": "NASA 3D-printed chamber",
+      "year": 2021,
+      "date": "9 Feb 2021",
+      "origin": "United States",
+      "field": "Additive manufacturing",
+      "status": "covered",
+      "hook": "In 2021 a printed rocket chamber failed nine seconds into a burn. The build logs looked clean. The crack ran exactly along the line where the printer had paused.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7470222146330329088"
+      }
+    }
+  ],
+  "roebling": [
+    {
+      "id": "london-sewers",
+      "name": "Bazalgette's London sewers",
+      "year": 1858,
+      "date": "1858 to 1875",
+      "origin": "United Kingdom",
+      "field": "Sewer network",
+      "status": "covered",
+      "hook": "IN 1858, THE GREAT STINK DROVE PARLIAMENT TO DEBATE LEAVING LONDON. THE ENGINEER HIRED TO KILL THE SMELL MADE EVERY PIPE TWICE AS WIDE, AND STOPPED CHOLERA WITHOUT MEANING TO.",
+      "posts": [
+        {
+          "label": "Read the story",
+          "date": "Jul 2026",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7488101455703207936"
+        }
+      ]
+    },
+    {
+      "id": "brooklyn-bridge",
+      "name": "Brooklyn Bridge",
+      "year": 1876,
+      "date": "1876 to 1883",
+      "origin": "United States",
+      "field": "Suspension bridge",
+      "status": "covered",
+      "hook": "THE BROOKLYN BRIDGE'S CABLES CONTAIN 221 TONS OF WIRE THAT FAILED INSPECTION. THE ENGINEER WHO CAUGHT THE FRAUD COULDN'T REMOVE IT. IT'S STILL THERE.",
+      "posts": [
+        {
+          "label": "Read the story",
+          "date": "Jul 2026",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7487732702331420674"
+        }
+      ]
+    },
+    {
+      "id": "quebec-bridge",
+      "name": "Quebec Bridge",
+      "year": 1907,
+      "date": "1907",
+      "origin": "Canada",
+      "field": "Cantilever bridge",
+      "status": "covered",
+      "hook": "THE ORDER TO STOP WORK ON THE QUEBEC BRIDGE REACHED THE COMPANY AT 1:15 PM. NOBODY RELAYED IT TO THE SITE. NEAR 5:30 THE BRIDGE FELL, KILLING 75 MEN.",
+      "posts": [
+        {
+          "label": "Read the story",
+          "date": "Jul 2026",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7488318955988684801"
+        }
+      ]
+    }
+  ],
+  "sutter": [
+    {
+      "id": "dh-comet",
+      "name": "de Havilland Comet 1",
+      "year": 1952,
+      "date": "In service 1952",
+      "origin": "United Kingdom",
+      "field": "Jet airliner",
+      "status": "covered",
+      "hook": "In 1952 the world's first jet airliner entered service. Then it began falling out of the sky, and the cause was a crack no bigger than a fingernail at the corner of a window.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7473283069932695553"
+      }
+    },
+    {
+      "id": "boeing-747",
+      "name": "Boeing 747",
+      "year": 1969,
+      "date": "First flight 1969",
+      "origin": "United States",
+      "field": "Wide-body airliner",
+      "status": "covered",
+      "hook": "In 1965 Boeing bet the company on a jet twice the size of anything flying and gave Joe Sutter 29 months to design it. The team that built it called themselves the Incredibles.",
+      "artCredit": "NASA Dryden side view, EG-0012-02 (1998), public domain.",
+      "artNote": "NASA's 747-100 Shuttle Carrier drawing, recolored, not redrawn. Length measured on the drawing.",
+      "art": "<svg viewBox=\"0 0 267 100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/boeing-747.png\" x=\"0\" y=\"0\" width=\"267\" height=\"71.8\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M0.6 90 L265.8 90\" stroke-width=\"1.2\"/>\n    <path d=\"M0.6 90 L7.6 87 M0.6 90 L7.6 93 M265.8 90 L258.8 87 M265.8 90 L258.8 93\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.2\" y=\"85\">231 FT 10 IN &#183; LENGTH</text>\n  </g>\n</svg>",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7467117185874808832"
+      }
+    }
+  ],
+  "carnot": [
+    {
+      "id": "diesel-engine",
+      "name": "Rudolf Diesel's engine",
+      "year": 1897,
+      "date": "1897, Augsburg",
+      "origin": "Germany",
+      "field": "Prime mover",
+      "status": "covered",
+      "hook": "In 1897 Rudolf Diesel ran an engine that beat steam on efficiency and could burn almost any fuel, peanut oil included. He vanished off a ship 16 years later.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7467903242740592640"
+      }
+    }
+  ],
+  "noyce": [
+    {
+      "id": "point-contact-transistor",
+      "name": "The point-contact transistor",
+      "year": 1947,
+      "date": "16 Dec 1947",
+      "origin": "United States",
+      "field": "Solid-state device",
+      "status": "covered",
+      "hook": "In December 1947 Bell Labs officials heard a voice amplified through a plastic triangle, a strip of gold foil, and a slab of germanium. The vacuum-tube era was finished.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7487033383554850816"
+      }
+    },
+    {
+      "id": "planar-process-ic",
+      "name": "The Traitorous Eight and the planar process",
+      "year": 1957,
+      "date": "1957 to 1959",
+      "origin": "United States",
+      "field": "Planar process",
+      "status": "covered",
+      "hook": "The company that printed the first manufacturable microchip was founded on ten signed one-dollar bills and $500 a man. Its founders' old boss called them traitors.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7487391943396704256"
+      }
+    },
+    {
+      "id": "chip-design-1987",
+      "name": "TSMC and the pure-play foundry (Part 2)",
+      "year": 1958,
+      "date": "Founded 1987",
+      "origin": "Taiwan",
+      "field": "Foundry model",
+      "status": "covered",
+      "hook": "Morris Chang failed his MIT doctorate, spent 25 years at Texas Instruments, and in 1987 built a factory that would only make other companies' chips. It now makes nearly all the advanced ones.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7455076409850478592"
+      }
+    },
+    {
+      "id": "nvidia-riva",
+      "name": "NVIDIA RIVA 128 (Part 1)",
+      "year": 1996,
+      "date": "Shipped 1997",
+      "origin": "United States",
+      "field": "Graphics processor",
+      "status": "covered",
+      "hook": "In 1996 NVIDIA had one month of payroll left. It designed its next chip entirely in software, sent it straight to first silicon, and would have died if that silicon failed. It did not.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7454615820393136128"
+      }
+    },
+    {
+      "id": "asml-euv",
+      "name": "ASML and EUV lithography (Part 3)",
+      "year": 2000,
+      "date": "Volume 2010s",
+      "origin": "Netherlands",
+      "field": "Lithography",
+      "status": "covered",
+      "hook": "To print the smallest chips, ASML fires a laser at 50,000 droplets of molten tin every second, turning each into a plasma nearly 40 times hotter than the Sun's surface, all to make a single wavelength of light no lens can bend.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7459895063620268032"
+      }
+    },
+    {
+      "id": "alexnet",
+      "name": "AlexNet and the CUDA bet (Part 4)",
+      "year": 2006,
+      "date": "ImageNet 2012",
+      "origin": "Canada / United States",
+      "field": "Neural network",
+      "status": "covered",
+      "hook": "The graphics cards that trained the first modern AI in 2012 could do it only because of a bet NVIDIA made in 2006, six years before anyone needed it.",
+      "post": {
+        "label": "Read the story",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7466536288733724672"
+      }
+    }
+  ]
+}

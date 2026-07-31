@@ -1,0 +1,120 @@
+{
+  "findings": [
+    {
+      "kind": "Convergence",
+      "title": "Two papers, eleven years and no contact apart, meet in 1937 and end up in every processor you own.",
+      "body": "Lovelace wrote in 1843 that the Engine might act on things besides number, if their relations could be expressed symbolically. Boole gave logic an algebra in 1854 and died believing he had described how people think. He was wrong about minds. A 21-year-old tending a relay computer at MIT put the two together, and the correspondence he proved runs every digital device since.",
+      "vh": 214,
+      "nodes": [
+        {
+          "id": "lovelace-notes-1843",
+          "label": "The Notes by A.A.L.",
+          "year": "1843",
+          "x": 6,
+          "y": 20,
+          "w": 190
+        },
+        {
+          "id": "boolean-algebra",
+          "label": "Boolean algebra",
+          "year": "1854",
+          "x": 6,
+          "y": 134,
+          "w": 190
+        },
+        {
+          "id": "shannon-thesis-1937",
+          "label": "Shannon's thesis",
+          "year": "1937",
+          "x": 352,
+          "y": 77,
+          "w": 190
+        },
+        {
+          "id": null,
+          "label": "Digital circuit design",
+          "year": "Ever since",
+          "x": 698,
+          "y": 77,
+          "w": 196,
+          "terminal": true
+        }
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 2,
+          "type": "enabled",
+          "claim": "c-lovelace-notes-1843-14"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "type": "enabled",
+          "claim": "c-boolean-algebra-09"
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "type": "enabled",
+          "claim": "c-shannon-thesis-1937-02"
+        }
+      ],
+      "note": "Found by walking the graph, not by memory. The traversal that found it is itself a descendant of the chain."
+    },
+    {
+      "kind": "Constraint genealogy",
+      "title": "A fix that could not save the aircraft it was invented for waited seven years, broke the sound barrier, then became standard.",
+      "body": "NACA proposed an adjustable stabilizer during the P-38 compressibility investigation. It did not save the P-38. The idea sat until the X-1, where a movable tail gave Yeager pitch authority past Mach 1 that a conventional elevator had lost. Every supersonic fighter that followed carries it, the F-15 among them.",
+      "vh": 150,
+      "nodes": [
+        {
+          "id": "p-38",
+          "label": "P-38 Lightning",
+          "year": "1939",
+          "x": 6,
+          "y": 52,
+          "w": 190
+        },
+        {
+          "id": "bell-x-1",
+          "label": "Bell X-1",
+          "year": "1946",
+          "x": 352,
+          "y": 52,
+          "w": 190
+        },
+        {
+          "id": "f-15",
+          "label": "F-15 Eagle",
+          "year": "1972",
+          "x": 698,
+          "y": 52,
+          "w": 190
+        }
+      ],
+      "edges": [
+        {
+          "from": 0,
+          "to": 1,
+          "type": "enabled",
+          "claim": "c-bell-x-1-10"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "type": "enabled",
+          "claim": "c-bell-x-1-11"
+        }
+      ],
+      "note": "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
+    }
+  ],
+  "stats": {
+    "claims": 392,
+    "verified": 375,
+    "sources": 34,
+    "edges": 57,
+    "artifacts": 51
+  }
+}
