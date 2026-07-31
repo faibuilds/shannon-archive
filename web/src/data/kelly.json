@@ -1,0 +1,756 @@
+[
+  {
+    "id": "p-38",
+    "name": "P-38 Lightning",
+    "year": 1939,
+    "ff": "Jan 1939",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "covered",
+    "hook": "Kelly Johnson's twin-boom fighter. In steep dives it ran into compressibility, years before transonic flight was understood.",
+    "artCredit": "Vector 3-view by MLWatts, CC0 public domain.",
+    "artNote": "Community drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 232\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/p-38.png\" x=\"0\" y=\"0\" width=\"267\" height=\"197.6\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M1.5 220 L265.2 220\" stroke-width=\"1.2\"/>\n    <path d=\"M1.5 220 L8.5 217 M1.5 220 L8.5 223 M265.2 220 L258.2 217 M265.2 220 L258.2 223\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.4\" y=\"215\">52 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 4, 2026",
+        "url": "https://www.linkedin.com/posts/engineeringcommunity_the-p-38-lightning-was-among-the-fastest-activity-7479079929280831488-0byj"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 418
+      },
+      {
+        "name": "Lakshmi N Sankar",
+        "title": "Regents Professor & Sikorsky Professor at Georgia Institute of Technology",
+        "profile": "https://www.linkedin.com/in/lakshmi-n-sankar-9a327251",
+        "text": "In transonic flow, shocks move downstream very slowly as they gather strength and the significant time lag between the wing motion and shock motion creates yet another cause for flutter",
+        "len": 185,
+        "cleared": true
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 139
+      }
+    ]
+  },
+  {
+    "id": "sealed-1942a",
+    "name": "Me 262",
+    "variant": "Schwalbe",
+    "year": 1942,
+    "ff": "Jul 1942 (jet power)",
+    "origin": "Germany",
+    "role": "fighter",
+    "status": "soon",
+    "lines": [
+      92,
+      78,
+      64
+    ]
+  },
+  {
+    "id": "sealed-1942b",
+    "name": "B-29 Superfortress",
+    "year": 1942,
+    "ff": "Sep 1942",
+    "origin": "United States",
+    "role": "bomber",
+    "status": "soon",
+    "lines": [
+      85,
+      95,
+      52
+    ]
+  },
+  {
+    "id": "constellation",
+    "name": "Constellation",
+    "variant": "L-049",
+    "year": 1943,
+    "ff": "Jan 1943",
+    "origin": "United States",
+    "role": "transport",
+    "status": "covered",
+    "hook": "The most beautiful airliner ever built has three tails for one reason. A single tail tall enough would not fit in TWA's hangars.",
+    "artCredit": "US military plan view, AN 01-75CK-3 (1949), public domain.",
+    "artNote": "Flight-manual plan view with its original station lines, recolored, not redrawn.",
+    "art": "<svg viewBox=\"0 0 300 216.3\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/constellation.png\" x=\"0\" y=\"0\" width=\"300\" height=\"216.3\"/>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 22, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7485936513386500096"
+      }
+    ]
+  },
+  {
+    "id": "p-80",
+    "name": "P-80 Shooting Star",
+    "year": 1944,
+    "ff": "Jan 1944",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "covered",
+    "hook": "America's first operational jet fighter was built in 143 days, under a rented circus tent. The tent was not the obstacle. It was the reason.",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 18, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7484776892714086400"
+      }
+    ]
+  },
+  {
+    "id": "horten-ho-229",
+    "name": "Horten Ho 229",
+    "year": 1945,
+    "ff": "Feb 1945",
+    "origin": "Germany",
+    "role": "experimental",
+    "status": "covered",
+    "hook": "IS THE B-2 BUILT ON NAZI TECHNOLOGY? WHEN SHOWN THE CAPTURED HORTEN PROTOTYPES, NORTHROP REPORTEDLY SAID: FORGET IT, THEY'RE JUST GLIDER DESIGNERS.",
+    "artCredit": "Nuricom1 / Wikimedia Commons, CC0.",
+    "artNote": "Recognition drawing, recolored to a silhouette, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/horten-ho-229.png\" x=\"0\" y=\"0\" width=\"267\" height=\"120.1\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M1.5 140 L264.6 140\" stroke-width=\"1.2\"/>\n    <path d=\"M1.5 140 L8.5 137 M1.5 140 L8.5 143 M264.6 140 L257.6 137 M264.6 140 L257.6 143\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.3\" y=\"135\">55 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 2026",
+        "url": "https://www.facebook.com/share/p/1LWQuZQA6L/"
+      }
+    ]
+  },
+  {
+    "id": "bell-x-1",
+    "name": "Bell X-1",
+    "year": 1946,
+    "ff": "Jan 1946",
+    "origin": "United States",
+    "role": "experimental",
+    "status": "covered",
+    "hook": "It broke the sound barrier in 1947 with a fix that was not invented for it. The idea had sat on a shelf since the P-38 investigation.",
+    "artCredit": "NASA Dryden 3-view, public domain.",
+    "artNote": "NASA drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 320\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/bell-x-1.png\" x=\"16.5\" y=\"0\" width=\"234\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M17.7 300 L248.9 300\" stroke-width=\"1.2\"/>\n    <path d=\"M17.7 300 L24.7 297 M17.7 300 L24.7 303 M248.9 300 L241.9 297 M248.9 300 L241.9 303\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.3\" y=\"295\">28 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 12, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7481975843528003584"
+      },
+      {
+        "label": "Instagram",
+        "date": "",
+        "url": "https://www.instagram.com/p/Dar0WXCysq5/"
+      },
+      {
+        "label": "Facebook",
+        "date": "",
+        "url": "https://www.facebook.com/share/p/18xFQ9QRqk/"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "Massimiliano \"Max\" F.",
+        "title": "",
+        "text": "The great epoch of Chuck Yeager (The right stuff), the LM's Skunk Works and Clarence Leonard \"Kelly\" Johnson",
+        "len": 106,
+        "cleared": true
+      }
+    ]
+  },
+  {
+    "id": "sealed-1947",
+    "name": "MiG-15",
+    "redactedName": "M▮▮-1▮",
+    "year": 1947,
+    "ff": "Dec 1947",
+    "origin": "Soviet Union",
+    "role": "fighter",
+    "status": "soon",
+    "lines": [
+      88,
+      60,
+      75
+    ]
+  },
+  {
+    "id": "b-52",
+    "name": "B-52 Stratofortress",
+    "year": 1952,
+    "ff": "Apr 1952",
+    "origin": "United States",
+    "role": "bomber",
+    "status": "covered",
+    "hook": "THE B-1 AND B-2 WILL RETIRE IN THE 2030S. THE BOEING B-52 STRATOFORTRESS, FIRST FLIGHT 1952, WILL FLY INTO THE 2050S.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 265\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/b-52.png\" x=\"0\" y=\"0\" width=\"267\" height=\"231.3\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M6.8 253 L259.3 253\" stroke-width=\"1.2\"/>\n    <path d=\"M6.8 253 L13.8 250 M6.8 253 L13.8 256 M259.3 253 L252.3 250 M259.3 253 L252.3 256\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.1\" y=\"248\">185 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Mar 14, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7438531976548200448"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 125
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 163
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 161
+      }
+    ]
+  },
+  {
+    "id": "f-104",
+    "name": "F-104 Starfighter",
+    "year": 1954,
+    "ff": "Mar 1954",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "covered",
+    "hook": "The F-104's wing was 3.36 percent thick, too thin to carry fuel, sharp enough to cut its ground crews. It was exactly what pilots had asked for.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Dimension line to the drawing's scale, wingtip stores excluded.",
+    "art": "<svg viewBox=\"0 0 267 314\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/f-104.png\" x=\"70.8\" y=\"0\" width=\"125.3\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M79.6 302 L186.5 302\" stroke-width=\"1.2\"/>\n    <path d=\"M79.6 302 L86.6 299 M79.6 302 L86.6 305 M186.5 302 L179.5 299 M186.5 302 L179.5 305\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.1\" y=\"297\">21 FT 11 IN &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 19, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7484897833389543424"
+      }
+    ]
+  },
+  {
+    "id": "c-130",
+    "name": "C-130 Hercules",
+    "year": 1954,
+    "ff": "Aug 1954",
+    "origin": "United States",
+    "role": "transport",
+    "status": "covered",
+    "hook": "Kelly Johnson told Lockheed's chief engineer the C-130 would destroy the company, then walked out. The slow, unarmed hauler he tried to kill has stayed in production for 70 years, the longest run of any military aircraft, and outlasted every fast jet he championed.",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 22, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7485840900389031937"
+      }
+    ]
+  },
+  {
+    "id": "u-2",
+    "name": "U-2",
+    "variant": "Dragon Lady",
+    "year": 1955,
+    "ff": "Aug 1955",
+    "origin": "United States",
+    "role": "recon",
+    "status": "covered",
+    "hook": "EVERY U-2 LANDING REQUIRES A SPORTS CAR DOING 100+ MPH DOWN THE RUNWAY, WITH ANOTHER PILOT BEHIND THE WHEEL.",
+    "artCredit": "NASA Dryden ER-2 3-view, public domain.",
+    "artNote": "NASA ER-2 drawing, the U-2R airframe, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 240\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/u-2.png\" x=\"0\" y=\"0\" width=\"267\" height=\"180.1\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M1.2 212 L265.5 212\" stroke-width=\"1.2\"/>\n    <path d=\"M1.2 212 L8.2 209 M1.2 212 L8.2 215 M265.5 212 L258.5 209 M265.5 212 L258.5 215\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.4\" y=\"207\">103 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "The chase car story",
+        "date": "Apr 15, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7450308853377974272"
+      },
+      {
+        "label": "It outlived its successor",
+        "date": "Mar 23, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441759187333918721"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 105
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 38
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 121
+      }
+    ]
+  },
+  {
+    "id": "a-12",
+    "name": "A-12",
+    "variant": "OXCART",
+    "year": 1962,
+    "ff": "Apr 1962",
+    "origin": "United States",
+    "role": "recon",
+    "status": "covered",
+    "hook": "The SR-71's shape came from an aircraft called the A-12. The A stands for Archangel. The 12 means eleven designs came first and failed.",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jul 23, 2026",
+        "url": "https://www.linkedin.com/posts/engineeringcommunity_by-1956-the-u-2-was-already-living-on-borrowed-activity-7486167263507566592-soPs"
+      }
+    ]
+  },
+  {
+    "id": "sr-71",
+    "name": "SR-71 Blackbird",
+    "year": 1964,
+    "ff": "Dec 1964",
+    "origin": "United States",
+    "role": "recon",
+    "status": "covered",
+    "hook": "THE SR-71 CRUISED AT MACH 3.2 BUT HAD NO INTERNAL STARTER. TO START IT, THEY USED A CART WITH TWO BUICK V8s MAKING 600+ HP.",
+    "artCredit": "NASA Dryden 3-view, public domain.",
+    "artNote": "NASA drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 314\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/sr-71.png\" x=\"60.6\" y=\"0\" width=\"145.9\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M61.5 302 L205.3 302\" stroke-width=\"1.2\"/>\n    <path d=\"M61.5 302 L68.5 299 M61.5 302 L68.5 305 M205.3 302 L198.3 299 M205.3 302 L198.3 305\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.4\" y=\"297\">55 FT 7 IN &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "The Buick starter cart",
+        "date": "Feb 12, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7427533950027497472"
+      },
+      {
+        "label": "Retired before the U-2",
+        "date": "Mar 23, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441759187333918721"
+      },
+      {
+        "label": "Born from the U-2's problem",
+        "date": "Jun 28, 2026",
+        "url": "https://www.linkedin.com/posts/engineeringcommunity_in-the-late-1950s-the-u-2-spy-plane-was-activity-7476823453292068866-BCE7"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 533
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 243
+      }
+    ]
+  },
+  {
+    "id": "xb-70",
+    "name": "XB-70 Valkyrie",
+    "year": 1964,
+    "ff": "Sep 1964",
+    "origin": "United States",
+    "role": "experimental",
+    "status": "covered",
+    "hook": "A Mach 3 bomber designed to ride its own shockwave. Its wingtips folded down in flight to trap compression lift.",
+    "artCredit": "NASA Dryden 3-view, public domain.",
+    "artNote": "NASA drawing, recolored, not redrawn. Span measured on the drawing, wingtips level.",
+    "art": "<svg viewBox=\"0 0 267 314\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/xb-70.png\" x=\"55.9\" y=\"0\" width=\"155.2\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M56.8 302 L209.9 302\" stroke-width=\"1.2\"/>\n    <path d=\"M56.8 302 L63.8 299 M56.8 302 L63.8 305 M209.9 302 L202.9 299 M209.9 302 L202.9 305\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.4\" y=\"297\">105 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jun 26, 2026",
+        "url": "https://www.linkedin.com/posts/engineeringcommunity_in-the-1950s-the-logic-of-nuclear-war-was-activity-7476100876433186816-0dsW"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 312
+      }
+    ]
+  },
+  {
+    "id": "mig-25",
+    "name": "MiG-25 Foxbat",
+    "year": 1964,
+    "ff": "Mar 1964",
+    "origin": "Soviet Union",
+    "role": "fighter",
+    "status": "covered",
+    "hook": "THE SOVIETS BUILT A MACH 2.8 JET OUT OF STEEL AND VACUUM TUBES. THE PENTAGON SPENT YEARS THINKING IT WAS TITANIUM AND TRANSISTORS.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 314\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/mig-25.png\" x=\"46.4\" y=\"0\" width=\"174.2\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M52.5 302 L213.8 302\" stroke-width=\"1.2\"/>\n    <path d=\"M52.5 302 L59.5 299 M52.5 302 L59.5 305 M213.8 302 L206.8 299 M213.8 302 L206.8 305\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.2\" y=\"297\">46 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Apr 21, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7452200561015283712"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "Lee Hearn",
+        "title": "Sales Support Engineer",
+        "profile": "https://www.linkedin.com/in/lee-hearn-6996a370",
+        "text": "It was based on a different philosophy. Costs were far lower than the F15 so they could build more. Its cockpit was also very similar to previous MIGs, something that was derided at the time... until the realisation that any pilots flying older MIGs could be easily reoriented to a new platform. All more in line with Russian military thinking than western militaries. Pilots and machines considered far more expendable",
+        "len": 419,
+        "cleared": true
+      },
+      {
+        "name": "Neil Wilkins",
+        "title": "Consulting geologist",
+        "profile": "https://www.linkedin.com/in/neil-wilkinsa87bb952",
+        "text": "Digital is less robust than analogue and tubes are more robust than transistors and microchips.",
+        "len": 95,
+        "cleared": true
+      }
+    ]
+  },
+  {
+    "id": "sealed-1966",
+    "name": "Harrier",
+    "redactedName": "H▮RR▮ER",
+    "year": 1966,
+    "ff": "Aug 1966",
+    "origin": "United Kingdom",
+    "role": "attack",
+    "status": "soon",
+    "lines": [
+      80,
+      92,
+      55
+    ]
+  },
+  {
+    "id": "f-14",
+    "name": "F-14 Tomcat",
+    "year": 1970,
+    "ff": "Dec 1970",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "covered",
+    "hook": "TO LAND ON A CARRIER, THE F-14 TOMCAT NEEDED A 64-FOOT WINGSPAN. TO CATCH A BOMBER AT MACH 2, IT NEEDED 38. SO GRUMMAN BUILT WINGS THAT MOVE BETWEEN THE TWO IN FLIGHT.",
+    "artCredit": "NASA Dryden 3-view, public domain.",
+    "artNote": "NASA drawing, recolored, not redrawn. Dimension lines to the drawing's scale.",
+    "art": "<svg viewBox=\"0 0 267 327\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/f-14.png\" x=\"0\" y=\"0\" width=\"267\" height=\"267.3\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M1.2 289 L265.5 289\" stroke-width=\"1.2\"/>\n    <path d=\"M1.2 289 L8.2 286 M1.2 289 L8.2 292 M265.5 289 L258.5 286 M265.5 289 L258.5 292\" stroke-width=\"0.9\"/>\n    <path d=\"M54.6 315 L212.1 315\" stroke-width=\"1.2\"/>\n    <path d=\"M54.6 315 L61.6 312 M54.6 315 L61.6 318 M212.1 315 L205.1 312 M212.1 315 L205.1 318\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.4\" y=\"284\">64 FT 2 IN &#183; UNSWEPT</text>\n    <text x=\"133.4\" y=\"310\">38 FT 3 IN &#183; SWEPT</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jun 4, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7468232263726432256"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "Roger Griffiths",
+        "title": "Retired engineer",
+        "profile": "https://www.linkedin.com/in/roger-griffiths-8b249939",
+        "text": "Just pointing out that the swing-wing was invented by Barnes Wallace, the Brit who also invented the 'bouncing bomb', the 'Tall Boy' and 'Grand Slam' bombs, and the geodesic structure for the Wellington bomber, amongst other things.",
+        "len": 232,
+        "cleared": true
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 136
+      }
+    ]
+  },
+  {
+    "id": "a-10",
+    "name": "A-10 Thunderbolt II",
+    "year": 1972,
+    "ff": "May 1972",
+    "origin": "United States",
+    "role": "attack",
+    "status": "covered",
+    "hook": "THE GAU-8 CANNON GENERATES ~10,000 POUNDS OF RECOIL, MORE THAN A SINGLE A-10 ENGINE'S THRUST. TO KEEP THE FIRING BARREL ON CENTERLINE, FAIRCHILD OFFSET THE NOSE GEAR TO MAKE ROOM FOR THE GUN.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 281\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/a-10.png\" x=\"0\" y=\"0\" width=\"267\" height=\"247.2\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M6.9 269 L259.2 269\" stroke-width=\"1.2\"/>\n    <path d=\"M6.9 269 L13.9 266 M6.9 269 L13.9 272 M259.2 269 L252.2 266 M259.2 269 L252.2 272\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133\" y=\"264\">57 FT 6 IN &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "May 22, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7463728769657192448"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 213
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 59
+      }
+    ]
+  },
+  {
+    "id": "f-15",
+    "name": "F-15 Eagle",
+    "year": 1972,
+    "ff": "Jul 1972",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "covered",
+    "hook": "IN 1968, THE US AIR FORCE ASKED FOR A FIGHTER TO BEAT A SOVIET SUPERFIGHTER AT ANY COST. MCDONNELL DOUGLAS'S ANSWER BECAME THE F-15. THE THREAT WAS NEVER WHAT THEY FEARED.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 314\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/f-15.png\" x=\"35.6\" y=\"0\" width=\"195.9\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M38.8 302 L224.4 302\" stroke-width=\"1.2\"/>\n    <path d=\"M38.8 302 L45.8 299 M38.8 302 L45.8 305 M224.4 302 L217.4 299 M224.4 302 L217.4 305\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"131.6\" y=\"297\">42 FT 10 IN &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jun 13, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7471631468444954624"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 68
+      }
+    ]
+  },
+  {
+    "id": "b-1",
+    "name": "B-1 Lancer",
+    "year": 1974,
+    "ff": "Dec 1974 (B-1A)",
+    "origin": "United States",
+    "role": "bomber",
+    "status": "covered",
+    "hook": "THE B-1A BOMBER WAS BUILT TO OUTRUN SOVIET DEFENSES AT MACH 2.2. THE B-1B THAT REPLACED IT TOPS OUT AT MACH 1.25. THE AIR FORCE MADE IT SLOWER ON PURPOSE.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing of the B-1B, recolored, not redrawn. Dimension lines to the drawing's scale.",
+    "art": "<svg viewBox=\"0 0 267 340\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/b-1.png\" x=\"5.1\" y=\"0\" width=\"256.9\" height=\"280\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M14.4 302 L251.5 302\" stroke-width=\"1.2\"/>\n    <path d=\"M14.4 302 L21.4 299 M14.4 302 L21.4 305 M251.5 302 L244.5 299 M251.5 302 L244.5 305\" stroke-width=\"0.9\"/>\n    <path d=\"M64.6 328 L201.4 328\" stroke-width=\"1.2\"/>\n    <path d=\"M64.6 328 L71.6 325 M64.6 328 L71.6 331 M201.4 328 L194.4 325 M201.4 328 L194.4 331\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133\" y=\"297\">137 FT &#183; UNSWEPT</text>\n    <text x=\"133\" y=\"323\">79 FT &#183; SWEPT</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Jun 5, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7468611725504868352"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 454
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 462
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 101
+      }
+    ]
+  },
+  {
+    "id": "sealed-1974",
+    "name": "F-16 Fighting Falcon",
+    "year": 1974,
+    "ff": "Feb 1974",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "soon",
+    "lines": [
+      88,
+      70,
+      90,
+      40
+    ]
+  },
+  {
+    "id": "f-117",
+    "name": "F-117 Nighthawk",
+    "year": 1981,
+    "ff": "Jun 1981",
+    "origin": "United States",
+    "role": "attack",
+    "status": "covered",
+    "hook": "IN 1962, THE SOVIETS LET A SCIENTIST PUBLISH HIS \"WORTHLESS\" PAPER ON RADAR DIFFRACTION. LOCKHEED USED IT TO DEVELOP THE F-117.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 320\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/f-117.png\" x=\"34\" y=\"0\" width=\"198\" height=\"292\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M42 308 L223 308\" stroke-width=\"1.2\"/>\n    <path d=\"M42 308 L49 305 M42 308 L49 311 M223 308 L216 305 M223 308 L216 311\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"132\" y=\"303\">43 FT 4 IN &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Part 1: The Soviet paper",
+        "date": "Feb 25, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7432543345794756609"
+      },
+      {
+        "label": "Part 2: Fly it or eject",
+        "date": "Mar 2, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7434162014987485184"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "Kenneth McNaught",
+        "title": "Director, Knowledge-Based Management Consultants Limited",
+        "profile": "https://www.linkedin.com/in/kenneth-mcnaught-uk",
+        "text": "Lucky enough to have sat in the cockpit. It wasn't digital....",
+        "len": 62,
+        "cleared": true
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 170
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 333
+      }
+    ]
+  },
+  {
+    "id": "b-2",
+    "name": "B-2 Spirit",
+    "year": 1989,
+    "ff": "Jul 1989",
+    "origin": "United States",
+    "role": "bomber",
+    "status": "covered",
+    "hook": "JACK NORTHROP SPENT 40 YEARS TRYING TO BUILD A FLYING WING. IN 1980, THEY SHOWED HIM CLASSIFIED DRAWINGS OF THE B-2. HE DIED THE NEXT YEAR, BEFORE IT EVER FLEW.",
+    "artCredit": "US Army FM 44-80, public domain.",
+    "artNote": "Manual drawing, recolored, not redrawn. Span measured on the drawing.",
+    "art": "<svg viewBox=\"0 0 267 148\" xmlns=\"http://www.w3.org/2000/svg\">\n  <image href=\"/art/b-2.png\" x=\"0\" y=\"0\" width=\"267\" height=\"113.8\"/>\n  <g stroke=\"#10b981\" fill=\"none\">\n    <path d=\"M3.9 136 L262.6 136\" stroke-width=\"1.2\"/>\n    <path d=\"M3.9 136 L10.9 133 M3.9 136 L10.9 139 M262.6 136 L255.6 133 M262.6 136 L255.6 139\" stroke-width=\"0.9\"/>\n  </g>\n  <g fill=\"#10b981\" font-family=\"IBM Plex Mono, monospace\" font-size=\"10\" text-anchor=\"middle\">\n    <text x=\"133.3\" y=\"131\">172 FT &#183; SPAN</text>\n  </g>\n</svg>",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Mar 8, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436525695503331328"
+      },
+      {
+        "label": "Steering without a tail (Part 2)",
+        "date": "Jul 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7487634253258616832"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 366
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 391
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 279
+      }
+    ]
+  },
+  {
+    "id": "sealed-1997",
+    "name": "F-22 Raptor",
+    "year": 1997,
+    "ff": "Sep 1997",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "soon",
+    "lines": [
+      75,
+      90,
+      60
+    ]
+  },
+  {
+    "id": "sealed-2006",
+    "name": "F-35 Lightning II",
+    "year": 2006,
+    "ff": "Dec 2006",
+    "origin": "United States",
+    "role": "fighter",
+    "status": "soon",
+    "lines": [
+      90,
+      65,
+      82,
+      50
+    ]
+  },
+  {
+    "id": "b-21",
+    "name": "B-21 Raider",
+    "year": 2023,
+    "ff": "Nov 2023",
+    "origin": "United States",
+    "role": "bomber",
+    "status": "covered",
+    "hook": "THE AIR FORCE PLANS TO RETIRE THE B-1 AND B-2 IN THE 2030S. THEIR REPLACEMENT FLEW FOR THE FIRST TIME IN NOVEMBER 2023: THE B-21 RAIDER.",
+    "posts": [
+      {
+        "label": "Read the story",
+        "date": "Mar 12, 2026",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7437684521543794688"
+      }
+    ],
+    "remarks": [
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 472
+      },
+      {
+        "name": "",
+        "title": "",
+        "text": "",
+        "len": 274
+      }
+    ]
+  }
+]

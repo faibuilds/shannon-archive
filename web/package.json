@@ -1,0 +1,31 @@
+{
+  "name": "shannon-web",
+  "version": "1.64.0",
+  "private": true,
+  "description": "SHANNON, Engineering Community's story archive. Next.js port of the single-file site.",
+  "scripts": {
+    "sync": "node scripts/sync-public.mjs",
+    "predev": "node scripts/sync-public.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/sync-public.mjs",
+    "build": "next build",
+    "check": "node scripts/check.mjs",
+    "postbuild": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "motion": "^12.23.0",
+    "next": "^15.4.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.8.0"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": ["sharp"]
+  }
+}
