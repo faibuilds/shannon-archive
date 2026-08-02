@@ -352,15 +352,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .plate-art{flex:0 0 250px;max-width:250px}
 .plate-art svg{display:block;width:100%;height:auto}
 .art-credit{font-family:var(--mono);font-size:7.5px;line-height:1.6;color:#3a4048;margin-top:8px}
-/* VERIFIED CLAIMS, appended to covered plates from graph.json. */
-.claims{border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:120px}
-.claims>summary{list-style:none;cursor:pointer;padding:16px 0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-faint);transition:color .15s}
-.claims>summary::-webkit-details-marker{display:none}
-.claims>summary:hover,.claims[open]>summary{color:var(--steel)}
-.claims>summary::after{content:'+';margin-left:auto;font-size:14px;line-height:1;padding-left:10px;transition:transform .15s}
-.claims[open]>summary::after{transform:rotate(45deg)}
-.claims-sub{letter-spacing:1px;text-transform:none;opacity:.72}
-.claim-list{list-style:none;margin:0;padding:2px 0 20px;display:flex;flex-direction:column;gap:15px}
+/* VERIFIED CLAIMS, appended to covered plates from graph.json. The trigger
+   shares .btn-share styling and joins the existing action row, so a closed
+   ledger costs no extra height. */
+.claims-btn::after{content:'+';font-size:13px;line-height:1;transition:transform .15s}
+.claims-btn[aria-expanded="true"]::after{transform:rotate(45deg)}
+.claims{display:none;border-top:1px solid var(--line);margin-top:20px;padding-top:16px;scroll-margin-top:120px}
+.claims.open{display:block}
+.claims-sub{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-bottom:14px}
+.claim-list{list-style:none;margin:0;padding:0 0 4px;display:flex;flex-direction:column;gap:15px}
 .claim{display:flex;gap:11px;align-items:flex-start}
 .claim-mark{flex:0 0 auto;width:7px;height:7px;margin-top:7px;border-radius:50%;border:1px solid var(--green);background:var(--green)}
 .claim.conflict .claim-mark{background:transparent}
@@ -400,8 +400,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .plate-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .btn-read{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#07110d;background:var(--green);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 14px rgba(16,185,129,.25);padding:12px 22px;transition:filter .2s,gap .2s}
 .btn-read:hover{filter:brightness(1.08);gap:12px}
-.btn-preview,.btn-share{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--steel);background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line2);box-shadow:var(--bevel);padding:11px 20px;transition:border-color .2s,color .2s}
-.btn-preview:hover,.btn-share:hover{border-color:var(--green);color:var(--green)}
+.btn-preview,.btn-share,.claims-btn{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--steel);background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line2);box-shadow:var(--bevel);padding:11px 20px;transition:border-color .2s,color .2s}
+.btn-preview:hover,.btn-share:hover,.claims-btn:hover,.claims-btn[aria-expanded="true"]{border-color:var(--green);color:var(--green)}
 .btn-soon{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--steel-dim);border:1px dashed var(--line2);padding:11px 20px;transition:color .2s,border-color .2s}
 .btn-soon:hover{color:var(--green);border-color:var(--green-line)}
 .defect{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);transition:color .2s}
@@ -567,8 +567,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   .plate-no{display:none}
   .plate-body{padding:22px 20px 22px}
   .plate h3{font-size:19px}
-  .claims>summary{padding:17px 0}
-  .claims-sub{flex-basis:100%}
+
   .spec{padding:8px 13px}
   .alerts{padding:60px 24px}
   .alerts-inner{padding:34px 26px}
@@ -2724,20 +2723,32 @@ window.addEventListener("load", () => {
     const plate = document.getElementById(id);
     if (!plate || !plate.classList.contains("covered")) return;
     const body = plate.querySelector(".plate-body");
-    if (!body || body.querySelector(".claims")) return;
+    const actions = plate.querySelector(".plate-actions");
+    if (!body || !actions || body.querySelector(".claims")) return;
     const list = by[id], nc = list.filter(c => c.status === "conflicting").length;
-    const d = document.createElement("details");
-    d.className = "claims";
-    d.id = "claims-" + id;
-    d.innerHTML = `<summary><span>Verified claims (${list.length})</span>`
-      + (nc ? `<span class="claims-sub">${list.length - nc} verified, ${nc} conflict logged</span>` : "")
-      + `</summary><ul class="claim-list">` + list.map(c => {
+    const panel = document.createElement("div");
+    panel.className = "claims";
+    panel.id = "claims-" + id;
+    panel.setAttribute("role", "region");
+    panel.setAttribute("aria-label", "Verified claims");
+    panel.innerHTML = (nc ? `<div class="claims-sub">${list.length - nc} verified, ${nc} conflict logged</div>` : "")
+      + `<ul class="claim-list">` + list.map(c => {
         const x = c.status === "conflicting";
         return `<li class="claim${x ? " conflict" : ""}"><span class="claim-mark" aria-hidden="true"></span><div>`
           + `<div class="claim-text">${x ? `<span class="claim-flag">conflict logged</span>` : ""}${esc(c.text)}</div>`
           + (c.sourceNote ? `<div class="claim-src">${src(c.sourceNote)}</div>` : "") + `</div></li>`;
       }).join("") + `</ul>`;
-    body.appendChild(d);
+    body.appendChild(panel);
+    const btn = `<button type="button" class="claims-btn" aria-expanded="false" aria-controls="${panel.id}">Verified claims (${list.length})</button>`;
+    const defect = actions.querySelector(".defect");
+    if (defect) defect.insertAdjacentHTML("beforebegin", btn); else actions.insertAdjacentHTML("beforeend", btn);
+  });
+  /* One delegated listener for every ledger on the page. */
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".claims-btn");
+    if (!b) return;
+    const p = document.getElementById(b.getAttribute("aria-controls"));
+    if (p) b.setAttribute("aria-expanded", p.classList.toggle("open") ? "true" : "false");
   });
   /* Captions deep link to receipts, so open on arrival, not a closed box.
      Bound to hashchange too, since the fragment can land after this runs. */
@@ -2745,7 +2756,9 @@ window.addEventListener("load", () => {
     if (location.hash.indexOf("#claims-") !== 0) return;
     const t = document.getElementById(location.hash.slice(1));
     if (!t) return;
-    t.open = true;
+    t.classList.add("open");
+    const b = document.querySelector('[aria-controls="' + t.id + '"]');
+    if (b) b.setAttribute("aria-expanded", "true");
     const p = t.closest(".plate");
     if (p) p.classList.add("visible");
     t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
