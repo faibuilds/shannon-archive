@@ -996,7 +996,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.69 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.70 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1806,7 +1806,11 @@ function renderLine(lineId, arr, meta){
     </div>`;
   arr.forEach((a, i) => {
     const isCov = a.status === "covered";
-    const emb = isCov && a.post ? embedUrl(a.post.url) : null;
+    /* Kelly plates carry posts[], these lines carry a single post. Accept
+       either, or a published plate silently renders its sealed branch and
+       tells readers to wait for a story that is already out. */
+    const post = a.post || (a.posts && a.posts[0]) || null;
+    const emb = isCov && post ? embedUrl(post.url) : null;
     const hasArt = isCov && a.art;
     const plate = document.createElement("article");
     plate.className = "plate " + (isCov ? "covered" : "soon") + (hasArt ? " has-art" : "");
@@ -1836,16 +1840,16 @@ function renderLine(lineId, arr, meta){
           <div class="spec"><div class="spec-k">Status</div><div class="spec-v ${isCov ? "hot" : ""}">${isCov ? "Covered" : "Sealed"}</div></div>
         </div>
         <div class="plate-actions">
-          ${isCov && a.post ? `
-            <a class="btn-read" href="${esc(a.post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
-            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(a.post.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
+          ${isCov && post ? `
+            <a class="btn-read" href="${esc(post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(post.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
           `}
           <button class="btn-share" data-id="${a.id}" data-name="${esc(isCov ? a.name : "Sealed plate")}">Share</button>
           <button class="defect" data-form="9q56RV" data-form-title="Defect report" data-plate="${esc(isCov ? a.name : lineId.toUpperCase() + " plate " + pad(i + 1))}">Report a defect</button>
         </div>
-        ${isCov ? remarksBlock(a.remarks, a.post, meta.invite) : ""}
+        ${isCov ? remarksBlock(a.remarks, post, meta.invite) : ""}
         </div>
         ${hasArt ? `
         <div class="plate-art">
