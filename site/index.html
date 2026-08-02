@@ -996,7 +996,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.67 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.68 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1731,6 +1731,9 @@ const TIPPER = [
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7470222146330329088"}}
 ];
 const SUTTER = [
+  {id:"boeing-247", name:"Boeing 247", year:1933, date:"First flight 1933", origin:"United States", field:"Airliner", status:"covered",
+   hook:"IN 1933, BOEING BUILT THE PLANE THAT MADE EVERY OTHER AIRLINER OBSOLETE OVERNIGHT, THEN REFUSED TO SELL IT TO ANYONE BUT ITSELF. THE CUSTOMERS IT TURNED AWAY FUNDED THE DC-3.",
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7489446242557722625"}},
   {id:"dh-comet", name:"de Havilland Comet 1", year:1952, date:"In service 1952", origin:"United Kingdom", field:"Jet airliner", status:"covered",
    hook:"In 1952 the world's first jet airliner entered service. Then it began falling out of the sky, and the cause was a crack no bigger than a fingernail at the corner of a window.",
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7473283069932695553"}},
@@ -1860,7 +1863,7 @@ function renderLine(lineId, arr, meta){
   ["hammurabi", HAMMURABI, {num:"1985", thesis:"Regulation written in blood: the rules we wrote only after we counted the dead.", dateLabel:"Accident", domain:"Regulation, written in blood", invite:INVITE_STUDIED}],
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
   ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
-  ["sutter", SUTTER, {num:"1952 to 1969", thesis:"Commercial aviation: the jets that opened the sky, and what the first of them paid to learn.", dateLabel:"Milestone", domain:"Commercial aviation", invite:INVITE_FLOWN}],
+  ["sutter", SUTTER, {num:"1933 to 1969", thesis:"Commercial aviation: the business wrapped around the airframe. The airliner Boeing kept for itself, the jet that opened the sky and cracked, and the one that bet the company.", dateLabel:"Milestone", domain:"Commercial aviation", invite:INVITE_FLOWN}],
   ["carnot", CARNOT, {num:"1897", thesis:"Prime movers: the engines that turn fuel into work, and the people who bet their lives on them.", dateLabel:"First run", domain:"Prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
   ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: one quantity, the safety margin, told three ways. Bought in advance at London, absorbed by a crime at Brooklyn, spent in the design office at Quebec.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
@@ -1908,7 +1911,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:411, verified:394, sources:36, edges:61, artifacts:53 };
+const FINDING_STATS = { claims:419, verified:402, sources:37, edges:63, artifacts:54 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

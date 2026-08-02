@@ -3406,7 +3406,7 @@
    "id": "jack-frye",
    "type": "person",
    "name": "Jack Frye",
-   "note": "TWA president; co-pilot on the April 1944 record flight."
+   "note": "TWA. Vice president of operations in 1932, president from 1934. Turned away by Boeing's exclusivity, his specification letter of August 2, 1932 set the DC-1 in motion. Co-pilot on the April 1944 Constellation record flight."
   },
   {
    "id": "c-constellation-01",
@@ -7433,6 +7433,230 @@
    "type": "story",
    "title": "The Machine That Could Only Add",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7488837692206546944 instagram: pending (URL from Fai) facebook: pending (URL from Fai) newsletter: none"
+  },
+  {
+   "id": "boeing-247",
+   "type": "artifact",
+   "name": "Boeing 247 (the plane Boeing kept for itself)",
+   "category": "aircraft",
+   "origin": "United States",
+   "lineId": "sutter",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP, dual audit). SUTTER's piston-era prologue, the generation before the jets. Struck pre-audit as source traps: Collier Trophy 1934, pressurized cabin, first with wing flaps. See blocks/shannon_boeing-247.md"
+  },
+  {
+   "id": "src-boeing-247-vcl",
+   "type": "source",
+   "title": "EC VCL: Boeing 247 (V5.1 SOP, dual audit; Smithsonian NASM, HistoryLink, Wikipedia for Boeing 247 and Douglas DC-3, Museum of Flight, acepilots, warbird literature). Perplexity precision pass, two fixes taken and four softenings rejected; Gemini independent full clearance, one fix taken. First audit pair returned identical text under both labels, flagged and re-run before adjudication.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-failure-247-1",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1931,
+    "month": 3,
+    "day": 31
+   },
+   "subjectId": "boeing-247",
+   "label": "Knute Rockne dies in the crash of a wooden Fokker F.10 (Transcontinental and Western Air Flight 599); scrutiny of wooden airliner structures pushes the industry toward all-metal construction"
+  },
+  {
+   "id": "ev-decision-247-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1932,
+    "month": 8,
+    "day": 2
+   },
+   "subjectId": "boeing-247",
+   "label": "Rebuffed by Boeing, TWA's Jack Frye writes his specification letter to other builders; Donald Douglas answers, TWA funds the DC-1 and becomes launch customer"
+  },
+  {
+   "id": "ev-completion-247-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1933,
+    "month": 2,
+    "day": 8
+   },
+   "subjectId": "boeing-247",
+   "label": "Boeing 247 first flight; all-metal semimonocoque, cantilevered wing, retractable gear, de-icing boots, thermostatically controlled cabin"
+  },
+  {
+   "id": "ev-completion-247-4",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1933,
+    "month": 5,
+    "day": 22
+   },
+   "subjectId": "boeing-247",
+   "label": "Enters service; San Francisco to New York in about 19.5 hours against a previous standard near 27"
+  },
+  {
+   "id": "ev-decision-247-5",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1933
+   },
+   "subjectId": "boeing-247",
+   "label": "First 60 aircraft sold exclusively to affiliated Boeing Air Transport and United Air Lines, a record 3.5 million dollar order at 65,000 dollars each; outside customers refused until delivery completes"
+  },
+  {
+   "id": "ev-completion-247-6",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1934,
+    "month": 5
+   },
+   "subjectId": "boeing-247",
+   "label": "DC-2 delivered to TWA: four more seats, about 25 mph faster, roomier cabin, better economics"
+  },
+  {
+   "id": "ev-failure-247-7",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1934,
+    "month": 10
+   },
+   "subjectId": "boeing-247",
+   "label": "MacRobertson Race, England to Australia: a KLM DC-2 beats the Turner and Pangborn Boeing 247D in the transport section"
+  },
+  {
+   "id": "ev-decision-247-8",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1934
+   },
+   "subjectId": "boeing-247",
+   "label": "Air Mail Act breaks up United Aircraft and Transport, separating Boeing, Pratt and Whitney, and United Air Lines"
+  },
+  {
+   "id": "ev-failure-247-9",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1936
+   },
+   "subjectId": "boeing-247",
+   "label": "United begins selling off its 247s and buying Douglas; the DC-3 (1935, 21 seats) ends the contest. 75 Boeing 247s built"
+  },
+  {
+   "id": "donald-douglas",
+   "type": "person",
+   "name": "Donald Douglas",
+   "note": "Answered Frye's letter with the DC-1, leading to the DC-2 and DC-3, the aircraft that ended the 247."
+  },
+  {
+   "id": "c-r-smith",
+   "type": "person",
+   "name": "C.R. Smith",
+   "note": "American Airlines. His verdict on the DC-3, the first airplane that could make money just by hauling passengers, states the seat economics that decided the era."
+  },
+  {
+   "id": "c-247-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "The Boeing 247 flew February 8, 1933 and entered service May 22, 1933 as the first modern airliner: all-metal semimonocoque, cantilevered wing, retractable gear, de-icing boots, controlled cabin temperature; about 50 percent faster than the trimotors it replaced, flying San Francisco to New York in about 19.5 hours against a previous 27.",
+   "sourceNote": "Smithsonian NASM; HistoryLink; Wikipedia; both auditors confirmed"
+  },
+  {
+   "id": "c-247-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "Boeing sold the first 60 aircraft exclusively to its affiliated airline (Boeing Air Transport and United, both inside United Aircraft and Transport Corporation), a 3.5 million dollar order at 65,000 dollars each, and refused outside customers until those were delivered.",
+   "sourceNote": "HistoryLink; Wikipedia; both auditors confirmed"
+  },
+  {
+   "id": "c-247-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "TWA's Jack Frye, refused, sent a specification letter dated August 2, 1932 to other builders; Douglas answered, TWA funded the DC-1 and became launch customer.",
+   "sourceNote": "Wikipedia; Gemini supplied the letter date. Framed as the customers it turned away funded the DC-3 (plural: TWA drove the DC-1 and DC-2, American drove the DC-3)"
+  },
+  {
+   "id": "c-247-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "The 247 carried 10 passengers; Boeing's internal big-airliner advocates lost the design debate, with United's own pilots and executives favoring the smaller machine, and the main wing spar ran through the passenger cabin as a hurdle in the aisle (about 18 inches) because the narrow cabin left no route beneath the floor.",
+   "sourceNote": "HistoryLink (internal debate); Museum of Flight and warbird literature (spar); Gemini confirmed both and supplied the 18-inch figure and the narrow-cabin cause"
+  },
+  {
+   "id": "c-247-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "The DC-2 (May 1934) carried 14 and was about 25 mph faster; the DC-3 (1935) carried 21. Trip costs are largely fixed while revenue scales with seats, so the DC-3 was the first airliner that could profit on passenger fares without mail subsidy.",
+   "sourceNote": "HistoryLink; Wikipedia; C.R. Smith quote confirmed by both auditors"
+  },
+  {
+   "id": "c-247-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "In the 1934 MacRobertson Race from England to Australia, a KLM DC-2 beat the Boeing 247D flown by Roscoe Turner and Clyde Pangborn in the transport section.",
+   "sourceNote": "acepilots; Smithsonian; Gemini confirmed KLM as the winning operator. Perplexity suggested dropping this as unverified; rejected on documentation"
+  },
+  {
+   "id": "c-247-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "The Air Mail Act of 1934 forced the breakup of United Aircraft and Transport into Boeing, Pratt and Whitney, and United Air Lines, ending manufacturer-airline common ownership.",
+   "sourceNote": "HistoryLink; Wikipedia; both auditors confirmed"
+  },
+  {
+   "id": "c-247-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "boeing-247"
+   ],
+   "text": "Boeing built 75 Model 247s; the Douglas DC-3 and C-47 family exceeded 16,000 aircraft. By early 1936 United was divesting its 247s in favor of Douglas.",
+   "sourceNote": "Wikipedia; HistoryLink; Gemini supplied the 16,000 family figure. Captions print thousands deliberately, since 16,000 includes military C-47s"
+  },
+  {
+   "id": "concept-douglas-dc-line",
+   "type": "concept",
+   "name": "The Douglas DC line, commissioned by the customers a manufacturer's exclusivity turned away"
+  },
+  {
+   "id": "concept-metal-airliner-shift",
+   "type": "concept",
+   "name": "The shift to all-metal airliner structures after the 1931 Rockne crash made wooden airframes untenable"
+  },
+  {
+   "id": "story-boeing-247",
+   "type": "story",
+   "title": "The Plane Boeing Kept For Itself",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7489446242557722625 facebook: https://www.facebook.com/share/p/19Ha5JRDFw/ instagram: not published for this plate newsletter: none"
   }
  ],
  "edges": [
@@ -10867,6 +11091,37 @@
   {"type":"cites","from":"c-pasc-09","to":"src-pascaline-vcl"},
   {"type":"responded-to","from":"pascaline","to":"concept-mechanical-carry","claimId":"c-pasc-03"},
   {"type":"enabled","from":"pascaline","to":"concept-complement-subtraction","claimId":"c-pasc-05"},
-  {"type":"covers","from":"story-pascaline","to":"pascaline"}
+  {"type":"covers","from":"story-pascaline","to":"pascaline"},
+  {"type":"event-of","from":"ev-failure-247-1","to":"boeing-247"},
+  {"type":"event-of","from":"ev-decision-247-2","to":"boeing-247"},
+  {"type":"event-of","from":"ev-completion-247-3","to":"boeing-247"},
+  {"type":"event-of","from":"ev-completion-247-4","to":"boeing-247"},
+  {"type":"event-of","from":"ev-decision-247-5","to":"boeing-247"},
+  {"type":"event-of","from":"ev-completion-247-6","to":"boeing-247"},
+  {"type":"event-of","from":"ev-failure-247-7","to":"boeing-247"},
+  {"type":"event-of","from":"ev-decision-247-8","to":"boeing-247"},
+  {"type":"event-of","from":"ev-failure-247-9","to":"boeing-247"},
+  {"type":"contributed","from":"jack-frye","to":"boeing-247","role":"opposed"},
+  {"type":"contributed","from":"donald-douglas","to":"boeing-247","role":"designed"},
+  {"type":"contributed","from":"c-r-smith","to":"boeing-247","role":"commissioned"},
+  {"type":"about","from":"c-247-01","to":"boeing-247"},
+  {"type":"cites","from":"c-247-01","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-02","to":"boeing-247"},
+  {"type":"cites","from":"c-247-02","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-03","to":"boeing-247"},
+  {"type":"cites","from":"c-247-03","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-04","to":"boeing-247"},
+  {"type":"cites","from":"c-247-04","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-05","to":"boeing-247"},
+  {"type":"cites","from":"c-247-05","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-06","to":"boeing-247"},
+  {"type":"cites","from":"c-247-06","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-07","to":"boeing-247"},
+  {"type":"cites","from":"c-247-07","to":"src-boeing-247-vcl"},
+  {"type":"about","from":"c-247-08","to":"boeing-247"},
+  {"type":"cites","from":"c-247-08","to":"src-boeing-247-vcl"},
+  {"type":"enabled","from":"boeing-247","to":"concept-douglas-dc-line","claimId":"c-247-03"},
+  {"type":"responded-to","from":"boeing-247","to":"concept-metal-airliner-shift","claimId":"c-247-01"},
+  {"type":"covers","from":"story-boeing-247","to":"boeing-247"}
  ]
 }
