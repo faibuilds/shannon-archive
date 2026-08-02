@@ -352,6 +352,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .plate-art{flex:0 0 250px;max-width:250px}
 .plate-art svg{display:block;width:100%;height:auto}
 .art-credit{font-family:var(--mono);font-size:7.5px;line-height:1.6;color:#3a4048;margin-top:8px}
+/* VERIFIED CLAIMS, appended to covered plates from graph.json. */
+.claims{border-top:1px solid var(--line);margin-top:22px;scroll-margin-top:120px}
+.claims>summary{list-style:none;cursor:pointer;padding:16px 0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-faint);transition:color .15s}
+.claims>summary::-webkit-details-marker{display:none}
+.claims>summary:hover,.claims[open]>summary{color:var(--steel)}
+.claims>summary::after{content:'+';margin-left:auto;font-size:14px;line-height:1;padding-left:10px;transition:transform .15s}
+.claims[open]>summary::after{transform:rotate(45deg)}
+.claims-sub{letter-spacing:1px;text-transform:none;opacity:.72}
+.claim-list{list-style:none;margin:0;padding:2px 0 20px;display:flex;flex-direction:column;gap:15px}
+.claim{display:flex;gap:11px;align-items:flex-start}
+.claim-mark{flex:0 0 auto;width:7px;height:7px;margin-top:7px;border-radius:50%;border:1px solid var(--green);background:var(--green)}
+.claim.conflict .claim-mark{background:transparent}
+.claim-text{font-size:13px;line-height:1.7;color:var(--steel-dim)}
+.claim-flag{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-right:7px}
+.claim-src{font-family:var(--mono);font-size:9px;line-height:1.65;color:var(--steel-faint);margin-top:5px}
+.claim-src a{color:var(--steel-faint);border-bottom:1px dotted var(--green-line)}
+.method{max-width:1240px;margin:0 auto;padding:0 24px 60px;scroll-margin-top:110px}
+.method-inner{border-top:1px solid var(--line);padding-top:20px;max-width:640px}
+.method-k{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--steel-faint);margin-bottom:9px}
+.method p{font-size:12.5px;line-height:1.75;color:var(--steel-dim)}
 @media (max-width:820px){
   /* Art leaves the row and stacks between the name block and the hook. */
   .plate.has-art .plate-cols{flex-direction:column;align-items:stretch;gap:0}
@@ -547,6 +567,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   .plate-no{display:none}
   .plate-body{padding:22px 20px 22px}
   .plate h3{font-size:19px}
+  .claims>summary{padding:17px 0}
+  .claims-sub{flex-basis:100%}
   .spec{padding:8px 13px}
   .alerts{padding:60px 24px}
   .alerts-inner{padding:34px 26px}
@@ -968,6 +990,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
       <a class="support-btn" href="https://www.linkedin.com/company/engineeringcommunity/" target="_blank" rel="noopener">Follow on LinkedIn <small>catch each plate the day it lights up</small></a>
       <p class="support-fineprint">Support is optional and never unlocks anything. Every story on this line is free, and stays free.</p>
     </div>
+  </div>
+</section>
+
+<!-- PLACEHOLDER, FAI TO APPROVE OR REPLACE. The three sentences below are a
+     DRAFT, not approved copy. They are built from Fai's own published
+     transparency footer (first run on the Boeing 247 Facebook caption), not
+     written fresh. Replace the <p> contents with the final wording and delete
+     this comment. Three sentences maximum, plain text, no em-dashes. -->
+<section class="method" id="method">
+  <div class="method-inner">
+    <div class="method-k">Method</div>
+    <p>We use AI, with intent. A human directs the angle, edits every line, and checks each claim against its sources, then two independent audits run before anything publishes. Claims that fail never render, corrections stay visible, and every published plate carries its ledger below the story.</p>
   </div>
 </section>
 
@@ -1967,7 +2001,11 @@ const FINDING_STATS = { claims:419, verified:402, sources:37, edges:63, artifact
     "<b>Method.</b> The archive is a directed graph. Every artifact, person, and source is a node. Every connection is a typed edge that has to cite a claim we verified, and chains are found by depth-first traversal of those edges rather than by intuition. "
     + "<b>" + FINDING_STATS.claims + "</b> claims recorded, <b>" + FINDING_STATS.verified + "</b> verified, across <b>" + FINDING_STATS.artifacts
     + "</b> artifacts and <b>" + FINDING_STATS.sources + "</b> sources, joined by <b>" + FINDING_STATS.edges + "</b> claim-cited connections. "
-    + "Conflicting and unverifiable material is kept in the record and never rendered. Two claims are marked false in public, because we published them before we checked.";
+    /* PLACEHOLDER, FAI TO APPROVE OR REPLACE. DRAFT wording. The previous
+       sentence said conflicting material is never rendered, which stopped
+       being true when the per-plate ledgers began surfacing conflicts. This
+       states what the site now actually does. Replace and delete this note. */
+    + "Where sources disagree, the claim is kept as a conflict and every version renders in that plate's ledger. Unverifiable material stays in the record and never renders. Two claims are marked false, because we published them before we checked.";
   render(0);
 }
 
@@ -1978,15 +2016,17 @@ const FINDING_STATS = { claims:419, verified:402, sources:37, edges:63, artifact
    (x) and line (y), so a connection that crosses centuries or fields is
    visibly a long trace. Concepts have no date, so they sit in an
    outcomes lane under the artifact that produced them. */
+/* One fetch, shared by the board and the per-plate claim ledgers. Resolves
+   to null on failure; both consumers degrade on their own. */
+const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
+  .then(r => (r.ok ? r.json() : null))
+  .catch(() => null);
+
 (async function board() {
   const view = document.getElementById("board-view");
   const SYNTH = ["enabled", "forced", "responded-to", "corrects"];
-  let g;
-  try {
-    const r = await fetch("graph.json", { cache: "no-store" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    g = await r.json();
-  } catch (e) {
+  const g = await GRAPH_READY;
+  if (!g) {
     view.innerHTML = `<p class="finding-body" style="padding:20px">The board could not load the archive graph. The findings above stand on their own.</p>`;
     return;
   }
@@ -2665,6 +2705,54 @@ window.addEventListener("load", () => {
     setTimeout(()=>el.classList.remove("flash"), 2600);
   }, 300);
 });
+
+/* ---------- VERIFIED CLAIMS ----------
+   Each published plate's ledger, read from graph.json, so it is the same
+   record the board computes from and nothing is hand written. Rule 4 sets
+   what may appear: verified and conflicting only. Unverifiable and false
+   stay in the record. Sealed plates never carry a ledger. */
+(async function claims() {
+  const g = await GRAPH_READY;
+  if (!g || !Array.isArray(g.nodes)) return;
+  const SHOW = { verified: 1, conflicting: 1 }, by = {};
+  for (const n of g.nodes) {
+    if (n.type !== "claim" || !SHOW[n.status]) continue;
+    for (const a of (n.aboutIds || [])) (by[a] = by[a] || []).push(n);
+  }
+  const src = s => esc(s).replace(/https?:\/\/[^\s)]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+  Object.keys(by).forEach(id => {
+    const plate = document.getElementById(id);
+    if (!plate || !plate.classList.contains("covered")) return;
+    const body = plate.querySelector(".plate-body");
+    if (!body || body.querySelector(".claims")) return;
+    const list = by[id], nc = list.filter(c => c.status === "conflicting").length;
+    const d = document.createElement("details");
+    d.className = "claims";
+    d.id = "claims-" + id;
+    d.innerHTML = `<summary><span>Verified claims (${list.length})</span>`
+      + (nc ? `<span class="claims-sub">${list.length - nc} verified, ${nc} conflict logged</span>` : "")
+      + `</summary><ul class="claim-list">` + list.map(c => {
+        const x = c.status === "conflicting";
+        return `<li class="claim${x ? " conflict" : ""}"><span class="claim-mark" aria-hidden="true"></span><div>`
+          + `<div class="claim-text">${x ? `<span class="claim-flag">conflict logged</span>` : ""}${esc(c.text)}</div>`
+          + (c.sourceNote ? `<div class="claim-src">${src(c.sourceNote)}</div>` : "") + `</div></li>`;
+      }).join("") + `</ul>`;
+    body.appendChild(d);
+  });
+  /* Captions deep link to receipts, so open on arrival, not a closed box.
+     Bound to hashchange too, since the fragment can land after this runs. */
+  function openFromHash() {
+    if (location.hash.indexOf("#claims-") !== 0) return;
+    const t = document.getElementById(location.hash.slice(1));
+    if (!t) return;
+    t.open = true;
+    const p = t.closest(".plate");
+    if (p) p.classList.add("visible");
+    t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+})();
 
 /* ---------- PREVIEW MODAL ---------- */
 const modal = document.getElementById("modal");
