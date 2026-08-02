@@ -992,11 +992,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
 </section>
 
-<!-- PLACEHOLDER, FAI TO APPROVE OR REPLACE. The three sentences below are a
-     DRAFT, not approved copy. They are built from Fai's own published
-     transparency footer (first run on the Boeing 247 Facebook caption), not
-     written fresh. Replace the <p> contents with the final wording and delete
-     this comment. Three sentences maximum, plain text, no em-dashes. -->
+<!-- Method statement. Built from the standing transparency footer that first
+     ran on the Boeing 247 Facebook caption, so the wording matches what we
+     say on Meta. Three sentences, plain text, no dashes. -->
 <section class="method" id="method">
   <div class="method-inner">
     <div class="method-k">Method</div>
@@ -1029,7 +1027,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.70 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.71 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2000,10 +1998,9 @@ const FINDING_STATS = { claims:419, verified:402, sources:37, edges:63, artifact
     "<b>Method.</b> The archive is a directed graph. Every artifact, person, and source is a node. Every connection is a typed edge that has to cite a claim we verified, and chains are found by depth-first traversal of those edges rather than by intuition. "
     + "<b>" + FINDING_STATS.claims + "</b> claims recorded, <b>" + FINDING_STATS.verified + "</b> verified, across <b>" + FINDING_STATS.artifacts
     + "</b> artifacts and <b>" + FINDING_STATS.sources + "</b> sources, joined by <b>" + FINDING_STATS.edges + "</b> claim-cited connections. "
-    /* PLACEHOLDER, FAI TO APPROVE OR REPLACE. DRAFT wording. The previous
-       sentence said conflicting material is never rendered, which stopped
-       being true when the per-plate ledgers began surfacing conflicts. This
-       states what the site now actually does. Replace and delete this note. */
+    /* The previous wording said conflicting material is never rendered. That
+       stopped being true when the per-plate ledgers began surfacing conflicts,
+       so this states what the site now actually does. */
     + "Where sources disagree, the claim is kept as a conflict and every version renders in that plate's ledger. Unverifiable material stays in the record and never renders. Two claims are marked false, because we published them before we checked.";
   render(0);
 }
@@ -2743,6 +2740,24 @@ window.addEventListener("load", () => {
     const defect = actions.querySelector(".defect");
     if (defect) defect.insertAdjacentHTML("beforebegin", btn); else actions.insertAdjacentHTML("beforeend", btn);
   });
+  /* MONTH MARKERS. Kelly renders its own first-flight flag from plate data.
+     Every other line gets one here, from real event dates in the graph, so an
+     invention or a patent or a collapse can carry it too. Covered plates only:
+     a sealed plate must not disclose the month of anything. */
+  const MONTH_NOW = new Date().getMonth() + 1;
+  const FLAG = { "first-flight": "First flight this month", publication: "Published this month", invention: "Invented this month" };
+  g.nodes.forEach(n => {
+    if (n.type !== "event" || !n.date || n.date.month !== MONTH_NOW || !n.subjectId) return;
+    const plate = document.getElementById(n.subjectId);
+    if (!plate || !plate.classList.contains("covered")) return;
+    const head = plate.querySelector(".plate-head");
+    if (!head || head.querySelector(".month-flag")) return;
+    const s = document.createElement("span");
+    s.className = "month-flag";
+    s.textContent = FLAG[n.eventType] || "This month in " + n.date.year;
+    head.insertBefore(s, head.querySelector(".plate-year"));
+  });
+
   /* One delegated listener for every ledger on the page. */
   document.addEventListener("click", e => {
     const b = e.target.closest(".claims-btn");
