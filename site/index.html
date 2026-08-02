@@ -992,11 +992,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-craft">
     <span>No ads. No cookies. Privacy-first analytics.</span>
-    <span>Errata log: clean as of Jul 2026</span>
+    <span>Errata log: clean as of Aug 2026</span>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.68 / BUILT 07.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.69 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1494,7 +1494,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
       <div class="plate-head brushed">
         <span class="stamp">${covered ? "Story published" : "Sealed"}</span>
         <span class="plate-no">Plate ${pad(plateIndex)} / ${pad(AIRCRAFT.length)}</span>
-        ${ffMonth === thisMonth ? `<span class="month-flag">First flight this month</span>` : ""}
+        ${covered && ffMonth === thisMonth ? `<span class="month-flag">First flight this month</span>` : ""}
         <span class="plate-year">${a.year}</span>
       </div>
       <div class="plate-body">
