@@ -798,15 +798,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <button class="pill" data-filter="status" data-value="covered">Covered</button>
     <button class="pill pill-soon" data-filter="status" data-value="soon">Sealed</button>
   </div>
-  <div class="filter-group kelly-only">
-    <span class="filter-group-label">Role</span>
-    <button class="pill active" data-filter="role" data-value="all">All</button>
-    <button class="pill" data-filter="role" data-value="fighter">Fighters</button>
-    <button class="pill" data-filter="role" data-value="bomber">Bombers</button>
-    <button class="pill" data-filter="role" data-value="attack">Attack</button>
-    <button class="pill" data-filter="role" data-value="recon">Recon</button>
-    <button class="pill" data-filter="role" data-value="experimental">Experimental</button>
-    <button class="pill" data-filter="role" data-value="transport">Transport</button>
+  <div class="filter-group">
+    <span class="filter-group-label">Archive</span>
+    <button class="pill line-jump" data-jump="findings">Findings</button>
+    <button class="pill line-jump" data-jump="board">Board</button>
   </div>
   <div class="filter-count kelly-only"><b id="visible-count"></b> airframes shown</div>
 </div>
@@ -828,7 +823,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div id="finding-slot"></div>
   <div class="finding-nav" id="finding-nav"></div>
 
-  <div class="board-wrap">
+  <div class="board-wrap" id="board">
     <div class="finding-hint">Best explored on a larger screen.</div>
     <div class="board-bar">
       <div class="board-title">The board <b>/ every artifact, every wired connection</b></div>
@@ -1042,7 +1037,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.76 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.77 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2621,8 +2616,12 @@ if (lastLit && isFinite(lastLit.t)) {
     "Last lit: " + lastLit.a.name + ", " + MONTHS[d.getMonth()] + " " + d.getFullYear();
 }
 
-/* ---------- FILTERS ---------- */
-const state = { status:"all", role:"all" };
+/* ---------- FILTERS ----------
+   Role was a KELLY-only taxonomy (fighter, bomber, recon) that meant nothing
+   on a line about bridges or chips, so it is gone. Status stays, because it
+   still earns its place on the one line with sealed plates, and it already
+   hides itself off KELLY. */
+const state = { status:"all" };
 document.querySelectorAll(".pill").forEach(p => {
   p.addEventListener("click", () => {
     state[p.dataset.filter] = p.dataset.value;
@@ -2633,8 +2632,7 @@ document.querySelectorAll(".pill").forEach(p => {
 function applyFilters(){
   let visible = 0;
   document.querySelectorAll("#timeline .plate").forEach(c => {
-    const show = (state.status==="all" || c.dataset.status===state.status)
-              && (state.role==="all" || c.dataset.role===state.role);
+    const show = state.status==="all" || c.dataset.status===state.status;
     c.classList.toggle("hidden-card", !show);
     if (show) visible++;
   });
