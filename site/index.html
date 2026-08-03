@@ -368,6 +368,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .claim-flag{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-right:7px}
 .claim-src{font-family:var(--mono);font-size:9px;line-height:1.65;color:var(--steel-faint);margin-top:5px}
 .claim-src a{color:var(--steel-faint);border-bottom:1px dotted var(--green-line)}
+/* SHARE SHEET. Opens from the plate Share button. Image export is offered
+   on covered plates only, since a sealed plate must reveal nothing. */
+.sheet-back{position:fixed;inset:0;background:rgba(5,6,7,.72);z-index:900;display:flex;align-items:flex-end;justify-content:center;padding:18px}
+.sheet{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line2);box-shadow:var(--depth);width:100%;max-width:420px;padding:20px}
+.sheet h5{font-family:var(--mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-faint);margin:0 0 4px}
+.sheet .sheet-name{font-size:14px;font-weight:700;color:var(--steel);margin-bottom:16px;line-height:1.4}
+.sheet button{display:flex;width:100%;align-items:center;gap:10px;background:transparent;border:1px solid var(--line2);color:var(--steel);font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 16px;margin-bottom:9px;transition:border-color .2s,color .2s}
+.sheet button:hover:not(:disabled){border-color:var(--green);color:var(--green)}
+.sheet button:disabled{opacity:.5}
+.sheet button small{margin-left:auto;font-size:8.5px;letter-spacing:1px;color:var(--steel-faint);text-transform:none}
+.sheet .sheet-close{justify-content:center;border-color:transparent;color:var(--steel-faint);margin:4px 0 0}
+@media (min-width:721px){.sheet-back{align-items:center}}
 .method{max-width:1240px;margin:0 auto;padding:0 24px 60px;scroll-margin-top:110px}
 .method-inner{border-top:1px solid var(--line);padding-top:20px;max-width:640px}
 .method-k{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--steel-faint);margin-bottom:9px}
@@ -1027,7 +1039,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.73 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.74 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2687,15 +2699,211 @@ function copyText(t){
     navigator.clipboard.writeText(t).then(() => showToast("Plate link copied")).catch(() => legacyCopy(t));
   } else legacyCopy(t);
 }
+/* ---------- SHARE CARDS ----------
+   The Share button renders the plate as an image on a canvas: the hook, the
+   drawing if it has one, and the ledger behind it. Everything is read from
+   the plate in the page, so a card can never disagree with what it shows.
+   Art is same-origin, which is what keeps the canvas exportable. */
+const CARD = {
+  story:  { w:1080, h:1920, name:80, hook:47, lines:10, tag:"story"  },
+  square: { w:1080, h:1080, name:62, hook:34, lines:7,  tag:"square" },
+};
+const cardCache = {};
+
+function plateData(btn) {
+  const p = document.getElementById(btn.dataset.id);
+  if (!p) return null;
+  const sec = p.closest(".timeline-section");
+  const sub = p.querySelector(".claims-sub");
+  const n = ((p.querySelector(".claims-btn") || {}).textContent || "").match(/\((\d+)\)/);
+  const ld = sec ? sec.querySelector(".ld-name") : null;
+  return {
+    id: btn.dataset.id,
+    covered: p.classList.contains("covered"),
+    name: btn.dataset.name,
+    year: ((p.querySelector(".plate-year") || {}).textContent || "").trim(),
+    hook: ((p.querySelector(".plate-hook") || {}).textContent || "").trim(),
+    plateNo: ((p.querySelector(".plate-no") || {}).textContent || "").trim(),
+    line: ld ? ld.textContent.replace(/\s+/g, " ").trim() : "",
+    total: n ? +n[1] : 0,
+    split: sub ? sub.textContent : "",
+    artSvg: (a => a ? a.outerHTML : null)(p.querySelector(".plate-art svg")),
+    artHref: (i => i ? i.getAttribute("href") : null)(p.querySelector(".plate-art image")),
+  };
+}
+function ledgerLine(d) {
+  if (!d.total) return "";
+  const m = d.split.match(/(\d+)\s*verified,\s*(\d+)\s*conflict/i);
+  if (m) return d.total + " CLAIMS · " + m[1] + " VERIFIED · " + m[2] + " CONFLICT LOGGED";
+  return d.total + " CLAIMS · ALL VERIFIED · SOURCES ON RECORD";
+}
+async function cardArt(d) {
+  if (!d.artSvg || !d.artHref) return null;
+  if (cardCache[d.id] !== undefined) return cardCache[d.id];
+  try {
+    const blob = await (await fetch(d.artHref)).blob();
+    const dataUrl = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(blob); });
+    const svg = d.artSvg.replace(/href="[^"]*"/, 'href="' + dataUrl + '"');
+    cardCache[d.id] = await new Promise(r => {
+      const im = new Image();
+      im.onload = () => r(im); im.onerror = () => r(null);
+      im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    });
+  } catch (err) { cardCache[d.id] = null; }
+  return cardCache[d.id];
+}
+function wrapLines(x, t, max) {
+  const out = []; let cur = "";
+  for (const w of t.split(/\s+/)) {
+    const test = cur ? cur + " " + w : w;
+    if (x.measureText(test).width > max && cur) { out.push(cur); cur = w; } else cur = test;
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+async function drawCard(d, F) {
+  await document.fonts.ready;
+  const cv = document.createElement("canvas");
+  cv.width = F.w; cv.height = F.h;
+  const x = cv.getContext("2d"), S = F.w / 1080, M = 84 * S, CW = F.w - M * 2;
+  const img = await cardArt(d);
+  x.fillStyle = "#0b0c10"; x.fillRect(0, 0, F.w, F.h);
+  x.strokeStyle = img ? "rgba(42,46,52,.45)" : "rgba(42,46,52,.9)"; x.lineWidth = 1;
+  for (let g = 0; g < F.w; g += 60 * S) { x.beginPath(); x.moveTo(g, 0); x.lineTo(g, F.h); x.stroke(); }
+  for (let g = 0; g < F.h; g += 60 * S) { x.beginPath(); x.moveTo(0, g); x.lineTo(F.w, g); x.stroke(); }
+
+  /* header */
+  let hy = M + 28 * S;
+  x.textBaseline = "alphabetic"; x.letterSpacing = (4 * S) + "px";
+  x.font = "700 " + (26 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#ccd1d6";
+  x.fillText("SHANNON", M, hy);
+  x.font = "400 " + (22 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.textAlign = "right"; x.fillText(d.line.toUpperCase().replace(" / LINE ", " L-"), F.w - M, hy);
+  x.textAlign = "left"; hy += 24 * S;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
+  x.beginPath(); x.moveTo(M, hy); x.lineTo(F.w - M, hy); x.stroke();
+
+  /* footer geometry, fixed */
+  const led = ledgerLine(d);
+  const footH = (led ? 108 : 70) * S, footTop = F.h - M - footH;
+
+  /* measure the block, then centre it in what is left */
+  x.letterSpacing = "0px";
+  const nameSize = d.name.length > 18 ? F.name * 0.82 : F.name;
+  x.font = "800 " + (nameSize * S) + "px Poppins";
+  const nameLines = wrapLines(x, d.name.toUpperCase(), CW);
+  let hookSize = F.hook, hookLines = [];
+  for (const s of [F.hook, F.hook - 4, F.hook - 7, F.hook - 10, F.hook - 13]) {
+    x.font = "600 " + (s * S) + "px Poppins";
+    hookLines = wrapLines(x, d.hook, CW);
+    hookSize = s;
+    if (hookLines.length <= F.lines) break;
+  }
+  if (hookLines.length > F.lines) hookLines = hookLines.slice(0, F.lines);
+  const nameH = nameLines.length * nameSize * 1.12 * S;
+  const metaH = 62 * S;
+  const hookH = hookLines.length * hookSize * 1.44 * S;
+  let artH = 0, artW = 0;
+  const avail = footTop - (hy + 40 * S);
+  if (img) {
+    const r = img.naturalWidth / img.naturalHeight;
+    artW = CW; artH = artW / r;
+    const cap = avail - nameH - metaH - hookH - 80 * S;
+    if (artH > cap) { artH = Math.max(cap, 60 * S); artW = artH * r; }
+  } else {
+    artH = Math.max(0, Math.min(300 * S, avail - nameH - metaH - hookH - 80 * S));
+  }
+  const total = nameH + metaH + hookH + (artH > 40 * S ? artH + 60 * S : 0);
+  let y = hy + 40 * S + Math.max(0, (avail - total) / 2) + nameSize * 0.9 * S;
+
+  x.fillStyle = "#ccd1d6"; x.font = "800 " + (nameSize * S) + "px Poppins";
+  for (const ln of nameLines) { x.fillText(ln, M, y); y += nameSize * 1.12 * S; }
+  x.letterSpacing = (3 * S) + "px"; x.font = "400 " + (25 * S) + 'px "IBM Plex Mono"';
+  x.fillStyle = "#5d636a"; x.fillText(d.year + "   " + d.plateNo.toUpperCase(), M, y);
+  y += metaH - 20 * S;
+  x.letterSpacing = "0px"; x.font = "600 " + (hookSize * S) + "px Poppins"; x.fillStyle = "#8f959c";
+  for (const ln of hookLines) { y += hookSize * 1.44 * S; x.fillText(ln, M, y - hookSize * 0.3 * S); }
+
+  if (artH > 40 * S) {
+    const top = y + 50 * S;
+    if (img) x.drawImage(img, (F.w - artW) / 2, top, artW, artH);
+    else {
+      x.save(); x.textAlign = "center"; x.letterSpacing = (14 * S) + "px";
+      x.font = "800 " + Math.min(170 * S, artH * 0.8) + "px Poppins";
+      x.fillStyle = "rgba(93,99,106,.15)";
+      x.fillText(d.year, F.w / 2, top + artH * 0.72);
+      x.restore();
+    }
+  }
+
+  let fy = footTop;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
+  x.beginPath(); x.moveTo(M, fy); x.lineTo(F.w - M, fy); x.stroke();
+  fy += 46 * S; x.letterSpacing = (3 * S) + "px";
+  if (led) {
+    x.font = "400 " + (26 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+    x.fillText(led, M, fy); fy += 40 * S;
+  }
+  x.font = "400 " + (22 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+  x.fillText("shannon.engineeringcommunity.net/#" + d.id, M, fy);
+  return cv;
+}
+async function exportCard(d, F, btn) {
+  const label = btn.textContent;
+  btn.disabled = true; btn.textContent = "Rendering";
+  try {
+    const cv = await drawCard(d, F);
+    const blob = await new Promise(r => cv.toBlob(r, "image/png"));
+    if (!blob) throw new Error("no blob");
+    const file = new File([blob], "shannon-" + d.id + "-" + F.tag + ".png", { type: "image/png" });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try { await navigator.share({ files: [file], title: "SHANNON / " + d.name }); closeSheet(); return; }
+      catch (err) { if (err && err.name === "AbortError") { btn.disabled = false; btn.textContent = label; return; } }
+    }
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = file.name;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    showToast("Card saved");
+    closeSheet();
+  } catch (err) {
+    btn.disabled = false; btn.textContent = label;
+    showToast("Could not build the card");
+  }
+}
+let sheetEl = null;
+function closeSheet() { if (sheetEl) { sheetEl.remove(); sheetEl = null; document.body.style.overflow = ""; } }
+function openSheet(d, url) {
+  closeSheet();
+  sheetEl = document.createElement("div");
+  sheetEl.className = "sheet-back";
+  sheetEl.innerHTML = '<div class="sheet" role="dialog" aria-label="Share this plate">'
+    + '<h5>Share</h5><div class="sheet-name">' + esc(d.name) + "</div>"
+    + '<button type="button" data-act="link">Copy link<small>' + esc("#" + d.id) + "</small></button>"
+    + (d.covered ? '<button type="button" data-act="story">Save image<small>1080 x 1920</small></button>'
+                 + '<button type="button" data-act="square">Save square<small>1080 x 1080</small></button>' : "")
+    + '<button type="button" class="sheet-close" data-act="close">Close</button></div>';
+  document.body.appendChild(sheetEl);
+  document.body.style.overflow = "hidden";
+  sheetEl.addEventListener("click", ev => {
+    if (ev.target === sheetEl) return closeSheet();
+    const b = ev.target.closest("button");
+    if (!b) return;
+    const act = b.dataset.act;
+    if (act === "close") return closeSheet();
+    if (act === "link") { copyText(url); return closeSheet(); }
+    exportCard(d, CARD[act], b);
+  });
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 document.addEventListener("click", async e => {
   const btn = e.target.closest(".btn-share");
   if (!btn) return;
   const url = location.href.split("#")[0] + "#" + btn.dataset.id;
-  const payload = { title: "SHANNON / " + btn.dataset.name, text: btn.dataset.name + " on KELLY, Engineering Community's aircraft line", url };
-  if (navigator.share) {
-    try { await navigator.share(payload); return; } catch(err){ if (err && err.name === "AbortError") return; }
-  }
-  copyText(url);
+  const d = plateData(btn);
+  if (!d) { copyText(url); return; }
+  openSheet(d, url);
 });
 
 window.addEventListener("load", () => {
