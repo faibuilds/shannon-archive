@@ -1041,7 +1041,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.79 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.80 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2393,26 +2393,36 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
         });
         pad.addEventListener("mouseleave", () => { if (inspected === null) paintFocus(); });
       }
+      /* Pin a component: its traces and caption stay put while you read them
+         and move the mouse elsewhere. Clicking it again releases the pin. */
+      const pin = (on) => {
+        inspected = on ? id : null;
+        lightPad(svg, id);
+        svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === inspected));
+        if (inspected) document.getElementById("board-caption").innerHTML = padCaption(id, noHover);
+        else paintFocus();
+      };
       pad.addEventListener("click", () => {
         if (suppressClick) return;
-        /* An outcome has nowhere to open, so a click pins its caption and the
-           plate chips inside it do the navigating. */
-        if (isConcept(id)) {
-          inspected = inspected === id ? null : id;
-          lightPad(svg, id);
-          svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === inspected));
-          if (inspected) document.getElementById("board-caption").innerHTML = padCaption(id, noHover);
-          else paintFocus();
+        /* On a mouse: hover explores, one click pins, two opens the plate. The
+           pin waits a moment so the first half of a double click cannot fire
+           it and immediately have the second half undo it. */
+        if (!noHover) {
+          clearTimeout(pad.clickT);
+          pad.clickT = setTimeout(() => pin(inspected !== id), 220);
           return;
         }
-        if (noHover && inspected !== id) {
-          inspected = id;
-          lightPad(svg, id);
-          svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === id));
-          document.getElementById("board-caption").innerHTML = padCaption(id, true);
-          return;
-        }
+        /* On touch there is no hover, so the first tap does the exploring and
+           the second opens. Outcomes have no plate, so they only ever pin. */
+        if (isConcept(id)) { pin(inspected !== id); return; }
+        if (inspected !== id) { pin(true); return; }
         inspected = null;
+        openPlate(id);
+      });
+      pad.addEventListener("dblclick", () => {
+        clearTimeout(pad.clickT);
+        if (isConcept(id)) { pin(true); return; }  /* nothing to open */
+        pin(false);   /* release the pin before leaving, or it lingers behind */
         openPlate(id);
       });
     });
