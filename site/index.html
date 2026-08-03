@@ -295,6 +295,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .searchbox button{position:absolute;right:4px;background:none;border:0;color:var(--steel-faint);font-size:15px;line-height:1;padding:2px 5px;transition:color .2s}
 .searchbox button:hover{color:var(--green)}
 .q-count{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;color:var(--steel-faint);margin-left:9px;white-space:nowrap}
+/* Suggestions. Each row says which field matched and shows the words around
+   the hit, so a result never looks arbitrary. */
+.suggest{position:absolute;top:calc(100% + 7px);left:0;width:min(430px,84vw);max-height:344px;overflow-y:auto;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line2);box-shadow:var(--depth);z-index:140;display:none}
+.suggest.on{display:block}
+.sug{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:11px 14px;cursor:pointer;transition:background .15s}
+.sug:last-child{border-bottom:0}
+.sug:hover,.sug.active{background:var(--panel3)}
+.sug-top{display:flex;align-items:baseline;gap:10px}
+.sug-name{font-size:12.5px;font-weight:700;color:var(--steel)}
+.sug-meta{margin-left:auto;font-family:var(--mono);font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint);white-space:nowrap}
+.sug-snip{display:block;font-family:var(--mono);font-size:9.5px;line-height:1.65;color:var(--steel-faint);margin-top:5px}
+.sug-kind{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-right:7px}
+.sug-snip mark{background:none;color:var(--green);font-weight:600}
+.sug-more{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);padding:9px 14px;border-top:1px solid var(--line)}
 .q-empty{max-width:1240px;margin:0 auto;padding:40px 24px 10px;font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--steel-faint);text-align:center}
 .filter-count{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--steel-faint)}
 .filter-count b{color:var(--steel);font-weight:500}
@@ -1060,7 +1074,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.81 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.82 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2713,16 +2727,127 @@ function applyFilters(){
     const empty = document.createElement("p");
     empty.className = "q-empty"; empty.id = "q-empty"; empty.hidden = true;
     (document.getElementById("kelly") || document.body).before(empty);
+
+    /* ---------- SUGGESTIONS ----------
+       A result is only useful if you can see why it matched, so each row
+       names the field that hit and quotes the words around it. Claim text is
+       cached per plate once the graph has rendered it. */
+    const sug = document.createElement("div");
+    sug.className = "suggest"; sug.setAttribute("role", "listbox");
+    q.parentElement.appendChild(sug);
+    q.setAttribute("role", "combobox");
+    q.setAttribute("aria-expanded", "false");
+    q.setAttribute("aria-autocomplete", "list");
+
+    /* Claims are kept as one string per claim, not one blob per plate, so a
+       snippet never runs from the end of one claim into the start of the next. */
+    const claimList = (p) => {
+      if (!p.qClaims || !p.qClaims.length) {
+        p.qClaims = [...p.querySelectorAll(".claims .claim")].map(c => {
+          const t = ((c.querySelector(".claim-text") || {}).textContent || "").trim();
+          const s = ((c.querySelector(".claim-src") || {}).textContent || "").trim();
+          return s ? t + "  (" + s + ")" : t;
+        });
+      }
+      return p.qClaims;
+    };
+    /* h3 holds the name plus an optional variant span with no space between
+       them, which reads as A-12OXCART if taken raw. */
+    const plateName = (p) => {
+      const h = p.querySelector("h3");
+      if (!h) return "";
+      return [...h.childNodes].map(n => (n.textContent || "").trim()).filter(Boolean).join(" ").replace(/\s+/g, " ");
+    };
+    const cut = (text, needle, pad) => {
+      const i = text.toLowerCase().indexOf(needle);
+      if (i < 0) return null;
+      const s = Math.max(0, i - pad), e = Math.min(text.length, i + needle.length + pad);
+      return { pre: (s > 0 ? "…" : "") + text.slice(s, i), hit: text.slice(i, i + needle.length),
+               post: text.slice(i + needle.length, e) + (e < text.length ? "…" : "") };
+    };
+    const matchFor = (p, ql) => {
+      const txt = (sel) => (((p.querySelector(sel) || {}).textContent) || "").trim();
+      const name = plateName(p), hook = txt(".plate-hook"), year = txt(".plate-year");
+      const sec = p.closest(".timeline-section");
+      const line = sec ? ((((sec.querySelector(".ld-name") || {}).textContent) || "").split("/")[0].trim()) : "";
+      let kind = null, c = null;
+      if (name.toLowerCase().includes(ql)) { kind = "plate"; c = cut(hook || name, ql, 44) || { pre: "", hit: "", post: hook.slice(0, 86) }; }
+      else if (hook.toLowerCase().includes(ql)) { kind = "hook"; c = cut(hook, ql, 44); }
+      else {
+        const hit = claimList(p).find(s => s.toLowerCase().includes(ql));
+        if (hit) { kind = "claim"; c = cut(hit, ql, 44); }
+        else if ((line + " " + year).toLowerCase().includes(ql)) { kind = "line"; c = { pre: "", hit: "", post: hook.slice(0, 86) + (hook.length > 86 ? "…" : "") }; }
+      }
+      return kind ? { id: p.id, name, line, year, kind, c } : null;
+    };
+    const MAX = 7;
+    const draw = (qs) => {
+      const ql = qs.trim().toLowerCase();
+      if (ql.length < 2) { sug.classList.remove("on"); sug.innerHTML = ""; q.setAttribute("aria-expanded", "false"); return; }
+      const rows = []; let total = 0;
+      document.querySelectorAll(".plate").forEach(p => {
+        const m = matchFor(p, ql);
+        if (!m) return;
+        total++;
+        if (rows.length < MAX) rows.push(m);
+      });
+      if (!rows.length) { sug.classList.remove("on"); sug.innerHTML = ""; q.setAttribute("aria-expanded", "false"); return; }
+      sug.innerHTML = rows.map((m, i) =>
+        `<button type="button" class="sug${i ? "" : " active"}" role="option" data-go="${esc(m.id)}">`
+        + `<span class="sug-top"><span class="sug-name">${esc(m.name)}</span>`
+        + `<span class="sug-meta">${esc(m.line)} &middot; ${esc(m.year)}</span></span>`
+        + `<span class="sug-snip"><span class="sug-kind">${m.kind}</span>${esc(m.c.pre)}`
+        + (m.c.hit ? `<mark>${esc(m.c.hit)}</mark>` : "") + `${esc(m.c.post)}</span></button>`).join("")
+        + (total > MAX ? `<div class="sug-more">${total - MAX} more below</div>` : "");
+      sug.classList.add("on");
+      q.setAttribute("aria-expanded", "true");
+    };
+    const close = () => { sug.classList.remove("on"); q.setAttribute("aria-expanded", "false"); };
+    const goPlate = (id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      close();
+      el.classList.remove("hidden-card");
+      el.classList.add("visible");
+      el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      el.classList.add("flash");
+      setTimeout(() => el.classList.remove("flash"), 2600);
+    };
+    const move = (d) => {
+      const items = [...sug.querySelectorAll(".sug")];
+      if (!items.length) return;
+      let i = items.findIndex(x => x.classList.contains("active"));
+      items.forEach(x => x.classList.remove("active"));
+      i = (i + d + items.length) % items.length;
+      items[i].classList.add("active");
+      items[i].scrollIntoView({ block: "nearest" });
+    };
+
     let t = null;
     q.addEventListener("input", () => {
       clearTimeout(t);
-      t = setTimeout(() => { state.q = q.value; applyFilters(); }, 120);
+      t = setTimeout(() => { state.q = q.value; applyFilters(); draw(q.value); }, 120);
     });
     q.addEventListener("keydown", e => {
-      if (e.key === "Escape") { q.value = ""; state.q = ""; applyFilters(); q.blur(); }
+      if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
+      else if (e.key === "Enter") {
+        const a = sug.querySelector(".sug.active");
+        if (a) { e.preventDefault(); goPlate(a.dataset.go); }
+      } else if (e.key === "Escape") {
+        if (sug.classList.contains("on")) { close(); return; }
+        q.value = ""; state.q = ""; applyFilters(); q.blur();
+      }
     });
+    sug.addEventListener("mousedown", e => {
+      const b = e.target.closest(".sug");
+      if (b) { e.preventDefault(); goPlate(b.dataset.go); }
+    });
+    document.addEventListener("click", e => { if (!q.parentElement.contains(e.target)) close(); });
+    q.addEventListener("focus", () => { if (q.value.trim().length > 1) draw(q.value); });
+
     const clear = document.getElementById("q-clear");
-    if (clear) clear.addEventListener("click", () => { q.value = ""; state.q = ""; applyFilters(); q.focus(); });
+    if (clear) clear.addEventListener("click", () => { q.value = ""; state.q = ""; applyFilters(); close(); q.focus(); });
   }
 }
 applyFilters();
