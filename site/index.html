@@ -1027,7 +1027,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.71 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.72 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1782,7 +1782,10 @@ const SUTTER = [
     <text x="133.2" y="85">231 FT 10 IN &#183; LENGTH</text>
   </g>
 </svg>`,
-   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7467117185874808832"}}
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7467117185874808832"}},
+  {id:"united-232", name:"United 232", year:1989, date:"July 19, 1989", origin:"United States", field:"Wide-body airliner", status:"covered",
+   hook:"THE DC-10 HAD THREE INDEPENDENT HYDRAULIC SYSTEMS. LOSING ALL THREE WAS SO UNLIKELY THERE WAS NO PROCEDURE FOR IT. IN 1989, ONE ENGINE DISK CUT ALL THREE IN SECONDS.",
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7489843661170462721"}}
 ];
 const CARNOT = [
   {id:"diesel-engine", name:"Rudolf Diesel's engine", year:1897, date:"1897, Augsburg", origin:"Germany", field:"Prime mover", status:"covered",
@@ -1898,7 +1901,7 @@ function renderLine(lineId, arr, meta){
   ["hammurabi", HAMMURABI, {num:"1985", thesis:"Regulation written in blood: the rules we wrote only after we counted the dead.", dateLabel:"Accident", domain:"Regulation, written in blood", invite:INVITE_STUDIED}],
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
   ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
-  ["sutter", SUTTER, {num:"1933 to 1969", thesis:"Commercial aviation: the business wrapped around the airframe. The airliner Boeing kept for itself, the jet that opened the sky and cracked, and the one that bet the company.", dateLabel:"Milestone", domain:"Commercial aviation", invite:INVITE_FLOWN}],
+  ["sutter", SUTTER, {num:"1933 to 1989", thesis:"Commercial aviation: what decides whether good engineering matters. Market structure, a crack at the corner of a window, a bet made for a customer, and three independent systems that shared one corridor.", dateLabel:"Event", domain:"Commercial aviation", invite:INVITE_FLOWN}],
   ["carnot", CARNOT, {num:"1897", thesis:"Prime movers: the engines that turn fuel into work, and the people who bet their lives on them.", dateLabel:"First run", domain:"Prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
   ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: one quantity, the safety margin, told three ways. Bought in advance at London, absorbed by a crime at Brooklyn, spent in the design office at Quebec.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
@@ -1946,7 +1949,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:419, verified:402, sources:37, edges:63, artifacts:54 };
+const FINDING_STATS = { claims:431, verified:414, sources:38, edges:65, artifacts:55 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

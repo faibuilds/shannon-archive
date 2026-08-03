@@ -7657,6 +7657,271 @@
    "type": "story",
    "title": "The Plane Boeing Kept For Itself",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7489446242557722625 facebook: https://www.facebook.com/share/p/19Ha5JRDFw/ instagram: not published for this plate newsletter: none"
+  },
+  {
+   "id": "united-232",
+   "type": "artifact",
+   "name": "United 232 (the DC-10 flown on two throttles)",
+   "category": "aircraft",
+   "origin": "United States",
+   "lineId": "sutter",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP, dual audit). Fourth SUTTER plate. Tone rule: the fatality count appears in captions and one subhook, never in a hook. Excluded as unverified: the rehearsed wide-body drill at Sioux City, and the farmer who found the disk. See blocks/shannon_united-232.md"
+  },
+  {
+   "id": "src-united-232-vcl",
+   "type": "source",
+   "title": "EC VCL: United 232 (V5.1 SOP, dual audit). Primary source NTSB AAR-90/06, reached through Aviation Lessons Unlearned, code7700, report summaries, Admiral Cloudberg, ScienceDirect, This Day in Aviation and Wikipedia. One self-caught precision error corrected before publication (grain of rice), one self-caught badge error corrected (severed tail), one auditor factual error logged and its reasoning discarded.",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-completion-232-1",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1971
+   },
+   "subjectId": "united-232",
+   "label": "Stage 1 fan disk forged for a GE CF6-6 engine from Ti-6Al-4V (TIMET heat K8283) using double vacuum arc remelting; a nitrogen-stabilized Type I hard alpha inclusion, roughly 0.055 by 0.015 inches, is left inside it"
+  },
+  {
+   "id": "ev-failure-232-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1988,
+    "month": 2
+   },
+   "subjectId": "united-232",
+   "label": "The disk's sixth fluorescent penetrant inspection fails to detect the fatigue crack; investigators later find inspection dye inside the crack, proving it was present and detectable. The disk flies 760 more cycles"
+  },
+  {
+   "id": "ev-failure-232-3",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1989,
+    "month": 7,
+    "day": 19
+   },
+   "subjectId": "united-232",
+   "label": "At 15:16 CDT, cruising at 37,000 feet and Mach 0.83, the No. 2 tail-mounted engine of United 232 (DC-10-10, N1819U, Denver to Chicago) suffers an uncontained fan disk failure; debris severs all three hydraulic systems within seconds"
+  },
+  {
+   "id": "ev-decision-232-4",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1989,
+    "month": 7,
+    "day": 19
+   },
+   "subjectId": "united-232",
+   "label": "Captain Dennis Fitch, an off-duty DC-10 check airman in the cabin, sends word forward offering help; Captain Al Haynes brings him to the flight deck and hands him the throttles"
+  },
+  {
+   "id": "ev-failure-232-5",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1989,
+    "month": 7,
+    "day": 19
+   },
+   "subjectId": "united-232",
+   "label": "After 44 minutes flown on differential thrust alone, the aircraft breaks up on landing at Sioux Gateway Airport. 112 people die, 184 survive, including all four on the flight deck"
+  },
+  {
+   "id": "ev-publication-232-6",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1989,
+    "month": 9,
+    "day": 21
+   },
+   "subjectId": "united-232",
+   "label": "FAA Airworthiness Directive 89-20-01 requires removal and inspection of Category I disks from the same titanium heat, with phased inspection of hundreds more"
+  },
+  {
+   "id": "ev-decision-232-7",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1990
+   },
+   "subjectId": "united-232",
+   "label": "NTSB report AAR-90/06 names inspection and quality control human factors at United's engine overhaul facility as probable cause, and finds the debris exceeded the protection designed into the hydraulic systems"
+  },
+  {
+   "id": "ev-decision-232-8",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1995
+   },
+   "subjectId": "united-232",
+   "label": "FAA amends Part 121 to require crew resource management training across air carrier operations, with Flight 232 as the central case study"
+  },
+  {
+   "id": "al-haynes",
+   "type": "person",
+   "name": "Al Haynes",
+   "note": "Captain, 57, 33 years with United. Delegated the throttles to Fitch and ran the flight deck, the radios and the decisions. His handling of an unplanned fourth crew member became the model case in CRM training worldwide."
+  },
+  {
+   "id": "dennis-fitch",
+   "type": "person",
+   "name": "Dennis Fitch",
+   "note": "Off-duty DC-10 check airman riding as a passenger. Volunteered, took both throttles by hand, and flew the aircraft on differential thrust for 44 minutes."
+  },
+  {
+   "id": "william-records",
+   "type": "person",
+   "name": "William Records",
+   "note": "First Officer. Flew alongside Haynes through the loss of all flight controls."
+  },
+  {
+   "id": "dudley-dvorak",
+   "type": "person",
+   "name": "Dudley Dvorak",
+   "note": "Second Officer. Worked systems and communications while the aircraft was flown on thrust alone."
+  },
+  {
+   "id": "c-232-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "On July 19, 1989, at 15:16 CDT, cruising at 37,000 feet and Mach 0.83, the No. 2 tail-mounted GE CF6-6 engine of United 232 (DC-10-10 N1819U, 296 aboard) suffered an uncontained stage 1 fan disk failure, and the debris severed all three hydraulic systems.",
+   "sourceNote": "NTSB AAR-90/06; ScienceDirect fatigue analysis citing the report; both auditors confirmed"
+  },
+  {
+   "id": "c-232-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "The DC-10 carried three hydraulic systems, each driven by a different engine, and was certified to fly on any single one. All three were routed through the tail within reach of the No. 2 engine, so one disk burst disabled every one of them.",
+   "sourceNote": "NTSB AAR-90/06 tail damage diagram, showing hydraulics 1, 2 and 3 converging past the fan disk; Gemini confirmed the convergence. Perplexity objected to each driven by a different engine as too neat; rejected, it is accurate for the DC-10"
+  },
+  {
+   "id": "c-232-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "Total loss of all three hydraulic systems was considered so improbable that no emergency procedure existed for it.",
+   "sourceNote": "multiple accounts of AAR-90/06. Adjudicated: an earlier draft said it was never in the failure analysis, sourced only secondarily; rewritten to the no-procedure claim, which is directly supported"
+  },
+  {
+   "id": "c-232-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "The loss of hydraulic pressure removed every flight control: ailerons, elevators, rudder, flaps, slats and spoilers. The DC-10 had no manual reversion.",
+   "sourceNote": "NTSB AAR-90/06; contemporary technical accounts. Perplexity proposed softening to the normal flight controls were lost; rejected, no item in the list was identified as wrong"
+  },
+  {
+   "id": "c-232-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "The fan disk was forged in 1971 from Ti-6Al-4V using double vacuum arc remelting and contained a nitrogen-stabilized Type I hard alpha inclusion, an initial flaw of roughly 0.055 by 0.015 inches, smaller than a grain of rice.",
+   "sourceNote": "NTSB AAR-90/06 via report summaries and Aviation Lessons Unlearned. Self-caught precision fix: drafted as the size of a grain of rice, but the flaw is about 1.4 mm against a rice grain near 5 mm, so changed to smaller than"
+  },
+  {
+   "id": "c-232-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "From that inclusion a fatigue crack grew for 17 years, through 41,009 flight hours and 15,503 flight cycles. The disk's last fluorescent penetrant inspection, in February 1988, missed the crack; inspection dye was later found inside it, and the disk flew 760 more cycles before it burst.",
+   "sourceNote": "Aviation Lessons Unlearned citing AAR-90/06 for the hours, cycles and sixth inspection; Gemini supplied and confirmed the February 1988 date and the 760-cycle figure"
+  },
+  {
+   "id": "c-232-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "With only the two wing throttles left, thrust controlled pitch through a slow phugoid oscillation that no elevator could damp, while asymmetric thrust produced yaw and therefore roll, so pitch and roll had to be flown together on the same two levers.",
+   "sourceNote": "NTSB AAR-90/06; standard flight dynamics. Corrected during the session: chasing the phugoid is pitch control, not roll avoidance, and the two axes are coupled through the same inputs"
+  },
+  {
+   "id": "c-232-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "Captain Al Haynes, First Officer William Records and Second Officer Dudley Dvorak were joined by off-duty DC-10 check airman Captain Dennis Fitch, who flew the throttles for 44 minutes to Sioux Gateway Airport.",
+   "sourceNote": "NTSB AAR-90/06; This Day in Aviation; both auditors confirmed"
+  },
+  {
+   "id": "c-232-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "The aircraft broke up on landing. 112 people died and 184 survived, including all four flight deck crew.",
+   "sourceNote": "NTSB AAR-90/06; Wikipedia. Conflict logged: many sources give 111 dead and 185 survivors because one passenger died later. We publish 112 and 184, the modern totals, consistently"
+  },
+  {
+   "id": "c-232-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "The NTSB's probable cause was inadequate consideration of human factors in the inspection and quality control procedures at United's engine overhaul facility, which failed to detect the fatigue crack; the debris pattern and energy then exceeded the protection designed into the hydraulic systems.",
+   "sourceNote": "NTSB AAR-90/06 probable cause statement, quoted at code7700.com"
+  },
+  {
+   "id": "c-232-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "Crews attempting the same scenario in simulators afterward could not repeat the outcome, and the NTSB described a landing in that condition as a highly random event.",
+   "sourceNote": "NTSB AAR-90/06. Paraphrased rather than quoted; no direct quotation appears anywhere on this plate"
+  },
+  {
+   "id": "c-232-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "united-232"
+   ],
+   "text": "Afterward, titanium for rotating parts moved to triple vacuum melting, inspection moved toward eddy current methods, hydraulic fuses and segmentation entered aircraft design so a breach can be isolated, crew resource management became mandatory, and NASA later demonstrated automated thrust-only control.",
+   "sourceNote": "Admiral Cloudberg summary of the AAR-90/06 aftermath; FAA guidance; Gemini confirmed all five changes"
+  },
+  {
+   "id": "concept-shared-routing-corridor",
+   "type": "concept",
+   "name": "The assumption that independent systems fail independently, when all three shared one routing corridor through the tail"
+  },
+  {
+   "id": "concept-post-232-safeguards",
+   "type": "concept",
+   "name": "Hydraulic fuses and system segmentation, triple vacuum melted titanium, eddy current inspection of rotating parts, and mandatory crew resource management"
+  },
+  {
+   "id": "story-united-232",
+   "type": "story",
+   "title": "Three Systems, One Corridor",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7489843661170462721 instagram: https://www.instagram.com/p/DbkA9PyyegV/ facebook: https://www.facebook.com/share/p/1H78YEuius/ newsletter: none"
   }
  ],
  "edges": [
@@ -11122,6 +11387,45 @@
   {"type":"cites","from":"c-247-08","to":"src-boeing-247-vcl"},
   {"type":"enabled","from":"boeing-247","to":"concept-douglas-dc-line","claimId":"c-247-03"},
   {"type":"responded-to","from":"boeing-247","to":"concept-metal-airliner-shift","claimId":"c-247-01"},
-  {"type":"covers","from":"story-boeing-247","to":"boeing-247"}
+  {"type":"covers","from":"story-boeing-247","to":"boeing-247"},
+  {"type":"event-of","from":"ev-completion-232-1","to":"united-232"},
+  {"type":"event-of","from":"ev-failure-232-2","to":"united-232"},
+  {"type":"event-of","from":"ev-failure-232-3","to":"united-232"},
+  {"type":"event-of","from":"ev-decision-232-4","to":"united-232"},
+  {"type":"event-of","from":"ev-failure-232-5","to":"united-232"},
+  {"type":"event-of","from":"ev-publication-232-6","to":"united-232"},
+  {"type":"event-of","from":"ev-decision-232-7","to":"united-232"},
+  {"type":"event-of","from":"ev-decision-232-8","to":"united-232"},
+  {"type":"contributed","from":"al-haynes","to":"united-232","role":"designed"},
+  {"type":"contributed","from":"dennis-fitch","to":"united-232","role":"designed"},
+  {"type":"contributed","from":"william-records","to":"united-232","role":"designed"},
+  {"type":"contributed","from":"dudley-dvorak","to":"united-232","role":"designed"},
+  {"type":"about","from":"c-232-01","to":"united-232"},
+  {"type":"cites","from":"c-232-01","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-02","to":"united-232"},
+  {"type":"cites","from":"c-232-02","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-03","to":"united-232"},
+  {"type":"cites","from":"c-232-03","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-04","to":"united-232"},
+  {"type":"cites","from":"c-232-04","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-05","to":"united-232"},
+  {"type":"cites","from":"c-232-05","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-06","to":"united-232"},
+  {"type":"cites","from":"c-232-06","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-07","to":"united-232"},
+  {"type":"cites","from":"c-232-07","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-08","to":"united-232"},
+  {"type":"cites","from":"c-232-08","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-09","to":"united-232"},
+  {"type":"cites","from":"c-232-09","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-10","to":"united-232"},
+  {"type":"cites","from":"c-232-10","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-11","to":"united-232"},
+  {"type":"cites","from":"c-232-11","to":"src-united-232-vcl"},
+  {"type":"about","from":"c-232-12","to":"united-232"},
+  {"type":"cites","from":"c-232-12","to":"src-united-232-vcl"},
+  {"type":"responded-to","from":"united-232","to":"concept-shared-routing-corridor","claimId":"c-232-02"},
+  {"type":"enabled","from":"united-232","to":"concept-post-232-safeguards","claimId":"c-232-12"},
+  {"type":"covers","from":"story-united-232","to":"united-232"}
  ]
 }
