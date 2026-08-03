@@ -347,7 +347,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .plate h3 .variant{color:var(--steel-faint);font-weight:600;font-size:14px;letter-spacing:.5px;text-transform:none;margin-left:8px}
 .plate.soon h3 .redacted-ch{color:#33383f}
 .plate-role{font-family:var(--mono);font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--steel-faint);margin-bottom:16px}
-.plate-hook{font-size:14.5px;font-weight:600;line-height:1.65;color:var(--steel);max-width:640px;margin-bottom:20px}
+/* Hooks are stored as authored, some caps some sentence case, which is
+   drift rather than a system. Normalized here at the display layer so the
+   stored copy stays verbatim. Uppercase is the only safe direction: you
+   cannot lowercase DC-10, MiG-25 or EUV without mangling them. */
+.plate-hook{font-size:14.5px;font-weight:600;line-height:1.65;letter-spacing:.2px;text-transform:uppercase;color:var(--steel);max-width:640px;margin-bottom:20px}
 
 /* Plate art: text column and art column are flex siblings, never overlays. */
 .plate-cols{display:flex;align-items:flex-start;gap:26px}
@@ -1037,7 +1041,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.78 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.79 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2875,7 +2879,7 @@ async function drawCard(d, F) {
   let hookSize = F.hook, hookLines = [];
   for (const s of [F.hook, F.hook - 4, F.hook - 7, F.hook - 10, F.hook - 13]) {
     x.font = "600 " + (s * S) + "px Poppins";
-    hookLines = wrapLines(x, d.hook, CW);
+    hookLines = wrapLines(x, d.hook.toUpperCase(), CW);
     hookSize = s;
     if (hookLines.length <= F.lines) break;
   }
