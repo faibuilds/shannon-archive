@@ -145,6 +145,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .board-caption{padding:15px 20px;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.6;color:var(--steel-dim);min-height:24px}
 .board-caption b{color:var(--steel);font-weight:700}
 .board-caption .bc-kicker{font-family:var(--mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:5px}
+.board-caption .bc-from{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin:10px 0 7px}
+.bc-plate{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--steel);background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line2);padding:8px 12px;margin:0 7px 7px 0;transition:border-color .2s,color .2s}
+.bc-plate:hover{border-color:var(--green);color:var(--green)}
 .board-flex{display:flex;align-items:flex-start}
 .board-lanecol{flex:0 0 92px;width:92px}
 .blane-lbl{display:flex;align-items:center}
@@ -1039,7 +1042,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.75 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.76 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2259,11 +2262,18 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     }).join("");
     const pads = placed.filter(visible).map(p => {
       const { x, y } = pos.get(p.id);
-      const cls = p.lane === "concept" ? "sealed" : (p.sealed ? "sealed" : "lit");
-      const s = p.lane === "concept" ? 7 : 9;
+      const isC = p.lane === "concept";
+      const cls = isC ? "sealed" : (p.sealed ? "sealed" : "lit");
+      const s = isC ? 7 : 9;
+      /* Outcomes are sentences, not names, so they get two lines in the lane
+         that was already given double height for them. Anything still too
+         long ends in an ellipsis rather than stopping mid word. */
+      const lines = padLabel(p.name || p.id, isC ? 2 : 1, isC ? 23 : 26);
+      const ty = y - 9 - (lines.length - 1) * 10;
+      const tspans = lines.map((ln, i) => `<tspan x="${x}" dy="${i ? 10 : 0}">${esc(ln)}</tspan>`).join("");
       return `<g class="bpad ${cls}" data-id="${esc(p.id)}" data-year="${p.year}">
         <rect x="${x - s / 2}" y="${y - s / 2}" width="${s}" height="${s}"/>
-        <text class="bpad-name" x="${x}" y="${y - 9}" text-anchor="middle">${esc((p.name || p.id).split("(")[0].trim().slice(0, 26))}</text>
+        <text class="bpad-name" x="${x}" y="${ty}" text-anchor="middle">${tspans}</text>
       </g>`;
     }).join("");
     const laneCol = activeLanes.map(L => `
@@ -2303,16 +2313,57 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
   }
 
   const plain = id => esc((((byId.get(id) || {}).name) || id).split("(")[0].trim());
+  const isConcept = id => ((byId.get(id) || {}).type) === "concept";
 
-  function padCaption(id) {
-    const links = syn.filter(edgeOk).filter(e => e.from === id || e.to === id).map(e => {
+  /* Wrap a pad label to at most `maxLines` of `per` characters, breaking on
+     words. Parenthetical asides and anything after a colon are dropped, so
+     the visible part is the head of the thought rather than its first 26
+     characters. Marks the cut with an ellipsis when text is left over. */
+  function padLabel(raw, maxLines, per) {
+    const t = String(raw).replace(/\s*\([^)]*\)/g, "").split(":")[0].trim();
+    const words = t.split(/\s+/), out = [];
+    let cur = "", i = 0;
+    for (; i < words.length; i++) {
+      const test = cur ? cur + " " + words[i] : words[i];
+      if (test.length > per && cur) {
+        out.push(cur); cur = words[i];
+        if (out.length === maxLines) break;
+      } else cur = test;
+    }
+    if (out.length < maxLines && cur) { out.push(cur); cur = ""; }
+    if (cur || i < words.length - 1) {
+      const k = out.length - 1;
+      out[k] = out[k].replace(/[\s,;.]+$/, "");
+      if (out[k].length > per - 1) out[k] = out[k].slice(0, per - 1).replace(/[\s,;.]+$/, "");
+      out[k] += "…";
+    }
+    return out;
+  }
+
+  /* An outcome has no plate of its own, so it used to be a dead end: the
+     caption invited a tap that could not go anywhere. It now states the whole
+     outcome and offers the plates that reach it, each one a real link. */
+  function padCaption(id, touch) {
+    const edges = syn.filter(edgeOk).filter(e => e.from === id || e.to === id);
+    if (isConcept(id)) {
+      const full = (((byId.get(id) || {}).name) || id);
+      const chips = edges.map(e => {
+        const other = e.from === id ? e.to : e.from;
+        return `<button type="button" class="bc-plate" data-go="${esc(other)}">${plain(other)}</button>`;
+      });
+      return `<span class="bc-kicker">Outcome</span>${esc(full)}`
+        + (chips.length ? `<span class="bc-from">Reached from ${chips.length === 1 ? "this plate" : "these " + chips.length + " plates"}:</span>${chips.join("")}`
+                        : "<br>No plate reaches this one yet.");
+    }
+    const links = edges.map(e => {
       const other = e.from === id ? e.to : e.from;
       return `<b>${esc(e.type)}</b> ${e.from === id ? "&rarr;" : "&larr;"} ${plain(other)}`;
     });
     const body = links.length
       ? links.join(" &nbsp;·&nbsp; ")
       : "No claim-cited connection recorded for this one yet.";
-    return `<span class="bc-kicker">${plain(id)}</span>${body}. <b>Tap again to open its plate.</b>`;
+    return `<span class="bc-kicker">${plain(id)}</span>${body}. `
+      + `<b>${touch ? "Tap again" : "Click"} to open its plate.</b>`;
   }
 
   function openPlate(id) {
@@ -2338,22 +2389,43 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
           // Painted last = painted on top, so the hovered label is readable.
           if (pad !== svg.lastElementChild) svg.appendChild(pad);
           lightPad(svg, id);
+          // Desktop used to light the traces and say nothing. Say it.
+          if (inspected === null) document.getElementById("board-caption").innerHTML = padCaption(id, false);
         });
-        pad.addEventListener("mouseleave", paintFocus);
+        pad.addEventListener("mouseleave", () => { if (inspected === null) paintFocus(); });
       }
       pad.addEventListener("click", () => {
         if (suppressClick) return;
+        /* An outcome has nowhere to open, so a click pins its caption and the
+           plate chips inside it do the navigating. */
+        if (isConcept(id)) {
+          inspected = inspected === id ? null : id;
+          lightPad(svg, id);
+          svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === inspected));
+          if (inspected) document.getElementById("board-caption").innerHTML = padCaption(id, noHover);
+          else paintFocus();
+          return;
+        }
         if (noHover && inspected !== id) {
           inspected = id;
           lightPad(svg, id);
           svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === id));
-          document.getElementById("board-caption").innerHTML = padCaption(id);
+          document.getElementById("board-caption").innerHTML = padCaption(id, true);
           return;
         }
         inspected = null;
         openPlate(id);
       });
     });
+    /* The plate chips inside an outcome caption are the way out of it. */
+    const capEl = document.getElementById("board-caption");
+    if (capEl && !capEl.dataset.wired) {
+      capEl.dataset.wired = "1";
+      capEl.addEventListener("click", ev => {
+        const go = ev.target.closest("[data-go]");
+        if (go) openPlate(go.dataset.go);
+      });
+    }
     // Start the viewport where most of the archive lives, not at 1843.
     const scroller = view.querySelector(".board-scroll");
     if (scroller) {
