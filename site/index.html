@@ -286,6 +286,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .pill:hover{color:var(--steel);border-color:var(--steel-faint)}
 .pill.active{background:var(--green);border-color:var(--green);color:#07110d;box-shadow:0 0 12px rgba(16,185,129,.3),inset 0 1px 0 rgba(255,255,255,.35)}
 .pill.active.pill-soon{background:linear-gradient(180deg,var(--panel3),var(--panel2));color:var(--green);border-color:var(--green);box-shadow:var(--bevel)}
+/* SEARCH. Matches plate names, hooks and, once the graph lands, the text of
+   every verified claim, which is the thing worth searching. */
+.searchbox{position:relative;display:inline-flex;align-items:center}
+.searchbox input{width:210px;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line2);box-shadow:var(--bevel);color:var(--steel);font-family:var(--mono);font-size:10.5px;letter-spacing:.5px;padding:8px 26px 8px 12px;transition:border-color .2s}
+.searchbox input::placeholder{color:var(--steel-faint);letter-spacing:.5px}
+.searchbox input:focus{outline:none;border-color:var(--green)}
+.searchbox button{position:absolute;right:4px;background:none;border:0;color:var(--steel-faint);font-size:15px;line-height:1;padding:2px 5px;transition:color .2s}
+.searchbox button:hover{color:var(--green)}
+.q-count{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;color:var(--steel-faint);margin-left:9px;white-space:nowrap}
+.q-empty{max-width:1240px;margin:0 auto;padding:40px 24px 10px;font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--steel-faint);text-align:center}
 .filter-count{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--steel-faint)}
 .filter-count b{color:var(--steel);font-weight:500}
 
@@ -807,6 +817,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <button class="pill line-jump" data-jump="findings">Findings</button>
     <button class="pill line-jump" data-jump="board">Board</button>
   </div>
+  <div class="filter-group search-group">
+    <span class="filter-group-label">Search</span>
+    <div class="searchbox">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Plates, hooks, claims" aria-label="Search the archive">
+      <button id="q-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <span class="q-count" id="q-count" aria-live="polite"></span>
+  </div>
   <div class="filter-count kelly-only"><b id="visible-count"></b> airframes shown</div>
 </div>
 
@@ -1041,7 +1060,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.80 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.81 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2635,25 +2654,76 @@ if (lastLit && isFinite(lastLit.t)) {
    on a line about bridges or chips, so it is gone. Status stays, because it
    still earns its place on the one line with sealed plates, and it already
    hides itself off KELLY. */
-const state = { status:"all" };
-document.querySelectorAll(".pill").forEach(p => {
+const state = { status:"all", q:"" };
+document.querySelectorAll(".pill[data-filter]").forEach(p => {
   p.addEventListener("click", () => {
     state[p.dataset.filter] = p.dataset.value;
     document.querySelectorAll(`.pill[data-filter="${p.dataset.filter}"]`).forEach(x => x.classList.toggle("active", x===p));
     applyFilters();
   });
 });
+
+/* What a plate is searchable by: its name, its hook, its line, its year, and
+   once graph.json lands, every claim on it. Rebuilt per query rather than
+   cached, because the claim ledgers appear after the graph resolves. */
+function haystack(p) {
+  const bit = (sel, root) => ((root || p).querySelector(sel) || {}).textContent || "";
+  const sec = p.closest(".timeline-section");
+  return (bit("h3") + " " + bit(".plate-hook") + " " + bit(".plate-year") + " " +
+          bit(".plate-role") + " " + bit(".claims") + " " + p.id + " " +
+          (sec ? bit(".ld-name", sec) : "")).toLowerCase();
+}
+
 function applyFilters(){
-  let visible = 0;
-  document.querySelectorAll("#timeline .plate").forEach(c => {
-    const show = state.status==="all" || c.dataset.status===state.status;
+  const q = state.q.trim().toLowerCase();
+  const all = document.querySelectorAll(".plate");
+  let shown = 0, kelly = 0;
+  all.forEach(c => {
+    const inKelly = !!c.closest("#timeline");
+    const statusOk = !inKelly || state.status === "all" || c.dataset.status === state.status;
+    const qOk = !q || haystack(c).includes(q);
+    const show = statusOk && qOk;
     c.classList.toggle("hidden-card", !show);
-    if (show) visible++;
+    if (show) { shown++; if (inKelly) kelly++; }
   });
-  document.querySelectorAll("#timeline .decade").forEach(d => {
-    d.style.display = d.querySelectorAll(".plate:not(.hidden-card)").length ? "" : "none";
+  document.querySelectorAll(".decade").forEach(d => {
+    d.style.display = d.querySelector(".plate:not(.hidden-card)") ? "" : "none";
   });
-  document.getElementById("visible-count").textContent = visible;
+  /* A search collapses lines it found nothing in, so the page becomes the
+     result set. Without a query every line stays put. */
+  document.querySelectorAll(".timeline-section").forEach(s => {
+    s.style.display = (!q || s.querySelector(".plate:not(.hidden-card)")) ? "" : "none";
+  });
+  const count = document.getElementById("q-count");
+  if (count) count.textContent = q ? shown + " of " + all.length : "";
+  const clear = document.getElementById("q-clear");
+  if (clear) clear.hidden = !q;
+  const empty = document.getElementById("q-empty");
+  if (empty) {
+    empty.hidden = !(q && shown === 0);
+    empty.textContent = q && shown === 0 ? 'Nothing matches "' + state.q.trim() + '" yet.' : "";
+  }
+  const vc = document.getElementById("visible-count");
+  if (vc) vc.textContent = kelly;
+}
+
+{
+  const q = document.getElementById("q");
+  if (q) {
+    const empty = document.createElement("p");
+    empty.className = "q-empty"; empty.id = "q-empty"; empty.hidden = true;
+    (document.getElementById("kelly") || document.body).before(empty);
+    let t = null;
+    q.addEventListener("input", () => {
+      clearTimeout(t);
+      t = setTimeout(() => { state.q = q.value; applyFilters(); }, 120);
+    });
+    q.addEventListener("keydown", e => {
+      if (e.key === "Escape") { q.value = ""; state.q = ""; applyFilters(); q.blur(); }
+    });
+    const clear = document.getElementById("q-clear");
+    if (clear) clear.addEventListener("click", () => { q.value = ""; state.q = ""; applyFilters(); q.focus(); });
+  }
 }
 applyFilters();
 
