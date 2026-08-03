@@ -1039,7 +1039,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.74 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.75 / BUILT 08.2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2709,6 +2709,8 @@ const CARD = {
   square: { w:1080, h:1080, name:62, hook:34, lines:7,  tag:"square" },
 };
 const cardCache = {};
+/* Filled from the graph once it loads. Keyed by plate id. */
+const PLATE_FACT = {};
 
 function plateData(btn) {
   const p = document.getElementById(btn.dataset.id);
@@ -2731,11 +2733,12 @@ function plateData(btn) {
     artHref: (i => i ? i.getAttribute("href") : null)(p.querySelector(".plate-art image")),
   };
 }
+/* Kept short: the receipt belongs on the card, but it is not the headline. */
 function ledgerLine(d) {
   if (!d.total) return "";
   const m = d.split.match(/(\d+)\s*verified,\s*(\d+)\s*conflict/i);
-  if (m) return d.total + " CLAIMS · " + m[1] + " VERIFIED · " + m[2] + " CONFLICT LOGGED";
-  return d.total + " CLAIMS · ALL VERIFIED · SOURCES ON RECORD";
+  if (m) return m[1] + " VERIFIED · " + m[2] + " CONFLICT LOGGED";
+  return d.total + " VERIFIED CLAIMS";
 }
 async function cardArt(d) {
   if (!d.artSvg || !d.artHref) return null;
@@ -2783,9 +2786,16 @@ async function drawCard(d, F) {
   x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
   x.beginPath(); x.moveTo(M, hy); x.lineTo(F.w - M, hy); x.stroke();
 
-  /* footer geometry, fixed */
+  /* footer geometry. The fact leads; the ledger sits under it, quieter. */
   const led = ledgerLine(d);
-  const footH = (led ? 108 : 70) * S, footTop = F.h - M - footH;
+  const fact = PLATE_FACT[d.id] || "";
+  x.letterSpacing = (3 * S) + "px"; x.font = "400 " + (27 * S) + 'px "IBM Plex Mono"';
+  const maxFact = F.h > 1500 ? 3 : 2;
+  let factLines = fact ? wrapLines(x, fact, CW) : [];
+  if (factLines.length > maxFact) factLines = wrapLines(x, fact.split(/,\s/)[0], CW).slice(0, maxFact);
+  /* url and ledger get their own lines, so a long id can never run into a count */
+  const footH = (46 + factLines.length * 38 + 30 + (led ? 32 : 0) + 16) * S;
+  const footTop = F.h - M - footH;
 
   /* measure the block, then centre it in what is left */
   x.letterSpacing = "0px";
@@ -2840,12 +2850,17 @@ async function drawCard(d, F) {
   x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
   x.beginPath(); x.moveTo(M, fy); x.lineTo(F.w - M, fy); x.stroke();
   fy += 46 * S; x.letterSpacing = (3 * S) + "px";
+  x.font = "400 " + (27 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  for (const ln of factLines) { x.fillText(ln, M, fy); fy += 38 * S; }
+  x.letterSpacing = (1 * S) + "px";
+  x.font = "400 " + (21 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+  let by = fy + (factLines.length ? 6 : 0) * S;
+  x.fillText("shannon.engineeringcommunity.net/#" + d.id, M, by);
   if (led) {
-    x.font = "400 " + (26 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
-    x.fillText(led, M, fy); fy += 40 * S;
+    by += 32 * S;
+    x.font = "400 " + (19 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+    x.fillText(led, M, by);
   }
-  x.font = "400 " + (22 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
-  x.fillText("shannon.engineeringcommunity.net/#" + d.id, M, fy);
   return cv;
 }
 async function exportCard(d, F, btn) {
@@ -2972,6 +2987,32 @@ window.addEventListener("load", () => {
     s.className = "month-flag";
     s.textContent = FLAG[n.eventType] || "This month in " + n.date.year;
     head.insertBefore(s, head.querySelector(".plate-year"));
+  });
+
+  /* PLATE FACT. What a share card leads with: the wire this plate sits on,
+     taken from its synthesis edges, which are claim-cited by construction.
+     Falls back to the people who built it. Never invented, never a summary. */
+  const VERB = { enabled:"MADE POSSIBLE", "responded-to":"ANSWERED", forced:"FORCED", corrects:"CORRECTED" };
+  const node = {};
+  g.nodes.forEach(n => { node[n.id] = n; });
+  const headOf = (t) => {
+    let s = String(t).replace(/\s*\([^)]*\)/g, "").split(":")[0].trim();
+    if (s.length > 64) s = s.split(/,\s/)[0].trim();
+    return s.toUpperCase();
+  };
+  const people = {};
+  g.edges.forEach(e => { if (e.type === "contributed") (people[e.to] = people[e.to] || []).push(node[e.from] ? node[e.from].name : e.from); });
+  g.edges.forEach(e => {
+    if (!VERB[e.type] || PLATE_FACT[e.from]) return;
+    const t = node[e.to];
+    /* prefer a wire that lands on another plate, it reads better and invites a click */
+    const better = g.edges.filter(x => x.from === e.from && VERB[x.type])
+      .find(x => node[x.to] && node[x.to].type === "artifact") || e;
+    const target = node[better.to];
+    PLATE_FACT[e.from] = VERB[better.type] + " · " + headOf(target && target.name ? target.name : better.to);
+  });
+  Object.keys(people).forEach(id => {
+    if (!PLATE_FACT[id]) PLATE_FACT[id] = "NAMED · " + people[id].slice(0, 3).join(", ").toUpperCase();
   });
 
   /* One delegated listener for every ledger on the page. */
