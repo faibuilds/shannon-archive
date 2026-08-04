@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-07-18",
+ "updated": "2026-08-03",
  "line": "kelly",
  "nodes": [
   {
@@ -7922,6 +7922,306 @@
    "type": "story",
    "title": "Three Systems, One Corridor",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7489843661170462721 instagram: https://www.instagram.com/p/DbkA9PyyegV/ facebook: https://www.facebook.com/share/p/1H78YEuius/ newsletter: none"
+  },
+  {
+   "id": "hyatt-regency-walkways",
+   "type": "artifact",
+   "name": "Hyatt Regency Walkway Collapse, Kansas City",
+   "category": "building",
+   "origin": "United States",
+   "lineId": "petroski",
+   "sealed": false,
+   "note": "Retro-VCL (V5.1 SOP with a V5.2 hook gate added mid-build; three audit rounds plus a fairness and causality pass that removed a hindsight comparison and a single-source near-miss beat). Fourth PETROSKI plate, completing the line's four-mode thesis: Tacoma the failure nobody predicted, Ronan Point the failure one spark exposed, the Vasa the failure everybody watched coming, the Hyatt Regency the failure nobody added up. See blocks/shannon_hyatt-regency-walkways.md"
+  },
+  {
+   "id": "ev-decision-hyatt-regency-walkways-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1979,
+    "month": 2
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "Havens Steel submits a package of 42 shop drawings on February 16, one of them replacing the continuous hanger rod with two offset rods; G.C.E. returns the package stamped with its review seal on February 26. Ten days. No stress calculation is performed on the revised connection by the fabricator, the engineer of record, or the technician assigned to review the drawings"
+  },
+  {
+   "id": "ev-failure-hyatt-regency-walkways-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1979,
+    "month": 10,
+    "day": 14
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "Roughly 2,700 square feet of the atrium roof collapses during construction when a connection at the north end fails. Unrelated to the walkway detail, which had already been sealed seven months earlier"
+  },
+  {
+   "id": "ev-decision-hyatt-regency-walkways-3",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1979,
+    "month": 10,
+    "day": 20
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "Gillum writes to the owner promising a thorough design check of the atrium roof and of all steel connections in the structure, not just those in the roof. Later hearings establish it was never carried out and the walkway connections were never spot-checked"
+  },
+  {
+   "id": "ev-completion-hyatt-regency-walkways-4",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1980,
+    "month": 7,
+    "day": 1
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "The hotel opens"
+  },
+  {
+   "id": "ev-failure-hyatt-regency-walkways-5",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1981,
+    "month": 7,
+    "day": 17
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "At 7:05 pm, during the weekly tea dance, the weld under the fourth floor box beam ruptures, the nut pulls through, and the fourth and second floor walkways fall into the lobby. 114 dead, 216 injured. Fewer than 70 people were standing on the walkways themselves"
+  },
+  {
+   "id": "ev-publication-hyatt-regency-walkways-6",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1982
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "NBS investigation (Marshall et al) finds the as-built connection had a tested ultimate capacity of 18.6 kips against a design demand of 40.7 kips, and concludes the original detail would have held the load present on the night of the collapse"
+  },
+  {
+   "id": "ev-record-hyatt-regency-walkways-7",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1982
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "The Kansas City Star and Kansas City Times win the Pulitzer Prize for Local General or Spot News Reporting, cited for coverage of the disaster and identification of its causes"
+  },
+  {
+   "id": "ev-decision-hyatt-regency-walkways-8",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1984,
+    "month": 11
+   },
+   "subjectId": "hyatt-regency-walkways",
+   "label": "The Missouri Board finds Duncan, Gillum and G.C.E. guilty of gross negligence, misconduct and unprofessional conduct. Both engineers lose their licenses, the firm loses its own in four states, and no one is criminally convicted"
+  },
+  {
+   "id": "jack-gillum",
+   "type": "person",
+   "name": "Jack D. Gillum",
+   "note": "Principal of the engineer of record (1928-2012). Argued that detailing connections was customarily the fabricator's work and that his drawings were conceptual. The hearing held that sealing the plans made him answerable for the entire engineering job and every document attached to it, connections included, and separately faulted him for refusing to accept responsibility. He later spent years lecturing engineers on the collapse and eventually accepted responsibility in public."
+  },
+  {
+   "id": "daniel-duncan",
+   "type": "person",
+   "name": "Daniel M. Duncan",
+   "note": "Project engineer at G.C.E. on the Hyatt. Lost his Missouri license alongside Gillum in 1984."
+  },
+  {
+   "id": "wayne-lischka",
+   "type": "person",
+   "name": "Wayne G. Lischka",
+   "note": "Structural engineer hired by the Kansas City Star, who located the change to the walkway design within days of the collapse. His finding underpinned the newspaper's Pulitzer-winning coverage."
+  },
+  {
+   "id": "src-hyatt-regency-walkways-vcl",
+   "type": "source",
+   "title": "EC VCL: Hyatt Regency walkways (V5.1 SOP with a V5.2 hook gate; three audit rounds adjudicated plus a fairness and causality pass. NBS / Marshall 1982 via onlineethics.virginia.edu and engr.psu.edu, structuremag.org, Clyde and Co CAW case studies, KU case study, ethics.tamu.edu, lindahall.org, legalclarity.org, Missouri Board hearing record). Cut on audit: a hindsight comparison and a single-source near-miss beat.",
+   "kind": "reference"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "As designed, a single continuous hanger rod ran from the atrium roof past the fourth floor box beam to the second floor walkway, so the fourth floor connection carried a design load of 20.3 kips.",
+   "sourceNote": "NBS, quoted at onlineethics.virginia.edu"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The as-built detail used two offset rods, transferring the second floor walkway's weight into the fourth floor box beam and doubling that connection's design load to 40.7 kips.",
+   "sourceNote": "NBS report; structuremag.org"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "No weight was added to the structure by the change; only the path the load travelled was altered.",
+   "sourceNote": "EC VCL, derived from claims 01 and 02"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The as-built connection had a tested ultimate capacity of 18.6 kips, under a third of the capacity AISC required for a 40.7 kip demand.",
+   "sourceNote": "structuremag.org, Skywalk Collapse Remembered"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The original single-rod detail was itself under strength, reaching about 60 percent of the ultimate capacity AISC required.",
+   "sourceNote": "NBS, quoted at onlineethics.virginia.edu"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "Investigators concluded the original hanger rod design would have held the load present on the walkways at the time of the collapse.",
+   "sourceNote": "Marshall 1982, cited at engr.psu.edu"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The revised configuration arrived as one drawing in a package of 42, with no other documentation, and the shop drawing review was assigned to a technician who performed no calculations.",
+   "sourceNote": "Clyde and Co CAW case studies"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "G.C.E. received the 42 shop drawings on February 16, 1979 and returned them sealed on February 26, 1979.",
+   "sourceNote": "onlineethics.virginia.edu chronology; KU case study"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "After the October 1979 atrium roof collapse, G.C.E. promised the owner a design check of all steel connections in the structure and never carried it out.",
+   "sourceNote": "onlineethics.virginia.edu; Missouri Board hearing record"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "At the moment of failure there were fewer than 10 people on the fourth floor walkway and fewer than 60 on the second.",
+   "sourceNote": "structuremag.org, citing Luth"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The collapse killed 114 people and injured 216, the deadliest structural collapse in United States history at the time.",
+   "sourceNote": "NBS; multiple"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The hearing held that sealing the plans made Gillum responsible for the entire engineering project and all documents connected with it, including connections, whether or not he designed them himself.",
+   "sourceNote": "structuremag.org, The Hyatt Regency Disaster Revisited"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "G.C.E. testified it requested on-site project representation on three separate occasions and the owner did not act on the requests, citing the cost of on-site inspection.",
+   "sourceNote": "ethics.tamu.edu; engr.psu.edu"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "Dozens of people, many of them trained engineers, reviewed the modified design before it was built and did not identify the problem.",
+   "sourceNote": "lindahall.org"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "Havens Steel proposed the change to avoid threading a nut along the entire length of a single long rod.",
+   "sourceNote": "legalclarity.org"
+  },
+  {
+   "id": "c-hyatt-regency-walkways-16",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "hyatt-regency-walkways"
+   ],
+   "text": "The number of people in the atrium at the time of the collapse is given variously as roughly 2,000, roughly 1,600, and over 300.",
+   "sourceNote": "EC VCL, conflict logged; no figure printed in the post"
+  },
+  {
+   "id": "concept-load-path-rerouted",
+   "type": "concept",
+   "name": "A load path rerouted by a detail change: the same weight carried, routed so one connection took two walkways instead of one"
+  },
+  {
+   "id": "concept-engineer-of-record-responsibility",
+   "type": "concept",
+   "name": "The engineer of record answerable for every document under the seal, connections included, whether or not they drew them"
+  },
+  {
+   "id": "story-hyatt-regency-walkways",
+   "type": "story",
+   "title": "The Failure Nobody Added Up",
+   "status": "published linkedin: not posted this cycle instagram: not posted this cycle facebook: https://www.facebook.com/share/p/1FmJ7E8UP6/ newsletter: none"
   }
  ],
  "edges": [
@@ -11426,6 +11726,52 @@
   {"type":"cites","from":"c-232-12","to":"src-united-232-vcl"},
   {"type":"responded-to","from":"united-232","to":"concept-shared-routing-corridor","claimId":"c-232-02"},
   {"type":"enabled","from":"united-232","to":"concept-post-232-safeguards","claimId":"c-232-12"},
-  {"type":"covers","from":"story-united-232","to":"united-232"}
+  {"type":"covers","from":"story-united-232","to":"united-232"},
+  {"type":"event-of","from":"ev-decision-hyatt-regency-walkways-1","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-failure-hyatt-regency-walkways-2","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-decision-hyatt-regency-walkways-3","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-completion-hyatt-regency-walkways-4","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-failure-hyatt-regency-walkways-5","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-publication-hyatt-regency-walkways-6","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-record-hyatt-regency-walkways-7","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-decision-hyatt-regency-walkways-8","to":"hyatt-regency-walkways"},
+  {"type":"contributed","from":"jack-gillum","to":"hyatt-regency-walkways","role":"sealed"},
+  {"type":"contributed","from":"daniel-duncan","to":"hyatt-regency-walkways","role":"designed"},
+  {"type":"contributed","from":"wayne-lischka","to":"hyatt-regency-walkways","role":"corrected"},
+  {"type":"about","from":"c-hyatt-regency-walkways-01","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-01","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-02","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-02","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-03","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-03","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-04","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-04","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-05","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-05","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-06","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-06","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-07","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-07","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-08","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-08","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-09","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-09","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-10","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-10","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-11","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-11","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-12","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-12","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-13","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-13","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-14","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-14","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-15","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-15","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"about","from":"c-hyatt-regency-walkways-16","to":"hyatt-regency-walkways"},
+  {"type":"cites","from":"c-hyatt-regency-walkways-16","to":"src-hyatt-regency-walkways-vcl"},
+  {"type":"responded-to","from":"hyatt-regency-walkways","to":"concept-load-path-rerouted","claimId":"c-hyatt-regency-walkways-03"},
+  {"type":"forced","from":"hyatt-regency-walkways","to":"concept-engineer-of-record-responsibility","claimId":"c-hyatt-regency-walkways-12"},
+  {"type":"covers","from":"story-hyatt-regency-walkways","to":"hyatt-regency-walkways"}
  ]
 }

@@ -1074,7 +1074,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.82 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.83 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1788,7 +1788,10 @@ const PETROSKI = [
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7478593943018819584"}},
   {id:"ronan-point", name:"Ronan Point", year:1968, date:"16 May 1968", origin:"United Kingdom", field:"System-built tower", status:"covered",
    hook:"In 1968 a gas stove flexed one wall panel out of a new 22-storey tower. A whole corner fell to the ground, flat by flat.",
-   post:{label:"Read the story", url:"https://www.facebook.com/share/p/1CrNm2r2hH/"}}
+   post:{label:"Read the story", url:"https://www.facebook.com/share/p/1CrNm2r2hH/"}},
+  {id:"hyatt-regency-walkways", name:"Hyatt Regency Walkways", year:1981, date:"17 Jul 1981", origin:"United States", field:"Hotel atrium walkways", status:"covered",
+   hook:"A FABRICATOR REDREW ONE HANGER ROD DETAIL. THE ENGINEERS SEALED IT IN TEN DAYS WITHOUT RUNNING THE NUMBERS. IN 1981 IT DROPPED TWO WALKWAYS INTO A CROWDED LOBBY.",
+   post:{label:"Read the story", url:"https://www.facebook.com/share/p/1FmJ7E8UP6/"}}
 ];
 const HAMMURABI = [
   {id:"manchester-28m", name:"British Airtours Flight 28M", year:1985, date:"22 Aug 1985", origin:"United Kingdom", field:"Airliner evacuation", status:"covered",
@@ -1949,7 +1952,7 @@ function renderLine(lineId, arr, meta){
   wrap.appendChild(block);
 }
 [
-  ["petroski", PETROSKI, {num:"1628 to 1968", thesis:"Engineering failures, by how each announced itself: the ship everybody watched capsize at the quay and sailed anyway, the bridge nobody predicted, the tower one spark brought down.", dateLabel:"Failure", domain:"Engineering failures", invite:INVITE_STUDIED}],
+  ["petroski", PETROSKI, {num:"1628 to 1981", thesis:"Engineering failures, by how each announced itself: the ship everybody watched capsize at the quay and sailed anyway, the bridge nobody predicted, the tower one spark brought down, and the walkways nobody added up.", dateLabel:"Failure", domain:"Engineering failures", invite:INVITE_STUDIED}],
   ["hammurabi", HAMMURABI, {num:"1985", thesis:"Regulation written in blood: the rules we wrote only after we counted the dead.", dateLabel:"Accident", domain:"Regulation, written in blood", invite:INVITE_STUDIED}],
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
   ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
@@ -2001,7 +2004,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:431, verified:414, sources:38, edges:65, artifacts:55 };
+const FINDING_STATS = { claims:447, verified:429, sources:39, edges:67, artifacts:56 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
