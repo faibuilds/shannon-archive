@@ -230,7 +230,8 @@ const ROEBLING = parseLineArray("ROEBLING");
 (function checkSealed() {
   const name = "sealed: no status:soon plate has a hook";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
-  const plates = AIRCRAFT.concat(LOVELACE || [], WRIGHT || []);
+  const plates = AIRCRAFT.concat(LOVELACE || [], WRIGHT || [], PETROSKI || [],
+    HAMMURABI || [], BARENYI || [], TIPPER || [], SUTTER || [], CARNOT || [], NOYCE || [], ROEBLING || []);
   const leaks = plates.filter((p) => p.status === "soon" && "hook" in p).map((p) => p.id || p.name);
   if (leaks.length) fail(name, "sealed plates with hook: " + leaks.join(", "));
   else pass(name, "(" + plates.length + " plates checked)");
@@ -270,7 +271,8 @@ const ROEBLING = parseLineArray("ROEBLING");
   const name = "coverage: no hardcoded coverage counts in index.html";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
   // Hero stats and gauge header are archive-wide: every live line's plates.
-  const allPlates = AIRCRAFT.concat(LOVELACE || [], WRIGHT || []);
+  const allPlates = AIRCRAFT.concat(LOVELACE || [], WRIGHT || [], PETROSKI || [],
+    HAMMURABI || [], BARENYI || [], TIPPER || [], SUTTER || [], CARNOT || [], NOYCE || [], ROEBLING || []);
   const covered = allPlates.filter((p) => p.status === "covered").length;
   const total = allPlates.length;
   const problems = [];
