@@ -708,7 +708,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </a>
   <div class="nav-right">
     <a class="nav-findings" href="#findings">Findings</a>
-    <div class="nav-tag">EC Archive / Ten lines live</div>
+    <div class="nav-tag">EC Archive / <span id="nav-lines">11</span> lines live</div>
     <a class="nav-cta nav-support" href="https://buymeacoffee.com/engineeringcommunity" target="_blank" rel="noopener">Support</a>
     <a class="nav-cta nav-linkedin" href="https://www.linkedin.com/company/engineeringcommunity/" target="_blank" rel="noopener">Follow on LinkedIn</a>
   </div>
@@ -855,7 +855,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <p>SHANNON is Engineering Community's public archive of engineering history, read as a connected graph. The findings below and the interactive board are generated from that graph. Every connection shown cites a verified claim and a named source.</p>
     <p><b>Convergence.</b> Ada Lovelace wrote in 1843 that Babbage's Analytical Engine might act on things besides number, if their relations could be expressed symbolically. George Boole gave logic an algebra in 1854. In 1937 Claude Shannon, then 21, proved that Boolean algebra describes electrical switching circuits, and that correspondence underlies every digital device since. Two papers written eleven years and no contact apart meet in one thesis and end up in every processor.</p>
     <p><b>Constraint genealogy.</b> NACA proposed an adjustable stabilizer during the P-38 Lightning compressibility investigation. It did not save the P-38. The idea waited until the Bell X-1, where a movable tail gave Chuck Yeager pitch authority past Mach 1. Every supersonic fighter that followed carries it, the F-15 Eagle among them.</p>
-    <p>The board plots every artifact in the archive by year and by line, and draws a trace for each connection that cites a verified claim. Ten lines are live, from Kelly's military aircraft and Noyce's semiconductors to the failures, materials, and rules written after things went wrong, with one more in fabrication.</p>
+    <p>The board plots every artifact in the archive by year and by line, and draws a trace for each connection that cites a verified claim. Eleven lines are live, from Kelly's military aircraft and Noyce's semiconductors to the failures, materials, structures, and rules written after things went wrong.</p>
   </noscript>
   <div id="finding-slot"></div>
   <div class="finding-nav" id="finding-nav"></div>
@@ -1074,7 +1074,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.84 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.85 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2556,7 +2556,12 @@ const GAUGE_LINES = [
   { label: "Carnot", tag: "L-10", plates: CARNOT },
   { label: "Noyce", tag: "L-11", plates: NOYCE }
 ];
-document.getElementById("lines-live").textContent = GAUGE_LINES.length;
+/* Every visible line count is read from the roster, so none of them can
+   drift the way "ten lines live" did across the nav, the head and here. */
+["lines-live", "nav-lines"].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.textContent = GAUGE_LINES.length;
+});
 const linesWrap = document.getElementById("gauge-lines");
 GAUGE_LINES.forEach(L => {
   const covered = L.plates.filter(a => a.status === "covered").length;
