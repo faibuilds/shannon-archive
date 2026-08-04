@@ -470,6 +470,12 @@ a.remark-name{text-decoration:none;border-bottom:1px dotted var(--green-line)}
 a.remark-name:hover{color:var(--green)}
 .remark-title{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--steel-faint)}
 .remark-text{font-size:13px;color:var(--steel-dim);line-height:1.7;white-space:pre-line}
+/* A long remark folds to seven lines with the rest one tap away. Nobody's
+   words are cut, only folded: the full text is always in the page. */
+.remark-text.clamped{max-height:11.9em;overflow:hidden;position:relative}
+.remark-text.clamped::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3.2em;background:linear-gradient(to bottom,rgba(14,16,19,0),#0e1013)}
+.remark-more{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);background:none;border:0;padding:8px 0 0;transition:color .2s}
+.remark-more:hover{color:var(--green)}
 .remark-src{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-top:8px;display:inline-block;transition:color .2s}
 .remark-src:hover{color:var(--green)}
 .remark.pending{align-items:center}
@@ -1074,7 +1080,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.85 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.86 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1499,7 +1505,8 @@ function remarksBlock(remarks, primary, invite){
               <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
               <div class="remark-body">
                 <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(r.profile)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
-                <p class="remark-text">${esc(r.text)}</p>
+                <p class="remark-text${r.len > 260 ? " clamped" : ""}">${esc(r.text)}</p>
+                ${r.len > 260 ? `<button type="button" class="remark-more" aria-expanded="false" hidden>Show the rest</button>` : ""}
                 ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
               </div>
             </div>` : `
@@ -1712,7 +1719,8 @@ const WRIGHT = [
    remarks:[
      {name:"Bill Platt", title:"Naval Architect", text:"The strangest thing about the Wrights was their transition from being the very essence of science, to being fearful hoarders and patent and lawsuit obsessed tycoons. They stopped inventing. And aeronautics passed them by.", len:217, cleared:true},
      {name:"Brian Berthold", title:"", text:"Where are those naysayers complaining about too small, too slow, wrong Reynolds number??? Good thing they weren't around then.", len:124, cleared:true, note:"Consent conditional (LinkedIn, Jul 2026): feature on the site only; do not use this comment to train AI."},
-     {name:"Matias Soto", title:"PhD", text:"The Wright brothers are constantly referred as bicycle mechanics, as if that meant they were uneducated or ignorant. History shows they were avid readers and students of science and mathematics, and constantly experimented with high tech. Through that process they became the leading experts in their field.", len:303, cleared:true, note:"Attribution caveat (LinkedIn, Jul 2026): credit as relaying, not as the original source of the facts."}
+     {name:"Matias Soto", title:"PhD", text:"The Wright brothers are constantly referred as bicycle mechanics, as if that meant they were uneducated or ignorant. History shows they were avid readers and students of science and mathematics, and constantly experimented with high tech. Through that process they became the leading experts in their field.", len:303, cleared:true, note:"Attribution caveat (LinkedIn, Jul 2026): credit as relaying, not as the original source of the facts."},
+     {name:"Pierre Gravel", title:"PhD in Astronomy and Astrophysics, Research Engineer in Computer Vision and Machine Learning", text:"In 2010, I visited the National Air and Space Museum in Washington for the second time. This time, however, I went alone, which meant I had plenty of time to look at whatever interested me the most.\n\nOnce again, I was flabbergasted by the main hall, which housed the X-15, the Spirit of St. Louis, the V-2 and the Me 262, among others. The LEM with its two astronauts was close by.\n\nThis time, however, I noticed that there was a special exhibition about the Wright brothers, featuring their wind tunnel, notebooks filled with curves, notes and computations, measuring instruments and a reproduction of their bike shop. I spent most of the afternoon exploring everything in that room.\n\nOver the years, I have read several books about the Wright brothers and the beginnings of aviation. I was captivated by the realisation that these two bicycle makers were amazing experimentalists, especially Wilbur, the older one.\n\nIn my opinion, the three greatest technological inventions of the 20th century were the airplane, the radio and the computer. How about you?", len:1058, cleared:true, note:"Consent unsolicited (LinkedIn, Jul 2026): EC Yes you definitely may. Scope confirmed 03.08.2026 against the live thread: the top-level museum comment, not the compound-interest or Goddard replies."}
    ]}
 ];
 {
@@ -3199,6 +3207,44 @@ function openSheet(d, url) {
     exportCard(d, CARD[act], b);
   });
 }
+/* LONG REMARKS. One consented comment ran five paragraphs, four times the
+   height of every other remark on its wall. It folds to seven lines with
+   the rest one tap away. No words are cut, only folded: the full text is
+   always in the page and in the DOM.
+   Whether a remark overflows depends on how wide its column is, so it is
+   measured rather than guessed from character count. The same 419-character
+   remark fits on a desktop column and runs over on a phone, so the offer to
+   open it appears only where there is really something hidden, and it is
+   re-measured when the window changes. An expanded remark stays open. */
+function foldRemarks() {
+  document.querySelectorAll(".remark-more").forEach(b => {
+    const t = b.parentNode.querySelector(".remark-text");
+    if (!t) return;
+    t.classList.add("clamped");
+    const fits = t.scrollHeight <= t.clientHeight + 4;
+    b.hidden = fits;
+    /* Only a reader's own click keeps a remark open. Reading intent off the
+       class instead would mean a remark unfolded for fitting a desktop
+       column stays unfolded when the window narrows past its limit. */
+    if (fits || b.dataset.open === "1") t.classList.remove("clamped");
+  });
+}
+foldRemarks();
+document.fonts.ready.then(foldRemarks);
+let foldT;
+addEventListener("resize", () => { clearTimeout(foldT); foldT = setTimeout(foldRemarks, 150); });
+
+/* One listener for every folded remark on the page. */
+document.addEventListener("click", e => {
+  const b = e.target.closest(".remark-more");
+  if (!b) return;
+  const t = b.parentNode.querySelector(".remark-text");
+  const folded = t.classList.toggle("clamped");
+  b.dataset.open = folded ? "0" : "1";
+  b.textContent = folded ? "Show the rest" : "Show less";
+  b.setAttribute("aria-expanded", String(!folded));
+});
+
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 document.addEventListener("click", async e => {
   const btn = e.target.closest(".btn-share");

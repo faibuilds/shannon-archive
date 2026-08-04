@@ -92,8 +92,11 @@ const html = fs.readFileSync(INDEX, "utf8");
   // states they consented and their remark is unsealed with cleared:true.
   // Consented so far: Lee Hearn, Neil Wilkins, Roger Griffiths, Lakshmi N
   // Sankar, Kenneth McNaught, Bill Platt, Massimiliano "Max" F., John
-  // Crowley, Brian Berthold, Matias Soto (07.2026). Allen Crane asked but
-  // not yet replied, so he stays in the exact-strings list below.
+  // Crowley, Brian Berthold, Matias Soto (07.2026), Pierre Gravel
+  // (08.2026). Allen Crane asked but not yet replied, so he stays in the
+  // exact-strings list below. Still pending, never to be published without
+  // a clear yes: Stephen Puryear (replying but no yes/no) and Cliff
+  // Hindman (only "I agree", which is not consent).
   const surnames = [
     "Ferretti", "Hindman", "Aven", "Aiken",
     "Bolton", "Donahue", "Bourquin", "Palermo", "Pickard",
