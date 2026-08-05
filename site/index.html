@@ -126,6 +126,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .finding-method{font-family:var(--mono);font-size:9.5px;line-height:1.85;letter-spacing:.5px;color:var(--steel-faint);margin-top:18px;padding-top:14px;border-top:1px solid var(--line);max-width:880px}
 .finding-method b{color:var(--steel-dim);font-weight:600}
 
+/* ---------- WHERE THE SOURCES DISAGREE ---------- */
+.conflicts{max-width:1240px;margin:0 auto;padding:70px 24px 20px;scroll-margin-top:110px}
+.conflicts-head{max-width:760px;margin-bottom:26px}
+.conflicts-tag{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.conflicts-lead{font-size:26px;font-weight:800;letter-spacing:-.4px;line-height:1.25;color:var(--steel);margin-bottom:12px}
+.conflicts-sub{font-size:13.5px;line-height:1.75;color:var(--steel-dim)}
+.cf-plate{border-top:1px solid var(--line);padding-top:16px;margin-top:22px}
+.cf-plate-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cf-name{font-size:15px;font-weight:700;color:var(--steel);text-decoration:none;border-bottom:1px dotted var(--green-line)}
+.cf-name:hover{color:var(--green)}
+.cf-line{font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint)}
+.cf-count{font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-left:auto}
+.cf{background:#0e1013;border:1px solid var(--line);border-left:2px solid var(--green-line);box-shadow:inset 0 2px 5px rgba(0,0,0,.35);padding:14px 18px;margin-bottom:10px;max-width:900px}
+.cf-text{font-size:13px;line-height:1.7;color:var(--steel-dim)}
+.cf-text b{color:var(--steel);font-weight:600}
+.cf-src{font-family:var(--mono);font-size:9.5px;line-height:1.7;letter-spacing:.5px;color:var(--steel-faint);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.cf-src span{color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-right:8px}
+.conflict-method{font-family:var(--mono);font-size:9.5px;line-height:1.85;letter-spacing:.5px;color:var(--steel-faint);margin-top:26px;padding-top:14px;border-top:1px solid var(--line);max-width:880px}
+.conflict-method b{color:var(--steel-dim);font-weight:600}
+@media (max-width:720px){.conflicts{padding:44px 20px 16px}.conflicts-lead{font-size:21px}}
+
 /* ---------- THE BOARD ---------- */
 .board-wrap{margin-top:26px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);box-shadow:var(--bevel),var(--depth)}
 .board-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
@@ -722,6 +743,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </a>
   <div class="nav-right">
     <a class="nav-findings" href="#findings">Findings</a>
+    <a class="nav-findings" href="#conflicts">Open questions</a>
     <div class="nav-tag">EC Archive / <span id="nav-lines">11</span> lines live</div>
     <a class="nav-cta nav-support" href="https://buymeacoffee.com/engineeringcommunity" target="_blank" rel="noopener">Support</a>
     <a class="nav-cta nav-linkedin" href="https://www.linkedin.com/company/engineeringcommunity/" target="_blank" rel="noopener">Follow on LinkedIn</a>
@@ -1001,6 +1023,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="timeline" id="roebling-timeline"></div>
 </section>
 
+<!-- Where the sources disagree. Read from graph.json, so it is the same
+     record the plates and the board compute from and cannot drift. Rule 4
+     lets conflicting claims render with every version shown; this is the
+     one page that shows them together instead of one plate at a time. -->
+<section class="conflicts" id="conflicts">
+  <div class="conflicts-head">
+    <div class="conflicts-tag">Open questions</div>
+    <h2 class="conflicts-lead">Where the sources disagree.</h2>
+    <p class="conflicts-sub">Verifying a claim usually settles it. Sometimes it does the opposite: two good sources give two numbers and there is no honest way to pick one. Those are logged rather than quietly resolved, and this is all of them, in one place. When a figure is contested we print every version we found, or we print none.</p>
+  </div>
+  <div id="conflict-list"></div>
+  <p class="conflict-method" id="conflict-method"></p>
+</section>
+
 <section class="alerts" id="alerts">
   <div class="alerts-inner brushed">
     <div>
@@ -1088,7 +1124,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.87 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.88 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -3286,6 +3322,89 @@ window.addEventListener("load", () => {
     setTimeout(()=>el.classList.remove("flash"), 2600);
   }, 300);
 });
+
+/* ---------- WHERE THE SOURCES DISAGREE ----------
+   Every conflicting claim in the archive, gathered in one place instead of
+   sitting one plate at a time inside the ledgers. Read from graph.json, so
+   the count and the wording can never drift from the record. A conflict on
+   a sealed plate is not shown: rule 2 outranks this section. */
+(async function conflicts() {
+  const g = await GRAPH_READY;
+  const wrap = document.getElementById("conflict-list");
+  if (!g || !Array.isArray(g.nodes) || !wrap) return;
+
+  const node = {};
+  g.nodes.forEach(n => { node[n.id] = n; });
+  const lineName = id => ((node[id] || {}).name || id).toUpperCase();
+  const tag = id => {
+    const t = ["kelly","petroski","hammurabi","barenyi","tipper","roebling",
+               "lovelace","wright","sutter","carnot","noyce"].indexOf(id);
+    return t < 0 ? "" : " L-" + String(t + 1).padStart(2, "0");
+  };
+  /* Name and year come off the plate, not the graph node, so this section
+     says exactly what the plate says. The graph carries the long formal
+     name and the earliest dated event, which would print the Bell X-1 as
+     1945 while its own plate reads 1946. */
+  const plateName = id => {
+    const h = (document.getElementById(id) || {}).querySelector
+      ? document.getElementById(id).querySelector("h3") : null;
+    if (!h) return (node[id] || {}).name || id;
+    return [...h.childNodes].map(n => (n.textContent || "").trim())
+      .filter(Boolean).join(" ").replace(/\s+/g, " ");
+  };
+  const yearOf = id => {
+    const p = document.getElementById(id);
+    const y = p && p.querySelector(".plate-year");
+    return y ? y.textContent.trim() : "";
+  };
+
+  const by = {};
+  for (const n of g.nodes) {
+    if (n.type !== "claim" || n.status !== "conflicting") continue;
+    for (const a of (n.aboutIds || [])) {
+      const plate = document.getElementById(a);
+      if (!plate || !plate.classList.contains("covered")) continue;
+      (by[a] = by[a] || []).push(n);
+    }
+  }
+
+  const num = s => { const m = String(s).match(/\d{3,4}/); return m ? +m[0] : 0; };
+  const ids = Object.keys(by).sort((a, b) => num(yearOf(a)) - num(yearOf(b)));
+  if (!ids.length) { document.getElementById("conflicts").style.display = "none"; return; }
+
+  let total = 0;
+  wrap.innerHTML = ids.map(id => {
+    const art = node[id] || {}, list = by[id];
+    total += list.length;
+    const meta = [lineName(art.lineId) + tag(art.lineId), yearOf(id)].filter(Boolean).join(" &middot; ");
+    return `<div class="cf-plate">
+      <div class="cf-plate-head">
+        <a class="cf-name" href="#${esc(id)}">${esc(plateName(id))}</a>
+        <span class="cf-line">${meta}</span>
+        <span class="cf-count">${list.length} open</span>
+      </div>
+      ${list.map(c => `<div class="cf">
+        <div class="cf-text">${esc(c.text)}</div>
+        ${c.sourceNote ? `<div class="cf-src"><span>Sources</span>${esc(c.sourceNote)}</div>` : ""}
+      </div>`).join("")}
+    </div>`;
+  }).join("");
+
+  const claims = g.nodes.filter(n => n.type === "claim");
+  document.getElementById("conflict-method").innerHTML =
+    `<b>${total}</b> open question${total === 1 ? "" : "s"} across <b>${ids.length}</b> plate${ids.length === 1 ? "" : "s"}, `
+    + `out of <b>${claims.length}</b> claims in the archive. `
+    + `A claim is logged as conflicting when good sources give different figures and the archive cannot honestly choose between them. `
+    + `It stays that way until something settles it. Corrections are welcome on any plate.`;
+
+  /* Deep links from elsewhere: open the plate a conflict points at. */
+  wrap.addEventListener("click", e => {
+    const a = e.target.closest(".cf-name");
+    if (!a) return;
+    const t = document.getElementById(a.getAttribute("href").slice(1));
+    if (t) t.classList.add("visible");
+  });
+})();
 
 /* ---------- VERIFIED CLAIMS ----------
    Each published plate's ledger, read from graph.json, so it is the same
