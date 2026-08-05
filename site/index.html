@@ -132,7 +132,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .conflicts-tag{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
 .conflicts-lead{font-size:26px;font-weight:800;letter-spacing:-.4px;line-height:1.25;color:var(--steel);margin-bottom:12px}
 .conflicts-sub{font-size:13.5px;line-height:1.75;color:var(--steel-dim)}
-.cf-plate{border-top:1px solid var(--line);padding-top:16px;margin-top:22px}
+/* Each plate's block is its own anchor, so a conflict can be linked to
+   directly from its plate and from anywhere else. */
+.cf-plate{border-top:1px solid var(--line);padding-top:16px;margin-top:22px;scroll-margin-top:120px;transition:box-shadow .3s,border-color .3s}
+.cf-plate.flash{border-top-color:var(--green)}
+/* The entry point from the findings, and the one on each plate that has an
+   open question. Both land on the same record. */
+.finding-open-q{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);text-decoration:none;border:1px solid var(--green-line);background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:var(--bevel),0 0 16px -5px var(--green-glow);padding:10px 16px;transition:border-color .2s,box-shadow .2s}
+.finding-open-q:hover{border-color:var(--green);box-shadow:var(--bevel),0 0 22px -3px var(--green-glow)}
+.finding-open-q b{font-size:13px;font-weight:600}
+.open-q{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--green);text-decoration:none;border:1px dashed var(--green-line);padding:11px 16px;transition:border-color .2s,background .2s}
+.open-q:hover{border-color:var(--green);background:var(--green-dim)}
+.open-q::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 9px var(--green-glow);flex:0 0 auto;animation:bpulse 2.4s ease-in-out infinite}
+.conflict-cta{display:inline-flex;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--steel-dim);background:none;border:1px dashed var(--line2);padding:12px 18px;margin-top:18px;transition:color .2s,border-color .2s}
+.conflict-cta:hover{color:var(--green);border-color:var(--green-line)}
 .cf-plate-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 .cf-name{font-size:15px;font-weight:700;color:var(--steel);text-decoration:none;border-bottom:1px dotted var(--green-line)}
 .cf-name:hover{color:var(--green)}
@@ -866,6 +879,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <span class="filter-group-label">Archive</span>
     <button class="pill line-jump" data-jump="findings">Findings</button>
     <button class="pill line-jump" data-jump="board">Board</button>
+    <button class="pill line-jump" data-jump="conflicts">Open questions</button>
   </div>
   <div class="filter-group search-group">
     <span class="filter-group-label">Search</span>
@@ -909,6 +923,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
 
   <p class="finding-method" id="finding-method"></p>
+  <!-- The pair to the findings: what the graph found, and what it could not
+       settle. Hidden until the count is known, so it never shows a zero. -->
+  <a class="finding-open-q" id="finding-open-q" href="#conflicts" hidden></a>
 </section>
 
 <section class="timeline-section" id="kelly">
@@ -1035,6 +1052,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div id="conflict-list"></div>
   <p class="conflict-method" id="conflict-method"></p>
+  <!-- A reader with the settling source is more use to the archive than any
+       amount of further searching. Routed to the defect form, which is the
+       correction channel that already exists, until an open-question form of
+       its own is worth building. -->
+  <button class="conflict-cta" data-form="9q56RV" data-form-title="Settle an open question">Have a source that settles one? Send it &rarr;</button>
 </section>
 
 <section class="alerts" id="alerts">
@@ -1095,7 +1117,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 <section class="method" id="method">
   <div class="method-inner">
     <div class="method-k">Method</div>
-    <p>We use AI, with intent. A human directs the angle, edits every line, and checks each claim against its sources, then two independent audits run before anything publishes. Claims that fail never render, corrections stay visible, and every published plate carries its ledger below the story.</p>
+    <p>We use AI, with intent. A human directs the angle, edits every line, and checks each claim against its sources, then two independent audits run before anything publishes. A claim we cannot verify never renders. Where good sources disagree we print every version and log it as an open question, rather than quietly pick one. Corrections stay visible, and every published plate carries its ledger below the story.</p>
   </div>
 </section>
 
@@ -1124,7 +1146,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.88 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.89 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2116,7 +2138,7 @@ const FINDING_STATS = { claims:447, verified:429, sources:39, edges:67, artifact
     /* The previous wording said conflicting material is never rendered. That
        stopped being true when the per-plate ledgers began surfacing conflicts,
        so this states what the site now actually does. */
-    + "Where sources disagree, the claim is kept as a conflict and every version renders in that plate's ledger. Unverifiable material stays in the record and never renders. Two claims are marked false, because we published them before we checked.";
+    + "Where sources disagree, the claim is kept as an open question and every version renders, in that plate's ledger and in the list below. Unverifiable material stays in the record and never renders. Two claims are marked false, because we published them before we checked.";
   render(0);
 }
 
@@ -2310,7 +2332,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
 
   document.getElementById("board-foot").innerHTML =
     `<span>Lit <b>&#9632;</b> published</span><span>Dashed <b>&#9633;</b> sealed</span>`
-    + `<span>Trace <b>&#8212;</b> a connection citing a verified claim</span>`
+    + `<span>Trace <b>&#9472;</b> a connection citing a verified claim</span>`
     + `<span><b>${placed.length}</b> components</span><span><b>${syn.length}</b> traces</span>`
     + (noHover
       ? `<span>Tap a number above to light its evidence. Tap a component to see what it connects to, tap it again to open its plate.</span>`
@@ -3377,7 +3399,7 @@ window.addEventListener("load", () => {
     const art = node[id] || {}, list = by[id];
     total += list.length;
     const meta = [lineName(art.lineId) + tag(art.lineId), yearOf(id)].filter(Boolean).join(" &middot; ");
-    return `<div class="cf-plate">
+    return `<div class="cf-plate" id="q-${esc(id)}">
       <div class="cf-plate-head">
         <a class="cf-name" href="#${esc(id)}">${esc(plateName(id))}</a>
         <span class="cf-line">${meta}</span>
@@ -3394,16 +3416,77 @@ window.addEventListener("load", () => {
   document.getElementById("conflict-method").innerHTML =
     `<b>${total}</b> open question${total === 1 ? "" : "s"} across <b>${ids.length}</b> plate${ids.length === 1 ? "" : "s"}, `
     + `out of <b>${claims.length}</b> claims in the archive. `
-    + `A claim is logged as conflicting when good sources give different figures and the archive cannot honestly choose between them. `
-    + `It stays that way until something settles it. Corrections are welcome on any plate.`;
+    + `A claim becomes an open question when good sources give different figures and the archive cannot honestly choose between them. `
+    + `It is recorded in the graph as conflicting, it stays that way until something settles it, and nothing here is a claim we failed to check. `
+    + `A claim we could not verify at all does not appear on this page or anywhere else on the site.`;
 
-  /* Deep links from elsewhere: open the plate a conflict points at. */
+  /* Both directions are driven explicitly rather than left to the browser's
+     anchor jump. Clicking a marker whose hash is already current changes
+     nothing, so it fires neither a navigation nor a hashchange: a reader who
+     followed the link, scrolled back to the plate and clicked again would
+     get silence. The hrefs stay for copy-link and for opening in a new tab. */
+  const mark = el => {
+    document.querySelectorAll(".cf-plate.flash").forEach(o => o.classList.remove("flash"));
+    el.classList.add("flash");
+    setTimeout(() => el.classList.remove("flash"), 2600);
+  };
+  const jump = (el, flash) => {
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    if (flash) mark(el);
+  };
+
+  /* Back the other way: a conflict heading opens its plate. */
   wrap.addEventListener("click", e => {
     const a = e.target.closest(".cf-name");
     if (!a) return;
+    e.preventDefault();
     const t = document.getElementById(a.getAttribute("href").slice(1));
-    if (t) t.classList.add("visible");
+    if (!t) return;
+    t.classList.add("visible");
+    t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    t.classList.add("flash");
+    setTimeout(() => t.classList.remove("flash"), 2600);
   });
+
+  /* The entry point on the findings, so the pair is reachable from the top
+     of the page and not only from the nav. */
+  const foq = document.getElementById("finding-open-q");
+  if (foq) {
+    foq.innerHTML = `<b>${total}</b> open question${total === 1 ? "" : "s"}, where the sources disagree and we say so &rarr;`;
+    foq.hidden = false;
+  }
+
+  /* And one on each plate that has one, next to its ledger, which is where a
+     reader is already looking at the evidence. Each lands on that plate's own
+     block rather than the top of the section. */
+  ids.forEach(id => {
+    const plate = document.getElementById(id);
+    const actions = plate && plate.querySelector(".plate-actions");
+    if (!actions || actions.querySelector(".open-q")) return;
+    const n = by[id].length;
+    const a = document.createElement("a");
+    a.className = "open-q";
+    a.href = "#q-" + id;
+    a.textContent = n + " open question" + (n === 1 ? "" : "s");
+    a.addEventListener("click", ev => {
+      ev.preventDefault();
+      history.replaceState(null, "", "#q-" + id);
+      jump(document.getElementById("q-" + id), true);
+    });
+    actions.appendChild(a);
+  });
+
+  /* Arriving at a block from a shared link marks the one you came for.
+     Without this the section is a wall and you have to hunt. */
+  const markTarget = () => {
+    const h = location.hash;
+    if (!/^#q-/.test(h)) return;
+    const t = document.getElementById(h.slice(1));
+    if (t) mark(t);
+  };
+  addEventListener("hashchange", markTarget);
+  markTarget();
 })();
 
 /* ---------- VERIFIED CLAIMS ----------

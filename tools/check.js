@@ -62,20 +62,34 @@ function extractLiteral(src, start) {
 // ---------------------------------------------------------------------------
 // Check 1: No em-dash (U+2014) anywhere under /site (text files only).
 // ---------------------------------------------------------------------------
+// A literal-character scan is not enough. The board legend shipped an em-dash
+// for months written as &#8212;, and an en-dash once shipped as the CSS escape
+// \2013: both render as the character the constitution forbids while reading
+// as harmless ASCII in the source. Every spelling a browser resolves back to
+// U+2014 or U+2013 is checked, in markup, CSS and JavaScript alike.
 (function checkEmDash() {
-  const name = "em-dash: no U+2014 under /site";
+  const name = "em-dash: no U+2014 or U+2013 under /site, in any spelling";
+  const FORMS = [
+    ["—", "literal em-dash"], ["–", "literal en-dash"],
+    ["&mdash;", "&mdash;"], ["&ndash;", "&ndash;"],
+    ["&#8212;", "&#8212;"], ["&#8211;", "&#8211;"],
+    ["&#x2014;", "&#x2014;"], ["&#x2013;", "&#x2013;"],
+    ["\\2014", "CSS escape \\2014"], ["\\2013", "CSS escape \\2013"],
+    ["\\u2014", "JS escape \\u2014"], ["\\u2013", "JS escape \\u2013"],
+  ];
   const hits = [];
   for (const file of walk(SITE)) {
     if (BINARY_EXT.has(path.extname(file).toLowerCase())) continue;
     const text = fs.readFileSync(file, "utf8");
-    const idx = text.indexOf("—");
-    if (idx >= 0) {
+    for (const [needle, label] of FORMS) {
+      const idx = text.toLowerCase().indexOf(needle.toLowerCase());
+      if (idx < 0) continue;
       const line = text.slice(0, idx).split("\n").length;
-      hits.push(path.relative(ROOT, file) + ":" + line);
+      hits.push(path.relative(ROOT, file) + ":" + line + " (" + label + ")");
     }
   }
-  if (hits.length) fail(name, "found in " + hits.join(", "));
-  else pass(name);
+  if (hits.length) fail(name, "found " + hits.join(", "));
+  else pass(name, "(" + FORMS.length + " spellings clear)");
 })();
 
 // Read the primary page once for the remaining checks.
