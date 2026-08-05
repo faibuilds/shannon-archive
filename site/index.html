@@ -1174,7 +1174,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.91 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.92 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2158,7 +2158,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:447, verified:429, sources:39, edges:67, artifacts:56 };
+const FINDING_STATS = { claims:474, verified:452, sources:40, edges:70, artifacts:57 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
@@ -2551,8 +2551,14 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const body = links.length
       ? links.join(" &nbsp;·&nbsp; ")
       : "No claim-cited connection recorded for this one yet.";
+    /* An artifact can be in the archive before its story is published, so it
+       has no plate to open. Two are in that state. Promising a plate that is
+       not there is a dead end, so say what is actually true. */
+    const hasPlate = !!document.getElementById(id);
     return `<span class="bc-kicker">${plain(id)}</span>${body}. `
-      + `<b>${touch ? "Tap again" : "Click"} to open its plate.</b>`;
+      + (hasPlate
+        ? `<b>${touch ? "Tap again" : "Click"} to open its plate.</b>`
+        : `<b>Recorded in the archive. Its story is not published yet.</b>`);
   }
 
   function openPlate(id) {

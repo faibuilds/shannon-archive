@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-08-03",
+ "updated": "2026-08-05",
  "line": "kelly",
  "nodes": [
   {
@@ -8222,6 +8222,458 @@
    "type": "story",
    "title": "The Failure Nobody Added Up",
    "status": "published linkedin: not posted this cycle instagram: not posted this cycle facebook: https://www.facebook.com/share/p/1FmJ7E8UP6/ newsletter: none"
+  },
+  {
+   "id": "harrison-h4",
+   "type": "artifact",
+   "name": "Harrison's H4 marine timekeeper",
+   "category": "instrument",
+   "origin": "United Kingdom",
+   "lineId": "carnot",
+   "sealed": false,
+   "note": "V5.1 SOP VCL, dual audit adjudicated. Story not yet published: the block carries a FRAME for the posts rather than links, so no plate is on the site and status.json is unchanged. Line placement is Fai's instruction; the domain tension with CARNOT (prime movers) is flagged in blocks/shannon_harrison-h4.md. Excluded as unverifiable: the remontoire, the spoiled beer, the King testing H5. See blocks/shannon_harrison-h4.md"
+  },
+  {
+   "id": "ev-invention-h4-1",
+   "type": "event",
+   "eventType": "invention",
+   "date": {
+    "year": 1753
+   },
+   "subjectId": "harrison-h4",
+   "label": "Watchmaker John Jefferys makes a pocket watch to Harrison's design for Harrison's own use, carrying temperature compensation and a larger, faster balance than normal practice. Its performance convinces Harrison the answer is a watch and not a sea clock"
+  },
+  {
+   "id": "ev-decision-h4-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1755
+   },
+   "subjectId": "harrison-h4",
+   "label": "Work begins on H4, after roughly twenty five years spent on the large sea clocks H1, H2 and the abandoned H3"
+  },
+  {
+   "id": "ev-completion-h4-3",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1759
+   },
+   "subjectId": "harrison-h4",
+   "label": "H4 is completed"
+  },
+  {
+   "id": "ev-record-h4-4",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1761,
+    "month": 11,
+    "day": 18
+   },
+   "subjectId": "harrison-h4",
+   "label": "H4 sails from Portsmouth aboard HMS Deptford in the care of William Harrison, John being 68"
+  },
+  {
+   "id": "ev-record-h4-5",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1762
+   },
+   "subjectId": "harrison-h4",
+   "label": "After 81 days to Jamaica the watch has lost 5.1 seconds, about one nautical mile of longitude error against an allowance of thirty"
+  },
+  {
+   "id": "ev-decision-h4-6",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1762
+   },
+   "subjectId": "harrison-h4",
+   "label": "The Board of Longitude suggests the result may be a fluke of errors cancelling on the round trip, and demands a second trial"
+  },
+  {
+   "id": "ev-record-h4-7",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1764
+   },
+   "subjectId": "harrison-h4",
+   "label": "On the Barbados trial the error is computed at 39.2 seconds over 47 days, under a third of the allowance the Act required"
+  },
+  {
+   "id": "ev-decision-h4-8",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1765,
+    "month": 2
+   },
+   "subjectId": "harrison-h4",
+   "label": "The Board confirms the timekeeper has met the Act's limits, then splits the award: 10,000 pounds on full disclosure of H4's construction and surrender of the mechanisms, the second 10,000 only once other timekeepers of the same type have been made and proven"
+  },
+  {
+   "id": "ev-decision-h4-9",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1766,
+    "month": 5,
+    "day": 5
+   },
+   "subjectId": "harrison-h4",
+   "label": "Nevil Maskelyne, champion of the rival lunar distance method and Astronomer Royal since February 1765, collects H4 for testing at Greenwich, recording that he received it locked up in a box sealed with three seals. Ten months of testing follow, H4 performs poorly, Maskelyne publishes and Harrison disputes the results"
+  },
+  {
+   "id": "ev-completion-h4-10",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1769
+   },
+   "subjectId": "harrison-h4",
+   "label": "Larcum Kendall completes K1, a copy of H4, delivered to the Board on 13 January 1770"
+  },
+  {
+   "id": "ev-decision-h4-11",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1773
+   },
+   "subjectId": "harrison-h4",
+   "label": "Harrison receives the balance of the money by intervention of Parliament, at 80, three years before his death"
+  },
+  {
+   "id": "john-harrison",
+   "type": "person",
+   "name": "John Harrison",
+   "note": "Self-taught Lincolnshire carpenter (1693-1776). Built the sea clocks H1 to H3, abandoned H3, and on the evidence of a pocket watch made to his design turned to the machine that solved the problem."
+  },
+  {
+   "id": "william-harrison",
+   "type": "person",
+   "name": "William Harrison",
+   "note": "John's son. Took H4 to sea on both trials, his father being 68 at the first, and predicted landfall at Madeira on the second with striking accuracy."
+  },
+  {
+   "id": "john-jefferys",
+   "type": "person",
+   "name": "John Jefferys",
+   "note": "Watchmaker who in 1753 built a pocket watch to Harrison's design for Harrison's personal use. Its performance is what convinced Harrison the solution was a watch."
+  },
+  {
+   "id": "nevil-maskelyne",
+   "type": "person",
+   "name": "Nevil Maskelyne",
+   "note": "Astronomer Royal from February 1765 and champion of the rival lunar distance method, appointed ex officio to the Board that judged H4, then given the watch to test. He collected it in May 1766, tested it for ten months, published a poor result, and Harrison disputed it."
+  },
+  {
+   "id": "larcum-kendall",
+   "type": "person",
+   "name": "Larcum Kendall",
+   "note": "Commissioned to copy H4. K1 was completed in 1769 for 500 pounds and became the proof that the method could be reproduced. It sailed with Cook; H4 never went to sea again."
+  },
+  {
+   "id": "src-harrison-h4-vcl",
+   "type": "source",
+   "kind": "reference",
+   "title": "EC VCL: Harrison's H4 and the longitude prize (V5.1 SOP, dual audit adjudicated. rmg.co.uk, tandfonline Annals of Science, unibz mirror of NMM, vintagewatchstraps.com, redfernanimation.com, screwdowncrown.com, watchesbysjx.com quoting Gould, barringtonwatchwinders.com, sammler-uhren, candowisdom.com, momentousbritain.co.uk, americanscientist.org, journeys.dartmouth.edu). The 2 mm pallet figure traces to Rupert Gould, H4's restorer 1920 to 1933. Held after audit."
+  },
+  {
+   "id": "c-h4-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "The Earth turns 360 degrees in 24 hours, 15 degrees an hour, so comparing local noon against the time at a reference port gives longitude directly. Latitude came from the sun; longitude required knowing the time somewhere else.",
+   "sourceNote": "Standard physics; every longitude source"
+  },
+  {
+   "id": "c-h4-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "One degree of longitude at the equator is about 60 nautical miles, so four seconds of clock error corresponds to about one nautical mile of position error.",
+   "sourceNote": "EC VCL derivation: 86,400 seconds per day over 360 degrees is 240 seconds per degree, so 4 seconds per minute of arc, and one minute of arc is one nautical mile. Both auditors confirmed"
+  },
+  {
+   "id": "c-h4-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "The 1714 Longitude Act offered 20,000 pounds for a method of finding longitude at sea to within half a degree, about 30 nautical miles, on a voyage to the West Indies. Half a degree is two minutes of time, so across a six week crossing the allowance is about three seconds of drift a day.",
+   "sourceNote": "rmg.co.uk; tandfonline Annals of Science; Act text widely quoted. Per-day figure is an EC derivation, auditors confirmed"
+  },
+  {
+   "id": "c-h4-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "The best pocket watches of the era could not hold better than about a minute a day.",
+   "sourceNote": "redfernanimation.com, confirmed on audit against verge watches of the period drifting one to two minutes daily"
+  },
+  {
+   "id": "c-h4-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "A pendulum clock cannot keep time on a moving ship. A sea timekeeper faces three enemies: the ship's motion, temperature change altering the balance spring's elasticity, and the mainspring's force varying between winds.",
+   "sourceNote": "Standard horology; vintagewatchstraps.com; barringtonwatchwinders"
+  },
+  {
+   "id": "c-h4-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "John Harrison, born 1693 and died 1776, was a self-taught Lincolnshire carpenter. H1 was built roughly 1728 to 1735, H2 begun 1737, and H3 followed. All were large machines descended from clocks.",
+   "sourceNote": "rmg.co.uk; multiple"
+  },
+  {
+   "id": "c-h4-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Harrison abandoned H3 before it was finished.",
+   "sourceNote": "vintagewatchstraps.com"
+  },
+  {
+   "id": "c-h4-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "In 1753 the watchmaker John Jefferys built a pocket watch to Harrison's design for Harrison's own use, carrying temperature compensation and a larger, faster balance than normal practice. Its performance convinced Harrison the solution lay in a watch rather than in his sea clocks. H4 was begun in 1755 and completed in 1759.",
+   "sourceNote": "vintagewatchstraps.com; redfernanimation.com; screwdowncrown.com; rmg.co.uk"
+  },
+  {
+   "id": "c-h4-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "H4's balance beats five times a second, faster and heavier than contemporary practice. A fast, heavy oscillator carries more momentum of its own, so a disturbance from the ship's motion counts for proportionally less.",
+   "sourceNote": "barringtonwatchwinders.com; redfernanimation.com"
+  },
+  {
+   "id": "c-h4-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "The escapement is Harrison's modified verge, with D-shaped diamond pallets about 2 mm long set parallel to each other and their backs cut to cycloidal curves. The arrangement holds the pallets against the escape wheel longer and allows a balance swing of roughly 270 degrees against roughly 90 for a conventional verge, so the balance's own rhythm dominates the driving force.",
+   "sourceNote": "watchesbysjx.com quoting Gould, H4's restorer; redfernanimation.com independently gives 2 mm"
+  },
+  {
+   "id": "c-h4-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Temperature is compensated by a bimetallic curb. Brass expands more than steel, so a brass and steel strip bends as it warms, and its free end carries pins embracing the balance spring, shortening the spring's effective length by as much as the heat had weakened it. The error is not removed. It is cancelled by an equal error aimed the other way.",
+   "sourceNote": "vintagewatchstraps.com"
+  },
+  {
+   "id": "c-h4-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "H4 carries maintaining power on the fusee, which keeps the watch running while it is being wound. Fusee watches without it stopped during winding.",
+   "sourceNote": "vintagewatchstraps.com"
+  },
+  {
+   "id": "c-h4-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Friction is reduced by jewel bearings of ruby with diamond endstones.",
+   "sourceNote": "sammler-uhren; journeys.dartmouth.edu"
+  },
+  {
+   "id": "c-h4-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "H4 sailed from Portsmouth aboard HMS Deptford on 18 November 1761 in the care of William Harrison, John being 68. On arrival in Jamaica after 81 days the watch had lost 5.1 seconds, about one nautical mile of longitude error.",
+   "sourceNote": "candowisdom.com; americanscientist.org; screwdowncrown.com. Reported as both 5 and 5.1 seconds; 5.1 held on audit as the uncontradicted precise figure"
+  },
+  {
+   "id": "c-h4-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "The Board of Longitude suggested the result might be a fluke, with errors cancelling out on the round trip, and demanded a second trial.",
+   "sourceNote": "momentousbritain.co.uk; candowisdom.com; unibz mirror of NMM"
+  },
+  {
+   "id": "c-h4-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "On the 1764 Barbados trial the watch's error was computed at 39.2 seconds over a 47 day voyage, under a third of the 120 second allowance and so three times better than the Act required.",
+   "sourceNote": "unibz mirror of NMM; arithmetic confirmed on audit"
+  },
+  {
+   "id": "c-h4-17",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "In February 1765 the Board confirmed the timekeeper had met the Act's limits, then split the award: 10,000 pounds on full disclosure of H4's construction and surrender of the mechanisms, and the second 10,000 only when other timekeepers of the same type had been made and proven.",
+   "sourceNote": "rmg.co.uk; unibz mirror of NMM"
+  },
+  {
+   "id": "c-h4-18",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "The Act rewarded a method for finding longitude at sea, not a single device. The Board's stated fear was that one unrepeatable masterpiece was not a method the Navy could use.",
+   "sourceNote": "Act title quoted at vintagewatchstraps.com; unibz mirror of NMM on the requirement for copies; screwdowncrown.com on reproducibility and cost"
+  },
+  {
+   "id": "c-h4-19",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Nevil Maskelyne, champion of the rival lunar distance method, became Astronomer Royal in February 1765 and an ex officio member of the Board. On 5 May 1766 he collected H4 for testing at Greenwich, recording in his diary that he received it locked up in a box sealed with three seals. Testing lasted ten months, H4 performed poorly, Maskelyne published, and Harrison disputed the results.",
+   "sourceNote": "rmg.co.uk for the diary wording and the ten months; candowisdom.com for the February 1765 appointment"
+  },
+  {
+   "id": "c-h4-20",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Larcum Kendall was commissioned to copy H4. K1 was completed in 1769 and delivered to the Board on 13 January 1770, and Kendall was paid 500 pounds for the work.",
+   "sourceNote": "unibz mirror of NMM for completion and inspection; candowisdom.com for the date and the fee, which is single-sourced"
+  },
+  {
+   "id": "c-h4-21",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "It was K1, not H4, that sailed with James Cook on his second and third voyages, and Cook called it his never failing guide. H4 itself never went to sea again after the trials.",
+   "sourceNote": "candowisdom.com; momentousbritain.co.uk; arxiv on K1 with Cook and then the First Fleet"
+  },
+  {
+   "id": "c-h4-22",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Harrison, with William, built a fifth timekeeper, H5, without H4, which the Board had taken. He received the balance of the money by intervention of Parliament in 1773, at 80, three years before his death. Scholars dispute whether he ever technically won the prize, since the final payment came from Parliament and not the Board.",
+   "sourceNote": "unibz mirror of NMM; sammler-uhren; tandfonline Annals of Science calls it a moot point"
+  },
+  {
+   "id": "c-h4-23",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Harrison's principles set the pattern for marine chronometers for over a century, and the chronometer made precision ocean navigation routine. Later makers did not copy H4's specific mechanisms: Kendall himself simplified in K2 and K3, and Le Roy's detent escapement superseded the design.",
+   "sourceNote": "sammler-uhren; momentousbritain.co.uk; standard record"
+  },
+  {
+   "id": "c-h4-24",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "H4's diameter is given as five inches, as six inches, and as just under 13 cm. The archive prints about five inches and no precise figure.",
+   "sourceNote": "EC VCL, conflict logged across multiple sources"
+  },
+  {
+   "id": "c-h4-25",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "Whether H4 carries a true remontoire rewinding every 7.5 seconds, as against maintaining power on the fusee only.",
+   "sourceNote": "sammler-uhren gives a remontoire; other sources give maintaining power only. Unsettled, so it never renders"
+  },
+  {
+   "id": "c-h4-26",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "That a thousand gallons of beer spoiled on the 1761 voyage, leaving the crew on water.",
+   "sourceNote": "americanscientist.org, single source and colourful. Held pending a second source"
+  },
+  {
+   "id": "c-h4-27",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "harrison-h4"
+   ],
+   "text": "That the King personally tested H5 and instructed Parliament to act.",
+   "sourceNote": "momentousbritain.co.uk, single source for the King's personal role"
+  },
+  {
+   "id": "concept-longitude-problem",
+   "type": "concept",
+   "name": "Longitude at sea as an unsolved problem: latitude came from the sun, but longitude needed the time at a reference port, and no clock could hold it on a moving ship"
+  },
+  {
+   "id": "concept-reproducibility-requirement",
+   "type": "concept",
+   "name": "Payment conditioned on a second maker: the reward was for a method the Navy could use, and one unrepeatable masterpiece is not a method"
+  },
+  {
+   "id": "concept-marine-chronometer",
+   "type": "concept",
+   "name": "The marine chronometer as standard equipment, and precision ocean navigation as routine rather than exceptional"
+  },
+  {
+   "id": "story-harrison-h4",
+   "type": "story",
+   "title": "One Masterpiece Is Not a Method",
+   "status": "not yet published. linkedin: planned, the reproducibility requirement. facebook: planned, the wrong 25 years and the pivot. instagram: planned, carousel launch. newsletter: none. Fairness rule locked for every long caption: the reproducibility requirement was engineering-correct AND the Board's conduct toward Harrison was not."
   }
  ],
  "edges": [
@@ -11772,6 +12224,80 @@
   {"type":"cites","from":"c-hyatt-regency-walkways-16","to":"src-hyatt-regency-walkways-vcl"},
   {"type":"responded-to","from":"hyatt-regency-walkways","to":"concept-load-path-rerouted","claimId":"c-hyatt-regency-walkways-03"},
   {"type":"forced","from":"hyatt-regency-walkways","to":"concept-engineer-of-record-responsibility","claimId":"c-hyatt-regency-walkways-12"},
-  {"type":"covers","from":"story-hyatt-regency-walkways","to":"hyatt-regency-walkways"}
+  {"type":"covers","from":"story-hyatt-regency-walkways","to":"hyatt-regency-walkways"},
+  {"type":"event-of","from":"ev-invention-h4-1","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-decision-h4-2","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-completion-h4-3","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-record-h4-4","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-record-h4-5","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-decision-h4-6","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-record-h4-7","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-decision-h4-8","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-decision-h4-9","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-completion-h4-10","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-decision-h4-11","to":"harrison-h4"},
+  {"type":"contributed","from":"john-harrison","to":"harrison-h4","role":"designed"},
+  {"type":"contributed","from":"william-harrison","to":"harrison-h4","role":"tested"},
+  {"type":"contributed","from":"john-jefferys","to":"harrison-h4","role":"pioneered"},
+  {"type":"contributed","from":"nevil-maskelyne","to":"harrison-h4","role":"tested"},
+  {"type":"contributed","from":"larcum-kendall","to":"harrison-h4","role":"built"},
+  {"type":"about","from":"c-h4-01","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-01","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-02","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-02","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-03","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-03","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-04","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-04","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-05","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-05","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-06","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-06","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-07","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-07","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-08","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-08","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-09","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-09","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-10","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-10","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-11","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-11","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-12","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-12","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-13","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-13","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-14","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-14","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-15","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-15","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-16","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-16","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-17","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-17","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-18","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-18","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-19","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-19","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-20","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-20","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-21","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-21","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-22","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-22","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-23","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-23","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-24","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-24","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-25","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-25","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-26","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-26","to":"src-harrison-h4-vcl"},
+  {"type":"about","from":"c-h4-27","to":"harrison-h4"},
+  {"type":"cites","from":"c-h4-27","to":"src-harrison-h4-vcl"},
+  {"type":"responded-to","from":"harrison-h4","to":"concept-longitude-problem","claimId":"c-h4-01"},
+  {"type":"forced","from":"harrison-h4","to":"concept-reproducibility-requirement","claimId":"c-h4-17"},
+  {"type":"enabled","from":"harrison-h4","to":"concept-marine-chronometer","claimId":"c-h4-23"},
+  {"type":"covers","from":"story-harrison-h4","to":"harrison-h4"}
  ]
 }
