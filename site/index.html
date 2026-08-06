@@ -542,6 +542,13 @@ a.remark-name:hover{color:var(--green)}
 .remark-more{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);background:none;border:0;padding:8px 0 0;transition:color .2s}
 .remark-more:hover{color:var(--green)}
 .remark-src{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);margin-top:8px;display:inline-block;transition:color .2s}
+/* An attribution caveat travels with the remark, on the plate and onto the
+   card. Matias Soto asked to be credited as relaying rather than as the
+   source, and a handsome quote under his name would say otherwise. */
+.remark-credit{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--steel-faint);margin-top:7px}
+.remark-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.remark-share{background:none;border:0;padding:8px 0 0;font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);transition:color .2s}
+.remark-share:hover{color:var(--green)}
 .remark-src:hover{color:var(--green)}
 .remark.pending{align-items:center}
 .pending-stamp{position:absolute;top:0;right:0;font-family:var(--mono);font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);background:#15181c;border-left:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 9px}
@@ -1174,7 +1181,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.92 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.93 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1622,8 +1629,12 @@ function remarksBlock(remarks, primary, invite, ask){
               <div class="remark-body">
                 <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(r.profile)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
                 <p class="remark-text${r.len > 260 ? " clamped" : ""}">${esc(r.text)}</p>
+                ${r.credit ? `<p class="remark-credit">${esc(r.credit)}</p>` : ""}
                 ${r.len > 260 ? `<button type="button" class="remark-more" aria-expanded="false" hidden>Show the rest</button>` : ""}
-                ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
+                <div class="remark-foot">
+                  ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
+                  <button type="button" class="remark-share">Share this remark</button>
+                </div>
               </div>
             </div>` : `
             <div class="remark pending">
@@ -1845,7 +1856,7 @@ const WRIGHT = [
    remarks:[
      {name:"Bill Platt", title:"Naval Architect", text:"The strangest thing about the Wrights was their transition from being the very essence of science, to being fearful hoarders and patent and lawsuit obsessed tycoons. They stopped inventing. And aeronautics passed them by.", len:217, cleared:true},
      {name:"Brian Berthold", title:"", text:"Where are those naysayers complaining about too small, too slow, wrong Reynolds number??? Good thing they weren't around then.", len:124, cleared:true, note:"Consent conditional (LinkedIn, Jul 2026): feature on the site only; do not use this comment to train AI."},
-     {name:"Matias Soto", title:"PhD", text:"The Wright brothers are constantly referred as bicycle mechanics, as if that meant they were uneducated or ignorant. History shows they were avid readers and students of science and mathematics, and constantly experimented with high tech. Through that process they became the leading experts in their field.", len:303, cleared:true, note:"Attribution caveat (LinkedIn, Jul 2026): credit as relaying, not as the original source of the facts."},
+     {name:"Matias Soto", title:"PhD", text:"The Wright brothers are constantly referred as bicycle mechanics, as if that meant they were uneducated or ignorant. History shows they were avid readers and students of science and mathematics, and constantly experimented with high tech. Through that process they became the leading experts in their field.", len:303, cleared:true, credit:"Relaying, not the original source.", note:"Attribution caveat (LinkedIn, Jul 2026): credit as relaying, not as the original source of the facts. The credit field carries it onto the share card, where a handsome quote under his name would otherwise present him as the authority, which is the thing he asked us not to do."},
      {name:"Pierre Gravel", title:"PhD in Astronomy and Astrophysics, Research Engineer in Computer Vision and Machine Learning", text:"In 2010, I visited the National Air and Space Museum in Washington for the second time. This time, however, I went alone, which meant I had plenty of time to look at whatever interested me the most.\n\nOnce again, I was flabbergasted by the main hall, which housed the X-15, the Spirit of St. Louis, the V-2 and the Me 262, among others. The LEM with its two astronauts was close by.\n\nThis time, however, I noticed that there was a special exhibition about the Wright brothers, featuring their wind tunnel, notebooks filled with curves, notes and computations, measuring instruments and a reproduction of their bike shop. I spent most of the afternoon exploring everything in that room.\n\nOver the years, I have read several books about the Wright brothers and the beginnings of aviation. I was captivated by the realisation that these two bicycle makers were amazing experimentalists, especially Wilbur, the older one.\n\nIn my opinion, the three greatest technological inventions of the 20th century were the airplane, the radio and the computer. How about you?", len:1058, cleared:true, note:"Consent unsolicited (LinkedIn, Jul 2026): EC Yes you definitely may. Scope confirmed 03.08.2026 against the live thread: the top-level museum comment, not the compound-interest or Goddard replies."}
    ]}
 ];
@@ -3318,6 +3329,154 @@ async function drawCard(d, F) {
   }
   return cv;
 }
+/* A REMARK CARD.
+   Same header, same footer, inverted hierarchy. The plate card leads with
+   the machine; this leads with the person, because that is the only reason
+   the wall exists. The plate it belongs to sits underneath in small type:
+   the name alone tells a stranger the subject, the hook tells them why it
+   is worth a click, and neither is allowed to compete with the quote. */
+function remarkData(btn) {
+  const rem = btn.closest(".remark");
+  const plate = btn.closest(".plate");
+  if (!rem || !plate) return null;
+  const sec = plate.closest(".timeline-section");
+  const ld = sec ? sec.querySelector(".ld-name") : null;
+  const t = (sel, el) => (((el || rem).querySelector(sel) || {}).textContent || "").trim();
+  const h3 = plate.querySelector("h3");
+  return {
+    kind: "remark",
+    id: plate.id,
+    covered: true,
+    name: t(".remark-name"),
+    title: t(".remark-title"),
+    credit: t(".remark-credit"),
+    text: t(".remark-text"),
+    plateName: h3 ? [...h3.childNodes].map(n => (n.textContent || "").trim()).filter(Boolean).join(" ").replace(/\s+/g, " ") : plate.id,
+    year: t(".plate-year", plate),
+    hook: t(".plate-hook", plate),
+    line: ld ? ld.textContent.replace(/\s+/g, " ").trim() : "",
+  };
+}
+
+async function drawRemarkCard(d, F) {
+  await document.fonts.ready;
+  const cv = document.createElement("canvas");
+  cv.width = F.w; cv.height = F.h;
+  const x = cv.getContext("2d"), S = F.w / 1080, M = 84 * S, CW = F.w - M * 2;
+
+  x.fillStyle = "#0b0c10"; x.fillRect(0, 0, F.w, F.h);
+  x.strokeStyle = "rgba(42,46,52,.9)"; x.lineWidth = 1;
+  for (let g = 0; g < F.w; g += 60 * S) { x.beginPath(); x.moveTo(g, 0); x.lineTo(g, F.h); x.stroke(); }
+  for (let g = 0; g < F.h; g += 60 * S) { x.beginPath(); x.moveTo(0, g); x.lineTo(F.w, g); x.stroke(); }
+  x.textBaseline = "alphabetic";
+
+  /* header, identical to the plate card so the two read as siblings */
+  let hy = M + 28 * S;
+  x.letterSpacing = (4 * S) + "px";
+  x.font = "700 " + (26 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#ccd1d6";
+  x.fillText("SHANNON", M, hy);
+  x.font = "400 " + (22 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.textAlign = "right"; x.fillText(String(d.line).toUpperCase().replace(" / LINE ", " L-"), F.w - M, hy);
+  x.textAlign = "left"; hy += 24 * S;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
+  x.beginPath(); x.moveTo(M, hy); x.lineTo(F.w - M, hy); x.stroke();
+
+  /* the footer is measured first, so the quote can be given what is left */
+  x.letterSpacing = (1.5 * S) + "px";
+  x.font = "400 " + (21 * S) + 'px "IBM Plex Mono"';
+  let hookLines = d.hook ? wrapLines(x, d.hook, CW) : [];
+  if (hookLines.length > 2) hookLines = hookLines.slice(0, 2), hookLines[1] = hookLines[1].replace(/\s+\S*$/, "") + "…";
+  const footH = (34 + 40 + hookLines.length * 30 + 56) * S;
+  const footTop = F.h - M - footH;
+
+  /* quote and attribution, fitted into the middle */
+  const kickTop = hy + 52 * S;
+  /* Must match what the signature block below actually advances, or the
+     quote is sized against room that is not there and the credit line drops
+     through the footer rule. Two cards were over by a few pixels on exactly
+     that arithmetic. Title and credit are both optional. */
+  const attrH = (30 + 40 + (d.title ? 26 : 0) + (d.credit ? 26 : 0) + 12) * S;
+  const room = footTop - kickTop - 44 * S - attrH;
+  /* A pull quote has a floor. Left to shrink freely a long remark reaches a
+     readable-nowhere 16px and fills the card with 24 lines of grey, which is
+     a wall of text rather than a quotation. Below MINQ the quote is cut at a
+     word and the URL carries the rest, which is what a pull quote has always
+     done. Gravel's 1058 characters is the only one that hits it today. */
+  const quoted = "“" + d.text + "”";
+  const base = F.h > 1500 ? 54 : 44, MINQ = 26;
+  let qs = base, qLines = [];
+  for (let s = base; s >= MINQ; s -= 4) {
+    x.letterSpacing = "0px";
+    x.font = "600 " + (s * S) + "px Poppins";
+    qLines = wrapLines(x, quoted, CW);
+    qs = s;
+    if (qLines.length * s * 1.42 * S <= room) break;
+  }
+  const lineH = qs * 1.42 * S;
+  const maxLines = Math.max(2, Math.floor(room / lineH));
+  if (qLines.length > maxLines) {
+    qLines = qLines.slice(0, maxLines);
+    qLines[maxLines - 1] = qLines[maxLines - 1].replace(/[\s”]+\S*$/, "") + "…”";
+  }
+
+  x.fillStyle = "#10b981"; x.letterSpacing = (4 * S) + "px";
+  x.font = "400 " + (20 * S) + 'px "IBM Plex Mono"';
+  x.fillText("CREW REMARK", M, kickTop);
+
+  /* A short remark on a tall card left over a thousand pixels of nothing.
+     The quote and its signature are centred in what the middle leaves. */
+  const region = footTop - (kickTop + 44 * S);
+  const blockH = qLines.length * lineH + attrH;
+  let y = kickTop + 44 * S + Math.max(0, (region - blockH) / 2);
+  x.letterSpacing = "0px"; x.fillStyle = "#ccd1d6";
+  x.font = "600 " + (qs * S) + "px Poppins";
+  for (const ln of qLines) { y += lineH; x.fillText(ln, M, y - qs * 0.32 * S); }
+
+  /* the signature: a short rule, then who said it */
+  y += 30 * S;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
+  x.beginPath(); x.moveTo(M, y); x.lineTo(M + 64 * S, y); x.stroke();
+  y += 40 * S;
+  x.letterSpacing = (1 * S) + "px";
+  x.font = "800 " + (30 * S) + "px Poppins"; x.fillStyle = "#ccd1d6";
+  x.fillText(String(d.name).toUpperCase(), M, y);
+  if (d.title) {
+    y += 26 * S;
+    x.letterSpacing = (1.5 * S) + "px";
+    x.font = "400 " + (19 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+    x.fillText(wrapLines(x, d.title, CW)[0], M, y);
+  }
+  if (d.credit) {
+    y += 26 * S;
+    x.font = "400 " + (18 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+    x.fillText(wrapLines(x, d.credit, CW)[0], M, y);
+  }
+
+  /* footer: what this is a remark about */
+  let fy = footTop;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = 2 * S;
+  x.beginPath(); x.moveTo(M, fy); x.lineTo(F.w - M, fy); x.stroke();
+  fy += 34 * S;
+  x.letterSpacing = (4 * S) + "px";
+  x.font = "400 " + (19 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.fillText("ON THE PLATE", M, fy);
+  fy += 40 * S;
+  x.letterSpacing = (1 * S) + "px";
+  x.font = "700 " + (26 * S) + "px Poppins"; x.fillStyle = "#8f959c";
+  x.fillText(String(d.plateName).toUpperCase() + (d.year ? "  ·  " + d.year : ""), M, fy);
+  x.letterSpacing = (1.5 * S) + "px";
+  x.font = "400 " + (21 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+  for (const ln of hookLines) { fy += 30 * S; x.fillText(ln, M, fy); }
+  fy += 56 * S;
+  x.letterSpacing = (2 * S) + "px";
+  x.font = "400 " + (22 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+  x.fillText("shannon.engineeringcommunity.net/#" + d.id, M, fy);
+  return cv;
+}
+
+/* One entry point, so the sheet does not care which kind of card it holds. */
+const renderCard = (d, F) => (d.kind === "remark" ? drawRemarkCard(d, F) : drawCard(d, F));
+
 /* THE SHARE SHEET.
    Encoding a 1080 wide PNG is the slow part by a wide margin: drawing the
    card costs 4 to 70ms, toBlob costs 400 to 3800. More than half the archive
@@ -3346,13 +3505,14 @@ async function exportCard(d, F, btn, sheet) {
   btn.disabled = true;
   say("Encoding " + F.w + " by " + F.h + ", this takes a moment on the bigger plates", "working");
   try {
-    const cv = await drawCard(d, F);
+    const cv = await renderCard(d, F);
     const blob = await Promise.race([
       new Promise(r => cv.toBlob(r, "image/png")),
       new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ENCODE_TIMEOUT)),
     ]);
     if (!blob) throw new Error("no blob");
-    const name = "shannon-" + d.id + "-" + F.tag + ".png";
+    const slug = d.kind === "remark" ? d.id + "-remark-" + String(d.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : d.id;
+    const name = "shannon-" + slug + "-" + F.tag + ".png";
     const kb = Math.round(blob.size / 1024);
     const file = new File([blob], name, { type: "image/png" });
 
@@ -3392,7 +3552,7 @@ function openSheet(d, url) {
   sheetEl = document.createElement("div");
   sheetEl.className = "sheet-back";
   sheetEl.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="Share this plate">'
-    + '<h5>Share</h5><div class="sheet-name">' + esc(d.name) + "</div>"
+    + '<h5>' + (d.kind === "remark" ? "Share this remark" : "Share") + '</h5><div class="sheet-name">' + esc(d.kind === "remark" ? d.name + " on the " + d.plateName : d.name) + "</div>"
     + (d.covered
       ? '<div class="sheet-preview"><div class="sheet-canvas" id="sheet-canvas">Drawing the card</div>'
         + '<div class="sheet-formats">'
@@ -3415,7 +3575,7 @@ function openSheet(d, url) {
     if (!host) return;
     const token = (paint.token = (paint.token || 0) + 1);
     try {
-      const cv = await drawCard(d, previewFrame(CARD[fmt]));
+      const cv = await renderCard(d, previewFrame(CARD[fmt]));
       if (token !== paint.token || !sheetEl) return;
       cv.className = "sheet-card";
       host.innerHTML = "";
@@ -3480,6 +3640,15 @@ document.addEventListener("click", e => {
 
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 document.addEventListener("click", async e => {
+  /* Only cleared remarks carry the control at all: the button is rendered
+     inside the cleared branch, so an unconsented remark has nothing to
+     click and cannot be turned into a card. */
+  const rb = e.target.closest(".remark-share");
+  if (rb) {
+    const d = remarkData(rb);
+    if (!d) return;
+    return openSheet(d, location.href.split("#")[0] + "#" + d.id);
+  }
   const btn = e.target.closest(".btn-share");
   if (!btn) return;
   const url = location.href.split("#")[0] + "#" + btn.dataset.id;

@@ -91,7 +91,7 @@ fails the build if any of them appear in `index.html`. Allen Crane was asked
 and has not replied. Stephen Puryear is in conversation but has given no
 yes or no. Cliff Hindman has only ever said I agree, which is not consent.
 
-## The consent protocol, unchanged
+## The consent protocol
 
 1. A remark renders only with `cleared:true`.
 2. Consent is per comment, not per person. Ask about the specific comment,
@@ -101,6 +101,22 @@ yes or no. Cliff Hindman has only ever said I agree, which is not consent.
 3. Conditions go in a `note` field on the remark and stay in the record.
    Brian Berthold consented on condition it is not used to train AI. Matias
    Soto asked to be credited as relaying rather than as the original source.
+4. **A caveat that qualifies attribution goes in `credit` as well as
+   `note`.** The note is for us; `credit` is a short line that renders on
+   the plate and on the share card. Soto's is the only one so far:
+   "Relaying, not the original source." Without it, a handsome card with
+   his name over the quote presents him as the authority, which is the one
+   thing he asked us not to do. A condition about usage, like Berthold's,
+   stays in `note` and does not render.
+5. **Ask for the card, not only for the site.** Remarks became shareable as
+   images in v1.93. The eleven consents we already hold were given for
+   featuring on the site, and a downloadable card that EC or a reader posts
+   to a feed is wider distribution than that wording covers. Nobody is
+   likely to object and the two conditional cases are handled above, but
+   the ask should stop understating what happens next. New requests say:
+   featured on the plate, and on a shareable card carrying your name, your
+   title and a link back. Anyone who agreed under the old wording and would
+   rather not appear on a card can be moved back with one field.
 4. A name never appears anywhere public before consent, including in
    `graph.json` and `status.json`.
 5. When someone consents, remove them from the privacy gate list in
