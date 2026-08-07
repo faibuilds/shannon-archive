@@ -1181,7 +1181,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.96 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.97 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2026,6 +2026,10 @@ const SUTTER = [
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7489843661170462721"}}
 ];
 const CARNOT = [
+  {id:"harrison-h4", name:"Harrison's H4", year:1761, date:"Sea trial 1761", origin:"United Kingdom", field:"Marine timekeeper", status:"covered",
+   ask:"Work with marine chronometers, or have navigated by one. What does a timekeeper ask of you that a satellite fix never will?",
+   hook:"A CARPENTER SPENT 25 YEARS ON CLOCKS THAT COULD NOT SOLVE LONGITUDE, THEN SOLVED IT WITH A WATCH. THE BOARD PAID HALF, AND HELD THE REST UNTIL SOMEONE ELSE COULD BUILD ONE.",
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7490624124428439552"}},
   {id:"diesel-engine", name:"Rudolf Diesel's engine", year:1897, date:"1897, Augsburg", origin:"Germany", field:"Prime mover", status:"covered",
    ask:"Run, rebuild, or design compression ignition engines. What does the indicator diagram never tell you?",
    hook:"In 1897 Rudolf Diesel ran an engine that beat steam on efficiency and could burn almost any fuel, peanut oil included. He vanished off a ship 16 years later.",
@@ -2149,7 +2153,7 @@ function renderLine(lineId, arr, meta){
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
   ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
   ["sutter", SUTTER, {num:"1933 to 1989", thesis:"Commercial aviation: what decides whether good engineering matters. Market structure, a crack at the corner of a window, a bet made for a customer, and three independent systems that shared one corridor.", dateLabel:"Event", domain:"Commercial aviation", invite:INVITE_FLOWN}],
-  ["carnot", CARNOT, {num:"1897", thesis:"Prime movers: the engines that turn fuel into work, and the people who bet their lives on them.", dateLabel:"First run", domain:"Prime movers", invite:INVITE_STUDIED}],
+  ["carnot", CARNOT, {num:"1761 to 1897", thesis:"Two machines that had to be reproducible before they could matter: the timekeeper that turned longitude from a guess into a measurement, and the engine that beat steam on its own numbers.", dateLabel:"Milestone", domain:"Prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
   ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: one quantity, the safety margin, told three ways. Bought in advance at London, absorbed by a crime at Brooklyn, spent in the design office at Quebec.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
 ].forEach(([id, arr, meta]) => renderLine(id, arr, meta));

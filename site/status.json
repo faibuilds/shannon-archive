@@ -12,7 +12,7 @@
     { "id": "lovelace", "name": "LOVELACE L-07", "total": 6, "lit": 5 },
     { "id": "wright", "name": "WRIGHT L-08", "total": 1, "lit": 1 },
     { "id": "sutter", "name": "SUTTER L-09", "total": 4, "lit": 4 },
-    { "id": "carnot", "name": "CARNOT L-10", "total": 1, "lit": 1 },
+    { "id": "carnot", "name": "CARNOT L-10", "total": 2, "lit": 2 },
     { "id": "noyce", "name": "NOYCE L-11", "total": 6, "lit": 6 }
   ],
   "total": 27,
@@ -22,7 +22,7 @@
     1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
     1, 0, 1, 1, 0, 0, 1
   ],
-  "lastLit": "The Stepped Reckoner",
+  "lastLit": "Harrison's H4",
   "lastLitDate": "Aug 2026",
   "updated": "2026-08-07"
 }

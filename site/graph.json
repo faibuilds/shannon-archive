@@ -8231,7 +8231,7 @@
    "origin": "United Kingdom",
    "lineId": "carnot",
    "sealed": false,
-   "note": "V5.1 SOP VCL, dual audit adjudicated. Story not yet published: the block carries a FRAME for the posts rather than links, so no plate is on the site and status.json is unchanged. Line placement is Fai's instruction; the domain tension with CARNOT (prime movers) is flagged in blocks/shannon_harrison-h4.md. Excluded as unverifiable: the remontoire, the spoiled beer, the King testing H5. See blocks/shannon_harrison-h4.md"
+   "note": "V5.1 SOP VCL, dual audit adjudicated. Published on LinkedIn 08.2026 and plated on CARNOT as plate 01 by year. Line placement is Fai's instruction; the domain tension with CARNOT (prime movers) is flagged in blocks/shannon_harrison-h4.md. Excluded as unverifiable: the remontoire, the spoiled beer, the King testing H5. See blocks/shannon_harrison-h4.md"
   },
   {
    "id": "ev-invention-h4-1",
@@ -8673,7 +8673,7 @@
    "id": "story-harrison-h4",
    "type": "story",
    "title": "One Masterpiece Is Not a Method",
-   "status": "not yet published. linkedin: planned, the reproducibility requirement. facebook: planned, the wrong 25 years and the pivot. instagram: planned, carousel launch. newsletter: none. Fairness rule locked for every long caption: the reproducibility requirement was engineering-correct AND the Board's conduct toward Harrison was not."
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7490624124428439552 facebook: not posted instagram: not posted newsletter: none. Fairness rule locked for every long caption: the reproducibility requirement was engineering-correct AND the Board's conduct toward Harrison was not."
   },
   {
    "id": "leibniz-stepped-reckoner",
