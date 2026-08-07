@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-08-05",
+ "updated": "2026-08-07",
  "line": "kelly",
  "nodes": [
   {
@@ -7326,7 +7326,7 @@
    "id": "gottfried-leibniz",
    "type": "person",
    "name": "Gottfried Leibniz",
-   "note": "Tried to add automatic multiplication to the Pascaline, could not, and invented his own stepped-drum machine after 1671. The LOVELACE line's forward thread and next candidate."
+   "note": "Tried to add automatic multiplication to the Pascaline, could not, and invented his own stepped-drum machine after 1671, the Stepped Reckoner, which is the second plate on this line."
   },
   {
    "id": "c-pasc-01",
@@ -8674,6 +8674,268 @@
    "type": "story",
    "title": "One Masterpiece Is Not a Method",
    "status": "not yet published. linkedin: planned, the reproducibility requirement. facebook: planned, the wrong 25 years and the pivot. instagram: planned, carousel launch. newsletter: none. Fairness rule locked for every long caption: the reproducibility requirement was engineering-correct AND the Board's conduct toward Harrison was not."
+  },
+  {
+   "id": "leibniz-stepped-reckoner",
+   "type": "artifact",
+   "name": "Leibniz's Stepped Reckoner",
+   "category": "instrument",
+   "origin": "Germany",
+   "lineId": "lovelace",
+   "sealed": false,
+   "note": "First calculator able to do all four operations, and one that never worked reliably. Significance is double: it extended Pascal's machine into multiplication and division, and lost ground on the cascading carry Pascal had already solved. The stepped drum outlived the machine by two centuries. See blocks/shannon_leibniz-stepped-reckoner.md"
+  },
+  {
+   "id": "ev-development-leibniz-1",
+   "type": "event",
+   "eventType": "development",
+   "date": {
+    "year": 1672
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "Leibniz conceives a calculating machine in Paris, reportedly from a pedometer, and learns of Blaise Pascal's machine on reading Pascal's Pensees. He sets out to extend Pascal's mechanism so it can multiply and divide"
+  },
+  {
+   "id": "ev-demonstration-leibniz-2",
+   "type": "event",
+   "eventType": "demonstration",
+   "date": {
+    "year": 1673,
+    "month": 2,
+    "day": 1
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "Leibniz presents a wooden model to the Royal Society of London. The presentation contributes to his election as a Fellow"
+  },
+  {
+   "id": "ev-record-leibniz-3",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1673,
+    "month": 3,
+    "day": 26
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "In a letter to Johann Friedrich, Leibniz describes the purpose of the arithmetic machine as making calculation easy, fast and reliable"
+  },
+  {
+   "id": "ev-failure-leibniz-4",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1673
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "From 1673 to 1694, a design flaw in the carry mechanism combined with fabrication limits prevents the machines from working reliably. The carry is too weak to advance the higher-order wheels automatically during multi-digit multiplication, failing when the multiplier exceeds one digit and requiring manual correction"
+  },
+  {
+   "id": "ev-adoption-leibniz-5",
+   "type": "event",
+   "eventType": "adoption",
+   "date": {
+    "year": 1673
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "From 1673 into the 1870s the stepped drum becomes the standard operating element of mechanical calculation, roughly two hundred years, carried forward by Thomas de Colmar's Arithmometer and its descendants"
+  },
+  {
+   "id": "ev-completion-leibniz-6",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1694
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "The finished metal machine is delivered and still malfunctions. Two prototypes were built in total"
+  },
+  {
+   "id": "ev-loss-leibniz-7",
+   "type": "event",
+   "eventType": "loss",
+   "date": {
+    "year": 1775
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "The younger machine is sent to the University of Goettingen for repair and is forgotten"
+  },
+  {
+   "id": "ev-recovery-leibniz-8",
+   "type": "event",
+   "eventType": "recovery",
+   "date": {
+    "year": 1876
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "Workmen find the machine in an attic room of a university building in Goettingen, a century after it was sent for repair"
+  },
+  {
+   "id": "ev-adoption-leibniz-9",
+   "type": "event",
+   "eventType": "adoption",
+   "date": {
+    "year": 1880
+   },
+   "subjectId": "leibniz-stepped-reckoner",
+   "label": "The machine is returned to Hanover, where it remains in the National Library of Lower Saxony"
+  },
+  {
+   "id": "thomas-de-colmar",
+   "type": "person",
+   "name": "Charles Xavier Thomas de Colmar",
+   "note": "Whose Arithmometer carried the stepped drum into commercial manufacture, making it the working element of mechanical calculation long after Leibniz's own machines had stopped."
+  },
+  {
+   "id": "src-leibniz-stepped-reckoner-vcl",
+   "type": "source",
+   "kind": "reference",
+   "title": "EC VCL: Leibniz's Stepped Reckoner (dual audit. Wikipedia Stepped reckoner, HandWiki, Science Source, Computer History Museum on the drum's span, Smithsonian on the Curta). Two claims are marked synthesis in their own source notes: the carry-cascade mechanics and the read that Leibniz advanced capability while losing reliability."
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "The Stepped Reckoner was the first calculator able to perform all four arithmetic operations: addition, subtraction, multiplication and division.",
+   "sourceNote": "Wikipedia; Science Source; multiple"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "Its operating element was the stepped drum, a cylinder carrying nine teeth of increasing length, so that a counting wheel sliding along it meshes with between zero and nine teeth depending on position.",
+   "sourceNote": "Wikipedia, Stepped reckoner"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "Two prototypes were built, and mechanical problems together with a design flaw in the carry mechanism prevented them from working reliably.",
+   "sourceNote": "Wikipedia; Science Source; HandWiki"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "The carry mechanism was too weak to advance the higher-order wheels automatically during multi-digit multiplication, failing when the multiplier exceeded one digit and requiring manual intervention.",
+   "sourceNote": "Corroborated across accounts of the machine's operation. A dissenting reading holds the fault applied specifically to two and three digit multipliers rather than being universal, which is consistent with the threshold stated here"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "A carry can chain: a wheel rolling from 9 to 0 must advance the next wheel, and if that wheel also stands at 9 it must advance the one beyond it. A single carry moves one wheel; a cascading carry must move several in the same instant, from the same crank, through the same linkage. Multiplying by a multi-digit number requires many more addition cycles and therefore far more opportunities for a chain to occur.",
+   "sourceNote": "Synthesis claim. Derived from the machine's documented carry failure and the carry-cascade mechanics established on the Pascaline plate. Both independent audits confirmed the derivation"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "The precision required exceeded what seventeenth century fabrication could hold. Uneven tooth heights on the stepped drums and inconsistent placement of the decimal wheels caused unreliable gear engagement and frequent jamming.",
+   "sourceNote": "Accounts of the machine's construction; the design is described as sound and the fabrication technology of the period as insufficient"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "The finished metal machine delivered in 1694 still malfunctioned.",
+   "sourceNote": "Wikipedia completion date; accounts of the delivered machine"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "Leibniz knew of Pascal's machine and set out to extend it, yet the Stepped Reckoner failed on cascading carries, the problem the Pascaline had already solved. He advanced what the machine could do and lost ground on how reliably it did it.",
+   "sourceNote": "Synthesis claim, logged as such. Grounded in the historical consensus that a carry flaw undermined an otherwise more capable machine. The record does not state why Leibniz's carry differed from Pascal's, only that it failed; no claim is made that he ignored or rejected Pascal's solution"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "The stepped drum was used in many calculating machines for roughly two hundred years, and its descendants remained in use into the early 1970s in the Curta hand calculator, manufactured until 1972.",
+   "sourceNote": "Computer History Museum, which describes an unbroken record across an even longer span; Smithsonian on the Curta. The Curta uses a modified single stepped cylinder in place of many drums, so the relationship is drum-descended rather than drum-identical, and the claim is stated accordingly"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "Thomas de Colmar's Arithmometer used the stepped drum principle and became the first commercially successful mechanical calculator.",
+   "sourceNote": "Standard record. Dates vary between the 1820 patent and commercialisation from the 1850s, so no single date is printed"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "One prototype survives, in the National Library of Lower Saxony in Hanover. Replicas are displayed elsewhere, including at the Deutsches Museum in Munich and the Technische Sammlungen in Dresden.",
+   "sourceNote": "Wikipedia; HandWiki. A minority account claims two originals survive; the majority record says one"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "In 1775 the younger machine was sent to the University of Goettingen for repair and was forgotten until 1876, when workmen found it in an attic room. It was returned to Hanover in 1880.",
+   "sourceNote": "Wikipedia; HandWiki"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "Leibniz presented a wooden model to the Royal Society of London on 1 February 1673, and the presentation contributed to his election as a Fellow.",
+   "sourceNote": "Wikipedia; HandWiki"
+  },
+  {
+   "id": "c-leibniz-stepped-reckoner-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "leibniz-stepped-reckoner"
+   ],
+   "text": "Leibniz invented binary arithmetic in 1679 and built this machine in decimal.",
+   "sourceNote": "Standard record. Stated as context only; binary is reserved for a separate plate and carries no technical claim on this one"
+  },
+  {
+   "id": "story-leibniz-stepped-reckoner",
+   "type": "story",
+   "title": "The Machine Failed and the Part Ran for Two Hundred Years",
+   "status": "published linkedin: https://www.linkedin.com/posts/engineeringcommunity_a-carry-can-chain-when-a-wheel-rolls-from-activity-7491424042470617088-VZ7m facebook: https://www.facebook.com/share/r/1HP8ih5Egb/ instagram: not posted newsletter: none"
   }
  ],
  "edges": [
@@ -12087,7 +12349,7 @@
   {"type":"contributed","from":"blaise-pascal","to":"pascaline","role":"designed"},
   {"type":"contributed","from":"etienne-pascal","to":"pascaline","role":"commissioned"},
   {"type":"contributed","from":"wilhelm-schickard","to":"pascaline","role":"pioneered"},
-  {"type":"contributed","from":"gottfried-leibniz","to":"pascaline","role":"opposed"},
+  {"type":"contributed","from":"gottfried-leibniz","to":"pascaline","role":"extended"},
   {"type":"about","from":"c-pasc-01","to":"pascaline"},
   {"type":"cites","from":"c-pasc-01","to":"src-pascaline-vcl"},
   {"type":"about","from":"c-pasc-02","to":"pascaline"},
@@ -12298,6 +12560,49 @@
   {"type":"responded-to","from":"harrison-h4","to":"concept-longitude-problem","claimId":"c-h4-01"},
   {"type":"forced","from":"harrison-h4","to":"concept-reproducibility-requirement","claimId":"c-h4-17"},
   {"type":"enabled","from":"harrison-h4","to":"concept-marine-chronometer","claimId":"c-h4-23"},
-  {"type":"covers","from":"story-harrison-h4","to":"harrison-h4"}
+  {"type":"covers","from":"story-harrison-h4","to":"harrison-h4"},
+  {"type":"event-of","from":"ev-development-leibniz-1","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-demonstration-leibniz-2","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-record-leibniz-3","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-failure-leibniz-4","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-adoption-leibniz-5","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-completion-leibniz-6","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-loss-leibniz-7","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-recovery-leibniz-8","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-adoption-leibniz-9","to":"leibniz-stepped-reckoner"},
+  {"type":"contributed","from":"gottfried-leibniz","to":"leibniz-stepped-reckoner","role":"designed"},
+  {"type":"contributed","from":"blaise-pascal","to":"leibniz-stepped-reckoner","role":"enabled"},
+  {"type":"contributed","from":"thomas-de-colmar","to":"leibniz-stepped-reckoner","role":"reproduced"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-01","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-01","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-02","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-02","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-03","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-03","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-04","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-04","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-05","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-05","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-06","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-06","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-07","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-07","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-08","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-08","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-09","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-09","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-10","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-10","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-11","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-11","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-12","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-12","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-13","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-13","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"about","from":"c-leibniz-stepped-reckoner-14","to":"leibniz-stepped-reckoner"},
+  {"type":"cites","from":"c-leibniz-stepped-reckoner-14","to":"src-leibniz-stepped-reckoner-vcl"},
+  {"type":"enabled","from":"pascaline","to":"leibniz-stepped-reckoner","claimId":"c-leibniz-stepped-reckoner-08"},
+  {"type":"corrects","from":"pascaline","to":"leibniz-stepped-reckoner","claimId":"c-leibniz-stepped-reckoner-05"},
+  {"type":"covers","from":"story-leibniz-stepped-reckoner","to":"leibniz-stepped-reckoner"}
  ]
 }

@@ -1181,7 +1181,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.95 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v1.96 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1781,6 +1781,10 @@ const LOVELACE = [
   {id:"pascaline", name:"The Pascaline", year:1642, pub:"Built 1642 to 1645", origin:"France", field:"The first calculator", status:"covered",
    hook:"YOUR COMPUTER CANNOT SUBTRACT. IT ADDS COMPLEMENTS INSTEAD, A TRICK FIRST BUILT IN BRASS IN 1642, BY A 19-YEAR-OLD WHOSE WHEELS ONLY TURNED ONE WAY.",
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7488837692206546944"}},
+  {id:"leibniz-stepped-reckoner", name:"The Stepped Reckoner", year:1673, pub:"Shown 1673, delivered 1694", origin:"Germany", field:"Four-function calculator", status:"covered",
+   ask:"Restore or study early calculating machines. What does a stepped drum feel like to turn, and where does it bind?",
+   hook:"LEIBNIZ BUILT THE FIRST MACHINE THAT COULD MULTIPLY AND DIVIDE. IT FAILED ON THE ONE PROBLEM PASCAL HAD ALREADY SOLVED IN 1642.",
+   post:{label:"Read the story", url:"https://www.linkedin.com/posts/engineeringcommunity_a-carry-can-chain-when-a-wheel-rolls-from-activity-7491424042470617088-VZ7m"}},
   {id:"lovelace-notes-1843", name:"The Notes by A.A.L.", year:1843, pub:"Aug 1843", origin:"United Kingdom", field:"The first program", status:"covered",
    ask:"Teach the Notes. What do students get wrong about what she actually claimed?",
    hook:"The first published computer program appeared in 1843, for a machine that has never been built. Its author saw what it meant. Nobody else did for a century.",
@@ -1809,7 +1813,7 @@ const LOVELACE = [
         <span class="decade-num">${Math.min(...LOVELACE.map(a => a.year))} to ${Math.max(...LOVELACE.map(a => a.year))}</span>
         <span class="decade-count"><b>${lvCovered}</b> of ${LOVELACE.length} covered</span>
       </div>
-      <p class="decade-thesis">The computing foundations: the calculator that could only add, the first program, the algebra, and the proof that switches can carry logic.</p>
+      <p class="decade-thesis">The computing foundations, and the distance between a working device and a transferable idea: the calculator that could only add, the one that could do everything and worked at nothing, the first program, the algebra, and the proof that switches can carry logic.</p>
     </div>`;
   LOVELACE.forEach((a, i) => {
     const covered = a.status === "covered";
@@ -1817,7 +1821,11 @@ const LOVELACE = [
     plate.className = "plate " + (covered ? "covered" : "soon");
     plate.id = a.id;
     plate.dataset.status = a.status;
-    const emb = covered && a.post ? embedUrl(a.post.url) : null;
+    /* renderLine has normalized this since v1.70; these two renderers never
+       did, so a plate written with a posts array rendered as sealed here and
+       threw outright on WRIGHT. Same line, same meaning, in all three now. */
+    const post = a.post || (a.posts && a.posts[0]) || null;
+    const emb = covered && post ? embedUrl(post.url) : null;
     plate.innerHTML = `
       <div class="rivets"></div>
       <span class="plate-lamp"></span>
@@ -1842,16 +1850,16 @@ const LOVELACE = [
           <div class="spec"><div class="spec-k">Status</div><div class="spec-v ${covered ? "hot" : ""}">${covered ? "Covered" : "Sealed"}</div></div>
         </div>
         <div class="plate-actions">
-          ${covered && a.post ? `
-            <a class="btn-read" href="${esc(a.post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
-            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(a.post.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
+          ${covered && post ? `
+            <a class="btn-read" href="${esc(post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(post.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
           `}
           <button class="btn-share" data-id="${a.id}" data-name="${esc(covered ? a.name : "Sealed plate")}">Share</button>
           <button class="defect" data-form="9q56RV" data-form-title="Defect report" data-plate="${esc(covered ? a.name : "LOVELACE plate " + pad(i + 1))}">Report a defect</button>
         </div>
-        ${covered ? remarksBlock(a.remarks, a.post, INVITE_STUDIED, a.ask) : ""}
+        ${covered ? remarksBlock(a.remarks, post, INVITE_STUDIED, a.ask) : ""}
         </div>
         </div>
       </div>`;
@@ -1889,6 +1897,10 @@ const WRIGHT = [
   WRIGHT.forEach((a, i) => {
     const covered = a.status === "covered";
     const hasArt = covered && a.art;
+    /* Same normalization as the other two renderers. This one dereferenced
+       a.post.url with no guard at all, so a plate written with a posts array
+       would have thrown here and taken the whole line's render with it. */
+    const post = a.post || (a.posts && a.posts[0]) || null;
     const plate = document.createElement("article");
     plate.className = "plate " + (covered ? "covered" : "soon") + (hasArt ? " has-art" : "");
     plate.id = a.id;
@@ -1913,11 +1925,11 @@ const WRIGHT = [
           <div class="spec"><div class="spec-k">Status</div><div class="spec-v hot">Covered</div></div>
         </div>
         <div class="plate-actions">
-          <a class="btn-read" href="${esc(a.post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
+          <a class="btn-read" href="${esc(post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
           <button class="btn-share" data-id="${a.id}" data-name="${esc(a.name)}">Share</button>
           <button class="defect" data-form="9q56RV" data-form-title="Defect report" data-plate="${esc(a.name)}">Report a defect</button>
         </div>
-        ${remarksBlock(a.remarks, a.post, INVITE_STUDIED, a.ask)}
+        ${remarksBlock(a.remarks, post, INVITE_STUDIED, a.ask)}
         </div>
         ${hasArt ? `
         <div class="plate-art">
@@ -2184,7 +2196,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:474, verified:452, sources:40, edges:70, artifacts:57 };
+const FINDING_STATS = { claims:488, verified:466, sources:41, edges:72, artifacts:58 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
