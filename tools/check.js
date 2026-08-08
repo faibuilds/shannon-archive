@@ -265,8 +265,12 @@ const ROEBLING = parseLineArray("ROEBLING");
   const name = "art: only covered plates carry art, always credited";
   if (!AIRCRAFT) { fail(name, "AIRCRAFT unavailable"); return; }
   const problems = [];
+  // ROEBLING was missing from this list, so art on its three plates was never
+  // checked for a credit. Caught when the Brooklyn Bridge drawing went on and
+  // the count did not move. Every live line belongs here.
   const everyPlate = AIRCRAFT.concat(LOVELACE || [], WRIGHT || [], PETROSKI || [],
-    HAMMURABI || [], BARENYI || [], TIPPER || [], SUTTER || [], CARNOT || [], NOYCE || []);
+    HAMMURABI || [], BARENYI || [], TIPPER || [], SUTTER || [], CARNOT || [],
+    NOYCE || [], ROEBLING || []);
   for (const p of everyPlate) {
     if (p.status !== "covered" && ("art" in p || "artCredit" in p)) {
       problems.push(p.id + " has status " + p.status + " but carries art fields");
