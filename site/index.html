@@ -1181,7 +1181,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v1.99 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.00 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1956,6 +1956,10 @@ const PETROSKI = [
    remarks:[
      {name:"Bob Cuyt", title:"electronics engineer", text:"I first saw the Vasa in 1973, so 12 years after her recovery. She was still outside in the “Vasa shipyard”, where she could be showered every 10 minutes or so with a light spray of water. Which is what I remembered best: why? A nearby demonstration made it clear: a lone canon wheel, kept untreated since salvage, totally deformed into an oval shape. Because wood cells dry out along different axis at very uneven pace once out of the water.", len:441, cleared:true, note:"Consent given on the Tally crew remarks form, 05.08.2026, by ticking: EC may feature this remark on SHANNON with the name and title above. Removal on request, anytime. First remark to arrive through the form rather than through LinkedIn comments, and it answers this plate's standing ask directly. Contact address held off the site."}
    ]},
+  {id:"tay-bridge-1879", name:"The First Tay Rail Bridge", year:1879, date:"28 Dec 1879", origin:"United Kingdom", field:"Railway bridge", status:"covered",
+   ask:"Work on the railways, or on the bridge that replaced it. What do the old piers standing in the river beside it tell people who pass them every day?",
+   hook:"THE TAY BRIDGE WENT INTO THE RIVER IN 1879 WITH A TRAIN ON IT. BRITAIN WROTE ITS FIRST WIND LOADING RULE FOR BRIDGES TWO YEARS LATER.",
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7491718616929890304"}},
   {id:"tacoma-narrows", name:"Tacoma Narrows Bridge", year:1940, date:"7 Nov 1940", origin:"United States", field:"Suspension bridge", status:"covered",
    ask:"Were you taught the resonance explanation, or the flutter one? We would like to know when the correction reached your classroom.",
    hook:"In 1940 a four-month-old bridge tore itself apart in a 42 mph wind. It was strong enough. Nobody had asked whether it was stiff enough.",
@@ -2180,7 +2184,7 @@ function renderLine(lineId, arr, meta){
   wrap.appendChild(block);
 }
 [
-  ["petroski", PETROSKI, {num:"1628 to 1981", thesis:"Engineering failures, by how each announced itself: the ship everybody watched capsize at the quay and sailed anyway, the bridge nobody predicted, the tower one spark brought down, and the walkways nobody added up.", dateLabel:"Failure", domain:"Engineering failures", invite:INVITE_STUDIED}],
+  ["petroski", PETROSKI, {num:"1628 to 1981", thesis:"Engineering failures, by how each announced itself: the ship everybody watched capsize at the quay and sailed anyway, the bridge nobody was required to look for, the bridge nobody predicted, the tower one spark brought down, and the walkways nobody added up.", dateLabel:"Failure", domain:"Engineering failures", invite:INVITE_STUDIED}],
   ["hammurabi", HAMMURABI, {num:"1985", thesis:"Regulation written in blood: the rules we wrote only after we counted the dead.", dateLabel:"Accident", domain:"Regulation, written in blood", invite:INVITE_STUDIED}],
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
   ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
@@ -2232,7 +2236,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:488, verified:466, sources:41, edges:72, artifacts:58 };
+const FINDING_STATS = { claims:502, verified:479, sources:42, edges:73, artifacts:59 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

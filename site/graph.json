@@ -8936,6 +8936,300 @@
    "type": "story",
    "title": "The Machine Failed and the Part Ran for Two Hundred Years",
    "status": "published linkedin: https://www.linkedin.com/posts/engineeringcommunity_a-carry-can-chain-when-a-wheel-rolls-from-activity-7491424042470617088-VZ7m facebook: https://www.facebook.com/share/r/1HP8ih5Egb/ instagram: not posted newsletter: none"
+  },
+  {
+   "id": "tay-bridge-1879",
+   "type": "artifact",
+   "name": "The First Tay Rail Bridge",
+   "category": "bridge",
+   "origin": "United Kingdom",
+   "lineId": "petroski",
+   "sealed": false,
+   "note": "Longest railway bridge in the world when it opened, and eighteen months later the worst structural failure in British railway history. Its design made no explicit provision for wind loading and no British code required one. The standard that would have caught it was written two years after it fell. Fifth PETROSKI plate and its fifth distinct mode. See blocks/shannon_tay-bridge-1879.md"
+  },
+  {
+   "id": "ev-development-tay-1",
+   "type": "event",
+   "eventType": "development",
+   "date": {
+    "year": 1871
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "From 1871 to 1878, construction by the North British Railway to a design by Thomas Bouch, with cast-iron components produced at a foundry at Wormit and limited post-casting machining"
+  },
+  {
+   "id": "ev-completion-tay-2",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1878,
+    "month": 6,
+    "day": 1
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "Opened to passenger traffic. At 85 piers, with a high-girder section of 13 spans over the navigation channel, it was the longest railway bridge in the world"
+  },
+  {
+   "id": "ev-record-tay-3",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1879
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "Queen Victoria crosses the bridge and Thomas Bouch is knighted"
+  },
+  {
+   "id": "ev-failure-tay-4",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1879,
+    "month": 12,
+    "day": 28
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "At about 19:15, during a violent storm, the high girders fall into the Firth of Tay with a passenger train crossing from Burntisland to Dundee. There are no survivors. Divers later find the train still inside the fallen ironwork, the engine in the fifth span of the southern five-span division"
+  },
+  {
+   "id": "ev-assessment-tay-5",
+   "type": "event",
+   "eventType": "assessment",
+   "date": {
+    "year": 1880
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "A Board of Trade Court of Inquiry under the Regulation of Railways Act 1871 finds the bridge badly designed, badly built and badly maintained. It issues two reports rather than one"
+  },
+  {
+   "id": "ev-assessment-tay-6",
+   "type": "event",
+   "eventType": "assessment",
+   "date": {
+    "year": 1880
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "Load tests over 36 hours, using dead and rolling loads, seriously distort the surviving structure. Eight piers are declared unsafe. Yolland records the opinion that piers of cast-iron columns of these dimensions should not in future be sanctioned by the Board of Trade"
+  },
+  {
+   "id": "ev-loss-tay-7",
+   "type": "event",
+   "eventType": "loss",
+   "date": {
+    "year": 1880,
+    "month": 10
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "Thomas Bouch dies within a year of the disaster, without having answered the report. His design for the Forth Bridge is not used"
+  },
+  {
+   "id": "ev-decision-tay-8",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1881,
+    "month": 5,
+    "day": 20
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "The Wind Pressure (Railway Structures) Commission reports, recommending that structures be designed for a wind loading of 56 pounds per square foot with a safety factor of four. This becomes the British standard"
+  },
+  {
+   "id": "ev-completion-tay-9",
+   "type": "event",
+   "eventType": "completion",
+   "date": {
+    "year": 1880
+   },
+   "subjectId": "tay-bridge-1879",
+   "label": "Through the 1880s the bridge is dismantled and replaced by a double-track bridge designed by W. R. Galbraith and built by William Arrol, which still stands. The stumps of the original piers remain visible in the river beside it"
+  },
+  {
+   "id": "thomas-bouch",
+   "type": "person",
+   "name": "Thomas Bouch",
+   "note": "Engineer of the first Tay Bridge (1822-1880), knighted for it months before it fell. He had asked the Astronomer Royal what wind a bridge should be built for and been given ten pounds per square foot, advice offered for his proposed Forth Bridge. He died within the year and never answered the inquiry's report."
+  },
+  {
+   "id": "henry-rothery",
+   "type": "person",
+   "name": "Henry Cadogan Rothery",
+   "note": "Commissioner of Wrecks, who chaired the Court of Inquiry and laid blame for faulty design, construction and maintenance personally at Bouch's door."
+  },
+  {
+   "id": "william-yolland",
+   "type": "person",
+   "name": "William Yolland",
+   "note": "Inspector of Railways and one of two engineers on the panel. With Barlow he declined to go as far as Rothery on Bouch's personal culpability and issued a separate joint report."
+  },
+  {
+   "id": "william-barlow",
+   "type": "person",
+   "name": "William Henry Barlow",
+   "note": "President of the Institution of Civil Engineers and the other engineer on the panel. He and Yolland later denied agreeing with Rothery's finding against Bouch."
+  },
+  {
+   "id": "henry-noble",
+   "type": "person",
+   "name": "Henry Noble",
+   "note": "Responsible for the bridge after completion. He had no experience of ironwork and no definite instruction to report on it, though the inquiry held he should have reported the loose ties."
+  },
+  {
+   "id": "src-tay-bridge-1879-vcl",
+   "type": "source",
+   "kind": "reference",
+   "title": "EC VCL: The first Tay Rail Bridge (Court of Inquiry record and its two reports; Railways Archive, Wind Pressure (Railway Structures) Commission, 20 May 1881; Open University course material on the disaster; Martin and MacLeod, Proceedings of the Institution of Civil Engineers, 1995; archival research on death certificates and ticket records). Yolland and Barlow's finding is recorded in substance rather than quoted, because the wording could not be traced to the primary report and the secondary sources carrying it share identical phrasing."
+  },
+  {
+   "id": "c-tay-bridge-1879-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "The design made no explicit provision for wind loading.",
+   "sourceNote": "Court of Inquiry findings; Open University course material on the disaster"
+  },
+  {
+   "id": "c-tay-bridge-1879-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Bouch had sought advice from the Astronomer Royal on wind loading for his proposed Forth Bridge and been told ten pounds per square foot would suffice.",
+   "sourceNote": "Standard accounts of Bouch's practice. Consultants of the period were quoting figures in the range of ten to twenty pounds per square foot"
+  },
+  {
+   "id": "c-tay-bridge-1879-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "There was no British wind loading standard for railway structures before the 1881 Commission. Bouch violated no code, because no code addressed the load that destroyed the bridge.",
+   "sourceNote": "Absence established by the Commission's own remit and by the record of British practice before 1881"
+  },
+  {
+   "id": "c-tay-bridge-1879-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "The most serious defects were the cross-bracing system with a poorly designed tension joint, and cast-in lugs well below strength because the bolt holes concentrated stress at their edges. The wind braces loosened over time and under load.",
+   "sourceNote": "Open University analysis of the inquiry findings"
+  },
+  {
+   "id": "c-tay-bridge-1879-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Yolland and Barlow found that the fall was occasioned by the insufficiency of the cross-bracings and fastenings to sustain the force of the gale.",
+   "sourceNote": "Reported findings of the two engineering assessors. Recorded here in substance: the exact wording could not be traced to the primary report, and the secondary sources carrying it share identical phrasing, so it is not quoted verbatim"
+  },
+  {
+   "id": "c-tay-bridge-1879-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Bouch's defence was that wind threw the train off the rails into the girders and that the shock broke the lugs on the nearest tower.",
+   "sourceNote": "Forensic reappraisals of the disaster"
+  },
+  {
+   "id": "c-tay-bridge-1879-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Apart from Bouch himself, Bouch's own witnesses conceded that the failure was due to shock loading on lugs already heavily stressed by wind. The finding is therefore consistent either with the train never having struck the girder, or with a bridge having adequate cross-bracing surviving one that did.",
+   "sourceNote": "Summary of the Yolland and Barlow report. The collapse of all twelve high-girder towers is not evidence against Bouch's defence: the high girders were a continuous run, so the loss of one pier would drag the rest down regardless of what initiated it, and progressive collapse is consistent with both accounts"
+  },
+  {
+   "id": "c-tay-bridge-1879-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Modern structural analysis concludes the bridge would have collapsed that night with no train on it.",
+   "sourceNote": "Martin and MacLeod, Proceedings of the Institution of Civil Engineers, 1995"
+  },
+  {
+   "id": "c-tay-bridge-1879-09",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "46 bodies were recovered and 59 victims are known by name, while the Court of Inquiry, counting 56 Dundee tickets collected at St Fort and adding season-ticket holders, passengers for other destinations and railway staff, believed 74 or 75 people were aboard.",
+   "sourceNote": "Archival research on death certificates and ticket records concludes there were no unknown victims and that the higher figure arose from double counting in an early newspaper report. Against that, the inquiry did not take its casualty figures from the press: it took sworn evidence and did its own arithmetic. No single figure is treated as settled"
+  },
+  {
+   "id": "c-tay-bridge-1879-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "The 25 mph speed limit over the bridge was not enforced and was frequently exceeded, and supervision of the Wormit foundry was insufficiently strict.",
+   "sourceNote": "Court of Inquiry findings"
+  },
+  {
+   "id": "c-tay-bridge-1879-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "The inquiry did not speak with one voice on Bouch's personal culpability. Rothery laid the blame at his door; Yolland and Barlow declined to go that far, issued a separate joint report, and later denied agreeing with him.",
+   "sourceNote": "Court of Inquiry record; correspondence with Bouch's solicitor"
+  },
+  {
+   "id": "c-tay-bridge-1879-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "In May 1881 the Wind Pressure (Railway Structures) Commission recommended that structures be designed for a wind loading of 56 pounds per square foot with a safety factor of four, which became the British standard.",
+   "sourceNote": "Railways Archive, Wind Pressure (Railway Structures) Commission, 20 May 1881"
+  },
+  {
+   "id": "c-tay-bridge-1879-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Load tests in 1880 over 36 hours seriously distorted the surviving structure and eight piers were declared unsafe.",
+   "sourceNote": "Contemporary record of the post-disaster testing"
+  },
+  {
+   "id": "c-tay-bridge-1879-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "tay-bridge-1879"
+   ],
+   "text": "Bouch's Redheugh Bridge of 1871 was condemned in 1896, and the engineer who condemned it said it would have blown over had it ever seen wind loadings of 19 pounds per square foot.",
+   "sourceNote": "Single source. Recorded for completeness and not carried in the published post, which stays on the Tay"
+  },
+  {
+   "id": "concept-wind-pressure-standard-1881",
+   "type": "concept",
+   "name": "The first British wind loading requirement for railway structures: 56 pounds per square foot with a safety factor of four, recommended May 1881"
+  },
+  {
+   "id": "story-tay-bridge-1879",
+   "type": "story",
+   "title": "The Failure Nobody Was Required to Look For",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7491718616929890304 facebook: https://www.facebook.com/share/p/1Csb3CY1QU/ instagram: pending newsletter: none"
   }
  ],
  "edges": [
@@ -12603,6 +12897,50 @@
   {"type":"cites","from":"c-leibniz-stepped-reckoner-14","to":"src-leibniz-stepped-reckoner-vcl"},
   {"type":"enabled","from":"pascaline","to":"leibniz-stepped-reckoner","claimId":"c-leibniz-stepped-reckoner-08"},
   {"type":"corrects","from":"pascaline","to":"leibniz-stepped-reckoner","claimId":"c-leibniz-stepped-reckoner-05"},
-  {"type":"covers","from":"story-leibniz-stepped-reckoner","to":"leibniz-stepped-reckoner"}
+  {"type":"covers","from":"story-leibniz-stepped-reckoner","to":"leibniz-stepped-reckoner"},
+  {"type":"event-of","from":"ev-development-tay-1","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-completion-tay-2","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-record-tay-3","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-failure-tay-4","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-assessment-tay-5","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-assessment-tay-6","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-loss-tay-7","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-decision-tay-8","to":"tay-bridge-1879"},
+  {"type":"event-of","from":"ev-completion-tay-9","to":"tay-bridge-1879"},
+  {"type":"contributed","from":"thomas-bouch","to":"tay-bridge-1879","role":"designed"},
+  {"type":"contributed","from":"henry-rothery","to":"tay-bridge-1879","role":"assessed"},
+  {"type":"contributed","from":"william-yolland","to":"tay-bridge-1879","role":"assessed"},
+  {"type":"contributed","from":"william-barlow","to":"tay-bridge-1879","role":"assessed"},
+  {"type":"contributed","from":"henry-noble","to":"tay-bridge-1879","role":"maintained"},
+  {"type":"about","from":"c-tay-bridge-1879-01","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-01","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-02","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-02","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-03","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-03","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-04","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-04","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-05","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-05","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-06","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-06","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-07","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-07","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-08","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-08","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-09","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-09","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-10","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-10","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-11","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-11","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-12","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-12","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-13","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-13","to":"src-tay-bridge-1879-vcl"},
+  {"type":"about","from":"c-tay-bridge-1879-14","to":"tay-bridge-1879"},
+  {"type":"cites","from":"c-tay-bridge-1879-14","to":"src-tay-bridge-1879-vcl"},
+  {"type":"forced","from":"tay-bridge-1879","to":"concept-wind-pressure-standard-1881","claimId":"c-tay-bridge-1879-12"},
+  {"type":"covers","from":"story-tay-bridge-1879","to":"tay-bridge-1879"}
  ]
 }
