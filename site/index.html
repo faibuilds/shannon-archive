@@ -248,6 +248,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 /* The component you tapped on a touch screen, held until you tap elsewhere. */
 .bpad.sel rect{stroke:var(--green);stroke-width:2;fill:rgba(16,185,129,.34)}
 .bpad.sel{opacity:1}
+/* FULL SCREEN. Four thousand pixels of timeline inside a page column is a
+   keyhole. This hands the board the whole window and hands it back on
+   Escape. Vertical scrolling moves to the view so the lane labels travel
+   with their lanes; the timeline keeps its own horizontal scroll. */
+.board-max{margin-left:8px}
+body.board-maxed{overflow:hidden}
+.board-wrap.maxed{position:fixed;inset:0;z-index:120;margin:0;display:flex;flex-direction:column;border:0;background:var(--panel)}
+.board-wrap.maxed .board-bar,.board-wrap.maxed .board-stats,.board-wrap.maxed .board-caption,.board-wrap.maxed .board-foot{flex:0 0 auto}
+.board-wrap.maxed #board-view{flex:1 1 auto;min-height:0;overflow:auto}
+.board-wrap.maxed .board-caption{max-height:20vh;overflow-y:auto}
+.board-wrap.maxed .finding-hint{display:none}
+@media (max-width:760px){.board-wrap.maxed .board-stats{grid-template-columns:repeat(2,1fr)}.board-wrap.maxed .bstat{padding:9px 12px}.board-wrap.maxed .bstat-v{font-size:17px}}
 .board-foot{display:flex;gap:18px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel-faint)}
 .board-foot span b{color:var(--green);font-weight:400}
 .ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10px}
@@ -257,6 +269,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .ledger .lg-type{color:var(--green);text-transform:uppercase;font-size:8.5px;letter-spacing:1.2px}
 .ledger .lg-claim{color:var(--steel-faint);font-size:9px}
 .ledger .lg-lag{color:var(--steel);text-align:right}
+.ledger .lg-share{width:1%;white-space:nowrap;text-align:right;padding-left:0}
+/* A connection is only shareable when both ends are plates with dates, so the
+   cell is empty on a plate-to-outcome row rather than offering a card that
+   would have nothing to put on its axis. */
+.trace-share{font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel-faint);background:none;border:1px solid var(--line2);padding:4px 9px;cursor:pointer;transition:border-color .18s,color .18s}
+.trace-share:hover{border-color:var(--green);color:var(--green)}
+.bc-share{font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel-faint);background:none;border:1px solid var(--line2);padding:3px 8px;margin-left:8px;cursor:pointer;transition:border-color .18s,color .18s}
+.bc-share:hover{border-color:var(--green);color:var(--green)}
 @media(max-width:940px){.board-bar{padding:12px 14px}.bstat{padding:12px 14px}.ledger th,.ledger td{padding:8px 12px}}
 @media(max-width:940px){.findings{padding:48px 20px 6px}.finding{padding:22px 20px 18px}.finding-title{font-size:16px}}
 
@@ -977,6 +997,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <div class="board-bar">
       <div class="board-title">The board <b>/ every artifact, every wired connection</b></div>
       <div class="board-filters" id="board-filters"></div>
+      <button type="button" class="bfilter board-max" id="board-max" aria-pressed="false">Full screen</button>
     </div>
     <div class="board-stats" id="board-stats"></div>
     <div class="board-caption" id="board-caption"></div>
@@ -1208,7 +1229,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.05 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.06 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2364,6 +2385,22 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
   };
   const arts = g.nodes.filter(n => n.type === "artifact").map(a => ({ ...a, year: yearOf(a.id) })).filter(a => a.year);
   const syn = g.edges.filter(e => SYNTH.includes(e.type));
+  /* Hand the plate-to-plate connections to the share sheet. Both ends need a
+     date for the card to have an axis, which is exactly the test arts already
+     applies, so a plate-to-outcome edge simply never appears here. */
+  syn.forEach(e => {
+    const a = arts.find(v => v.id === e.from), b = arts.find(v => v.id === e.to);
+    if (!a || !b) return;
+    const c = g.nodes.find(v => v.id === e.claimId);
+    TRACE[e.from + "__" + e.to + "__" + e.type] = {
+      kind: "trace", covered: true, id: e.from + "__" + e.to + "__" + e.type,
+      fromName: String(a.name || e.from).split("(")[0].trim(),
+      toName: String(b.name || e.to).split("(")[0].trim(),
+      fromYear: a.year, toYear: b.year, gap: b.year - a.year,
+      type: e.type, claimId: e.claimId || "",
+      claim: c && c.text ? c.text : "",
+    };
+  });
   const LANES = [
     { id: "kelly", label: "Kelly L-01" }, { id: "petroski", label: "Petroski L-02" },
     { id: "hammurabi", label: "Hammurabi L-03" }, { id: "barenyi", label: "Barenyi L-04" },
@@ -2626,13 +2663,15 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       const a = byId.get(e.from), b = byId.get(e.to);
       const ya = arts.find(x => x.id === e.from), yb = arts.find(x => x.id === e.to);
       const lag = ya && yb ? (yb.year - ya.year) + " yrs" : "";
+      const key = e.from + "__" + e.to + "__" + e.type;
       return `<tr><td>${esc((a && a.name || e.from).split("(")[0].trim())}</td>
         <td class="lg-type">${esc(e.type)}</td>
         <td>${esc((b && b.name || e.to).split("(")[0].trim())}</td>
         <td class="lg-claim">${esc(e.claimId || "")}</td>
-        <td class="lg-lag">${lag}</td></tr>`;
+        <td class="lg-lag">${lag}</td>
+        <td class="lg-share">${TRACE[key] ? `<button type="button" class="trace-share" data-trace="${esc(key)}">Share</button>` : ""}</td></tr>`;
     }).join("");
-    return `<table class="ledger"><thead><tr><th>From</th><th>Link</th><th>To</th><th>Cited claim</th><th style="text-align:right">Gap</th></tr></thead><tbody>${rows}</tbody></table>`;
+    return `<table class="ledger"><thead><tr><th>From</th><th>Link</th><th>To</th><th>Cited claim</th><th style="text-align:right">Gap</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
   }
 
   /* Touch has no hover, so on a phone the "hover a component for its links"
@@ -2712,7 +2751,9 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     }
     const links = edges.map(e => {
       const other = e.from === id ? e.to : e.from;
-      return `<b>${esc(e.type)}</b> ${e.from === id ? "&rarr;" : "&larr;"} ${plain(other)}`;
+      const key = e.from + "__" + e.to + "__" + e.type;
+      return `<b>${esc(e.type)}</b> ${e.from === id ? "&rarr;" : "&larr;"} ${plain(other)}`
+        + (TRACE[key] ? `<button type="button" class="bc-share" data-trace="${esc(key)}">Share</button>` : "");
     });
     const body = links.length
       ? links.join(" &nbsp;·&nbsp; ")
@@ -3349,6 +3390,10 @@ const CARD = {
   square: { w:1080, h:1080, name:62, hook:34, lines:7,  tag:"square" },
 };
 const cardCache = {};
+/* Shareable board connections, keyed "from__to". Filled by the board once the
+   graph loads; empty until then, which only means the ledger renders without
+   share controls for the moment before the graph arrives. */
+const TRACE = {};
 /* Filled from the graph once it loads. Keyed by plate id. */
 const PLATE_FACT = {};
 
@@ -3656,7 +3701,158 @@ async function drawRemarkCard(d, F) {
 }
 
 /* One entry point, so the sheet does not care which kind of card it holds. */
-const renderCard = (d, F) => (d.kind === "remark" ? drawRemarkCard(d, F) : drawCard(d, F));
+/* A connection card states the relation and nothing more: the two plates, the
+   gap between them, and the claim the archive cited to draw it, verbatim. No
+   line is written for the occasion. The archive does not have a hook for a
+   connection, and inventing one would put a sentence on a public card that
+   nothing in the record supports. The gap is the headline because the gap is
+   the finding. */
+async function drawTraceCard(d, F) {
+  await document.fonts.ready;
+  const cv = document.createElement("canvas");
+  cv.width = F.w; cv.height = F.h;
+  const x = cv.getContext("2d"), S = F.w / 1080, M = 84 * S, CW = F.w - M * 2;
+  const tall = F.h > 1500;
+
+  x.fillStyle = "#0b0c10"; x.fillRect(0, 0, F.w, F.h);
+  x.strokeStyle = "rgba(42,46,52,.9)"; x.lineWidth = 1;
+  for (let g = 0; g < F.w; g += 60 * S) { x.beginPath(); x.moveTo(g, 0); x.lineTo(g, F.h); x.stroke(); }
+  for (let g = 0; g < F.h; g += 60 * S) { x.beginPath(); x.moveTo(0, g); x.lineTo(F.w, g); x.stroke(); }
+  x.textBaseline = "alphabetic";
+
+  /* header, the same one the plate and remark cards wear */
+  let y = M + 28 * S;
+  x.letterSpacing = (4 * S) + "px";
+  x.textAlign = "left";
+  x.font = "700 " + (26 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#ccd1d6";
+  x.fillText("SHANNON", M, y);
+  x.font = "400 " + (22 * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.textAlign = "right"; x.fillText("THE BOARD", F.w - M, y);
+  x.textAlign = "left";
+  y += 22 * S;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
+  x.beginPath(); x.moveTo(M, y); x.lineTo(F.w - M, y); x.stroke();
+
+  /* the gap, which is the whole reason the connection is interesting */
+  y += (tall ? 128 : 96) * S;
+  const num = (d.gap === 0 ? "same year" : Math.abs(d.gap) + "");
+  x.letterSpacing = "0px";
+  x.font = "400 " + ((d.gap === 0 ? 92 : 190) * (tall ? 1 : 0.74) * S) + 'px "Saira Stencil One"';
+  x.fillStyle = "#10b981";
+  x.fillText(num, M, y);
+  if (d.gap !== 0) {
+    const w = x.measureText(num).width;
+    x.letterSpacing = (5 * S) + "px";
+    x.font = "400 " + ((tall ? 30 : 24) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
+    /* Absolute distance, because two of the four relations point back in
+       time by design. A response arrives after the thing it answers, so the
+       edge runs from the later plate to the earlier one and a signed gap
+       would headline the F-15 as minus eight years. Apart is true either
+       way, and the two dated ends below say which came first. */
+    x.fillText("YEARS APART", M + w + 20 * S, y);
+  }
+  y += (tall ? 34 : 26) * S;
+  x.letterSpacing = (4 * S) + "px";
+  x.font = "400 " + ((tall ? 22 : 19) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+  x.fillText("BETWEEN TWO PLATES IN THE ARCHIVE", M, y);
+
+  /* the two ends, named, with the relation between them */
+  y += (tall ? 92 : 68) * S;
+  const nameSize = (tall ? 44 : 34) * S;
+  const drawEnd = (label, year, dim) => {
+    x.letterSpacing = (3 * S) + "px";
+    x.font = "400 " + ((tall ? 20 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+    x.fillText(String(year), M, y);
+    y += (tall ? 34 : 28) * S;
+    x.letterSpacing = "0px";
+    x.font = "600 " + nameSize + 'px Poppins'; x.fillStyle = dim ? "#8f959c" : "#ccd1d6";
+    /* Two lines each, hard. A plate name can run to sixty characters and
+       two uncapped names would push the claim through the footer on the
+       square card, where there is least room. */
+    const nl = wrapLines(x, label, CW), cap = 2;
+    nl.slice(0, cap).forEach((ln, i) => {
+      const cut = i === cap - 1 && nl.length > cap;
+      x.fillText(cut ? ln.replace(/[\s,;.]+$/, "") + "…" : ln, M, y);
+      y += nameSize * 1.22;
+    });
+  };
+  drawEnd(d.fromName, d.fromYear, false);
+  y += (tall ? 10 : 6) * S;
+  x.letterSpacing = (5 * S) + "px";
+  x.font = "400 " + ((tall ? 24 : 20) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.fillText(String(d.type).toUpperCase().replace(/-/g, " ") + "  \u2192", M, y);
+  y += (tall ? 44 : 34) * S;
+  drawEnd(d.toName, d.toYear, false);
+
+  /* a small board: the same language as the real one, two pads and an elbow */
+  y += (tall ? 46 : 30) * S;
+  const bh = (tall ? 190 : 140) * S;
+  x.fillStyle = "rgba(255,255,255,.022)"; x.fillRect(M, y, CW, bh);
+  x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
+  x.strokeRect(M + .5, y + .5, CW - 1, bh - 1);
+  const lo = Math.min(d.fromYear, d.toYear), hi = Math.max(d.fromYear, d.toYear);
+  const pad = 66 * S, span = Math.max(1, hi - lo);
+  const px = yr => M + pad + ((yr - lo) / span) * (CW - pad * 2);
+  /* decade ruler, the board's own idiom */
+  x.letterSpacing = (2 * S) + "px";
+  x.font = "400 " + (15 * S) + 'px "IBM Plex Mono"';
+  const step = span > 160 ? 50 : span > 60 ? 20 : 10;
+  for (let yr = Math.ceil(lo / step) * step; yr <= hi; yr += step) {
+    const gx = px(yr);
+    x.strokeStyle = "#22262b"; x.beginPath(); x.moveTo(gx, y + 16 * S); x.lineTo(gx, y + bh - 40 * S); x.stroke();
+    x.fillStyle = "#4a5058"; x.textAlign = "center"; x.fillText(String(yr), gx, y + bh - 18 * S);
+  }
+  x.textAlign = "left";
+  const rowA = y + bh * 0.36, rowB = y + bh * 0.60;
+  const ax = px(d.fromYear), bx = px(d.toYear);
+  x.strokeStyle = "#10b981"; x.lineWidth = Math.max(1, 2 * S);
+  x.beginPath();
+  const midx = ax + (bx - ax) * 0.58;
+  x.moveTo(ax, rowA); x.lineTo(midx, rowA); x.lineTo(midx, rowB); x.lineTo(bx, rowB);
+  x.stroke();
+  const sq = 16 * S;
+  [[ax, rowA], [bx, rowB]].forEach(([cx, cy]) => {
+    x.fillStyle = "rgba(16,185,129,.22)"; x.fillRect(cx - sq / 2, cy - sq / 2, sq, sq);
+    x.strokeStyle = "#10b981"; x.lineWidth = Math.max(1, 2 * S);
+    x.strokeRect(cx - sq / 2, cy - sq / 2, sq, sq);
+  });
+  y += bh;
+
+  /* the cited claim, verbatim, and the receipt for it */
+  if (d.claim) {
+    y += (tall ? 62 : 42) * S;
+    x.letterSpacing = (4 * S) + "px";
+    x.font = "400 " + ((tall ? 20 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+    x.fillText("THE CLAIM THIS CONNECTION CITES", M, y);
+    y += (tall ? 42 : 32) * S;
+    const cs = (tall ? 29 : 23) * S;
+    x.letterSpacing = "0px";
+    x.font = "400 " + cs + 'px Poppins'; x.fillStyle = "#aeb6bd";
+    const maxLines = tall ? 9 : 5;
+    const lines = wrapLines(x, d.claim, CW);
+    lines.slice(0, maxLines).forEach((ln, i) => {
+      const last = i === maxLines - 1 && lines.length > maxLines;
+      x.fillText(last ? ln.replace(/[\s,;.]+$/, "") + "\u2026" : ln, M, y);
+      y += cs * 1.46;
+    });
+  }
+
+  /* footer rule, claim id on the left, where to find it on the right */
+  const fy = F.h - M - 10 * S;
+  x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
+  x.beginPath(); x.moveTo(M, fy - 34 * S); x.lineTo(F.w - M, fy - 34 * S); x.stroke();
+  x.letterSpacing = (3 * S) + "px";
+  x.font = "400 " + (19 * S) + 'px "IBM Plex Mono"';
+  x.fillStyle = "#5d636a"; x.textAlign = "left";
+  x.fillText(d.claimId ? d.claimId.toUpperCase() : "CLAIM CITED", M, fy);
+  x.fillStyle = "#8f959c"; x.textAlign = "right";
+  x.fillText("SHANNON.ENGINEERINGCOMMUNITY.NET", F.w - M, fy);
+  x.textAlign = "left";
+  return cv;
+}
+
+const renderCard = (d, F) => (d.kind === "remark" ? drawRemarkCard(d, F)
+  : d.kind === "trace" ? drawTraceCard(d, F) : drawCard(d, F));
 
 /* THE SHARE SHEET.
    Encoding a 1080 wide PNG is the slow part by a wide margin: drawing the
@@ -3692,7 +3888,10 @@ async function exportCard(d, F, btn, sheet) {
       new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ENCODE_TIMEOUT)),
     ]);
     if (!blob) throw new Error("no blob");
-    const slug = d.kind === "remark" ? d.id + "-remark-" + String(d.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : d.id;
+    const slug = d.kind === "remark"
+      ? d.id + "-remark-" + String(d.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+      : d.kind === "trace" ? "connection-" + d.id.replace(/__/g, "-")
+      : d.id;
     const name = "shannon-" + slug + "-" + F.tag + ".png";
     const kb = Math.round(blob.size / 1024);
     const file = new File([blob], name, { type: "image/png" });
@@ -3733,7 +3932,10 @@ function openSheet(d, url) {
   sheetEl = document.createElement("div");
   sheetEl.className = "sheet-back";
   sheetEl.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="Share this plate">'
-    + '<h5>' + (d.kind === "remark" ? "Share this remark" : "Share") + '</h5><div class="sheet-name">' + esc(d.kind === "remark" ? d.name + " on the " + d.plateName : d.name) + "</div>"
+    + '<h5>' + (d.kind === "remark" ? "Share this remark" : d.kind === "trace" ? "Share this connection" : "Share") + '</h5><div class="sheet-name">'
+    + esc(d.kind === "remark" ? d.name + " on the " + d.plateName
+        : d.kind === "trace" ? d.fromName + "  \u2192  " + d.toName
+        : d.name) + "</div>"
     + (d.covered
       ? '<div class="sheet-preview"><div class="sheet-canvas" id="sheet-canvas">Drawing the card</div>'
         + '<div class="sheet-formats">'
@@ -3742,7 +3944,7 @@ function openSheet(d, url) {
         + "</div></div>"
         + '<button type="button" class="sheet-go" data-act="save">' + (canShareFiles ? "Share the card" : "Save the card") + "</button>"
       : "")
-    + '<button type="button" data-act="link">Copy link<small>' + esc("#" + d.id) + "</small></button>"
+    + '<button type="button" data-act="link">Copy link<small>' + esc(d.kind === "trace" ? "#board" : "#" + d.id) + "</small></button>"
     + '<p class="sheet-status"></p>'
     + '<button type="button" class="sheet-close" data-act="close">Close</button></div>';
   document.body.appendChild(sheetEl);
@@ -3824,6 +4026,12 @@ document.addEventListener("click", async e => {
   /* Only cleared remarks carry the control at all: the button is rendered
      inside the cleared branch, so an unconsented remark has nothing to
      click and cannot be turned into a card. */
+  const tb = e.target.closest("[data-trace]");
+  if (tb) {
+    const d = TRACE[tb.dataset.trace];
+    if (d) return openSheet(d, location.href.split("#")[0] + "#board");
+    return;
+  }
   const rb = e.target.closest(".remark-share");
   if (rb) {
     const d = remarkData(rb);
@@ -4098,6 +4306,38 @@ window.addEventListener("load", () => {
   }
   openFromHash();
   window.addEventListener("hashchange", openFromHash);
+})();
+
+/* FULL SCREEN BOARD. */
+(function boardFullScreen(){
+  const wrap = document.getElementById("board");
+  const btn = document.getElementById("board-max");
+  if (!wrap || !btn) return;
+  const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let on = false;
+  function apply(v){
+    on = v;
+    wrap.classList.toggle("maxed", on);
+    document.body.classList.toggle("board-maxed", on);
+    btn.textContent = on ? "Exit full screen" : "Full screen";
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    /* The visible width changes in here, so the end fades have to be worked
+       out again or they claim there is more board than there is. */
+    const sc = wrap.querySelector(".board-scroll");
+    if (sc) sc.dispatchEvent(new Event("scroll"));
+    if (!on) wrap.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "center" });
+  }
+  btn.addEventListener("click", () => apply(!on));
+  /* Escape closes the share sheet first if one is open, so a reader who
+     opened a card from the full screen board does not lose both at once.
+     Bound on the capture phase deliberately: the sheet closes on keydown
+     too and was registered earlier, so on the bubble phase the sheet is
+     already gone by the time this runs and one Escape closed both. */
+  document.addEventListener("keydown", e => {
+    if (e.key !== "Escape" || !on) return;
+    if (document.querySelector(".sheet-back")) return;
+    apply(false);
+  }, true);
 })();
 
 /* ---------- PREVIEW MODAL ---------- */
