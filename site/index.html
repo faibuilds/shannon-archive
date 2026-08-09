@@ -1265,7 +1265,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.10 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.11 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2464,22 +2464,54 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
   const ML = 14, MR = 30, RULER_H = 22;
   let LANEW;
   const years = placed.map(p => p.year);
-  const Y0 = Math.floor(Math.min(...years) / 10) * 10 - 4, Y1 = Math.ceil(Math.max(...years) / 10) * 10 + 4;
   /* Geometry is recomputed rather than fixed, because eleven pixels a year
-     is right on a desk and absurd on a phone, where it made the board twelve
-     screens wide. Narrow screens get a tighter scale and shorter lanes. */
+     is right on a desk and absurd on a phone, and because the board should
+     belong to whatever is actually on it. */
   const narrow = () => window.matchMedia("(max-width:760px)").matches;
-  let TOP, LANE_H, PXY, W, xOf;
-  function geom() {
+  let TOP, LANE_H, PXY, W, xOf, Y0, Y1;
+
+  /* The axis used to span the whole archive whatever was showing, so zooming
+     to Carnot still drew 1628 to 2020 and left three plates in a sliver of a
+     four thousand pixel board with nothing either side of them. The span now
+     follows the filter. */
+  function setSpan(items) {
+    const ys = (items.length ? items : placed).map(p => p.year);
+    Y0 = Math.floor(Math.min(...ys) / 10) * 10 - 4;
+    Y1 = Math.ceil(Math.max(...ys) / 10) * 10 + 4;
+    /* A line whose plates share a decade would otherwise divide by nothing. */
+    if (Y1 - Y0 < 30) { const mid = (Y0 + Y1) / 2; Y0 = Math.floor(mid - 15); Y1 = Math.ceil(mid + 15); }
+  }
+
+  function geom(laneCount, padCount) {
     const sm = narrow();
     TOP = sm ? 8 : 10;
-    LANE_H = sm ? 46 : 58;
-    PXY = sm ? 6.5 : 11;
     LANEW = sm ? 58 : 92;
-    W = Math.max(sm ? 560 : 940, ML + MR + (Y1 - Y0) * PXY);
+    const base = sm ? 46 : 58, span = Math.max(1, Y1 - Y0);
+    /* Fewer lanes, taller lanes. Two lanes used to get the same 58 pixels
+       each they get when all thirteen are on the board, which left a zoomed
+       line as a thin strip with the rest of the board empty under it. More
+       height means more rows, and more rows means pads spread out instead of
+       queueing along one line. */
+    LANE_H = Math.round(base * Math.min(2.6, Math.max(1, 9 / Math.max(1, laneCount || 13))));
+    /* And enough width that each component has room to be read. Eleven
+       pixels a year suits the whole archive; one line packed into eighty
+       years needs more than that or every label is an ellipsis. */
+    /* Budget per component, not per year. Kelly packs 37 plates into eighty
+       years and the clusters inside that are tighter still, so an average
+       that looks roomy still truncates most of the labels. */
+    /* Only when zoomed. Spending this much width on the whole archive took
+       the default board from 4600 pixels to 7100, which is a lot more
+       scrolling for a view nobody complained about. Zoom is where the room
+       is wanted. */
+    const zoom = (laneCount || 13) <= 3;
+    const wantPer = zoom && (padCount || 0) > 1 ? (padCount * 118) / span : 0;
+    PXY = Math.max(sm ? 6.5 : 11, Math.min(sm ? 20 : 58, wantPer));
+    const fill = Math.max(sm ? 520 : 860, (view.clientWidth || 940) - LANEW - 8);
+    W = Math.max(fill, ML + MR + span * PXY);
     xOf = y => ML + ((y - Y0) / (Y1 - Y0)) * (W - ML - MR);
   }
-  geom();
+  setSpan(placed);
+  geom(13, placed.length);
   // The outcomes lane holds far more pads than any line, so it gets room.
   const laneHOf = id => id === "concept" ? Math.round(LANE_H * 2.1) : LANE_H;
   const placeX = () => placed.forEach(p => pos.set(p.id, { x: xOf(p.year), y: 0, p }));
@@ -2667,6 +2699,11 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     // Filtering to one line collapses the board to that line plus outcomes.
     const activeLanes = state.line === "all" ? LANES
       : LANES.filter(L => L.id === state.line || L.id === "concept");
+    /* Rescale to what is actually on the board before laying anything out. */
+    const onBoard = placed.filter(visible);
+    setSpan(onBoard);
+    geom(activeLanes.length, onBoard.filter(p => p.lane !== "concept").length);
+    placeX();
     const { laneTop, H } = layoutLanes(activeLanes);
     const axisTop = TOP, axisBot = H - 26;
     const ticks = [];
@@ -3000,7 +3037,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
      window has to lay the board out again. Only on a real crossing: a redraw
      on every pixel of a drag would throw away the reader's scroll position. */
   const NARROW_MQ = window.matchMedia("(max-width:760px)");
-  const relayout = () => { geom(); placeX(); draw(); };
+  const relayout = () => { draw(); };
   /* Listen to the query itself rather than to resize. It fires once, exactly
      on the crossing, and it catches a rotation or a zoom that never emits a
      resize the page can see. addListener is the old spelling, kept for
