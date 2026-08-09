@@ -1229,7 +1229,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.06 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.07 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2474,7 +2474,10 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     return { laneTop, H };
   }
 
-  const state = { line: "all", type: "all", mode: "board", focus: "gap" };
+  /* No focus at the start. The board used to open on the gap lens, which
+     dims every trace but one, so the first thing a reader saw was a field
+     of ghosted squares and a single line. The lenses are opt in. */
+  const state = { line: "all", type: "all", mode: "board", focus: null };
   /* When one line is in focus, outcomes shrink to the concepts that line
      actually produced; the rest would sit as unconnected squares. */
   const conceptsOf = line => new Set(syn.filter(e => { const a = arts.find(x => x.id === e.from); return a && laneOf(a) === line; }).map(e => e.to));
@@ -2547,7 +2550,9 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     `<div class="bstat" data-focus="${key}"><div class="bstat-v">${v}</div><div class="bstat-k">${esc(k)}</div></div>`).join("");
   document.getElementById("board-stats").addEventListener("click", ev => {
     const t = ev.target.closest(".bstat"); if (!t) return;
-    state.focus = t.dataset.focus;
+    /* Clicking the lit tile again clears it, so there is a way back to the
+       whole board without hunting for one. */
+    state.focus = state.focus === t.dataset.focus ? null : t.dataset.focus;
     paintFocus();
   });
 
@@ -2555,12 +2560,22 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const f = FOCI[state.focus];
     const cap = document.getElementById("board-caption");
     if (f) cap.innerHTML = `<span class="bc-kicker">${esc(f.kicker)}</span>${f.html}`;
+    else cap.innerHTML = `<span class="bc-kicker">The whole board</span>`
+      + `Every artifact in the archive, placed by date and by line, and every connection that cites a verified claim. `
+      + `${noHover ? "Tap" : "Hover"} a component to see what it connects to, or ${noHover ? "tap" : "click"} a number above to light just that evidence.`;
     document.querySelectorAll("#board-stats .bstat").forEach(t => t.classList.toggle("on", t.dataset.focus === state.focus));
     const svg = view.querySelector("svg");
     if (!svg) return;
     const eset = new Set((f ? f.edges : []).map(([a, b]) => a + "|" + b));
     const nset = new Set((f ? f.edges : []).flat().concat(f ? f.nodes : []));
-    const any = eset.size > 0;
+    /* Filtering to one line usually leaves the focused evidence off the
+       board. Dimming everything then hid the whole line behind a lens that
+       had nothing to show, which read as the filter being broken. A lens
+       with no evidence in view dims nothing. */
+    const shown = [...svg.querySelectorAll(".btrace")]
+      .some(tr => eset.has(tr.dataset.a + "|" + tr.dataset.b))
+      || [...svg.querySelectorAll(".bpad")].some(o => nset.has(o.dataset.id));
+    const any = eset.size > 0 && shown;
     svg.querySelectorAll(".btrace").forEach(t => {
       const on = eset.has(t.dataset.a + "|" + t.dataset.b);
       t.classList.toggle("hot", on); t.classList.toggle("dim", any && !on);
@@ -2584,7 +2599,11 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
   // ---- filters ----
   const filters = [
     ["line", "all", "All lines"], ["line", "kelly", "Kelly"], ["line", "petroski", "Petroski"], ["line", "hammurabi", "Hammurabi"], ["line", "barenyi", "Barenyi"], ["line", "tipper", "Tipper"], ["line", "roebling", "Roebling"], ["line", "lovelace", "Lovelace"], ["line", "wright", "Wright"], ["line", "sutter", "Sutter"], ["line", "carnot", "Carnot"], ["line", "noyce", "Noyce"],
-    ["type", "all", "All links"], ["type", "enabled", "Enabled"], ["type", "corrects", "Corrects"], ["type", "responded-to", "Responded to"],
+    /* All four relations get a button. Forced had none, so the five rules
+       written out of a failure, which is one of the archive's better
+       findings, could only be seen by looking at every link at once. */
+    ["type", "all", "All links"], ["type", "enabled", "Enabled"], ["type", "forced", "Forced"],
+    ["type", "corrects", "Corrects"], ["type", "responded-to", "Responded to"],
     ["mode", "board", "Board"], ["mode", "ledger", "Ledger"]
   ];
   const fbar = document.getElementById("board-filters");
