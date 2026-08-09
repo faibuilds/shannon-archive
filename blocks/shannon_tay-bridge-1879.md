@@ -41,6 +41,15 @@ FIVE PLATES, FIVE MODES, and the line thesis now says so. Tacoma is the
   understood and consultants were quoting numbers for it, but no code
   demanded its use. Unpredicted against unrequired.
 
+c-04 REVISED (2026-08-08, v2.02). The claim first read that the wind braces
+  "loosened over time and under load". Over time implies a long working life
+  and the bridge had under nineteen months in service, so the phrasing quietly
+  misdescribed the mechanism. It now reads that the bracing ties worked loose
+  under repeated loading, and the source note says plainly that the mechanism
+  is repeated loading, from passing trains and from wind, not elapsed
+  duration. The other thirteen claims were diffed against the revised block
+  and are unchanged.
+
 WHAT THE ARCHIVE IS CAREFUL ABOUT HERE. c-07 carries the block's own
   warning into the record: the collapse of all twelve high-girder towers is
   not evidence against Bouch's defence, because the high girders were a

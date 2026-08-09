@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-08-07",
+ "updated": "2026-08-08",
  "line": "kelly",
  "nodes": [
   {
@@ -9117,8 +9117,8 @@
    "aboutIds": [
     "tay-bridge-1879"
    ],
-   "text": "The most serious defects were the cross-bracing system with a poorly designed tension joint, and cast-in lugs well below strength because the bolt holes concentrated stress at their edges. The wind braces loosened over time and under load.",
-   "sourceNote": "Open University analysis of the inquiry findings"
+   "text": "The most serious defects were the cross-bracing system with a poorly designed tension joint, and cast-in lugs well below strength because the bolt holes concentrated stress at their edges. The bracing ties worked loose under repeated loading.",
+   "sourceNote": "Open University analysis of the inquiry findings, which records that the braces loosened with time and applied load. The mechanism is repeated loading, from passing trains and from wind, not elapsed duration: the bridge had under nineteen months in service, so no account of it should imply a long working life"
   },
   {
    "id": "c-tay-bridge-1879-05",
