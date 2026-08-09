@@ -295,7 +295,26 @@ body.board-maxed{overflow:hidden}
 .board-wrap.maxed #board-view{flex:1 1 auto;min-height:0;overflow:auto}
 .board-wrap.maxed .board-caption{max-height:20vh;overflow-y:auto}
 .board-wrap.maxed .finding-hint{display:none}
-@media (max-width:760px){.board-wrap.maxed .board-stats{grid-template-columns:repeat(2,1fr)}.board-wrap.maxed .bstat{padding:9px 12px}.board-wrap.maxed .bstat-v{font-size:17px}}
+/* Full screen on a phone was giving the board 49 pixels of 812. Twenty
+   filter buttons wrap to 254px on a 375 wide screen, and the stats, the
+   caption and the legend took another 509 between them, so the one thing
+   the reader asked to see got what was left. In here the chrome goes on a
+   diet: the filters and the lenses each become one row you swipe, the
+   caption is capped, and the legend stands down. */
+@media (max-width:760px){
+  .board-wrap.maxed .board-title{display:none}
+  .board-wrap.maxed .board-bar{padding:7px 10px;gap:8px}
+  .board-wrap.maxed .board-filters{flex:1 1 auto;min-width:0;flex-wrap:nowrap;overflow-x:auto;margin-left:0;scrollbar-width:none}
+  .board-wrap.maxed .board-filters::-webkit-scrollbar{display:none}
+  .board-wrap.maxed .board-max{margin-left:auto;flex:0 0 auto}
+  .board-wrap.maxed .board-stats{display:flex;overflow-x:auto;scrollbar-width:none}
+  .board-wrap.maxed .board-stats::-webkit-scrollbar{display:none}
+  .board-wrap.maxed .bstat{flex:0 0 auto;min-width:128px;padding:7px 12px}
+  .board-wrap.maxed .bstat-v{font-size:16px}
+  .board-wrap.maxed .bstat-k{font-size:7.5px;margin-top:3px}
+  .board-wrap.maxed .board-caption{max-height:84px;padding:8px 12px;font-size:12px;line-height:1.45}
+  .board-wrap.maxed .board-foot{display:none}
+}
 .board-foot{display:flex;gap:18px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--steel-faint)}
 .board-foot span b{color:var(--green);font-weight:400}
 .ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10px}
@@ -1265,7 +1284,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.11 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.12 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2534,10 +2553,19 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       const rowY = r => { const off = Math.ceil(r / 2) * (r % 2 ? -12 : 12); return mid + off; };
       const lastAt = new Array(rows).fill(-1e9);
       const rowLast = new Array(rows).fill(null);
-      placed.filter(p => p.lane === L.id).sort((a, b) => a.year - b.year || String(a.id).localeCompare(b.id)).forEach(p => {
+      /* Only the pads that will actually be drawn. Laying out the hidden ones
+         too meant a zoomed line computed its spacing against neighbours from
+         every other line: Lovelace's five outcomes were measured against all
+         63 in the archive, came out crowded, and lost their names to a
+         crush that was not on the board. */
+      placed.filter(p => p.lane === L.id && visible(p)).sort((a, b) => a.year - b.year || String(a.id).localeCompare(b.id)).forEach(p => {
         const x = pos.get(p.id).x;
         let best = 0, bestGap = -1e9;
-        for (let r = 0; r < rows; r++) { const gap = x - lastAt[r]; if (gap >= 12) { best = r; bestGap = gap; break; } if (gap > bestGap) { bestGap = gap; best = r; } }
+        /* Ask for enough room to stand a name in, not just enough to keep two
+           squares apart. Twelve pixels separates the pads and still leaves
+           both of them nameless. Falls back to the roomiest row when no row
+           can offer that much. */
+        for (let r = 0; r < rows; r++) { const gap = x - lastAt[r]; if (gap >= 30) { best = r; bestGap = gap; break; } if (gap > bestGap) { bestGap = gap; best = r; } }
         /* Remember the neighbour on each side in this row. A name can only
            be shown standing if there is clear width for it, and the pad to
            the left is the one that decides. */
@@ -3583,7 +3611,20 @@ async function cardArt(d) {
   try {
     const blob = await (await fetch(d.artHref)).blob();
     const dataUrl = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(blob); });
-    const svg = d.artSvg.replace(/href="[^"]*"/, 'href="' + dataUrl + '"');
+    let svg = d.artSvg.replace(/href="[^"]*"/, 'href="' + dataUrl + '"');
+    /* The plate art is an svg with a viewBox and no width or height, which
+       is right in the page and wrong here: an svg with no intrinsic size
+       rasterises into the default 300 by 150 box, and the card then blew
+       that up between three and nearly seven times. Every drawing on every
+       card was a soft grey smear. Give it a real size before it is decoded.
+       1100 on the long side covers the largest the card ever draws, about
+       1010, with a little over. */
+    const vb = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+    if (vb) {
+      const vw = parseFloat(vb[1]), vh = parseFloat(vb[2]);
+      const k = 1100 / Math.max(vw, vh);
+      svg = svg.replace(/<svg /, '<svg width="' + Math.round(vw * k) + '" height="' + Math.round(vh * k) + '" ');
+    }
     cardCache[d.id] = await new Promise(r => {
       const im = new Image();
       im.onload = () => r(im); im.onerror = () => r(null);
