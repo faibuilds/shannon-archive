@@ -186,10 +186,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .board-lanecol{flex:0 0 92px;width:92px}
 .blane-lbl{display:flex;align-items:center}
 .blane-lbl span{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);line-height:1.35;padding-right:8px}
-.board-scroll{overflow-x:auto;padding:6px 0;flex:1 1 auto;min-width:0;cursor:grab}
+.board-scrollwrap{position:relative;flex:1 1 auto;min-width:0}
+.board-scroll{overflow-x:auto;padding:6px 0;min-width:0;cursor:grab;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.board-scroll::-webkit-scrollbar{height:9px}
+.board-scroll::-webkit-scrollbar-thumb{background:var(--line2)}
+.board-scroll::-webkit-scrollbar-thumb:hover{background:var(--steel-faint)}
+/* The board runs about four thousand pixels wide. A fade at each end says
+   so without a caption, and it only lights when there is really more that
+   way, so it never lies about the end of the timeline. */
+.board-fade{position:absolute;top:0;bottom:9px;width:46px;pointer-events:none;opacity:0;transition:opacity .28s;z-index:2}
+.board-fade.on{opacity:1}
+.board-fade.l{left:0;background:linear-gradient(90deg,var(--panel) 12%,rgba(21,23,26,0) 100%)}
+.board-fade.r{right:0;background:linear-gradient(270deg,var(--panel) 12%,rgba(21,23,26,0) 100%)}
 .board-scroll.dragging{cursor:grabbing;user-select:none}
 .board-scroll svg{display:block}
-@media (max-width:760px){.board-lanecol{flex-basis:64px;width:64px}.blane-lbl span{font-size:7px;letter-spacing:1px}}
+@media (max-width:760px){.board-lanecol{flex-basis:58px;width:58px}.blane-lbl span{font-size:6.5px;letter-spacing:.8px;padding-right:5px}.board-fade{width:30px}}
 /* Mobile swipe hint: the board is wider than a phone and nothing said so.
    A hand slides through a swipe over the board, then retires. */
 #board-view{position:relative}
@@ -203,12 +214,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .swipe-hint-label{font-family:var(--mono);font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-dim)}
 @keyframes swipe-slide{0%{transform:translateX(17px)}55%{transform:translateX(-17px)}100%{transform:translateX(17px)}}
 @keyframes chev-pulse{0%,100%{opacity:.2}45%{opacity:1}}
-@media (hover:hover){.swipe-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.swipe-hint{display:none}}
 .blane-band{fill:rgba(255,255,255,.012)}
 .blane-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase}
 .btick{stroke:var(--line2);stroke-width:.5}
+.btick.major{stroke:var(--line);stroke-width:1}
 .btick-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8px;letter-spacing:1px}
+.btick-label.major{fill:var(--steel-dim);font-size:9px}
+/* A ruler at the top of the board. The dates used to live only at the very
+   bottom, past thirteen lanes, so on any normal screen the board was a field
+   of undated squares. */
+.bruler-band{fill:rgba(255,255,255,.022)}
+.bruler-rule{stroke:var(--line2);stroke-width:1}
+/* Hovering a component drops a line from it to the ruler and prints the year
+   at the top. This is how you read a date without hunting for the axis. */
+.bxhair{stroke:var(--green);stroke-width:1;stroke-dasharray:3 3;opacity:0;transition:opacity .16s;pointer-events:none}
+.bxhair.on{opacity:.5}
+.byear{opacity:0;transition:opacity .16s;pointer-events:none}
+.byear.on{opacity:1}
+.byear rect{fill:#0b0c10;stroke:var(--green);stroke-width:1}
+.byear text{fill:var(--green);font-family:var(--mono);font-size:9px;letter-spacing:1.2px}
 .btrace{stroke:var(--green);stroke-width:1;fill:none;opacity:.5;transition:opacity .18s,stroke-width .18s}
 .btrace.hot{opacity:1;stroke-width:1.8}
 .btrace.dim{opacity:.09}
@@ -1183,7 +1208,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.04 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.05 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2363,14 +2388,27 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
      centuries into one screen width. The board scrolls sideways (the rail
      exists and phones already get the swipe hint); lane labels live in a
      sticky HTML column so they never scroll away with the timeline. */
-  const ML = 14, MR = 30, TOP = 10, LANE_H = 58, PXY = 11;
+  const ML = 14, MR = 30, RULER_H = 21;
   const years = placed.map(p => p.year);
   const Y0 = Math.floor(Math.min(...years) / 10) * 10 - 4, Y1 = Math.ceil(Math.max(...years) / 10) * 10 + 4;
-  const W = Math.max(940, ML + MR + (Y1 - Y0) * PXY);
-  const xOf = y => ML + ((y - Y0) / (Y1 - Y0)) * (W - ML - MR);
+  /* Geometry is recomputed rather than fixed, because eleven pixels a year
+     is right on a desk and absurd on a phone, where it made the board twelve
+     screens wide. Narrow screens get a tighter scale and shorter lanes. */
+  const narrow = () => window.matchMedia("(max-width:760px)").matches;
+  let TOP, LANE_H, PXY, W, xOf;
+  function geom() {
+    const sm = narrow();
+    TOP = sm ? 8 : 10;
+    LANE_H = sm ? 46 : 58;
+    PXY = sm ? 6.5 : 11;
+    W = Math.max(sm ? 560 : 940, ML + MR + (Y1 - Y0) * PXY);
+    xOf = y => ML + ((y - Y0) / (Y1 - Y0)) * (W - ML - MR);
+  }
+  geom();
   // The outcomes lane holds far more pads than any line, so it gets room.
   const laneHOf = id => id === "concept" ? Math.round(LANE_H * 2.1) : LANE_H;
-  placed.forEach(p => pos.set(p.id, { x: xOf(p.year), y: 0, p }));
+  const placeX = () => placed.forEach(p => pos.set(p.id, { x: xOf(p.year), y: 0, p }));
+  placeX();
 
   /* Per-draw layout: which lanes are on the board (filtering to one line
      collapses the board to that line plus outcomes), and greedy row
@@ -2378,7 +2416,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
      its x, so pads can never sit on top of each other no matter how dense
      a decade gets. Row counts scale with lane height. */
   function layoutLanes(activeLanes) {
-    let yCursor = TOP;
+    let yCursor = TOP + RULER_H;
     const laneTop = new Map();
     activeLanes.forEach(L => { laneTop.set(L.id, yCursor); yCursor += laneHOf(L.id); });
     const H = yCursor + 26;
@@ -2528,14 +2566,28 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const activeLanes = state.line === "all" ? LANES
       : LANES.filter(L => L.id === state.line || L.id === "concept");
     const { laneTop, H } = layoutLanes(activeLanes);
-    const axisTop = TOP, axisBot = H - 26;
+    const axisTop = TOP + RULER_H, axisBot = H - 26;
     const ticks = [];
     for (let y = Math.ceil(Y0 / 10) * 10; y <= Y1; y += 10) ticks.push(y);
+    /* Every decade gets a line. Every half century gets a brighter one and a
+       bigger number, so the eye can find its place in four thousand pixels
+       without reading every label. On a phone only the half centuries are
+       labelled, because ten-year labels collide at that scale. */
+    const major = y => y % 50 === 0;
+    const sm = narrow();
     const lanes = activeLanes.map(L => `
       <rect class="blane-band" x="0" y="${laneTop.get(L.id)}" width="${W}" height="${laneHOf(L.id)}"/>`).join("");
+    const ruler = `<rect class="bruler-band" x="0" y="${TOP}" width="${W}" height="${RULER_H}"/>
+      <line class="bruler-rule" x1="0" y1="${TOP + RULER_H}" x2="${W}" y2="${TOP + RULER_H}"/>`
+      + ticks.filter(y => !sm || major(y)).map(y => `
+      <text class="btick-label${major(y) ? " major" : ""}" x="${xOf(y)}" y="${TOP + 14}" text-anchor="middle">${y}</text>`).join("");
     const axis = ticks.map(y => `
-      <line class="btick" x1="${xOf(y)}" y1="${axisTop}" x2="${xOf(y)}" y2="${axisBot}"/>
-      <text class="btick-label" x="${xOf(y)}" y="${axisBot + 15}" text-anchor="middle">${y}</text>`).join("");
+      <line class="btick${major(y) ? " major" : ""}" x1="${xOf(y)}" y1="${axisTop}" x2="${xOf(y)}" y2="${axisBot}"/>
+      <text class="btick-label${major(y) ? " major" : ""}" x="${xOf(y)}" y="${axisBot + 15}" text-anchor="middle">${y}</text>`).join("");
+    /* Parked off screen until a component is hovered or pinned. */
+    const xhair = `<line class="bxhair" id="bxhair" x1="-99" y1="0" x2="-99" y2="0"/>
+      <g class="byear" id="byear"><rect x="-99" y="${TOP + 2}" width="42" height="15"/>
+      <text x="-99" y="${TOP + 13}" text-anchor="middle">0000</text></g>`;
     const traces = syn.filter(edgeOk).map(e => {
       const a = pos.get(e.from), b = pos.get(e.to);
       const mx = a.x + (b.x - a.x) * 0.58;
@@ -2561,9 +2613,12 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const laneCol = activeLanes.map(L => `
       <div class="blane-lbl" style="height:${laneHOf(L.id)}px"><span>${esc(L.label)}</span></div>`).join("");
     return `<div class="board-flex">
-      <div class="board-lanecol" style="padding-top:${TOP}px">${laneCol}</div>
+      <div class="board-lanecol" style="padding-top:${TOP + RULER_H}px">${laneCol}</div>
+      <div class="board-scrollwrap">
       <div class="board-scroll"><svg viewBox="0 0 ${W} ${H}" style="width:${W}px;height:${H}px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Archive board: artifacts by date and line, with claim-cited connections">
-      ${lanes}${axis}${traces}${pads}</svg></div></div>`;
+      ${lanes}${ruler}${axis}${traces}${pads}${xhair}</svg></div>
+      <div class="board-fade l" id="bfade-l"></div><div class="board-fade r" id="bfade-r"></div>
+      </div></div>`;
   }
 
   function ledgerHtml() {
@@ -2584,6 +2639,24 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
      affordance does not exist and a tap jumped straight to the plate. There,
      the first tap inspects (lights the component's traces and names what it
      connects to) and a second tap on the same one opens its plate. */
+  /* Drop a dotted line from the component to the ruler and print its year up
+     there. Called on hover and on pin, cleared when neither holds. */
+  function markYear(svg, id) {
+    const line = svg.querySelector("#bxhair"), pill = svg.querySelector("#byear");
+    if (!line || !pill) return;
+    const at = id && pos.get(id);
+    if (!at) { line.classList.remove("on"); pill.classList.remove("on"); return; }
+    const x = at.x, yr = at.p.year;
+    line.setAttribute("x1", x); line.setAttribute("x2", x);
+    line.setAttribute("y1", TOP + RULER_H); line.setAttribute("y2", at.y);
+    /* Keep the pill inside the board at both ends of the timeline. */
+    const px = Math.min(Math.max(x, ML + 21), W - MR - 21);
+    pill.querySelector("rect").setAttribute("x", px - 21);
+    const tx = pill.querySelector("text");
+    tx.setAttribute("x", px); tx.textContent = yr;
+    line.classList.add("on"); pill.classList.add("on");
+  }
+
   function lightPad(svg, id) {
     svg.querySelectorAll(".btrace").forEach(t => {
       const on = t.dataset.a === id || t.dataset.b === id;
@@ -2648,7 +2721,8 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
        has no plate to open. Two are in that state. Promising a plate that is
        not there is a dead end, so say what is actually true. */
     const hasPlate = !!document.getElementById(id);
-    return `<span class="bc-kicker">${plain(id)}</span>${body}. `
+    const yr = (pos.get(id) || {}).p;
+    return `<span class="bc-kicker">${plain(id)}${yr && yr.year ? " &#183; " + yr.year : ""}</span>${body}. `
       + (hasPlate
         ? `<b>${touch ? "Tap again" : "Click"} to open its plate.</b>`
         : `<b>Recorded in the archive. Its story is not published yet.</b>`);
@@ -2677,16 +2751,18 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
           // Painted last = painted on top, so the hovered label is readable.
           if (pad !== svg.lastElementChild) svg.appendChild(pad);
           lightPad(svg, id);
+          markYear(svg, id);
           // Desktop used to light the traces and say nothing. Say it.
           if (inspected === null) document.getElementById("board-caption").innerHTML = padCaption(id, false);
         });
-        pad.addEventListener("mouseleave", () => { if (inspected === null) paintFocus(); });
+        pad.addEventListener("mouseleave", () => { if (inspected === null) { markYear(svg, null); paintFocus(); } });
       }
       /* Pin a component: its traces and caption stay put while you read them
          and move the mouse elsewhere. Clicking it again releases the pin. */
       const pin = (on) => {
         inspected = on ? id : null;
         lightPad(svg, id);
+        markYear(svg, inspected);
         svg.querySelectorAll(".bpad").forEach(o => o.classList.toggle("sel", o.dataset.id === inspected));
         if (inspected) document.getElementById("board-caption").innerHTML = padCaption(id, noHover);
         else paintFocus();
@@ -2749,9 +2825,32 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       };
       scroller.addEventListener("pointerup", endDrag);
       scroller.addEventListener("pointerleave", endDrag);
+
+      /* Light each fade only when there is really more board that way. */
+      const fl = view.querySelector("#bfade-l"), fr = view.querySelector("#bfade-r");
+      const paintFades = () => {
+        if (!fl || !fr) return;
+        const max = scroller.scrollWidth - scroller.clientWidth;
+        fl.classList.toggle("on", scroller.scrollLeft > 8);
+        fr.classList.toggle("on", scroller.scrollLeft < max - 8);
+      };
+      scroller.addEventListener("scroll", paintFades, { passive: true });
+      paintFades();
     }
     paintFocus();
   }
+
+  /* The scale changes at the phone breakpoint, so a rotation or a resized
+     window has to lay the board out again. Only on a real crossing: a redraw
+     on every pixel of a drag would throw away the reader's scroll position. */
+  const NARROW_MQ = window.matchMedia("(max-width:760px)");
+  const relayout = () => { geom(); placeX(); draw(); };
+  /* Listen to the query itself rather than to resize. It fires once, exactly
+     on the crossing, and it catches a rotation or a zoom that never emits a
+     resize the page can see. addListener is the old spelling, kept for
+     Safari versions that predate the event target form. */
+  if (NARROW_MQ.addEventListener) NARROW_MQ.addEventListener("change", relayout);
+  else if (NARROW_MQ.addListener) NARROW_MQ.addListener(relayout);
 
   /* Mobile swipe hint. The board is wider than a phone and nothing said so.
      Shows once the board is on screen, touch devices only, and retires for
@@ -2766,7 +2865,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     setTimeout(() => el.remove(), 500);
   }
   function maybeShowHint() {
-    if (!noHover || hintShown || hintDone || state.mode !== "board") return;
+    if (hintShown || hintDone || state.mode !== "board") return;
     const scroller = view.querySelector(".board-scroll");
     if (!scroller || scroller.scrollWidth <= scroller.clientWidth + 24) return;
     const r = view.getBoundingClientRect();
@@ -2780,7 +2879,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       + `<path d="M5 5.8a6.2 6.2 0 0 1 10.4 0" stroke="#10b981" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".9"/>`
       + `<g fill="#b9c0c7"><rect x="8" y="2.6" width="4.4" height="14" rx="2.2"/>`
       + `<path d="M8 14h11.2c2.5 0 4.4 2 4.4 4.5 0 4.4-3.4 8-7.8 8h-2.6c-2.9 0-5.4-2-6-4.8l-.9-4c-.4-1.8.9-3.5 2.7-3.7z"/></g></svg>`
-      + `</div><div class="swipe-hint-label">Swipe &#183; more of the board</div></div>`;
+      + `</div><div class="swipe-hint-label">${noHover ? "Swipe" : "Drag or scroll sideways"} &#183; more of the board</div></div>`;
     view.appendChild(hintEl);
     void hintEl.offsetHeight; /* flush styles so the fade-in transition runs */
     hintEl.classList.add("show");
