@@ -258,6 +258,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .bpad:hover rect{stroke:var(--green);fill:rgba(16,185,129,.3)}
 .bpad.dim{opacity:.22}
 .bpad-name{fill:var(--steel-dim);font-family:var(--mono);font-size:8px;letter-spacing:.5px;pointer-events:none;opacity:0;transition:opacity .15s;paint-order:stroke;stroke:rgba(11,12,16,.9);stroke-width:3px}
+/* The standing name. Quiet enough to read the board through, and it steps
+   aside for the full name the moment a component is hovered or held. */
+.bpad-tag{fill:#6b727a;font-family:var(--mono);font-size:7.5px;letter-spacing:.4px;pointer-events:none;transition:fill .15s,opacity .15s;paint-order:stroke;stroke:rgba(11,12,16,.85);stroke-width:2.5px}
+.bpad:hover .bpad-tag,.bpad.named .bpad-tag,.bpad.sel .bpad-tag{opacity:0}
+.bpad.dim .bpad-tag{opacity:.25}
 .bpad:hover .bpad-name,.bpad.named .bpad-name,.bpad.sel .bpad-name{opacity:1;fill:var(--steel)}
 /* The component you tapped on a touch screen, held until you tap elsewhere. */
 .bpad.sel rect{stroke:var(--green);stroke-width:2;fill:rgba(16,185,129,.34)}
@@ -1260,7 +1265,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.08 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.09 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2496,12 +2501,20 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       const mid = laneTop.get(L.id) + lh / 2;
       const rowY = r => { const off = Math.ceil(r / 2) * (r % 2 ? -12 : 12); return mid + off; };
       const lastAt = new Array(rows).fill(-1e9);
+      const rowLast = new Array(rows).fill(null);
       placed.filter(p => p.lane === L.id).sort((a, b) => a.year - b.year || String(a.id).localeCompare(b.id)).forEach(p => {
         const x = pos.get(p.id).x;
         let best = 0, bestGap = -1e9;
         for (let r = 0; r < rows; r++) { const gap = x - lastAt[r]; if (gap >= 12) { best = r; bestGap = gap; break; } if (gap > bestGap) { bestGap = gap; best = r; } }
+        /* Remember the neighbour on each side in this row. A name can only
+           be shown standing if there is clear width for it, and the pad to
+           the left is the one that decides. */
+        const at = pos.get(p.id);
+        at.leftGap = x - lastAt[best];
+        if (rowLast[best]) rowLast[best].rightGap = at.leftGap;
+        rowLast[best] = at;
         lastAt[best] = x;
-        pos.get(p.id).y = rowY(best);
+        at.y = rowY(best);
       });
     });
     return { laneTop, H };
@@ -2697,8 +2710,32 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       const lines = padLabel(p.name || p.id, isC ? 2 : 1, isC ? 23 : 26);
       const ty = y - 9 - (lines.length - 1) * 10;
       const tspans = lines.map((ln, i) => `<tspan x="${x}" dy="${i ? 10 : 0}">${esc(ln)}</tspan>`).join("");
+      /* A standing name under every component that has room for one, so the
+         board reads as a set of named things rather than a field of
+         squares. The full name is still the one that appears on hover; this
+         is only as much of it as fits between this pad and its neighbours,
+         which is what keeps 123 labels from landing on top of each other.
+         About 4.6px a character at this size, and under four characters is
+         not worth the ink. */
+      const at = pos.get(p.id);
+      const room = Math.min(at.leftGap === undefined ? 999 : at.leftGap,
+                            at.rightGap === undefined ? 999 : at.rightGap);
+      /* Labels are centred, so each one reaches half its width toward its
+         neighbour and the neighbour reaches back. Fitting to the whole gap
+         therefore makes them touch; the cushion is what actually separates
+         them. */
+      const fits = Math.floor((room - 12) / 4.6);
+      /* Six characters minimum. Below that the ellipsis eats the label and
+         you get "Me…" hanging under a square, which is noise rather than a
+         name. Those keep their full name on hover like everything else. */
+      let tag = fits >= 6 ? padLabel(p.name || p.id, 1, Math.min(fits, 30))[0] : "";
+      /* padLabel breaks on words, so a six character budget on a name that
+         starts with a short one gives back "The…", which names nothing.
+         Measure what is actually left after the ellipsis. */
+      if (tag.replace(/…$/, "").trim().length < 5) tag = "";
       return `<g class="bpad ${cls}" data-id="${esc(p.id)}" data-year="${p.year}">
         <rect x="${x - s / 2}" y="${y - s / 2}" width="${s}" height="${s}"/>
+        ${tag ? `<text class="bpad-tag" x="${x}" y="${y + s / 2 + 9}" text-anchor="middle">${esc(tag)}</text>` : ""}
         <text class="bpad-name" x="${x}" y="${ty}" text-anchor="middle">${tspans}</text>
       </g>`;
     }).join("");
@@ -3776,6 +3813,21 @@ async function drawTraceCard(d, F) {
   const x = cv.getContext("2d"), S = F.w / 1080, M = 84 * S, CW = F.w - M * 2;
   const tall = F.h > 1500;
 
+  /* One type scale for the card, so a size change is one number and not a
+     hunt through the drawing code. */
+  const T = {
+    gapNum: (d.gap === 0 ? 100 : 224) * (tall ? 1 : 0.64) * S,
+    unit:   (tall ? 34 : 25) * S,
+    strap:  (tall ? 23 : 18) * S,
+    year:   (tall ? 23 : 18) * S,
+    name:   (tall ? 62 : 42) * S,
+    rel:    (tall ? 26 : 21) * S,
+    label:  (tall ? 22 : 18) * S,
+    claim:  (tall ? 35 : 26) * S,
+    foot:   (tall ? 21 : 18) * S,
+  };
+  const LHN = 1.22, LHC = 1.52;
+
   x.fillStyle = "#0b0c10"; x.fillRect(0, 0, F.w, F.h);
   x.strokeStyle = "rgba(42,46,52,.9)"; x.lineWidth = 1;
   for (let g = 0; g < F.w; g += 60 * S) { x.beginPath(); x.moveTo(g, 0); x.lineTo(g, F.h); x.stroke(); }
@@ -3794,135 +3846,154 @@ async function drawTraceCard(d, F) {
   y += 22 * S;
   x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
   x.beginPath(); x.moveTo(M, y); x.lineTo(F.w - M, y); x.stroke();
+  const headBottom = y;
 
-  /* the gap, which is the whole reason the connection is interesting */
-  y += (tall ? 150 : 104) * S;
+  /* ---- measure before drawing anything else ----
+     The card used to stack from the top and stop wherever it ran out of
+     words, which left a short claim floating above half a card of nothing.
+     Everything below the header is measured first, then the slack is handed
+     back out: some to the diagram, the rest as air between the blocks. */
+  const ruleY = F.h - M - 44 * S;
+  x.font = "600 " + T.name + "px Poppins";
+  const nameLinesOf = s => Math.min(2, wrapLines(x, s, CW).length);
+  const nA = nameLinesOf(d.fromName), nB = nameLinesOf(d.toName);
+
+  const hGapBlock = T.gapNum * 0.76 + T.strap * 1.9;
+  const hEnd = n => T.year * 1.75 + n * T.name * LHN;
+  const hRel = T.rel * 1.7;
+  const hClaimLabel = d.claim ? T.label * 2.2 : 0;
+  const boardMin = (tall ? 170 : 116) * S, boardMax = (tall ? 430 : 240) * S;
+
+  x.font = "400 " + T.claim + "px Poppins";
+  const claimAll = d.claim ? wrapLines(x, d.claim, CW) : [];
+
+  const GAPS = 5;
+  const baseGap = (tall ? 30 : 18) * S;
+  /* The margin above the footer rule comes off the top of the budget, not
+     out of whatever happens to be left. Taking it afterwards meant the
+     claim had already eaten it, and on the square card, which has half the
+     height and the same blocks to fit, the last line sat on the rule. */
+  const bottomPad = (tall ? 54 : 34) * S;
+  let room = (ruleY - bottomPad - headBottom)
+    - (hGapBlock + hEnd(nA) + hRel + hEnd(nB) + hClaimLabel + boardMin + baseGap * GAPS);
+  if (room < 0) room = 0;
+
+  /* the claim takes what it needs, up to what is left */
+  const maxClaimLines = Math.max(1, Math.floor(room / (T.claim * LHC)));
+  const claimLines = claimAll.slice(0, maxClaimLines);
+  room -= claimLines.length * T.claim * LHC;
+
+  /* whatever survives is split: the diagram grows first, because a bigger
+     trace is the part worth looking at, and the rest becomes breathing room */
+  /* Hand back most of the slack but not all of it. Spending every last
+     pixel put the final claim line hard against the footer rule on the
+     tightest card, so an eighth is left as margin at the bottom. */
+  const usable = room * 0.94;
+  const grow = Math.max(0, Math.min(usable * 0.5, boardMax - boardMin));
+  const bh = boardMin + grow;
+  const G = baseGap + Math.max(0, (usable - grow) / GAPS);
+
+  /* ---- draw ---- */
+  y = headBottom + G + T.gapNum * 0.72;
   const num = (d.gap === 0 ? "same year" : Math.abs(d.gap) + "");
   x.letterSpacing = "0px";
-  x.font = "400 " + ((d.gap === 0 ? 96 : 216) * (tall ? 1 : 0.66) * S) + 'px "Saira Stencil One"';
+  x.font = "400 " + T.gapNum + 'px "Saira Stencil One"';
   x.fillStyle = "#10b981";
   x.fillText(num, M, y);
   if (d.gap !== 0) {
     const w = x.measureText(num).width;
     x.letterSpacing = (5 * S) + "px";
-    x.font = "400 " + ((tall ? 32 : 24) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#ccd1d6";
-    /* Absolute distance, because two of the four relations point back in
-       time by design. A response arrives after the thing it answers, so the
-       edge runs from the later plate to the earlier one and a signed gap
-       would headline the F-15 as minus eight years. Apart is true either
-       way, and the two dated ends below say which came first. */
-    x.fillText("YEARS APART", M + w + 20 * S, y);
+    x.font = "400 " + T.unit + 'px "IBM Plex Mono"'; x.fillStyle = "#ccd1d6";
+    x.fillText("YEARS APART", M + w + 22 * S, y);
   }
-  y += (tall ? 44 : 32) * S;
+  y += T.strap * 1.9;
   x.letterSpacing = (4 * S) + "px";
-  x.font = "400 " + ((tall ? 22 : 18) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
+  x.font = "400 " + T.strap + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
   x.fillText("BETWEEN TWO PLATES IN THE ARCHIVE", M, y);
 
-  /* the two ends, named, with the relation between them */
-  y += (tall ? 104 : 74) * S;
-  const nameSize = (tall ? 52 : 37) * S;
-  const drawEnd = (label, year, dim) => {
+  const drawEnd = (label, year) => {
+    y += T.year * 1.75;
     x.letterSpacing = (3 * S) + "px";
-    x.font = "400 " + ((tall ? 21 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
+    x.font = "400 " + T.year + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
     x.fillText(String(year), M, y);
-    y += (tall ? 38 : 29) * S;
     x.letterSpacing = "0px";
-    x.font = "600 " + nameSize + 'px Poppins'; x.fillStyle = dim ? "#8f959c" : "#ccd1d6";
+    x.font = "600 " + T.name + 'px Poppins'; x.fillStyle = "#ccd1d6";
     /* Two lines each, hard. A plate name can run to sixty characters and
-       two uncapped names would push the claim through the footer on the
-       square card, where there is least room. */
+       two uncapped names would push the claim through the footer. */
     const nl = wrapLines(x, label, CW), cap = 2;
     nl.slice(0, cap).forEach((ln, i) => {
+      y += T.name * LHN;
       const cut = i === cap - 1 && nl.length > cap;
       x.fillText(cut ? ln.replace(/[\s,;.]+$/, "") + "…" : ln, M, y);
-      y += nameSize * 1.26;
     });
   };
-  drawEnd(d.fromName, d.fromYear, false);
-  y += (tall ? 22 : 12) * S;
-  x.letterSpacing = (5 * S) + "px";
-  x.font = "400 " + ((tall ? 25 : 20) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
-  x.fillText(String(d.type).toUpperCase().replace(/-/g, " ") + "  \u2192", M, y);
-  y += (tall ? 54 : 38) * S;
-  drawEnd(d.toName, d.toYear, false);
 
-  /* Everything below here is sized from the room actually left rather than
-     from fixed numbers. Two sixty-character plate names and a four hundred
-     character claim do not fit the same layout as two short ones, and the
-     square card has barely half the height of the story card. Measuring once
-     here is what stops the claim running through the footer, and it is also
-     what stops the card ending two thirds of the way down. */
-  const ruleY = F.h - M - 44 * S;
-  const claimLine = (tall ? 34 : 25) * S * 1.5;
-  const labelBlock = (tall ? 62 : 44) * S + (tall ? 48 : 34) * S;
-  let room = ruleY - y - (tall ? 30 : 20) * S;
-  if (d.claim) room -= labelBlock + claimLine;      /* keep at least one line */
+  y += G;
+  drawEnd(d.fromName, d.fromYear);
+  y += G + T.rel * 1.1;
+  x.letterSpacing = (5 * S) + "px";
+  x.font = "400 " + T.rel + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.fillText(String(d.type).toUpperCase().replace(/-/g, " ") + "  →", M, y);
+  y += T.rel * 0.6;
+  drawEnd(d.toName, d.toYear);
 
   /* a small board: the same language as the real one, two pads and an elbow */
-  y += (tall ? 46 : 26) * S;
-  const bh = Math.max((tall ? 150 : 104) * S, Math.min((tall ? 300 : 190) * S, room * (d.claim ? 0.42 : 0.9)));
+  y += G;
   x.fillStyle = "rgba(255,255,255,.022)"; x.fillRect(M, y, CW, bh);
   x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
   x.strokeRect(M + .5, y + .5, CW - 1, bh - 1);
   const lo = Math.min(d.fromYear, d.toYear), hi = Math.max(d.fromYear, d.toYear);
-  const pad = 66 * S, span = Math.max(1, hi - lo);
+  const pad = 70 * S, span = Math.max(1, hi - lo);
   const px = yr => M + pad + ((yr - lo) / span) * (CW - pad * 2);
-  /* decade ruler, the board's own idiom */
   x.letterSpacing = (2 * S) + "px";
-  x.font = "400 " + (17 * S) + 'px "IBM Plex Mono"';
+  x.font = "400 " + (18 * S) + 'px "IBM Plex Mono"';
   const step = span > 160 ? 50 : span > 60 ? 20 : 10;
   for (let yr = Math.ceil(lo / step) * step; yr <= hi; yr += step) {
     const gx = px(yr);
-    x.strokeStyle = "#22262b"; x.beginPath(); x.moveTo(gx, y + 16 * S); x.lineTo(gx, y + bh - 40 * S); x.stroke();
-    x.fillStyle = "#8f959c"; x.textAlign = "center"; x.fillText(String(yr), gx, y + bh - 18 * S);
+    x.strokeStyle = "#22262b"; x.beginPath(); x.moveTo(gx, y + 18 * S); x.lineTo(gx, y + bh - 44 * S); x.stroke();
+    x.fillStyle = "#8f959c"; x.textAlign = "center"; x.fillText(String(yr), gx, y + bh - 20 * S);
   }
   x.textAlign = "left";
-  const rowA = y + bh * 0.36, rowB = y + bh * 0.60;
+  const rowA = y + bh * 0.34, rowB = y + bh * 0.60;
   const ax = px(d.fromYear), bx = px(d.toYear);
-  x.strokeStyle = "#10b981"; x.lineWidth = Math.max(1, 2 * S);
+  x.strokeStyle = "#10b981"; x.lineWidth = Math.max(1.5, 2.4 * S);
   x.beginPath();
   const midx = ax + (bx - ax) * 0.58;
   x.moveTo(ax, rowA); x.lineTo(midx, rowA); x.lineTo(midx, rowB); x.lineTo(bx, rowB);
   x.stroke();
-  const sq = 16 * S;
+  const sq = 19 * S;
   [[ax, rowA], [bx, rowB]].forEach(([cx, cy]) => {
     x.fillStyle = "rgba(16,185,129,.22)"; x.fillRect(cx - sq / 2, cy - sq / 2, sq, sq);
-    x.strokeStyle = "#10b981"; x.lineWidth = Math.max(1, 2 * S);
+    x.strokeStyle = "#10b981"; x.lineWidth = Math.max(1.5, 2.4 * S);
     x.strokeRect(cx - sq / 2, cy - sq / 2, sq, sq);
   });
   y += bh;
 
   /* the cited claim, verbatim, and the receipt for it */
   if (d.claim) {
-    y += (tall ? 62 : 44) * S;
+    y += G + T.label * 1.1;
     x.letterSpacing = (4 * S) + "px";
-    x.font = "400 " + ((tall ? 21 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+    x.font = "400 " + T.label + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
     x.fillText("THE CLAIM THIS CONNECTION CITES", M, y);
-    y += (tall ? 48 : 34) * S;
-    const cs = (tall ? 34 : 25) * S;
+    y += T.label * 1.1;
     x.letterSpacing = "0px";
-    x.font = "400 " + cs + 'px Poppins'; x.fillStyle = "#ccd1d6";
-    /* However many lines fit between here and the footer rule, never fewer
-       than one and never one more than there is room for. */
-    const maxLines = Math.max(1, Math.floor((ruleY - y - 8 * S) / (cs * 1.5)));
-    const lines = wrapLines(x, d.claim, CW);
-    lines.slice(0, maxLines).forEach((ln, i) => {
-      const last = i === maxLines - 1 && lines.length > maxLines;
-      x.fillText(last ? ln.replace(/[\s,;.]+$/, "") + "\u2026" : ln, M, y);
-      y += cs * 1.5;
+    x.font = "400 " + T.claim + 'px Poppins'; x.fillStyle = "#ccd1d6";
+    claimLines.forEach((ln, i) => {
+      y += T.claim * LHC;
+      const last = i === claimLines.length - 1 && claimAll.length > claimLines.length;
+      x.fillText(last ? ln.replace(/[\s,;.]+$/, "") + "…" : ln, M, y);
     });
   }
 
   /* footer rule, claim id on the left, where to find it on the right */
-  const fy = F.h - M - 10 * S;
   x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
   x.beginPath(); x.moveTo(M, ruleY); x.lineTo(F.w - M, ruleY); x.stroke();
   x.letterSpacing = (3 * S) + "px";
-  x.font = "400 " + (20 * S) + 'px "IBM Plex Mono"';
+  x.font = "400 " + T.foot + 'px "IBM Plex Mono"';
   x.fillStyle = "#8f959c"; x.textAlign = "left";
-  x.fillText(d.claimId ? d.claimId.toUpperCase() : "CLAIM CITED", M, fy);
+  x.fillText(d.claimId ? d.claimId.toUpperCase() : "CLAIM CITED", M, F.h - M - 10 * S);
   x.fillStyle = "#8f959c"; x.textAlign = "right";
-  x.fillText("SHANNON.ENGINEERINGCOMMUNITY.NET", F.w - M, fy);
+  x.fillText("SHANNON.ENGINEERINGCOMMUNITY.NET", F.w - M, F.h - M - 10 * S);
   x.textAlign = "left";
   return cv;
 }
