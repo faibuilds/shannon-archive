@@ -1284,7 +1284,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.12 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.13 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -4122,7 +4122,7 @@ function previewFrame(F) {
            name: F.name, hook: F.hook, lines: F.lines, tag: F.tag };
 }
 
-async function exportCard(d, F, btn, sheet) {
+async function exportCard(d, F, btn, sheet, mode) {
   const status = sheet.querySelector(".sheet-status");
   const say = (msg, cls) => { status.className = "sheet-status " + (cls || ""); status.textContent = msg; };
   btn.disabled = true;
@@ -4142,9 +4142,26 @@ async function exportCard(d, F, btn, sheet) {
     const kb = Math.round(blob.size / 1024);
     const file = new File([blob], name, { type: "image/png" });
 
+    const download = (note) => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      say((note || "Saved to your downloads. ") + name + ", " + kb + " kb", "ok");
+      btn.disabled = false;
+    };
+
+    /* Only the share button goes near the operating system sheet. Save writes
+       a file, always. The old code sent both down the share path wherever the
+       browser could share files, so on Windows the one button there was
+       opened a share dialog and never saved anything. */
+    if (mode !== "share") { download(); return; }
+
+    const title = "SHANNON / " + (d.kind === "trace" ? d.fromName + " to " + d.toName : d.name);
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], title: "SHANNON / " + d.name });
+        await navigator.share({ files: [file], title });
         say("Shared. " + name, "ok");
         btn.disabled = false;
         return;
@@ -4152,15 +4169,14 @@ async function exportCard(d, F, btn, sheet) {
         /* Cancelling the OS sheet is not a failure, and it must not leave the
            button dead the way the old version could. */
         if (err && err.name === "AbortError") { btn.disabled = false; say("Cancelled. Nothing was shared."); return; }
+        /* Anything else, most often the gesture expiring while the card
+           encoded, still leaves the reader with the card they asked for. Say
+           what happened instead of quietly claiming a plain save. */
+        download("Your device would not open the share sheet, so it is saved instead. ");
+        return;
       }
     }
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = name;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-    say("Saved to your downloads. " + name + ", " + kb + " kb", "ok");
-    btn.disabled = false;
+    download();
   } catch (err) {
     btn.disabled = false;
     say(err && err.message === "timeout"
@@ -4188,7 +4204,13 @@ function openSheet(d, url) {
         + '<button type="button" class="fmt on" data-fmt="story">Story<small>1080 x 1920</small></button>'
         + '<button type="button" class="fmt" data-fmt="square">Square<small>1080 x 1080</small></button>'
         + "</div></div>"
-        + '<button type="button" class="sheet-go" data-act="save">' + (canShareFiles ? "Share the card" : "Save the card") + "</button>"
+        /* Two actions, not one. The single button used to become "Share the
+           card" wherever the browser could share files, which on Windows
+           means the button labelled share opens the operating system sheet
+           and never writes a file. Save now always writes a file, and
+           sharing is a separate thing you can ask for. */
+        + '<button type="button" class="sheet-go" data-act="save">Save the card</button>'
+        + (canShareFiles ? '<button type="button" data-act="share">Share to an app<small>opens your device share sheet</small></button>' : "")
       : "")
     + '<button type="button" data-act="link">Copy link<small>' + esc(d.kind === "trace" ? "#board" : "#" + d.id) + "</small></button>"
     + '<p class="sheet-status"></p>'
@@ -4226,7 +4248,8 @@ function openSheet(d, url) {
     const act = b.dataset.act;
     if (act === "close") return closeSheet();
     if (act === "link") { copyText(url); sheetEl.querySelector(".sheet-status").className = "sheet-status ok"; sheetEl.querySelector(".sheet-status").textContent = "Link copied. " + url.replace(/^https?:\/\//, ""); return; }
-    if (act === "save") exportCard(d, CARD[fmt], b, sheetEl);
+    if (act === "save") exportCard(d, CARD[fmt], b, sheetEl, "save");
+    if (act === "share") exportCard(d, CARD[fmt], b, sheetEl, "share");
   });
 }
 /* LONG REMARKS. One consented comment ran five paragraphs, four times the
