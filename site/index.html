@@ -1183,7 +1183,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.02 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.03 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1641,12 +1641,12 @@ function remarksBlock(remarks, primary, invite, ask){
             <div class="remark">
               <div class="avatar">${esc(r.name.split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase())}</div>
               <div class="remark-body">
-                <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(r.profile)}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
+                <div class="remark-meta">${r.profile ? `<a class="remark-name" href="${esc(safeUrl(r.profile))}" target="_blank" rel="noopener">${esc(r.name)}</a>` : `<span class="remark-name">${esc(r.name)}</span>`}<span class="remark-title">${esc(r.title)}</span></div>
                 <p class="remark-text${r.len > 260 ? " clamped" : ""}">${esc(r.text)}</p>
                 ${r.credit ? `<p class="remark-credit">${esc(r.credit)}</p>` : ""}
                 ${r.len > 260 ? `<button type="button" class="remark-more" aria-expanded="false" hidden>Show the rest</button>` : ""}
                 <div class="remark-foot">
-                  ${primary ? `<a class="remark-src" href="${esc(primary.url)}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
+                  ${primary ? `<a class="remark-src" href="${esc(safeUrl(primary.url))}" target="_blank" rel="noopener">From the comments &rarr;</a>` : ""}
                   <button type="button" class="remark-share">Share this remark</button>
                 </div>
               </div>
@@ -1689,6 +1689,15 @@ function redactLines(L){
 // to inject markup. Safe in both text and attribute contexts.
 const ESC_MAP = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
 const esc = s => (s == null ? "" : String(s)).replace(/[&<>"']/g, c => ESC_MAP[c]);
+// esc() stops a value breaking out of an attribute. It does not stop a
+// javascript: URL, which is a different attack and exactly the one a
+// reader-supplied profile link would carry. Remarks now arrive through a
+// form, so every href and every frame source built from data goes through
+// here first and anything that is not a plain web link lands on "#".
+const safeUrl = u => {
+  const s = (u == null ? "" : String(u)).trim();
+  return /^(https?:\/\/|mailto:|[#/])/i.test(s) ? s : "#";
+};
 let plateIndex = 0;
 
 Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
@@ -1748,8 +1757,8 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         </div>
         <div class="plate-actions">
           ${covered && primary ? `
-            <a class="btn-read" href="${esc(primary.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
-            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(primary.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
+            <a class="btn-read" href="${esc(safeUrl(primary.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${emb ? `<button class="btn-preview" data-embed="${esc(safeUrl(emb))}" data-url="${esc(safeUrl(primary.url))}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
           `}
@@ -1759,7 +1768,7 @@ Object.keys(decades).sort((a,b)=>a-b).forEach(dec => {
         ${extra.length ? `
           <div class="more-posts${extra.some(isAddedStory) ? " has-added" : ""}">
             <div class="more-posts-label">More on the ${esc(a.name.split(" ")[0])}</div>
-            ${extra.map(p => `<a class="post-chip${isAddedStory(p) ? " added" : ""}" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
+            ${extra.map(p => `<a class="post-chip${isAddedStory(p) ? " added" : ""}" href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
           </div>` : ""}
         ${covered ? remarksBlock(a.remarks, primary, INVITE_FLOWN, a.ask) : ""}
         </div>
@@ -1853,8 +1862,8 @@ const LOVELACE = [
         </div>
         <div class="plate-actions">
           ${covered && post ? `
-            <a class="btn-read" href="${esc(post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
-            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(post.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
+            <a class="btn-read" href="${esc(safeUrl(post.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${emb ? `<button class="btn-preview" data-embed="${esc(safeUrl(emb))}" data-url="${esc(safeUrl(post.url))}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
           `}
@@ -1927,7 +1936,7 @@ const WRIGHT = [
           <div class="spec"><div class="spec-k">Status</div><div class="spec-v hot">Covered</div></div>
         </div>
         <div class="plate-actions">
-          <a class="btn-read" href="${esc(post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
+          <a class="btn-read" href="${esc(safeUrl(post.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
           <button class="btn-share" data-id="${a.id}" data-name="${esc(a.name)}">Share</button>
           <button class="defect" data-form="9q56RV" data-form-title="Defect report" data-plate="${esc(a.name)}">Report a defect</button>
         </div>
@@ -2164,8 +2173,8 @@ function renderLine(lineId, arr, meta){
         </div>
         <div class="plate-actions">
           ${isCov && post ? `
-            <a class="btn-read" href="${esc(post.url)}" target="_blank" rel="noopener">Read the story &rarr;</a>
-            ${emb ? `<button class="btn-preview" data-embed="${esc(emb)}" data-url="${esc(post.url)}" data-name="${esc(a.name)}">Preview post</button>` : ""}
+            <a class="btn-read" href="${esc(safeUrl(post.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${emb ? `<button class="btn-preview" data-embed="${esc(safeUrl(emb))}" data-url="${esc(safeUrl(post.url))}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
           `}
@@ -3916,7 +3925,7 @@ window.addEventListener("load", () => {
           + (c.sourceNote ? `<div class="claim-src">${src(c.sourceNote)}</div>` : "") + `</div></li>`;
       }).join("") + `</ul>`;
     body.appendChild(panel);
-    const btn = `<button type="button" class="claims-btn" aria-expanded="false" aria-controls="${panel.id}">Verified claims (${list.length})</button>`;
+    const btn = `<button type="button" class="claims-btn" aria-expanded="false" aria-controls="${esc(panel.id)}">Verified claims (${list.length})</button>`;
     const defect = actions.querySelector(".defect");
     if (defect) defect.insertAdjacentHTML("beforebegin", btn); else actions.insertAdjacentHTML("beforeend", btn);
   });
@@ -3997,8 +4006,8 @@ let lastFocus = null;
 
 const modalNote = document.getElementById("modal-note");
 function openModal(title, src, href, linkText, note){
-  frame.src = src;
-  modalOpen.href = href;
+  frame.src = safeUrl(src);
+  modalOpen.href = safeUrl(href);
   modalOpen.innerHTML = linkText;
   modalNote.textContent = note;
   modalTitle.innerHTML = esc(title) + "<span>.</span>";

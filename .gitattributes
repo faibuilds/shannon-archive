@@ -1,0 +1,5 @@
+# The CSP pins a sha256 of index.html's inline script. A line-ending
+# conversion would change those bytes and blank the site, so the two files
+# the policy depends on are never converted, on any machine.
+site/index.html -text
+site/_headers   -text

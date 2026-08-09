@@ -11,6 +11,13 @@ on:
   pull_request:
     branches: [main]
 
+# A pull request from a fork runs tools/check.js from that fork's checkout.
+# That is the point of the gate, but it means the job should hold no more
+# authority than reading the code, so the token is pinned read-only here
+# rather than left to the repository default.
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest

@@ -506,6 +506,121 @@ const ROEBLING = parseLineArray("ROEBLING");
 })();
 
 // ---------------------------------------------------------------------------
+// Check 11: Link safety. Every URL carried in plate data or in the graph must
+// be a plain web link. The renderer routes hrefs through safeUrl(), so a bad
+// scheme would render dead rather than run, but a remark now reaches us from
+// a form and the person pasting it should be told at commit time, not have it
+// silently blanked in production. mailto: is allowed, everything exotic is not.
+// ---------------------------------------------------------------------------
+(function checkLinks() {
+  const name = "links: every data URL is http(s) or mailto";
+  const ok = (u) => /^(https?:\/\/|mailto:)/i.test(String(u).trim());
+  const problems = [];
+
+  // Plate data: the three fields that become an href, a frame source or a
+  // preview target. Matched on the literal so a new field cannot slip past
+  // unnoticed: if one is added, this list is what needs updating.
+  const FIELDS = /\b(url|profile|embed)\s*:\s*"([^"]*)"/g;
+  let m;
+  while ((m = FIELDS.exec(html))) {
+    if (m[2] && !ok(m[2])) problems.push("index.html " + m[1] + ': "' + m[2].slice(0, 60) + '"');
+  }
+
+  // graph.json: source notes and story records carry links inside prose, so
+  // every scheme-looking token in every string value gets the same test.
+  let graph = null;
+  try { graph = JSON.parse(fs.readFileSync(GRAPH, "utf8")); } catch (e) { /* check 8 reports this */ }
+  if (graph) {
+    const SCHEME = /\b([a-z][a-z0-9+.-]{1,20}):(?=[^\s"]{2})/gi;
+    const ALLOWED = new Set(["http", "https", "mailto"]);
+    const walk = (v, path) => {
+      if (typeof v === "string") {
+        let s;
+        while ((s = SCHEME.exec(v))) {
+          const scheme = s[1].toLowerCase();
+          // Prose is full of colons ("Note: ...", "19:15"). Only flag a token
+          // that is shaped like a URL, which means a scheme we know is one.
+          if (/^(javascript|data|vbscript|file|blob)$/.test(scheme) && !ALLOWED.has(scheme)) {
+            problems.push(path + ": " + scheme + ":");
+          }
+        }
+        for (const u of v.match(/\b[a-z][a-z0-9+.-]*:\/\/\S+/gi) || []) {
+          if (!ok(u)) problems.push(path + ': "' + u.slice(0, 60) + '"');
+        }
+      } else if (Array.isArray(v)) v.forEach((x, i) => walk(x, path + "[" + i + "]"));
+      else if (v && typeof v === "object") Object.keys(v).forEach(k => walk(v[k], path + "." + k));
+    };
+    (graph.nodes || []).forEach(n => walk(n, "node " + n.id));
+    (graph.edges || []).forEach((e, i) => walk(e, "edge " + i));
+  }
+
+  if (problems.length) fail(name, problems.slice(0, 6).join("; "));
+  else pass(name, "(plate data and graph clear)");
+})();
+
+// ---------------------------------------------------------------------------
+// Check 12: The seal holds in the data, not just in the renderer. graph.json
+// is served publicly with CORS open, so a plate that is sealed on the page
+// while its research sits unsealed in the graph would publish the story early
+// to anyone who opened the file. The renderer already refuses to draw claims
+// on an uncovered plate, but that is a display rule. This is the data rule.
+// It caught three artifacts whose sealed flag was never flipped at launch.
+// ---------------------------------------------------------------------------
+(function checkSeal() {
+  const name = "seal: graph sealed flag matches the plate status on the site";
+  let graph = null;
+  try { graph = JSON.parse(fs.readFileSync(GRAPH, "utf8")); } catch (e) { fail(name, "graph unreadable"); return; }
+  const problems = [];
+  let paired = 0;
+  for (const n of graph.nodes) {
+    if (n.type !== "artifact") continue;
+    const i = html.indexOf('id:"' + n.id + '"');
+    if (i < 0) continue;                       // graph-only node, no plate to match
+    const m = html.slice(i, i + 400).match(/status\s*:\s*"([a-z]+)"/);
+    if (!m) continue;
+    paired++;
+    const siteSealed = m[1] !== "covered";
+    const graphSealed = !!n.sealed;
+    if (siteSealed === graphSealed) continue;
+    const claims = graph.nodes.filter(c => c.type === "claim" && (c.aboutIds || []).includes(n.id)).length;
+    problems.push(siteSealed
+      ? "LEAK " + n.id + ": sealed on the site, open in the graph with " + claims + " claim(s)"
+      : "STALE " + n.id + ": covered on the site, still flagged sealed in the graph");
+  }
+  if (problems.length) fail(name, problems.join("; "));
+  else pass(name, "(" + paired + " plates matched)");
+})();
+
+// ---------------------------------------------------------------------------
+// Check 13: CSP. script-src must carry the hash of every inline block and must
+// not carry 'unsafe-inline', which would let injected markup run and make the
+// rest of the policy decorative. A stale hash means a site with no JavaScript,
+// so this gate is the thing that stands between an edit and a blank archive:
+// wrangler runs check.js before uploading, so a stale hash aborts the deploy.
+// Fix a failure with: node tools/csp.js
+// ---------------------------------------------------------------------------
+(function checkCSP() {
+  const name = "csp: script-src hashes match index.html, no unsafe-inline";
+  let headers;
+  try { headers = fs.readFileSync(path.join(SITE, "_headers"), "utf8"); }
+  catch (e) { fail(name, "_headers unreadable: " + e.message); return; }
+
+  const line = (headers.match(/script-src [^;]+/) || [])[0];
+  if (!line) { fail(name, "no script-src in _headers"); return; }
+  if (/'unsafe-inline'/.test(line)) { fail(name, "script-src still allows 'unsafe-inline'"); return; }
+
+  const want = require("./csp.js").hashes();
+  const missing = want.filter(h => !line.includes(h));
+  const stale = (line.match(/'sha256-[^']+'/g) || []).filter(h => !want.includes(h));
+  if (missing.length || stale.length) {
+    fail(name, (missing.length ? missing.length + " inline block(s) unhashed. " : "") +
+      (stale.length ? stale.length + " stale hash(es). " : "") + "Run: node tools/csp.js");
+    return;
+  }
+  pass(name, "(" + want.length + " inline block(s) hashed)");
+})();
+
+// ---------------------------------------------------------------------------
 console.log("");
 if (failed) {
   console.log(failed + " check(s) FAILED. Do not commit.");

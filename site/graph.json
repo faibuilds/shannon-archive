@@ -1330,7 +1330,7 @@
    "category": "other",
    "origin": "United States",
    "lineId": "wright",
-   "sealed": true
+   "sealed": false
   },
   {
    "id": "ev-fail-wwt",
@@ -1382,7 +1382,7 @@
    "category": "other",
    "origin": "United Kingdom",
    "lineId": "lovelace",
-   "sealed": true
+   "sealed": false
   },
   {
    "id": "ev-pub-menabrea",
@@ -1423,7 +1423,7 @@
    "category": "process",
    "origin": "United Kingdom",
    "lineId": "lovelace",
-   "sealed": true
+   "sealed": false
   },
   {
    "id": "ev-pub-mal",
