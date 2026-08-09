@@ -183,11 +183,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .bc-plate{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--steel);background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line2);padding:8px 12px;margin:0 7px 7px 0;transition:border-color .2s,color .2s}
 .bc-plate:hover{border-color:var(--green);color:var(--green)}
 .board-flex{display:flex;align-items:flex-start}
-.board-lanecol{flex:0 0 92px;width:92px}
+.board-lanecol{flex:0 0 auto}
 .blane-lbl{display:flex;align-items:center}
 .blane-lbl span{font-family:var(--mono);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel-faint);line-height:1.35;padding-right:8px}
-.board-scrollwrap{position:relative;flex:1 1 auto;min-width:0}
-.board-scroll{overflow-x:auto;padding:6px 0;min-width:0;cursor:grab;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.board-scrollwrap{position:relative;flex:1 1 auto;min-width:0;min-height:0}
+/* Freeze panes. The ruler is sticky to the top and the lane labels sticky to
+   the left, both inside the one scroller, so the axis stays readable while
+   the board moves under it and the lane names stay put while it moves
+   sideways. In the page the board is only as tall as its content so the top
+   sticky does nothing; in full screen the scroller is bounded and it earns
+   its keep. */
+.board-scroll{overflow:auto;min-width:0;cursor:grab;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+/* width:max-content and no shrinking on the svgs. Flex items shrink by
+   default, so the board was being squashed to the width of the window
+   instead of scrolling, which silently rescaled the whole timeline. */
+.board-rulerrow{display:flex;width:max-content;position:sticky;top:0;z-index:4;background:var(--panel)}
+.board-bodyrow{display:flex;width:max-content}
+.board-rulerrow>svg,.board-bodyrow>svg{flex:0 0 auto}
+.board-corner{position:sticky;left:0;z-index:5;flex:0 0 auto;background:var(--panel)}
+.board-lanecol{position:sticky;left:0;z-index:3;background:var(--panel)}
 .board-scroll::-webkit-scrollbar{height:9px}
 .board-scroll::-webkit-scrollbar-thumb{background:var(--line2)}
 .board-scroll::-webkit-scrollbar-thumb:hover{background:var(--steel-faint)}
@@ -196,11 +210,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
    way, so it never lies about the end of the timeline. */
 .board-fade{position:absolute;top:0;bottom:9px;width:46px;pointer-events:none;opacity:0;transition:opacity .28s;z-index:2}
 .board-fade.on{opacity:1}
-.board-fade.l{left:0;background:linear-gradient(90deg,var(--panel) 12%,rgba(21,23,26,0) 100%)}
+.board-fade.l{left:var(--lanew,92px);background:linear-gradient(90deg,var(--panel) 12%,rgba(21,23,26,0) 100%)}
 .board-fade.r{right:0;background:linear-gradient(270deg,var(--panel) 12%,rgba(21,23,26,0) 100%)}
 .board-scroll.dragging{cursor:grabbing;user-select:none}
 .board-scroll svg{display:block}
-@media (max-width:760px){.board-lanecol{flex-basis:58px;width:58px}.blane-lbl span{font-size:6.5px;letter-spacing:.8px;padding-right:5px}.board-fade{width:30px}}
+@media (max-width:760px){.blane-lbl span{font-size:6.5px;letter-spacing:.8px;padding-right:5px}.board-fade{width:30px}}
 /* Mobile swipe hint: the board is wider than a phone and nothing said so.
    A hand slides through a swipe over the board, then retires. */
 #board-view{position:relative}
@@ -252,9 +266,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
    keyhole. This hands the board the whole window and hands it back on
    Escape. Vertical scrolling moves to the view so the lane labels travel
    with their lanes; the timeline keeps its own horizontal scroll. */
-.board-max{margin-left:8px}
+.board-max{margin-left:8px;display:inline-flex;align-items:center;gap:7px}
+.board-max svg{display:block;flex:0 0 auto}
+.board-max .ic-out,.board-max .ic-in{stroke:var(--green);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.board-max[aria-pressed="true"] .ic-out{display:none}
+.board-max[aria-pressed="false"] .ic-in{display:none}
 body.board-maxed{overflow:hidden}
-.board-wrap.maxed{position:fixed;inset:0;z-index:120;margin:0;display:flex;flex-direction:column;border:0;background:var(--panel)}
+/* Reparented to the body on the way in. #findings is position:relative with
+   z-index:2, which traps everything inside it in that layer, so a z-index of
+   120 on the board still lost to the nav at 100 and to the plates further
+   down the page. Moving the node out is the only fix that does not depend on
+   guessing every other stacking context on the page. 800 keeps it under the
+   share sheet at 900, which has to open on top of it. */
+.board-wrap.maxed{position:fixed;inset:0;z-index:800;margin:0;display:flex;flex-direction:column;border:0;background:var(--panel)}
+/* The scroller has to be .board-scroll itself, not the view around it,
+   or the sticky ruler has no scrollport to stick to and the axis scrolls
+   away with the lanes. Everything above it just passes the height down. */
+.board-wrap.maxed #board-view{overflow:hidden;display:flex}
+.board-wrap.maxed .board-flex{flex:1 1 auto;min-height:0;width:100%;align-items:stretch}
+.board-wrap.maxed .board-scrollwrap{flex:1 1 auto;min-height:0}
+.board-wrap.maxed .board-scroll{height:100%;overflow:auto}
 .board-wrap.maxed .board-bar,.board-wrap.maxed .board-stats,.board-wrap.maxed .board-caption,.board-wrap.maxed .board-foot{flex:0 0 auto}
 .board-wrap.maxed #board-view{flex:1 1 auto;min-height:0;overflow:auto}
 .board-wrap.maxed .board-caption{max-height:20vh;overflow-y:auto}
@@ -997,7 +1028,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <div class="board-bar">
       <div class="board-title">The board <b>/ every artifact, every wired connection</b></div>
       <div class="board-filters" id="board-filters"></div>
-      <button type="button" class="bfilter board-max" id="board-max" aria-pressed="false">Full screen</button>
+      <button type="button" class="bfilter board-max" id="board-max" aria-pressed="false"><svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true"><g class="ic-out"><path d="M1.4 5V1.4H5"/><path d="M9 1.4h3.6V5"/><path d="M12.6 9v3.6H9"/><path d="M5 12.6H1.4V9"/></g><g class="ic-in"><path d="M5 1.4V5H1.4"/><path d="M12.6 5H9V1.4"/><path d="M9 12.6V9h3.6"/><path d="M1.4 9H5v3.6"/></g></svg><span class="board-max-t">Full screen</span></button>
     </div>
     <div class="board-stats" id="board-stats"></div>
     <div class="board-caption" id="board-caption"></div>
@@ -1229,7 +1260,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.07 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.08 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2425,7 +2456,8 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
      centuries into one screen width. The board scrolls sideways (the rail
      exists and phones already get the swipe hint); lane labels live in a
      sticky HTML column so they never scroll away with the timeline. */
-  const ML = 14, MR = 30, RULER_H = 21;
+  const ML = 14, MR = 30, RULER_H = 22;
+  let LANEW;
   const years = placed.map(p => p.year);
   const Y0 = Math.floor(Math.min(...years) / 10) * 10 - 4, Y1 = Math.ceil(Math.max(...years) / 10) * 10 + 4;
   /* Geometry is recomputed rather than fixed, because eleven pixels a year
@@ -2438,6 +2470,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     TOP = sm ? 8 : 10;
     LANE_H = sm ? 46 : 58;
     PXY = sm ? 6.5 : 11;
+    LANEW = sm ? 58 : 92;
     W = Math.max(sm ? 560 : 940, ML + MR + (Y1 - Y0) * PXY);
     xOf = y => ML + ((y - Y0) / (Y1 - Y0)) * (W - ML - MR);
   }
@@ -2453,7 +2486,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
      its x, so pads can never sit on top of each other no matter how dense
      a decade gets. Row counts scale with lane height. */
   function layoutLanes(activeLanes) {
-    let yCursor = TOP + RULER_H;
+    let yCursor = TOP;
     const laneTop = new Map();
     activeLanes.forEach(L => { laneTop.set(L.id, yCursor); yCursor += laneHOf(L.id); });
     const H = yCursor + 26;
@@ -2564,7 +2597,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       + `Every artifact in the archive, placed by date and by line, and every connection that cites a verified claim. `
       + `${noHover ? "Tap" : "Hover"} a component to see what it connects to, or ${noHover ? "tap" : "click"} a number above to light just that evidence.`;
     document.querySelectorAll("#board-stats .bstat").forEach(t => t.classList.toggle("on", t.dataset.focus === state.focus));
-    const svg = view.querySelector("svg");
+    const svg = view.querySelector("svg.board-main");
     if (!svg) return;
     const eset = new Set((f ? f.edges : []).map(([a, b]) => a + "|" + b));
     const nset = new Set((f ? f.edges : []).flat().concat(f ? f.nodes : []));
@@ -2622,7 +2655,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const activeLanes = state.line === "all" ? LANES
       : LANES.filter(L => L.id === state.line || L.id === "concept");
     const { laneTop, H } = layoutLanes(activeLanes);
-    const axisTop = TOP + RULER_H, axisBot = H - 26;
+    const axisTop = TOP, axisBot = H - 26;
     const ticks = [];
     for (let y = Math.ceil(Y0 / 10) * 10; y <= Y1; y += 10) ticks.push(y);
     /* Every decade gets a line. Every half century gets a brighter one and a
@@ -2633,17 +2666,20 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const sm = narrow();
     const lanes = activeLanes.map(L => `
       <rect class="blane-band" x="0" y="${laneTop.get(L.id)}" width="${W}" height="${laneHOf(L.id)}"/>`).join("");
-    const ruler = `<rect class="bruler-band" x="0" y="${TOP}" width="${W}" height="${RULER_H}"/>
-      <line class="bruler-rule" x1="0" y1="${TOP + RULER_H}" x2="${W}" y2="${TOP + RULER_H}"/>`
+    /* Its own element so it can be sticky. Same width as the board, so it
+       tracks the horizontal scroll without any script keeping them in step. */
+    const ruler = `<svg class="board-ruler" viewBox="0 0 ${W} ${RULER_H}" style="width:${W}px;height:${RULER_H}px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect class="bruler-band" x="0" y="0" width="${W}" height="${RULER_H}"/>
+      <line class="bruler-rule" x1="0" y1="${RULER_H - 0.5}" x2="${W}" y2="${RULER_H - 0.5}"/>`
       + ticks.filter(y => !sm || major(y)).map(y => `
-      <text class="btick-label${major(y) ? " major" : ""}" x="${xOf(y)}" y="${TOP + 14}" text-anchor="middle">${y}</text>`).join("");
+      <text class="btick-label${major(y) ? " major" : ""}" x="${xOf(y)}" y="${RULER_H - 7}" text-anchor="middle">${y}</text>`).join("")
+      + `<g class="byear" id="byear"><rect x="-99" y="2" width="46" height="${RULER_H - 5}"/>
+      <text x="-99" y="${RULER_H - 7}" text-anchor="middle">0000</text></g></svg>`;
     const axis = ticks.map(y => `
       <line class="btick${major(y) ? " major" : ""}" x1="${xOf(y)}" y1="${axisTop}" x2="${xOf(y)}" y2="${axisBot}"/>
       <text class="btick-label${major(y) ? " major" : ""}" x="${xOf(y)}" y="${axisBot + 15}" text-anchor="middle">${y}</text>`).join("");
     /* Parked off screen until a component is hovered or pinned. */
-    const xhair = `<line class="bxhair" id="bxhair" x1="-99" y1="0" x2="-99" y2="0"/>
-      <g class="byear" id="byear"><rect x="-99" y="${TOP + 2}" width="42" height="15"/>
-      <text x="-99" y="${TOP + 13}" text-anchor="middle">0000</text></g>`;
+    const xhair = `<line class="bxhair" id="bxhair" x1="-99" y1="0" x2="-99" y2="0"/>`;
     const traces = syn.filter(edgeOk).map(e => {
       const a = pos.get(e.from), b = pos.get(e.to);
       const mx = a.x + (b.x - a.x) * 0.58;
@@ -2669,10 +2705,15 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const laneCol = activeLanes.map(L => `
       <div class="blane-lbl" style="height:${laneHOf(L.id)}px"><span>${esc(L.label)}</span></div>`).join("");
     return `<div class="board-flex">
-      <div class="board-lanecol" style="padding-top:${TOP + RULER_H}px">${laneCol}</div>
-      <div class="board-scrollwrap">
-      <div class="board-scroll"><svg viewBox="0 0 ${W} ${H}" style="width:${W}px;height:${H}px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Archive board: artifacts by date and line, with claim-cited connections">
-      ${lanes}${ruler}${axis}${traces}${pads}${xhair}</svg></div>
+      <div class="board-scrollwrap" style="--lanew:${LANEW}px">
+      <div class="board-scroll">
+        <div class="board-rulerrow"><div class="board-corner" style="width:${LANEW}px;height:${RULER_H}px"></div>${ruler}</div>
+        <div class="board-bodyrow">
+          <div class="board-lanecol" style="width:${LANEW}px;padding-top:${TOP}px">${laneCol}</div>
+          <svg class="board-main" viewBox="0 0 ${W} ${H}" style="width:${W}px;height:${H}px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Archive board: artifacts by date and line, with claim-cited connections">
+          ${lanes}${axis}${traces}${pads}${xhair}</svg>
+        </div>
+      </div>
       <div class="board-fade l" id="bfade-l"></div><div class="board-fade r" id="bfade-r"></div>
       </div></div>`;
   }
@@ -2700,16 +2741,18 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
   /* Drop a dotted line from the component to the ruler and print its year up
      there. Called on hover and on pin, cleared when neither holds. */
   function markYear(svg, id) {
-    const line = svg.querySelector("#bxhair"), pill = svg.querySelector("#byear");
+    /* The line lives in the board and the pill in the ruler above it, so the
+       two are looked up from the view rather than from one svg. */
+    const line = view.querySelector("#bxhair"), pill = view.querySelector("#byear");
     if (!line || !pill) return;
     const at = id && pos.get(id);
     if (!at) { line.classList.remove("on"); pill.classList.remove("on"); return; }
     const x = at.x, yr = at.p.year;
     line.setAttribute("x1", x); line.setAttribute("x2", x);
-    line.setAttribute("y1", TOP + RULER_H); line.setAttribute("y2", at.y);
+    line.setAttribute("y1", TOP); line.setAttribute("y2", at.y);
     /* Keep the pill inside the board at both ends of the timeline. */
-    const px = Math.min(Math.max(x, ML + 21), W - MR - 21);
-    pill.querySelector("rect").setAttribute("x", px - 21);
+    const px = Math.min(Math.max(x, ML + 23), W - MR - 23);
+    pill.querySelector("rect").setAttribute("x", px - 23);
     const tx = pill.querySelector("text");
     tx.setAttribute("x", px); tx.textContent = yr;
     line.classList.add("on"); pill.classList.add("on");
@@ -2802,7 +2845,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     view.innerHTML = state.mode === "board" ? boardSvg() : ledgerHtml();
     inspected = null;
     if (state.mode !== "board") { paintFocus(); return; }
-    const svg = view.querySelector("svg");
+    const svg = view.querySelector("svg.board-main");
     let suppressClick = false;
     svg.querySelectorAll(".bpad").forEach(pad => {
       const id = pad.dataset.id;
@@ -3753,16 +3796,16 @@ async function drawTraceCard(d, F) {
   x.beginPath(); x.moveTo(M, y); x.lineTo(F.w - M, y); x.stroke();
 
   /* the gap, which is the whole reason the connection is interesting */
-  y += (tall ? 128 : 96) * S;
+  y += (tall ? 150 : 104) * S;
   const num = (d.gap === 0 ? "same year" : Math.abs(d.gap) + "");
   x.letterSpacing = "0px";
-  x.font = "400 " + ((d.gap === 0 ? 92 : 190) * (tall ? 1 : 0.74) * S) + 'px "Saira Stencil One"';
+  x.font = "400 " + ((d.gap === 0 ? 96 : 216) * (tall ? 1 : 0.66) * S) + 'px "Saira Stencil One"';
   x.fillStyle = "#10b981";
   x.fillText(num, M, y);
   if (d.gap !== 0) {
     const w = x.measureText(num).width;
     x.letterSpacing = (5 * S) + "px";
-    x.font = "400 " + ((tall ? 30 : 24) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
+    x.font = "400 " + ((tall ? 32 : 24) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#ccd1d6";
     /* Absolute distance, because two of the four relations point back in
        time by design. A response arrives after the thing it answers, so the
        edge runs from the later plate to the earlier one and a signed gap
@@ -3770,19 +3813,19 @@ async function drawTraceCard(d, F) {
        way, and the two dated ends below say which came first. */
     x.fillText("YEARS APART", M + w + 20 * S, y);
   }
-  y += (tall ? 34 : 26) * S;
+  y += (tall ? 44 : 32) * S;
   x.letterSpacing = (4 * S) + "px";
-  x.font = "400 " + ((tall ? 22 : 19) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+  x.font = "400 " + ((tall ? 22 : 18) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
   x.fillText("BETWEEN TWO PLATES IN THE ARCHIVE", M, y);
 
   /* the two ends, named, with the relation between them */
-  y += (tall ? 92 : 68) * S;
-  const nameSize = (tall ? 44 : 34) * S;
+  y += (tall ? 104 : 74) * S;
+  const nameSize = (tall ? 52 : 37) * S;
   const drawEnd = (label, year, dim) => {
     x.letterSpacing = (3 * S) + "px";
-    x.font = "400 " + ((tall ? 20 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#5d636a";
+    x.font = "400 " + ((tall ? 21 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#8f959c";
     x.fillText(String(year), M, y);
-    y += (tall ? 34 : 28) * S;
+    y += (tall ? 38 : 29) * S;
     x.letterSpacing = "0px";
     x.font = "600 " + nameSize + 'px Poppins'; x.fillStyle = dim ? "#8f959c" : "#ccd1d6";
     /* Two lines each, hard. A plate name can run to sixty characters and
@@ -3792,20 +3835,32 @@ async function drawTraceCard(d, F) {
     nl.slice(0, cap).forEach((ln, i) => {
       const cut = i === cap - 1 && nl.length > cap;
       x.fillText(cut ? ln.replace(/[\s,;.]+$/, "") + "…" : ln, M, y);
-      y += nameSize * 1.22;
+      y += nameSize * 1.26;
     });
   };
   drawEnd(d.fromName, d.fromYear, false);
-  y += (tall ? 10 : 6) * S;
+  y += (tall ? 22 : 12) * S;
   x.letterSpacing = (5 * S) + "px";
-  x.font = "400 " + ((tall ? 24 : 20) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+  x.font = "400 " + ((tall ? 25 : 20) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
   x.fillText(String(d.type).toUpperCase().replace(/-/g, " ") + "  \u2192", M, y);
-  y += (tall ? 44 : 34) * S;
+  y += (tall ? 54 : 38) * S;
   drawEnd(d.toName, d.toYear, false);
 
+  /* Everything below here is sized from the room actually left rather than
+     from fixed numbers. Two sixty-character plate names and a four hundred
+     character claim do not fit the same layout as two short ones, and the
+     square card has barely half the height of the story card. Measuring once
+     here is what stops the claim running through the footer, and it is also
+     what stops the card ending two thirds of the way down. */
+  const ruleY = F.h - M - 44 * S;
+  const claimLine = (tall ? 34 : 25) * S * 1.5;
+  const labelBlock = (tall ? 62 : 44) * S + (tall ? 48 : 34) * S;
+  let room = ruleY - y - (tall ? 30 : 20) * S;
+  if (d.claim) room -= labelBlock + claimLine;      /* keep at least one line */
+
   /* a small board: the same language as the real one, two pads and an elbow */
-  y += (tall ? 46 : 30) * S;
-  const bh = (tall ? 190 : 140) * S;
+  y += (tall ? 46 : 26) * S;
+  const bh = Math.max((tall ? 150 : 104) * S, Math.min((tall ? 300 : 190) * S, room * (d.claim ? 0.42 : 0.9)));
   x.fillStyle = "rgba(255,255,255,.022)"; x.fillRect(M, y, CW, bh);
   x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
   x.strokeRect(M + .5, y + .5, CW - 1, bh - 1);
@@ -3814,12 +3869,12 @@ async function drawTraceCard(d, F) {
   const px = yr => M + pad + ((yr - lo) / span) * (CW - pad * 2);
   /* decade ruler, the board's own idiom */
   x.letterSpacing = (2 * S) + "px";
-  x.font = "400 " + (15 * S) + 'px "IBM Plex Mono"';
+  x.font = "400 " + (17 * S) + 'px "IBM Plex Mono"';
   const step = span > 160 ? 50 : span > 60 ? 20 : 10;
   for (let yr = Math.ceil(lo / step) * step; yr <= hi; yr += step) {
     const gx = px(yr);
     x.strokeStyle = "#22262b"; x.beginPath(); x.moveTo(gx, y + 16 * S); x.lineTo(gx, y + bh - 40 * S); x.stroke();
-    x.fillStyle = "#4a5058"; x.textAlign = "center"; x.fillText(String(yr), gx, y + bh - 18 * S);
+    x.fillStyle = "#8f959c"; x.textAlign = "center"; x.fillText(String(yr), gx, y + bh - 18 * S);
   }
   x.textAlign = "left";
   const rowA = y + bh * 0.36, rowB = y + bh * 0.60;
@@ -3839,30 +3894,32 @@ async function drawTraceCard(d, F) {
 
   /* the cited claim, verbatim, and the receipt for it */
   if (d.claim) {
-    y += (tall ? 62 : 42) * S;
+    y += (tall ? 62 : 44) * S;
     x.letterSpacing = (4 * S) + "px";
-    x.font = "400 " + ((tall ? 20 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
+    x.font = "400 " + ((tall ? 21 : 17) * S) + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
     x.fillText("THE CLAIM THIS CONNECTION CITES", M, y);
-    y += (tall ? 42 : 32) * S;
-    const cs = (tall ? 29 : 23) * S;
+    y += (tall ? 48 : 34) * S;
+    const cs = (tall ? 34 : 25) * S;
     x.letterSpacing = "0px";
-    x.font = "400 " + cs + 'px Poppins'; x.fillStyle = "#aeb6bd";
-    const maxLines = tall ? 9 : 5;
+    x.font = "400 " + cs + 'px Poppins'; x.fillStyle = "#ccd1d6";
+    /* However many lines fit between here and the footer rule, never fewer
+       than one and never one more than there is room for. */
+    const maxLines = Math.max(1, Math.floor((ruleY - y - 8 * S) / (cs * 1.5)));
     const lines = wrapLines(x, d.claim, CW);
     lines.slice(0, maxLines).forEach((ln, i) => {
       const last = i === maxLines - 1 && lines.length > maxLines;
       x.fillText(last ? ln.replace(/[\s,;.]+$/, "") + "\u2026" : ln, M, y);
-      y += cs * 1.46;
+      y += cs * 1.5;
     });
   }
 
   /* footer rule, claim id on the left, where to find it on the right */
   const fy = F.h - M - 10 * S;
   x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
-  x.beginPath(); x.moveTo(M, fy - 34 * S); x.lineTo(F.w - M, fy - 34 * S); x.stroke();
+  x.beginPath(); x.moveTo(M, ruleY); x.lineTo(F.w - M, ruleY); x.stroke();
   x.letterSpacing = (3 * S) + "px";
-  x.font = "400 " + (19 * S) + 'px "IBM Plex Mono"';
-  x.fillStyle = "#5d636a"; x.textAlign = "left";
+  x.font = "400 " + (20 * S) + 'px "IBM Plex Mono"';
+  x.fillStyle = "#8f959c"; x.textAlign = "left";
   x.fillText(d.claimId ? d.claimId.toUpperCase() : "CLAIM CITED", M, fy);
   x.fillStyle = "#8f959c"; x.textAlign = "right";
   x.fillText("SHANNON.ENGINEERINGCOMMUNITY.NET", F.w - M, fy);
@@ -4334,11 +4391,16 @@ window.addEventListener("load", () => {
   if (!wrap || !btn) return;
   const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let on = false;
+  /* A marker of where the board lives in the page, so it can go home. */
+  const home = document.createComment("board");
   function apply(v){
     on = v;
+    if (on) { wrap.parentNode.insertBefore(home, wrap); document.body.appendChild(wrap); }
+    else if (home.parentNode) { home.parentNode.insertBefore(wrap, home); home.remove(); }
     wrap.classList.toggle("maxed", on);
     document.body.classList.toggle("board-maxed", on);
-    btn.textContent = on ? "Exit full screen" : "Full screen";
+    const label = btn.querySelector(".board-max-t");
+    if (label) label.textContent = on ? "Exit full screen" : "Full screen";
     btn.setAttribute("aria-pressed", on ? "true" : "false");
     /* The visible width changes in here, so the end fades have to be worked
        out again or they claim there is more board than there is. */
