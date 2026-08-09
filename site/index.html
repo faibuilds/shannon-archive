@@ -1265,7 +1265,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.09 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.10 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2872,9 +2872,25 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     const t = document.getElementById(id);
     if (!t) return;
     t.classList.add("visible");
-    t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    t.classList.add("flash");
-    setTimeout(() => t.classList.remove("flash"), 2600);
+    /* A plate lives in the page, and in full screen the page is behind the
+       board with the body locked, so scrolling to one did nothing until the
+       reader closed the board by hand. Leave full screen first, quietly so
+       it does not scroll back to the board, and go on the next frame once
+       the board is back in the flow and the page has its height again. */
+    const max = document.getElementById("board-max");
+    const wasFull = max && max.getAttribute("aria-pressed") === "true";
+    if (wasFull) document.dispatchEvent(new CustomEvent("board-leave-full"));
+    const go = () => {
+      t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      t.classList.add("flash");
+      setTimeout(() => t.classList.remove("flash"), 2600);
+    };
+    /* A timer, not requestAnimationFrame. rAF does not fire while the page
+       is not rendering, so on a throttled or hidden tab the jump would be
+       dropped silently and the reader would land nowhere. A zero timeout
+       runs either way, and is still late enough for the board to be back in
+       the flow and the page to have its height again. */
+    if (wasFull) setTimeout(go, 0); else go();
   }
 
   function draw() {
@@ -3823,7 +3839,7 @@ async function drawTraceCard(d, F) {
     name:   (tall ? 62 : 42) * S,
     rel:    (tall ? 26 : 21) * S,
     label:  (tall ? 22 : 18) * S,
-    claim:  (tall ? 35 : 26) * S,
+    claim:  (tall ? 37 : 27) * S,
     foot:   (tall ? 21 : 18) * S,
   };
   const LHN = 1.22, LHC = 1.52;
@@ -3867,7 +3883,11 @@ async function drawTraceCard(d, F) {
   x.font = "400 " + T.claim + "px Poppins";
   const claimAll = d.claim ? wrapLines(x, d.claim, CW) : [];
 
-  const GAPS = 5;
+  /* Five gaps, not equally weighted. The two plates and the relation between
+     them are one statement and read better held together, so they get less
+     air than the diagram and the claim, which are separate blocks. */
+  const WGT = [1.0, 0.85, 0.5, 1.25, 1.05];
+  const GAPS = WGT.reduce((a, b) => a + b, 0);
   const baseGap = (tall ? 30 : 18) * S;
   /* The margin above the footer rule comes off the top of the budget, not
      out of whatever happens to be left. Taking it afterwards meant the
@@ -3891,10 +3911,11 @@ async function drawTraceCard(d, F) {
   const usable = room * 0.94;
   const grow = Math.max(0, Math.min(usable * 0.5, boardMax - boardMin));
   const bh = boardMin + grow;
-  const G = baseGap + Math.max(0, (usable - grow) / GAPS);
+  const gu = baseGap + Math.max(0, (usable - grow) / GAPS);
+  const G = i => gu * WGT[i];
 
   /* ---- draw ---- */
-  y = headBottom + G + T.gapNum * 0.72;
+  y = headBottom + G(0) + T.gapNum * 0.72;
   const num = (d.gap === 0 ? "same year" : Math.abs(d.gap) + "");
   x.letterSpacing = "0px";
   x.font = "400 " + T.gapNum + 'px "Saira Stencil One"';
@@ -3928,9 +3949,9 @@ async function drawTraceCard(d, F) {
     });
   };
 
-  y += G;
+  y += G(1);
   drawEnd(d.fromName, d.fromYear);
-  y += G + T.rel * 1.1;
+  y += G(2) + T.rel * 1.1;
   x.letterSpacing = (5 * S) + "px";
   x.font = "400 " + T.rel + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
   x.fillText(String(d.type).toUpperCase().replace(/-/g, " ") + "  →", M, y);
@@ -3938,7 +3959,7 @@ async function drawTraceCard(d, F) {
   drawEnd(d.toName, d.toYear);
 
   /* a small board: the same language as the real one, two pads and an elbow */
-  y += G;
+  y += G(3);
   x.fillStyle = "rgba(255,255,255,.022)"; x.fillRect(M, y, CW, bh);
   x.strokeStyle = "#2a2e34"; x.lineWidth = Math.max(1, 1 * S);
   x.strokeRect(M + .5, y + .5, CW - 1, bh - 1);
@@ -3971,7 +3992,7 @@ async function drawTraceCard(d, F) {
 
   /* the cited claim, verbatim, and the receipt for it */
   if (d.claim) {
-    y += G + T.label * 1.1;
+    y += G(4) + T.label * 1.1;
     x.letterSpacing = (4 * S) + "px";
     x.font = "400 " + T.label + 'px "IBM Plex Mono"'; x.fillStyle = "#10b981";
     x.fillText("THE CLAIM THIS CONNECTION CITES", M, y);
@@ -4464,7 +4485,7 @@ window.addEventListener("load", () => {
   let on = false;
   /* A marker of where the board lives in the page, so it can go home. */
   const home = document.createComment("board");
-  function apply(v){
+  function apply(v, quiet){
     on = v;
     if (on) { wrap.parentNode.insertBefore(home, wrap); document.body.appendChild(wrap); }
     else if (home.parentNode) { home.parentNode.insertBefore(wrap, home); home.remove(); }
@@ -4477,9 +4498,12 @@ window.addEventListener("load", () => {
        out again or they claim there is more board than there is. */
     const sc = wrap.querySelector(".board-scroll");
     if (sc) sc.dispatchEvent(new Event("scroll"));
-    if (!on) wrap.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "center" });
+    /* Coming back from a plate the reader is already going somewhere, so
+       skip the scroll home or the two fight each other. */
+    if (!on && !quiet) wrap.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "center" });
   }
   btn.addEventListener("click", () => apply(!on));
+  document.addEventListener("board-leave-full", () => { if (on) apply(false, true); });
   /* Escape closes the share sheet first if one is open, so a reader who
      opened a card from the full screen board does not lose both at once.
      Bound on the capture phase deliberately: the sheet closes on keydown
