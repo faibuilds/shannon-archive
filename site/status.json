@@ -4,7 +4,7 @@
   "linesLive": 11,
   "lines": [
     { "id": "kelly", "name": "KELLY L-01", "total": 27, "lit": 20 },
-    { "id": "petroski", "name": "PETROSKI L-02", "total": 5, "lit": 5 },
+    { "id": "petroski", "name": "PETROSKI L-02", "total": 6, "lit": 6 },
     { "id": "hammurabi", "name": "HAMMURABI L-03", "total": 1, "lit": 1 },
     { "id": "barenyi", "name": "BARENYI L-04", "total": 1, "lit": 1 },
     { "id": "tipper", "name": "TIPPER L-05", "total": 2, "lit": 2 },
@@ -22,7 +22,7 @@
     1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
     1, 0, 1, 1, 0, 0, 1
   ],
-  "lastLit": "The three-plate method and the Whitworth thread",
+  "lastLit": "Air Canada 143, the Gimli Glider",
   "lastLitDate": "Aug 2026",
-  "updated": "2026-08-08"
+  "updated": "2026-08-09"
 }

@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-08-08",
+ "updated": "2026-08-09",
  "line": "kelly",
  "nodes": [
   {
@@ -9464,6 +9464,307 @@
    "type": "story",
    "title": "Two surfaces can agree and both be wrong",
    "status": "published linkedin: pending facebook: https://www.facebook.com/share/p/14kPmzmTB8W/ instagram: pending newsletter: none"
+  },
+  {
+   "id": "air-canada-143-gimli",
+   "type": "artifact",
+   "name": "Air Canada 143, the Gimli Glider",
+   "category": "failure",
+   "origin": "Canada",
+   "lineId": "petroski",
+   "sealed": false,
+   "note": "A four-month-old Boeing 767 exhausted its fuel at 41,000 feet and was glided to a dead-stick landing on a decommissioned runway that had become a drag strip. Neither unit system involved was wrong. The hazard existed only in the transition between them, and every verification agreed with the error because the error sat beneath every measurement. Sixth PETROSKI plate and its sixth distinct mode. See blocks/shannon_air-canada-143-gimli.md"
+  },
+  {
+   "id": "ev-decision-gimli-1",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1970
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "Through the 1970s, Canadian government metrication policy leads Air Canada to order its first Boeing 767s with fuel quantity gauges reading in kilograms. The remainder of the fleet, its refuelling contractors and its training continue to work in pounds"
+  },
+  {
+   "id": "ev-failure-gimli-2",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1983,
+    "month": 7,
+    "day": 22
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "A fault is found in the Fuel Quantity Indication System of C-GAUN at Edmonton. The 767 carries two processing channels, either able to serve the gauges alone. A technician finds that disabling channel 2 restores indications, tags the breaker, logs the defect, and the aircraft is legally dispatched under the Minimum Equipment List"
+  },
+  {
+   "id": "ev-failure-gimli-3",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1983,
+    "month": 7,
+    "day": 23
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "At Montreal an avionics technician re-enables the defective channel to run a self-test, is distracted by the arrival of the fuel truck, and leaves it enabled after the test fails. The fuel gauges go blank entirely"
+  },
+  {
+   "id": "ev-failure-gimli-4",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1983,
+    "month": 7,
+    "day": 23
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "With no gauges, fuel is measured by dripstick. The centimetres-to-litres conversion is correct. The density step is not: the refueller's slip carries 1.77, pounds per litre, the figure used across the rest of the fleet. The metric aircraft requires 0.803, kilograms per litre. The aircraft is loaded with less than half the fuel the flight requires"
+  },
+  {
+   "id": "ev-failure-gimli-5",
+   "type": "event",
+   "eventType": "failure",
+   "date": {
+    "year": 1983,
+    "month": 7,
+    "day": 23
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "A second dripstick check at Ottawa uses the same density factor and agrees with the first. Both engines flame out from fuel exhaustion at 41,000 feet over Red Lake, Ontario, leaving standby instruments and a ram air turbine driving partial hydraulics"
+  },
+  {
+   "id": "ev-response-gimli-6",
+   "type": "event",
+   "eventType": "response",
+   "date": {
+    "year": 1983,
+    "month": 7,
+    "day": 23
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "With no procedure in the Quick Reference Handbook for a 767 without engines, the captain estimates a best glide speed of 220 knots from glider experience and the first officer computes the glide ratio in flight at roughly 12 to 1. Winnipeg is beyond reach; the aircraft is diverted to the former RCAF Station Gimli, part of which has become a motorsports park hosting a race"
+  },
+  {
+   "id": "ev-response-gimli-7",
+   "type": "event",
+   "eventType": "response",
+   "date": {
+    "year": 1983,
+    "month": 7,
+    "day": 23
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "The landing gear is dropped by gravity. The main gear locks and the nose gear does not. The aircraft is slipped to lose height, touches down about 800 feet past the threshold, blows tyres, and the collapsed nose gear grinds it to a stop short of the spectator area. There are no fatalities and ten minor injuries, all sustained on the evacuation slides. 64 litres of fuel remain"
+  },
+  {
+   "id": "ev-regulation-gimli-8",
+   "type": "event",
+   "eventType": "regulation",
+   "date": {
+    "year": 1984
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "The Board of Inquiry finds the causes organisational and recommends immediate conversion of the remaining fleet to metric, on the finding that a fleet operating in two unit systems is more dangerous than a fleet operating in either one"
+  },
+  {
+   "id": "ev-milestone-gimli-9",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 2008
+   },
+   "subjectId": "air-canada-143-gimli",
+   "label": "C-GAUN is retired from service, twenty-five years after the accident"
+  },
+  {
+   "id": "robert-pearson",
+   "type": "person",
+   "name": "Robert Pearson",
+   "note": "Captain, approximately 15,000 hours, an experienced glider pilot. Estimated the best glide speed and flew the sideslip."
+  },
+  {
+   "id": "maurice-quintal",
+   "type": "person",
+   "name": "Maurice Quintal",
+   "note": "First officer, approximately 7,000 hours, previously stationed at RCAF Gimli. Computed the glide ratio in flight and identified the diversion field."
+  },
+  {
+   "id": "src-air-canada-143-gimli-vcl",
+   "type": "source",
+   "kind": "reference",
+   "title": "EC VCL: Air Canada 143 (Board of Inquiry report, 1984; accident report summaries; the captain's own account; contemporary and retrospective coverage of the flight and of C-GAUN's retirement in 2008). Two independent audits were run. Where they disagreed and no primary source settled it, the claim is recorded as unverifiable and does not render."
+  },
+  {
+   "id": "c-air-canada-143-gimli-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "C-GAUN was a Boeing 767-233 fewer than four months old, on approximately its twelfth revenue flight, and among the first Air Canada aircraft with fuel gauges reading in kilograms. The rest of the fleet, its refuelling contractors and its training worked in pounds.",
+   "sourceNote": "Board of Inquiry report; multiple corroborating accounts"
+  },
+  {
+   "id": "c-air-canada-143-gimli-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "Flight 143 carried 61 passengers and 8 crew.",
+   "sourceNote": "Multiple. Some accounts render 61 as the total; the passenger and crew figures are always stated separately"
+  },
+  {
+   "id": "c-air-canada-143-gimli-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The Edmonton dispatch with one FQIS channel disabled was legal under the Minimum Equipment List.",
+   "sourceNote": "Board of Inquiry report; multiple"
+  },
+  {
+   "id": "c-air-canada-143-gimli-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "At Montreal a technician re-enabled the defective channel for a self-test and, distracted by the fuel truck, left it enabled after the test failed, blanking the gauges entirely.",
+   "sourceNote": "Board of Inquiry report via multiple accounts. The least told link in the chain, and the one converting a degraded system into a blind one"
+  },
+  {
+   "id": "c-air-canada-143-gimli-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The dripstick procedure has two conversions. Centimetres to litres, by onboard tables, was performed correctly. Litres to mass, by density factor, was not: 1.77 pounds per litre was used where 0.803 kilograms per litre was required.",
+   "sourceNote": "Board of Inquiry report; multiple. The two steps are kept distinct in all published copy and the two figures never appear apart"
+  },
+  {
+   "id": "c-air-canada-143-gimli-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The aircraft carried approximately 10,100 kg against the 22,300 kg required, less than half.",
+   "sourceNote": "Multiple. Published copy states less than half rather than the litre-by-litre arithmetic"
+  },
+  {
+   "id": "c-air-canada-143-gimli-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The same wrong density factor was used to compute the shortfall, to compute the volume to add, and again in the recheck at Ottawa. Every figure therefore agreed with every other figure. The verification could not detect the error because the error was not in any measurement; it sat in the conversion beneath all of them.",
+   "sourceNote": "Derived from claim 05 and the Ottawa recheck record. Independently confirmed by both audits. The plate's central idea"
+  },
+  {
+   "id": "c-air-canada-143-gimli-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "In normal operation the flight computer performed the litres-to-kilograms conversion. The manual factor was needed only for a dripstick check, and a dripstick check was required only when a gauge channel had failed. Neither pilots nor ground engineers had been trained in manual fuel calculation, and Air Canada had not informed its refuelling contractors that the 767 measured fuel in kilograms.",
+   "sourceNote": "Inquiry findings as summarised in multiple accounts. Confirmed by both audits"
+  },
+  {
+   "id": "c-air-canada-143-gimli-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "Both engines flamed out at 41,000 feet over Red Lake, Ontario. Fuel exhaustion takes both engines nearly simultaneously. Most electrical power was lost, leaving standby attitude, altitude, airspeed and compass, with a ram air turbine providing partial hydraulics.",
+   "sourceNote": "Multiple. One account places the display blanking at 28,500 feet during descent rather than at flameout, so no blanking altitude is published"
+  },
+  {
+   "id": "c-air-canada-143-gimli-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The Quick Reference Handbook contained no procedure for flight with both engines out. The captain estimated 220 knots as best glide from glider experience; the first officer computed the glide ratio empirically at roughly 12 to 1 and determined Winnipeg was beyond reach.",
+   "sourceNote": "Multiple. Sources disagree on whether Gimli or Winnipeg was nearer, so no distance comparison is published"
+  },
+  {
+   "id": "c-air-canada-143-gimli-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "Neither the crew nor air traffic control knew that part of the former RCAF Station Gimli had become a motorsports park, with a guardrail along the old runway and a race under way with spectators camped alongside.",
+   "sourceNote": "Multiple, including the captain's own account"
+  },
+  {
+   "id": "c-air-canada-143-gimli-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The gear was extended by gravity drop. The main gear locked; the nose gear did not. On touchdown the nose gear collapsed and the resulting friction over roughly 4,000 feet contributed to stopping the aircraft short of the spectator area.",
+   "sourceNote": "Multiple. Published copy states the failure helped stop the aircraft; it is not claimed as the sole reason for the outcome"
+  },
+  {
+   "id": "c-air-canada-143-gimli-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "There were no fatalities. Ten minor injuries occurred during evacuation, largely because the nose-down attitude left the rear slides nearly vertical. A small nose fire was extinguished by race course workers. 64 litres of fuel remained, with no leaks.",
+   "sourceNote": "Multiple"
+  },
+  {
+   "id": "c-air-canada-143-gimli-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The Board of Inquiry found the causes organisational and recommended immediate conversion of the remaining fleet to metric, on the finding that a mixed-unit fleet is more dangerous than a fleet uniformly in either system.",
+   "sourceNote": "Accident report summary; confirmed by both audits, which note the inquiry singled out the failure to assign responsibility for the manual calculation during the changeover. No published copy uses the phrase pilot error"
+  },
+  {
+   "id": "c-air-canada-143-gimli-15",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "Whether the crew were disciplined by Air Canada before being honoured for airmanship.",
+   "sourceNote": "Not published. Our two independent audits disagreed: one confirmed suspensions followed by the 1985 FAI Diploma for Outstanding Airmanship, the other could not corroborate the discipline-first framing at all. Where our own auditors disagree, the claim does not ship absent a primary source"
+  },
+  {
+   "id": "c-air-canada-143-gimli-16",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "air-canada-143-gimli"
+   ],
+   "text": "The identity of the judge who led the Board of Inquiry.",
+   "sourceNote": "Not published. Sources give both Lockwood and Lockhart; one audit asserted Lockwood, the other found no resolution. All copy says the Board of Inquiry"
+  },
+  {
+   "id": "concept-single-unit-fleet",
+   "type": "concept",
+   "name": "A fleet must run on one unit system: the finding that a half-converted fleet is more dangerous than either system applied whole"
+  },
+  {
+   "id": "story-air-canada-143-gimli",
+   "type": "story",
+   "title": "The failure that lived in the transition",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7492431765949530113 facebook: https://www.facebook.com/share/v/14kRhVAjCVK/ instagram: pending newsletter: none"
   }
  ],
  "edges": [
@@ -13211,6 +13512,51 @@
   {"type":"cites","from":"c-whitworth-three-plate-method-12","to":"src-whitworth-three-plate-method-vcl"},
   {"type":"about","from":"c-whitworth-three-plate-method-13","to":"whitworth-three-plate-method"},
   {"type":"cites","from":"c-whitworth-three-plate-method-13","to":"src-whitworth-three-plate-method-vcl"},
-  {"type":"covers","from":"story-whitworth-three-plate-method","to":"whitworth-three-plate-method"}
+  {"type":"covers","from":"story-whitworth-three-plate-method","to":"whitworth-three-plate-method"},
+  {"type":"event-of","from":"ev-decision-gimli-1","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-failure-gimli-2","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-failure-gimli-3","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-failure-gimli-4","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-failure-gimli-5","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-response-gimli-6","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-response-gimli-7","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-regulation-gimli-8","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-milestone-gimli-9","to":"air-canada-143-gimli"},
+  {"type":"contributed","from":"robert-pearson","to":"air-canada-143-gimli","role":"operated"},
+  {"type":"contributed","from":"maurice-quintal","to":"air-canada-143-gimli","role":"operated"},
+  {"type":"about","from":"c-air-canada-143-gimli-01","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-01","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-02","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-02","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-03","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-03","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-04","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-04","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-05","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-05","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-06","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-06","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-07","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-07","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-08","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-08","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-09","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-09","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-10","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-10","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-11","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-11","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-12","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-12","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-13","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-13","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-14","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-14","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-15","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-15","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"about","from":"c-air-canada-143-gimli-16","to":"air-canada-143-gimli"},
+  {"type":"cites","from":"c-air-canada-143-gimli-16","to":"src-air-canada-143-gimli-vcl"},
+  {"type":"forced","from":"air-canada-143-gimli","to":"concept-single-unit-fleet","claimId":"c-air-canada-143-gimli-14"},
+  {"type":"covers","from":"story-air-canada-143-gimli","to":"air-canada-143-gimli"}
  ]
 }

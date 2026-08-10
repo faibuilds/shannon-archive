@@ -903,7 +903,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <span class="b-tag">Bulletin</span>
   <!-- No counts in here. A hardcoded number in the bulletin is a number that
        goes stale silently, which this file has already been caught doing. -->
-  <span class="b-text">Carnot takes a third plate: Joseph Whitworth generated a true flat surface with none to copy from, then set the screw thread standard at the average of what British workshops were already cutting. It was universal in practice twenty-two years before the Board of Trade adopted it.</span>
+  <span class="b-text">Petroski takes a sixth plate: in 1983 a Boeing 767 was fuelled in pounds by a crew whose gauges read kilograms, and glided to a dead-stick landing on a runway that had become a drag strip. Nobody in the chain used a wrong number. The error sat in the conversion beneath every one of them.</span>
 </div>
 
 <header class="hero">
@@ -1214,14 +1214,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 <section class="bench">
   <div class="bench-head">
     <div class="bench-tag">On the bench</div>
-    <div class="bench-sub">One story on the bench, sealed until publication.</div>
+    <div class="bench-sub" id="bench-sub"></div>
   </div>
-  <div class="bench-grid">
-    <div class="bench-card"><span class="bench-stamp">Publishing soon</span>
-      <div class="bench-line">Line: Tipper</div>
-      <div class="bench-title">The accident was the <b>▮▮▮▮▮▮</b>. The rest was <b>▮▮▮▮▮▮▮▮</b>.</div>
-    </div>
-  </div>
+  <!-- Filled from the plate data. This was one hand-written card naming a
+       Tipper story, and it went on naming it after that story published,
+       which is the same failure as a hardcoded line count: a fact kept by
+       hand goes stale in silence. -->
+  <div class="bench-grid" id="bench-grid"></div>
 </section>
 
 <section class="lore">
@@ -1238,13 +1237,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <div class="support-cell brushed">
       <div class="support-tag">Keep the line lit</div>
       <h2>Fuel the next story.</h2>
-      <p>Every plate on this line takes days of research: primary sources, declassified reports, fact-checks that kill half our best lines. The stories stay free and the feed stays organic. If they have been worth your time, you can put fuel in the next one, or just follow along. Both count.</p>
+      <p>Every plate on these lines takes days of research: primary sources, declassified reports, fact-checks that kill half our best lines. The stories stay free and the feed stays organic. If they have been worth your time, you can put fuel in the next one, or just follow along. Both count.</p>
     </div>
     <div class="support-cell actions">
       <a class="support-btn primary" href="https://buymeacoffee.com/engineeringcommunity" target="_blank" rel="noopener">Support the research <small>one-time or monthly, via Buy Me a Coffee</small></a>
       <a class="support-btn" href="https://engineers.beehiiv.com" target="_blank" rel="noopener">Get the newsletter <small>free, the deeper half of every story</small></a>
       <a class="support-btn" href="https://www.linkedin.com/company/engineeringcommunity/" target="_blank" rel="noopener">Follow on LinkedIn <small>catch each plate the day it lights up</small></a>
-      <p class="support-fineprint">Support is optional and never unlocks anything. Every story on this line is free, and stays free.</p>
+      <p class="support-fineprint">Support is optional and never unlocks anything. Every story in the archive is free, and stays free.</p>
     </div>
   </div>
 </section>
@@ -1284,7 +1283,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.13 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.14 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1937,6 +1936,9 @@ const LOVELACE = [
        did, so a plate written with a posts array rendered as sealed here and
        threw outright on WRIGHT. Same line, same meaning, in all three now. */
     const post = a.post || (a.posts && a.posts[0]) || null;
+    /* A plate can carry more than one post. Only Kelly rendered the rest of
+       them, so a second live link on any other line was simply dropped. */
+    const extra = a.posts && a.posts.length > 1 ? a.posts.slice(1) : [];
     const emb = covered && post ? embedUrl(post.url) : null;
     plate.innerHTML = `
       <div class="rivets"></div>
@@ -1964,6 +1966,7 @@ const LOVELACE = [
         <div class="plate-actions">
           ${covered && post ? `
             <a class="btn-read" href="${esc(safeUrl(post.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${extra.map(p => `<a class="post-chip${isAddedStory(p) ? " added" : ""}" href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
             ${emb ? `<button class="btn-preview" data-embed="${esc(safeUrl(emb))}" data-url="${esc(safeUrl(post.url))}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
@@ -2013,6 +2016,9 @@ const WRIGHT = [
        a.post.url with no guard at all, so a plate written with a posts array
        would have thrown here and taken the whole line's render with it. */
     const post = a.post || (a.posts && a.posts[0]) || null;
+    /* A plate can carry more than one post. Only Kelly rendered the rest of
+       them, so a second live link on any other line was simply dropped. */
+    const extra = a.posts && a.posts.length > 1 ? a.posts.slice(1) : [];
     const plate = document.createElement("article");
     plate.className = "plate " + (covered ? "covered" : "soon") + (hasArt ? " has-art" : "");
     plate.id = a.id;
@@ -2038,6 +2044,7 @@ const WRIGHT = [
         </div>
         <div class="plate-actions">
           <a class="btn-read" href="${esc(safeUrl(post.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
+          ${extra.map(p => `<a class="post-chip${isAddedStory(p) ? " added" : ""}" href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
           <button class="btn-share" data-id="${a.id}" data-name="${esc(a.name)}">Share</button>
           <button class="defect" data-form="9q56RV" data-form-title="Defect report" data-plate="${esc(a.name)}">Report a defect</button>
         </div>
@@ -2083,7 +2090,12 @@ const PETROSKI = [
   {id:"hyatt-regency-walkways", name:"Hyatt Regency Walkways", year:1981, date:"17 Jul 1981", origin:"United States", field:"Hotel atrium walkways", status:"covered",
    ask:"If you were in Kansas City that night, or the reckoning changed how you seal a drawing, and you want it recorded, we will listen.",
    hook:"A FABRICATOR REDREW ONE HANGER ROD DETAIL. THE ENGINEERS SEALED IT IN TEN DAYS WITHOUT RUNNING THE NUMBERS. IN 1981 IT DROPPED TWO WALKWAYS INTO A CROWDED LOBBY.",
-   post:{label:"Read the story", date:"Aug 2026", url:"https://www.facebook.com/share/p/1FmJ7E8UP6/"}}
+   post:{label:"Read the story", date:"Aug 2026", url:"https://www.facebook.com/share/p/1FmJ7E8UP6/"}},
+  {id:"air-canada-143-gimli", name:"Air Canada 143, the Gimli Glider", year:1983, date:"23 Jul 1983", origin:"Canada", field:"Fuel exhaustion", status:"covered",
+   ask:"Fuel aircraft, convert units for a living, or run a changeover. Where in your work does a correct number become the wrong one?",
+   hook:"Nobody used the wrong number. The jet measured fuel in kilograms and the figure they were handed was in pounds. It ran dry at 41,000 feet.",
+   posts:[{label:"Read the story", date:"Aug 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7492431765949530113"},
+          {label:"Watch it", date:"Aug 2026", url:"https://www.facebook.com/share/v/14kRhVAjCVK/"}]}
 ];
 const HAMMURABI = [
   {id:"manchester-28m", name:"British Airtours Flight 28M", year:1985, date:"22 Aug 1985", origin:"United Kingdom", field:"Airliner evacuation", status:"covered",
@@ -2247,6 +2259,9 @@ function renderLine(lineId, arr, meta){
        either, or a published plate silently renders its sealed branch and
        tells readers to wait for a story that is already out. */
     const post = a.post || (a.posts && a.posts[0]) || null;
+    /* A plate can carry more than one post. Only Kelly rendered the rest of
+       them, so a second live link on any other line was simply dropped. */
+    const extra = a.posts && a.posts.length > 1 ? a.posts.slice(1) : [];
     const emb = isCov && post ? embedUrl(post.url) : null;
     const hasArt = isCov && a.art;
     const plate = document.createElement("article");
@@ -2279,6 +2294,7 @@ function renderLine(lineId, arr, meta){
         <div class="plate-actions">
           ${isCov && post ? `
             <a class="btn-read" href="${esc(safeUrl(post.url))}" target="_blank" rel="noopener">Read the story &rarr;</a>
+            ${extra.map(p => `<a class="post-chip${isAddedStory(p) ? " added" : ""}" href="${esc(safeUrl(p.url))}" target="_blank" rel="noopener">${esc(p.label)} <span class="chip-date">${esc(p.date)}</span></a>`).join("")}
             ${emb ? `<button class="btn-preview" data-embed="${esc(safeUrl(emb))}" data-url="${esc(safeUrl(post.url))}" data-name="${esc(a.name)}">Preview post</button>` : ""}
           ` : `
             <a class="btn-soon" href="#alerts">Get the alert when it unseals &rarr;</a>
@@ -2352,7 +2368,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:515, verified:490, sources:43, edges:73, artifacts:60 };
+const FINDING_STATS = { claims:531, verified:504, sources:44, edges:74, artifacts:61 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
@@ -3231,6 +3247,27 @@ document.querySelector('[data-stat="total"]').dataset.count = totalCount;
 document.querySelector('[data-stat="lit"]').dataset.count = litCount;
 document.getElementById("gauge-count").textContent = litCount + " / " + totalCount + " lit";
 document.getElementById("sealed-count").textContent = totalCount - litCount;
+
+/* THE BENCH, read from the plates rather than written by hand. Every sealed
+   plate, oldest first, with the line it will land on. Sealed plates carry no
+   hook by constitution, so a card names the subject and its year and nothing
+   more, which is exactly what the timeline already shows. */
+{
+  const grid = document.getElementById("bench-grid");
+  const sub = document.getElementById("bench-sub");
+  const soon = [];
+  GAUGE_LINES.forEach(L => (L.plates || []).forEach(p => {
+    if (p.status !== "covered") soon.push({ line: L.label, tag: L.tag, name: p.name, year: p.year });
+  }));
+  soon.sort((a, b) => a.year - b.year);
+  sub.textContent = (soon.length === 1 ? "One story" : soon.length + " stories")
+    + " on the bench, sealed until publication.";
+  grid.innerHTML = soon.map(s => `
+    <div class="bench-card"><span class="bench-stamp">Publishing soon</span>
+      <div class="bench-line">Line: ${esc(s.line)} &#183; ${esc(s.tag)}</div>
+      <div class="bench-title">${esc(s.name)} <b>${esc(String(s.year))}</b></div>
+    </div>`).join("");
+}
 const lastLit = ALL_PLATES
   .filter(a => a.status === "covered")
   .map(a => {
@@ -4128,9 +4165,14 @@ async function exportCard(d, F, btn, sheet, mode) {
   btn.disabled = true;
   say("Encoding " + F.w + " by " + F.h + ", this takes a moment on the bigger plates", "working");
   try {
-    const cv = await renderCard(d, F);
+    /* Use the copy warmed while the preview was on screen if it is ready, so
+       the share call lands inside the gesture that asked for it. */
+    const warmed = sheet.__warm && sheet.__warm[F.tag];
     const blob = await Promise.race([
-      new Promise(r => cv.toBlob(r, "image/png")),
+      (async () => (warmed && await warmed) || await new Promise(async r => {
+        const cv = await renderCard(d, F);
+        cv.toBlob(r, "image/png");
+      }))(),
       new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ENCODE_TIMEOUT)),
     ]);
     if (!blob) throw new Error("no blob");
@@ -4169,10 +4211,12 @@ async function exportCard(d, F, btn, sheet, mode) {
         /* Cancelling the OS sheet is not a failure, and it must not leave the
            button dead the way the old version could. */
         if (err && err.name === "AbortError") { btn.disabled = false; say("Cancelled. Nothing was shared."); return; }
-        /* Anything else, most often the gesture expiring while the card
-           encoded, still leaves the reader with the card they asked for. Say
-           what happened instead of quietly claiming a plain save. */
-        download("Your device would not open the share sheet, so it is saved instead. ");
+        /* Anything else still leaves the reader with the card they asked for.
+           Name the fault rather than quietly claiming a plain save: this is
+           the one failure that cannot be reproduced here, because this
+           browser has no navigator.share at all, so the message has to be
+           good enough to diagnose from a screenshot. */
+        download("Your device refused the share sheet (" + ((err && err.name) || "unknown") + "), so it is saved instead. ");
         return;
       }
     }
@@ -4232,7 +4276,24 @@ function openSheet(d, url) {
       host.innerHTML = "";
       host.appendChild(cv);
     } catch (e) { host.textContent = "Preview unavailable. The card will still save."; }
+    warm(fmt);
   };
+
+  /* Encode the full size card in the background while the reader is looking
+     at the preview, so the button already has a file when it is pressed.
+     This is not only about speed. navigator.share needs a live user gesture
+     and encoding costs a second and a half on the heavier cards, which is
+     long enough on some browsers for the gesture to lapse and the share to
+     be refused. Warming it means the share call happens almost at the click. */
+  sheetEl.__warm = {};
+  function warm(f) {
+    if (sheetEl.__warm[f]) return sheetEl.__warm[f];
+    sheetEl.__warm[f] = (async () => {
+      const cv = await renderCard(d, CARD[f]);
+      return await new Promise(r => cv.toBlob(r, "image/png"));
+    })().catch(() => null);
+    return sheetEl.__warm[f];
+  }
   paint();
 
   sheetEl.addEventListener("click", ev => {
