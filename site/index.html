@@ -903,7 +903,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <span class="b-tag">Bulletin</span>
   <!-- No counts in here. A hardcoded number in the bulletin is a number that
        goes stale silently, which this file has already been caught doing. -->
-  <span class="b-text">Petroski takes a sixth plate: in 1983 a Boeing 767 was fuelled in pounds by a crew whose gauges read kilograms, and glided to a dead-stick landing on a runway that had become a drag strip. Nobody in the chain used a wrong number. The error sat in the conversion beneath every one of them.</span>
+  <span class="b-text">Carnot takes a fourth plate: flat glass was made for a century by grinding away glass that had been paid for and melted, until Pilkington floated the ribbon on molten tin and let gravity do the levelling. The principle was patented in 1902. The line that ran on it arrived fifty-six years later.</span>
 </div>
 
 <header class="hero">
@@ -1283,7 +1283,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.14 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.15 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2173,7 +2173,12 @@ const CARNOT = [
 </svg>`,
    ask:"Run, rebuild, or design compression ignition engines. What does the indicator diagram never tell you?",
    hook:"In 1897 Rudolf Diesel ran an engine that beat steam on efficiency and could burn almost any fuel, peanut oil included. He vanished off a ship 16 years later.",
-   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7467903242740592640"}}
+   post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7467903242740592640"}},
+  {id:"float-glass-process", name:"The float glass process", year:1959, date:"Announced 20 Jan 1959", origin:"United Kingdom", field:"Forming process", status:"covered",
+   ask:"Run a float line, or work with glass that came off one. What does the tin side still tell you about a sheet?",
+   hook:"Flat glass used to be made by grinding away glass you had paid to melt. In 1902 someone proposed floating it on molten metal. That took fifty-six years to work.",
+   posts:[{label:"Read the story", date:"Aug 2026", url:"https://www.linkedin.com/posts/engineeringcommunity_two-ways-to-make-flat-glass-existed-and-activity-7492792859197075456-Raqg"},
+          {label:"On Facebook", date:"Aug 2026", url:"https://www.facebook.com/share/p/18xRQ4g1kp/"}]}
 ];
 const NOYCE = [
   {id:"point-contact-transistor", name:"The point-contact transistor", year:1947, date:"16 Dec 1947", origin:"United States", field:"Solid-state device", status:"covered",
@@ -2321,7 +2326,7 @@ function renderLine(lineId, arr, meta){
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
   ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
   ["sutter", SUTTER, {num:"1933 to 1989", thesis:"Commercial aviation: what decides whether good engineering matters. Market structure, a crack at the corner of a window, a bet made for a customer, and three independent systems that shared one corridor.", dateLabel:"Event", domain:"Commercial aviation", invite:INVITE_FLOWN}],
-  ["carnot", CARNOT, {num:"1761 to 1897", thesis:"Three answers to one demand, that a thing work the same way in hands other than its maker's: the timekeeper that turned longitude from a guess into a measurement, the method that let a shop generate accuracy instead of inheriting it, and the engine that beat steam on its own numbers.", dateLabel:"Milestone", domain:"Precision and prime movers", invite:INVITE_STUDIED}],
+  ["carnot", CARNOT, {num:"1761 to 1959", thesis:"Four answers to one demand, that a thing work the same way in hands other than its maker's: the timekeeper that turned longitude from a guess into a measurement, the method that let a shop generate accuracy instead of inheriting it, the engine that beat steam on its own numbers, and the glass that stopped being ground flat and was floated flat instead.", dateLabel:"Milestone", domain:"Precision and prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
   ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: one quantity, the safety margin, told three ways. Bought in advance at London, absorbed by a crime at Brooklyn, spent in the design office at Quebec.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
 ].forEach(([id, arr, meta]) => renderLine(id, arr, meta));
@@ -2368,7 +2373,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:531, verified:504, sources:44, edges:74, artifacts:61 };
+const FINDING_STATS = { claims:544, verified:516, sources:45, edges:74, artifacts:62 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

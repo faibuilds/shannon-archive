@@ -9765,6 +9765,255 @@
    "type": "story",
    "title": "The failure that lived in the transition",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7492431765949530113 facebook: https://www.facebook.com/share/v/14kRhVAjCVK/ instagram: pending newsletter: none"
+  },
+  {
+   "id": "float-glass-process",
+   "type": "artifact",
+   "name": "The float glass process",
+   "category": "process",
+   "origin": "United Kingdom",
+   "lineId": "carnot",
+   "sealed": false,
+   "note": "A method of forming flat glass by floating a continuous ribbon of it on a bath of molten tin. Polished plate created flatness by removing roller marks after the glass had been formed. Float moved flatness into the forming stage itself, supporting the ribbon on a liquid that gravity has already levelled while surface tension smooths it. The idea was patented in 1902. Turning it into a working line took another fifty-six years. Fourth CARNOT plate. See blocks/shannon_float-glass-process.md"
+  },
+  {
+   "id": "ev-milestone-float-1",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1902
+   },
+   "subjectId": "float-glass-process",
+   "label": "Patents filed in the United States describe forming glass on molten metal, naming tin or tin alloys, together with continuous working and thickness control. One is granted the same year, a second in 1905. Neither produces a working line"
+  },
+  {
+   "id": "ev-decision-float-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1952
+   },
+   "subjectId": "float-glass-process",
+   "label": "Alastair Pilkington, an engineer at Pilkington Brothers and not a member of the family that owned the company, begins work on forming glass on a liquid rather than grinding it flat afterwards"
+  },
+  {
+   "id": "ev-milestone-float-3",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1953,
+    "month": 12,
+    "day": 10
+   },
+   "subjectId": "float-glass-process",
+   "label": "Alastair Pilkington and Kenneth Bickerstaff file the British patent. The United States application follows in 1954 and is granted in 1959 as US 2,911,759"
+  },
+  {
+   "id": "ev-decision-float-4",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1955
+   },
+   "subjectId": "float-glass-process",
+   "label": "Pilkington Brothers commits to building float machines, committing a family-owned company to a process that will produce glass below commercial quality for years"
+  },
+  {
+   "id": "ev-milestone-float-5",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1958,
+    "month": 7
+   },
+   "subjectId": "float-glass-process",
+   "label": "A sheet of glass is produced entirely by the float process"
+  },
+  {
+   "id": "ev-milestone-float-6",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1959,
+    "month": 1,
+    "day": 20
+   },
+   "subjectId": "float-glass-process",
+   "label": "The process is announced publicly"
+  },
+  {
+   "id": "ev-milestone-float-7",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1962
+   },
+   "subjectId": "float-glass-process",
+   "label": "The first foreign licence is granted to the Pittsburgh Plate Glass Company, followed by licensees in Europe, Japan, Czechoslovakia and the Soviet Union. The licences are paid, and give rivals little reason to engineer around the patents"
+  },
+  {
+   "id": "ev-milestone-float-8",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1962
+   },
+   "subjectId": "float-glass-process",
+   "label": "Consistent quality and profitable operation are reached in the early 1960s, three to four years after the announcement"
+  },
+  {
+   "id": "alastair-pilkington",
+   "type": "person",
+   "name": "Alastair Pilkington",
+   "note": "Engineer at Pilkington Brothers, 1920-1995. No relation to the family that founded and controlled the company. Directed the work from the 1952 idea through to production."
+  },
+  {
+   "id": "kenneth-bickerstaff",
+   "type": "person",
+   "name": "Kenneth Bickerstaff",
+   "note": "Named with Pilkington on the 1953 patent. A co-inventor, not an assistant."
+  },
+  {
+   "id": "src-float-glass-process-vcl",
+   "type": "source",
+   "kind": "reference",
+   "title": "EC VCL: The float glass process (US 710,357, filed and granted 1902; US 789,911, filed 1902 and granted 1905; US 2,911,759, filed 1954 and granted 1959; the British patent of 10 December 1953; Pilkington's own technical history and process description; float bath equipment and materials literature; industry accounts of the licensing programme). Development cost figures circulate in different currencies and could not be reconciled, so no figure is published."
+  },
+  {
+   "id": "c-float-glass-process-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "Before float, flat glass came two ways and each failed differently. Polished plate was cast or rolled, which left both faces marked and not level; grinding took the high spots down until each face reached a common plane, so the deepest deviation on the sheet governed how much glass was lost, and grinding left the surface frosted, requiring a separate polishing operation. Drawn sheet glass was cheaper and brighter but carried optical distortion, ruling it out of high quality shop windows, cars and mirrors.",
+   "sourceNote": "Pilkington technical history; contemporary process descriptions; multiple"
+  },
+  {
+   "id": "c-float-glass-process-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "A continuous ribbon of molten glass flows onto a shallow bath of molten tin, spreads, and takes the level of the liquid beneath it while surface tension smooths the ribbon. The broad faces are neither ground, polished, nor formed between solid rollers.",
+   "sourceNote": "Pilkington process description; US 2,911,759; multiple"
+  },
+  {
+   "id": "c-float-glass-process-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "The ribbon is not untouched. Its lower face is in continuous contact with the molten tin along the full length of the bath, edge rollers may engage the margins to control width and thickness, and rollers support the ribbon once it leaves the bath. The defensible claim is the absence of grinding and polishing, not the absence of contact.",
+   "sourceNote": "Float bath equipment descriptions; process patents. Recorded explicitly because the opposite is widely repeated, and because an early draft of this plate stated it"
+  },
+  {
+   "id": "c-float-glass-process-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "Tin suits the bath because it melts near 232 degrees Celsius and remains liquid well past two thousand, so it stays molten across the whole forming range, from delivery near 1,100 degrees to about 600 when the ribbon can be lifted away. It is also denser than glass, so the glass floats, and it is available in quantity with low volatility at bath temperatures. A metal melting only where glass melts would solidify beneath the ribbon.",
+   "sourceNote": "Materials and process literature; multiple"
+  },
+  {
+   "id": "c-float-glass-process-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "The bath is enclosed under a nitrogen and hydrogen atmosphere, because oxidised tin would contaminate the ribbon. The upper face of the glass sits in that atmosphere, not in open air.",
+   "sourceNote": "Float chamber patents; Pilkington process description"
+  },
+  {
+   "id": "c-float-glass-process-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "Thickness is not governed by draw speed alone. Left unconstrained, ordinary soda-lime glass settles at an equilibrium thickness near 6.8 mm. Thinner ribbon must be stretched, thicker ribbon must have its lateral spread constrained, and draw speed is one control of several.",
+   "sourceNote": "Glass process teaching material; float line equipment descriptions"
+  },
+  {
+   "id": "c-float-glass-process-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "The idea of forming glass on molten metal was not new in 1952. Patents filed in 1902 describe it, name tin or tin alloys, and include continuous working and thickness control. The achievement of 1952 to 1959 was turning that into a working industrial line, not conceiving the principle.",
+   "sourceNote": "US 710,357, filed and granted 1902; US 789,911, filed 1902 and granted 1905. Two separate 1902 filings exist. Neither inventor is named in the published copy, because attributing the proposal to one of them would settle a priority question this plate has not investigated"
+  },
+  {
+   "id": "c-float-glass-process-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "Alastair Pilkington was not related to the family that founded and owned Pilkington Brothers.",
+   "sourceNote": "Pilkington biography; multiple. One secondary source describes it as his family's company, and that source conflicts with the company's own account"
+  },
+  {
+   "id": "c-float-glass-process-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "The British patent was filed on 10 December 1953 by Pilkington and Bickerstaff. A sheet made entirely by the process followed in July 1958, and the public announcement came on 20 January 1959.",
+   "sourceNote": "Patent record; Pilkington history; multiple"
+  },
+  {
+   "id": "c-float-glass-process-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "July 1958 marks a complete sheet made by the process, not a saleable or profitable one. Consistent quality and profitable operation were reached in the early 1960s.",
+   "sourceNote": "Pilkington history. Recorded separately because the 1958 and 1959 dates are frequently used to mark commercial success, which they do not"
+  },
+  {
+   "id": "c-float-glass-process-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "The process was licensed rather than held exclusive, first to Pittsburgh Plate Glass in 1962 and then internationally. The licences were paid and earned income.",
+   "sourceNote": "Pilkington history; industry accounts. Descriptions of the process being given away are wrong. The licences were commercial, and later licensing terms attracted antitrust attention in the United States"
+  },
+  {
+   "id": "c-float-glass-process-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "Float became the dominant process for high quality flat glass.",
+   "sourceNote": "Industry accounts; process literature. Deliberately not stated as a market share figure, and not attributed to licensing as a single cause"
+  },
+  {
+   "id": "c-float-glass-process-13",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "float-glass-process"
+   ],
+   "text": "The development cost of the process.",
+   "sourceNote": "Not published. Figures in circulation are given in different currencies and cannot be reconciled from the sources consulted"
+  },
+  {
+   "id": "story-float-glass-process",
+   "type": "story",
+   "title": "Fifty-six years between the patent and the glass",
+   "status": "published linkedin: https://www.linkedin.com/posts/engineeringcommunity_two-ways-to-make-flat-glass-existed-and-activity-7492792859197075456-Raqg facebook: https://www.facebook.com/share/p/18xRQ4g1kp/ instagram: pending newsletter: none"
   }
  ],
  "edges": [
@@ -13557,6 +13806,43 @@
   {"type":"about","from":"c-air-canada-143-gimli-16","to":"air-canada-143-gimli"},
   {"type":"cites","from":"c-air-canada-143-gimli-16","to":"src-air-canada-143-gimli-vcl"},
   {"type":"forced","from":"air-canada-143-gimli","to":"concept-single-unit-fleet","claimId":"c-air-canada-143-gimli-14"},
-  {"type":"covers","from":"story-air-canada-143-gimli","to":"air-canada-143-gimli"}
+  {"type":"covers","from":"story-air-canada-143-gimli","to":"air-canada-143-gimli"},
+  {"type":"event-of","from":"ev-milestone-float-1","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-decision-float-2","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-milestone-float-3","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-decision-float-4","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-milestone-float-5","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-milestone-float-6","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-milestone-float-7","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-milestone-float-8","to":"float-glass-process"},
+  {"type":"contributed","from":"alastair-pilkington","to":"float-glass-process","role":"designed"},
+  {"type":"contributed","from":"kenneth-bickerstaff","to":"float-glass-process","role":"designed"},
+  {"type":"about","from":"c-float-glass-process-01","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-01","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-02","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-02","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-03","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-03","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-04","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-04","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-05","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-05","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-06","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-06","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-07","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-07","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-08","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-08","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-09","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-09","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-10","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-10","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-11","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-11","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-12","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-12","to":"src-float-glass-process-vcl"},
+  {"type":"about","from":"c-float-glass-process-13","to":"float-glass-process"},
+  {"type":"cites","from":"c-float-glass-process-13","to":"src-float-glass-process-vcl"},
+  {"type":"covers","from":"story-float-glass-process","to":"float-glass-process"}
  ]
 }
