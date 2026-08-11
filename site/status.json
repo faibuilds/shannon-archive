@@ -7,7 +7,7 @@
     { "id": "petroski", "name": "PETROSKI L-02", "total": 6, "lit": 6 },
     { "id": "hammurabi", "name": "HAMMURABI L-03", "total": 1, "lit": 1 },
     { "id": "barenyi", "name": "BARENYI L-04", "total": 1, "lit": 1 },
-    { "id": "tipper", "name": "TIPPER L-05", "total": 2, "lit": 2 },
+    { "id": "tipper", "name": "TIPPER L-05", "total": 3, "lit": 3 },
     { "id": "roebling", "name": "ROEBLING L-06", "total": 3, "lit": 3 },
     { "id": "lovelace", "name": "LOVELACE L-07", "total": 6, "lit": 5 },
     { "id": "wright", "name": "WRIGHT L-08", "total": 1, "lit": 1 },
@@ -22,7 +22,7 @@
     1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
     1, 0, 1, 1, 0, 0, 1
   ],
-  "lastLit": "The float glass process",
+  "lastLit": "Crucible cast steel",
   "lastLitDate": "Aug 2026",
   "updated": "2026-08-09"
 }

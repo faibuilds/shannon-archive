@@ -10014,6 +10014,246 @@
    "type": "story",
    "title": "Fifty-six years between the patent and the glass",
    "status": "published linkedin: https://www.linkedin.com/posts/engineeringcommunity_two-ways-to-make-flat-glass-existed-and-activity-7492792859197075456-Raqg facebook: https://www.facebook.com/share/p/18xRQ4g1kp/ instagram: pending newsletter: none"
+  },
+  {
+   "id": "crucible-cast-steel",
+   "type": "artifact",
+   "name": "Crucible cast steel",
+   "category": "material",
+   "origin": "England",
+   "lineId": "tipper",
+   "sealed": false,
+   "note": "A method of making steel by melting cementation steel completely in a sealed clay crucible, developed in Sheffield in the 1740s. Its significance is not hardness or strength but consistency. Cementation left a carbon gradient through the bar along with voids and fissures, and slag that had come in with the wrought iron feedstock. Forging improved the metal one bar at a time. Melting treated the whole charge at once. The scope is British blister steel and its replacement; crucible steel traditions existed elsewhere centuries earlier and this plate makes no claim of a first. First TIPPER plate by year. See blocks/shannon_crucible-cast-steel.md"
+  },
+  {
+   "id": "ev-milestone-crucible-1",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1740
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "Benjamin Huntsman, a clockmaker in Doncaster, develops a process for melting cementation steel completely in sealed clay crucibles. Sources give the decade rather than a year"
+  },
+  {
+   "id": "ev-decision-crucible-2",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1740
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "Huntsman does not patent the process. The reason is contested, attributed variously to Quaker principle and to a judgement that secrecy served him better"
+  },
+  {
+   "id": "ev-milestone-crucible-3",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1751
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "Commercial production is under way. Huntsman had moved from Doncaster to Handsworth and later to Attercliffe, for better access to coal"
+  },
+  {
+   "id": "ev-decision-crucible-4",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1751
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "Sheffield's cutlers refuse the steel. Much of the early production goes to Europe, chiefly France"
+  },
+  {
+   "id": "ev-milestone-crucible-5",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1759
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "Imported cast steel wares alarm the Sheffield manufacturers, who reportedly ask their Member of Parliament, Sir George Savile, for a prohibition on the export. He is said to have refused. Dated by sources to the period 1759 to 1764"
+  },
+  {
+   "id": "ev-milestone-crucible-6",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1764
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "The Cutlers' Company establishes crucible furnaces of its own. The town that refused the steel begins making it"
+  },
+  {
+   "id": "ev-milestone-crucible-7",
+   "type": "event",
+   "eventType": "milestone",
+   "date": {
+    "year": 1776
+   },
+   "subjectId": "crucible-cast-steel",
+   "label": "Huntsman dies, the same year as John Harrison"
+  },
+  {
+   "id": "benjamin-huntsman",
+   "type": "person",
+   "name": "Benjamin Huntsman",
+   "note": "1704-1776. Quaker clockmaker, locksmith and toolmaker in Doncaster, who maintained the town clock and was known as a medic and oculist who used those skills philanthropically. His motive for the work is contested: the popular account is dissatisfaction with clock and pendulum spring steel, while his descendants attributed it more to scientific curiosity."
+  },
+  {
+   "id": "gabriel-jars",
+   "type": "person",
+   "name": "Gabriel Jars",
+   "note": "French metallurgist sent by his government to study the process. He established that coke was used and that a flux went into the crucibles, but never learned the flux's composition."
+  },
+  {
+   "id": "sir-george-savile",
+   "type": "person",
+   "name": "Sir George Savile",
+   "note": "Member of Parliament reportedly petitioned by Sheffield manufacturers to prohibit the export of the steel. He is said to have refused."
+  },
+  {
+   "id": "src-crucible-cast-steel-vcl",
+   "type": "source",
+   "kind": "reference",
+   "title": "EC VCL: Crucible cast steel (University of Sheffield project on early steel production, the furnace, the crucible and the opposition of the cutlers; Historical Metallurgy datasheet and research on early Sheffield crucible slags; MRS Bulletin; Sheffield Museums object record for the Kelham Island longcase clock; Company of Cutlers; Quakers in the World; Encyclopaedia Britannica; the 1911 Britannica via Wikisource; Chaucer, The Reeve's Tale). Furnace temperature and annual output figures are single-sourced and not published, and the invention is dated to the decade rather than a year."
+  },
+  {
+   "id": "c-crucible-cast-steel-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Cementation steel was made by packing iron bars with charcoal and heating them for days, so carbon diffused inward from the surface. That left a carbon gradient, richer near the outside and leaner toward the core, along with voids and fissures. Slag came in with the wrought iron feedstock and survived the working.",
+   "sourceNote": "University of Sheffield project on early steel production; Historical Metallurgy datasheet; multiple. The slag and the carbon gradient have different origins, and an early draft of this plate conflated them"
+  },
+  {
+   "id": "c-crucible-cast-steel-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Forging did improve the old steel. Bars were piled and forged into shear steel, more even than what went in. What forging could not remove were the slag streaks and the remaining variability, so shear steel was still a variable product.",
+   "sourceNote": "University of Sheffield project; Historical Metallurgy. Recorded explicitly because the opposite is easy to write and wrong: claims that hammering cannot even out a solid bar are false, and contradict cementation itself, which works by solid-state diffusion"
+  },
+  {
+   "id": "c-crucible-cast-steel-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Complete fusion of a small charge let carbon redistribute through the whole of it, while a flux helped slag and non-metallic residue separate rather than being folded back in. Forging improved the metal one bar at a time. Melting treated the whole charge at once.",
+   "sourceNote": "MRS Bulletin; University of Sheffield project; Britannica. The result was substantially more homogeneous, not perfectly uniform: dissolved elements do not simply leave the metal"
+  },
+  {
+   "id": "c-crucible-cast-steel-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "The process required three things together: a coke-fired furnace with induced draught able to sustain the heat, a flux to help separate slag, and a refractory clay crucible able to survive complete fusion. The crucible was perhaps the greatest obstacle to the process spreading.",
+   "sourceNote": "University of Sheffield project on the furnace and crucible. The crucible is the part that gets forgotten; an early draft of this plate described the invention as coke plus glass and omitted the pot entirely"
+  },
+  {
+   "id": "c-crucible-cast-steel-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Coke is coal heated to drive off much of its volatile matter, leaving a porous carbon-rich fuel that burns hotter than charcoal, hot enough to melt the metal.",
+   "sourceNote": "MRS Bulletin; standard fuel definitions. Coke is not nearly pure carbon and sulphur is not simply removed; both overstatements appeared in an early draft"
+  },
+  {
+   "id": "c-crucible-cast-steel-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Glass is documented as a flux in Huntsman's works, taking up impurities and being skimmed off. Archaeology from early Sheffield crucibles has also found manganese-rich slag, suggesting glass was not necessarily the only flux used.",
+   "sourceNote": "MRS Bulletin; Historical Metallurgy research"
+  },
+  {
+   "id": "c-crucible-cast-steel-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Sheffield had been an English cutlery town for centuries. Knife-grinding activity in the area dates to the 1500s and the Cutlers' Company was incorporated in 1624. Chaucer's Reeve's Tale refers to a Sheffield knife, placing the reputation in the fourteenth century.",
+   "sourceNote": "Sheffield Museums; Company of Cutlers; Chaucer, The Reeve's Tale. A medieval reputation for Sheffield knives is documented; a claim that Sheffield was already England's cutlery capital at that date is not, and is not printed"
+  },
+  {
+   "id": "c-crucible-cast-steel-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Sheffield's cutlers refused the steel, and the refusal was rational. Cast steel cost far more, and demanded different forging and tempering. A cutler built a blade by welding steel onto a wrought iron body, and at the customary heat for that operation Huntsman's steel could be destroyed. Low-priced goods left little margin to absorb a dearer material.",
+   "sourceNote": "University of Sheffield project, on the opposition of the cutlers. The mechanism matters and is counterintuitive: the hazard was the heat they already used, not a higher one. Any claim that harder steel simply needs more heat to work is the wrong way round here"
+  },
+  {
+   "id": "c-crucible-cast-steel-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Much of Huntsman's early production went to Europe, chiefly France. Imported cast steel wares later alarmed the Sheffield manufacturers, who reportedly petitioned Sir George Savile for an export prohibition and are said to have been refused. In 1764 the Cutlers' Company established crucible furnaces of its own.",
+   "sourceNote": "University of Sheffield project; Quakers in the World; 1911 Britannica via Wikisource. Sequence, not proven causation: the record does not establish that the refused petition directly produced the 1764 furnaces, and the plate does not claim it"
+  },
+  {
+   "id": "c-crucible-cast-steel-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Huntsman never patented the process.",
+   "sourceNote": "Quakers in the World; MRS Bulletin; multiple. The reason is contested between Quaker principle and commercial secrecy. The fact is printed; the reason is not settled"
+  },
+  {
+   "id": "c-crucible-cast-steel-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "A longcase clock from the 1740s at Kelham Island is identified by Sheffield Museums as the first object containing Huntsman's crucible cast steel.",
+   "sourceNote": "Sheffield Museums object page, using the museum's own wording. It is not established as the first object made from crucible cast steel anywhere, and the museum page does not name Huntsman as the clock's maker"
+  },
+  {
+   "id": "c-crucible-cast-steel-12",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "A long-told Sheffield story holds that a rival gained entry to the works on a winter night disguised as a beggar and observed the process.",
+   "sourceNote": "MRS Bulletin, which frames it as lore. Printed as a story or not at all, never as fact, and the rival is not named"
+  },
+  {
+   "id": "c-crucible-cast-steel-13",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "crucible-cast-steel"
+   ],
+   "text": "Furnace temperature, annual output, and a single year for the invention.",
+   "sourceNote": "Not published. Temperature and output figures are single-sourced; the invention date is given variously as around 1740, during the 1740s, and commercial production in 1751, so the plate prints the decade"
+  },
+  {
+   "id": "story-crucible-cast-steel",
+   "type": "story",
+   "title": "The clockmaker who melted steel to make it consistent",
+   "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7493038033424961536 facebook: https://www.facebook.com/share/p/1BkMkdGWyJ/ instagram: pending newsletter: none"
   }
  ],
  "edges": [
@@ -13843,6 +14083,44 @@
   {"type":"cites","from":"c-float-glass-process-12","to":"src-float-glass-process-vcl"},
   {"type":"about","from":"c-float-glass-process-13","to":"float-glass-process"},
   {"type":"cites","from":"c-float-glass-process-13","to":"src-float-glass-process-vcl"},
-  {"type":"covers","from":"story-float-glass-process","to":"float-glass-process"}
+  {"type":"covers","from":"story-float-glass-process","to":"float-glass-process"},
+  {"type":"event-of","from":"ev-milestone-crucible-1","to":"crucible-cast-steel"},
+  {"type":"event-of","from":"ev-decision-crucible-2","to":"crucible-cast-steel"},
+  {"type":"event-of","from":"ev-milestone-crucible-3","to":"crucible-cast-steel"},
+  {"type":"event-of","from":"ev-decision-crucible-4","to":"crucible-cast-steel"},
+  {"type":"event-of","from":"ev-milestone-crucible-5","to":"crucible-cast-steel"},
+  {"type":"event-of","from":"ev-milestone-crucible-6","to":"crucible-cast-steel"},
+  {"type":"event-of","from":"ev-milestone-crucible-7","to":"crucible-cast-steel"},
+  {"type":"contributed","from":"benjamin-huntsman","to":"crucible-cast-steel","role":"designed"},
+  {"type":"contributed","from":"gabriel-jars","to":"crucible-cast-steel","role":"investigated"},
+  {"type":"contributed","from":"sir-george-savile","to":"crucible-cast-steel","role":"decided"},
+  {"type":"about","from":"c-crucible-cast-steel-01","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-01","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-02","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-02","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-03","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-03","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-04","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-04","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-05","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-05","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-06","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-06","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-07","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-07","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-08","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-08","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-09","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-09","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-10","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-10","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-11","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-11","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-12","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-12","to":"src-crucible-cast-steel-vcl"},
+  {"type":"about","from":"c-crucible-cast-steel-13","to":"crucible-cast-steel"},
+  {"type":"cites","from":"c-crucible-cast-steel-13","to":"src-crucible-cast-steel-vcl"},
+  {"type":"enabled","from":"crucible-cast-steel","to":"brooklyn-bridge","claimId":"c-bb-01"},
+  {"type":"covers","from":"story-crucible-cast-steel","to":"crucible-cast-steel"}
  ]
 }

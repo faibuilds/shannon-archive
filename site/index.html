@@ -903,7 +903,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <span class="b-tag">Bulletin</span>
   <!-- No counts in here. A hardcoded number in the bulletin is a number that
        goes stale silently, which this file has already been caught doing. -->
-  <span class="b-text">Carnot takes a fourth plate: flat glass was made for a century by grinding away glass that had been paid for and melted, until Pilkington floated the ribbon on molten tin and let gravity do the levelling. The principle was patented in 1902. The line that ran on it arrived fifty-six years later.</span>
+  <span class="b-text">Tipper takes a third plate, and its oldest: in the 1740s a Sheffield clockmaker melted cementation steel in a sealed clay pot because he could not rely on the bar he could buy. The town that had made knives for four centuries refused the result, and it was right to, until it started making it too.</span>
 </div>
 
 <header class="hero">
@@ -1283,7 +1283,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.16 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.17 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2110,6 +2110,11 @@ const BARENYI = [
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7475124634624090114"}}
 ];
 const TIPPER = [
+  {id:"crucible-cast-steel", name:"Crucible cast steel", year:1740, date:"1740s, Sheffield", origin:"England", field:"Steelmaking", status:"covered",
+   ask:"Melt, cast or specify steel. Where does your work still depend on a material behaving the same way twice?",
+   hook:"A 1740s clockmaker could not rely on the steel he could buy, so he melted it in a clay pot. Sheffield, England's cutlery town, refused the result for years.",
+   posts:[{label:"Read the story", date:"Aug 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7493038033424961536"},
+          {label:"On Facebook", date:"Aug 2026", url:"https://www.facebook.com/share/p/1BkMkdGWyJ/"}]},
   {id:"liberty-ships", name:"Liberty ships", year:1943, date:"16 Jan 1943", origin:"United States", field:"Welded cargo ship", status:"covered",
    ask:"Work with notch toughness, or specify steel for cold service. Is the Tipper test still in your standards?",
    hook:"In January 1943 the tanker Schenectady cracked nearly in two at her dock, in calm water. The welds held. The steel turned brittle in the cold.",
@@ -2332,7 +2337,7 @@ function renderLine(lineId, arr, meta){
   ["petroski", PETROSKI, {num:"1628 to 1981", thesis:"Engineering failures, by how each announced itself: the ship everybody watched capsize at the quay and sailed anyway, the bridge nobody was required to look for, the bridge nobody predicted, the tower one spark brought down, and the walkways nobody added up.", dateLabel:"Failure", domain:"Engineering failures", invite:INVITE_STUDIED}],
   ["hammurabi", HAMMURABI, {num:"1985", thesis:"Regulation written in blood: the rules we wrote only after we counted the dead.", dateLabel:"Accident", domain:"Regulation, written in blood", invite:INVITE_STUDIED}],
   ["barenyi", BARENYI, {num:"1951", thesis:"Automotive safety: the idea that the car should break so the people do not.", dateLabel:"Patent", domain:"Automotive safety", invite:INVITE_STUDIED}],
-  ["tipper", TIPPER, {num:"1943 to 2021", thesis:"Materials: how metal and print behave at the limit, and the failures that taught us to test for it.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
+  ["tipper", TIPPER, {num:"1740 to 2021", thesis:"Materials: how metal and print behave at the limit, the failures that taught us to test for it, and the older question underneath both, whether a material can be trusted to behave the same way twice.", dateLabel:"Failure", domain:"Materials", invite:INVITE_STUDIED}],
   ["sutter", SUTTER, {num:"1933 to 1989", thesis:"Commercial aviation: what decides whether good engineering matters. Market structure, a crack at the corner of a window, a bet made for a customer, and three independent systems that shared one corridor.", dateLabel:"Event", domain:"Commercial aviation", invite:INVITE_FLOWN}],
   ["carnot", CARNOT, {num:"1761 to 1959", thesis:"Four answers to one demand, that a thing work the same way in hands other than its maker's: the timekeeper that turned longitude from a guess into a measurement, the method that let a shop generate accuracy instead of inheriting it, the engine that beat steam on its own numbers, and the glass that stopped being ground flat and was floated flat instead.", dateLabel:"Milestone", domain:"Precision and prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
@@ -2381,7 +2386,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:544, verified:516, sources:45, edges:74, artifacts:62 };
+const FINDING_STATS = { claims:557, verified:527, sources:46, edges:75, artifacts:63 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
