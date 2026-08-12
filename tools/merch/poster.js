@@ -191,7 +191,9 @@ function build(spec) {
   parts.push(`<text x="${M}" y="${px(H - M)}" font-family="IBM Plex Mono, monospace"
     font-size="${px(38 * u)}" letter-spacing="${px(6 * u)}" fill="${C.faint}">${esc(spec.claimId.toUpperCase())}</text>`);
 
-  /* QR, bottom right, with the quiet zone the spec requires */
+  /* QR, bottom right, with the quiet zone the spec requires.
+     The invitation is not "scan for the sources". It is the archive's own
+     promise: this plate is joined to others and the joins are evidenced. */
   const url = "https://shannon.engineeringcommunity.net/#" + a.id;
   const q = encode(url);
   const box = 430 * u;
@@ -203,11 +205,47 @@ function build(spec) {
     if (q.modules[r][c]) mods += `<rect x="${px(qx + (c + 4) * mod)}" y="${px(qy + (r + 4) * mod)}"
       width="${px(mod + 0.5)}" height="${px(mod + 0.5)}"/>`;
   parts.push(`<g fill="#000000">${mods}</g>`);
-  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy - 26 * u)}" text-anchor="middle"
-    font-family="IBM Plex Mono, monospace" font-size="${px(32 * u)}" letter-spacing="${px(5 * u)}"
-    fill="${C.faint}">SCAN FOR THE SOURCES</text>`);
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  /* Branding, in two parts with very different risk.
+     The brackets sit in the quiet zone margin and touch no module, so they
+     are free. The centre badge covers modules and relies on level H having
+     error correction to spare; it is kept under about a tenth of the area,
+     well inside what H recovers, but it is the one thing here that cannot be
+     proved without a phone. */
+  const bl = box * 0.17, bw = px(5 * u);
+  const bracket = (x0, y0, dx, dy) =>
+    `<path d="M${px(x0 + dx * bl)} ${px(y0)} H${px(x0)} V${px(y0 + dy * bl)}"
+      stroke="${C.green}" stroke-width="${bw}" fill="none" stroke-linecap="square"/>`;
+  const pad = 22 * u;
+  parts.push(bracket(qx - pad, qy - pad, 1, 1));
+  parts.push(bracket(qx + box + pad, qy - pad, -1, 1));
+  parts.push(bracket(qx - pad, qy + box + pad, 1, -1));
+  parts.push(bracket(qx + box + pad, qy + box + pad, -1, -1));
+
+  if (spec.qrBadge !== false) {
+    const bs = box * 0.155, cx = qx + box / 2, cy = qy + box / 2;
+    parts.push(`<rect x="${px(cx - bs / 2)}" y="${px(cy - bs / 2)}" width="${px(bs)}" height="${px(bs)}"
+      fill="${C.bg}" stroke="${C.green}" stroke-width="${px(4 * u)}"/>`);
+    /* the mark: concentric rings, the shape the brand already wears */
+    parts.push(`<g fill="none" stroke="${C.green}" stroke-width="${px(3.4 * u)}">
+      <circle cx="${px(cx)}" cy="${px(cy)}" r="${px(bs * 0.30)}"/>
+      <circle cx="${px(cx)}" cy="${px(cy)}" r="${px(bs * 0.15)}"/></g>`);
+  }
+
+  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy - 60 * u)}" text-anchor="middle"
+    font-family="IBM Plex Mono, monospace" font-size="${px(33 * u)}" letter-spacing="${px(5 * u)}"
+    fill="${C.green}">SEE WHAT IT CONNECTS TO</text>`);
+  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy + box + 74 * u)}" text-anchor="middle"
+    font-family="IBM Plex Mono, monospace" font-size="${px(28 * u)}" letter-spacing="${px(3 * u)}"
+    fill="${C.faint}">SHANNON.ENGINEERINGCOMMUNITY.NET</text>`);
+
+  /* Physical size lives in the inch attributes and the viewBox carries the
+     300 DPI pixel grid. Stating the width in pixels instead made every viewer
+     open the proof at 3600px across, which is correct for a printer and
+     useless for a person. */
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size.w}in" height="${size.h}in"
+  viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+<title>SHANNON poster: ${esc(a.name)}</title>
 <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;family=IBM+Plex+Mono:wght@400;700&amp;display=swap");</style>
 ${parts.join("\n")}
 </svg>`;
