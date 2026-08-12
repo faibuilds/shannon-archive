@@ -51,7 +51,13 @@ function archive(plateId) {
   /* the plate block in the page carries the display name, year and credit */
   const i = html.indexOf('id:"' + plateId + '"');
   if (i < 0) throw new Error("no plate " + plateId + " on the site");
-  const seg = html.slice(i, i + 2600);
+  /* Stop at the next plate, not at a fixed character count. A 2600 character
+     window ran off the end of any short plate and into its neighbour, which
+     put the diesel engine's patent figure on the Whitworth poster: Whitworth
+     carries no drawing, so the search simply kept going until it found one.
+     Every plate object opens with {id:", so that is the boundary. */
+  const next = html.indexOf('{id:"', i + 1);
+  const seg = html.slice(i, next > i ? next : i + 2600);
   const grab = re => { const m = seg.match(re); return m ? m[1] : null; };
 
   const line = (graph.nodes.find(n => n.type === "line" && n.id === art.lineId) || {});
@@ -146,6 +152,10 @@ function build(spec) {
   }
 
   /* the drawing */
+  /* No drawing, no poster. The editor's rule is that visual-less plates do
+     not ship, and enforcing it here also means a plate can never quietly
+     borrow a neighbour's figure again. */
+  if (!a.artHref) throw new Error("plate carries no drawing of its own, so no poster");
   const imgPath = path.join(SITE, a.artHref || "");
   let drawH = 0;
   if (a.artHref && fs.existsSync(imgPath)) {
@@ -222,7 +232,11 @@ function build(spec) {
   parts.push(bracket(qx - pad, qy + box + pad, 1, -1));
   parts.push(bracket(qx + box + pad, qy + box + pad, -1, -1));
 
-  if (spec.qrBadge !== false) {
+  /* Off unless asked for. The brackets are free, sitting in the quiet zone
+     and touching no module. The centre badge covers modules and relies on
+     level H having correction to spare, and neither of us has been able to
+     put a phone on it. An unverified risk does not go on a printed product. */
+  if (spec.qrBadge === true) {
     const bs = box * 0.155, cx = qx + box / 2, cy = qy + box / 2;
     parts.push(`<rect x="${px(cx - bs / 2)}" y="${px(cy - bs / 2)}" width="${px(bs)}" height="${px(bs)}"
       fill="${C.bg}" stroke="${C.green}" stroke-width="${px(4 * u)}"/>`);
