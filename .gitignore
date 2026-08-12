@@ -1,3 +1,9 @@
 node_modules/
 .DS_Store
 .claude/
+
+# Poster and shirt artwork is generated from the archive by tools/merch.
+# The generator is the asset; the output is rebuilt on demand and would
+# otherwise land in git as megabytes of base64 on every copy edit.
+merch/posters/
+merch/shirts/
