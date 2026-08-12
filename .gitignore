@@ -7,3 +7,5 @@ node_modules/
 # otherwise land in git as megabytes of base64 on every copy edit.
 merch/posters/
 merch/shirts/
+# print masters: multi-MB rasters, rebuilt by tools/merch/rasterize.js
+merch/posters/*.png
