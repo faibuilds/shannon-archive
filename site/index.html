@@ -1288,7 +1288,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.19 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.20 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2357,6 +2357,7 @@ function renderLine(lineId, arr, meta){
    evidence does not support. */
 const FINDINGS = [
   {
+    slug: "convergence",
     kind: "Convergence",
     title: "Two papers, eleven years and no contact apart, meet in 1937 and end up in every processor you own.",
     body: "Lovelace wrote in 1843 that the Engine might act on things besides number, if their relations could be expressed symbolically. Boole gave logic an algebra in 1854 and died believing he had described how people think. He was wrong about minds. A 21-year-old tending a relay computer at MIT put the two together, and the correspondence he proved runs every digital device since.",
@@ -2375,6 +2376,7 @@ const FINDINGS = [
     note: "Found by walking the graph, not by memory. The traversal that found it is itself a descendant of the chain."
   },
   {
+    slug: "genealogy",
     kind: "Constraint genealogy",
     title: "A fix that could not save the aircraft it was invented for waited seven years, broke the sound barrier, then became standard.",
     body: "NACA proposed an adjustable stabilizer during the P-38 compressibility investigation. It did not save the P-38. The idea sat until the X-1, where a movable tail gave Yeager pitch authority past Mach 1 that a conventional elevator had lost. Every supersonic fighter that followed carries it, the F-15 among them.",
@@ -2391,6 +2393,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   },
   {
+    slug: "echo",
     kind: "Echo",
     title: "Three engineers, three centuries, and not one of them was trying to make anything stronger.",
     body: "Whitworth's thread was not better than the ones it replaced. It was the same in every workshop, because he set it at the average of what Britain was already cutting, so almost nobody had far to move to adopt it. Pilkington's glass was not a finer surface. It was a surface inherited from a liquid that gravity had already levelled. Huntsman's steel was not harder. It was steel that behaved the same way twice, because melting treated the whole charge at once where forging could only ever improve one bar. In each the product is not performance. It is predictability, and it is the thing the other three relations in this archive cannot express, because none of these made the others possible.",
@@ -2457,7 +2460,34 @@ const FINDING_STATS = { claims:557, verified:527, sources:46, edges:85, artifact
     nav.querySelectorAll(".finding-dot").forEach((d, j) => d.classList.toggle("on", j === i));
   };
   nav.innerHTML = FINDINGS.map((f, i) => `<button class="finding-dot" aria-label="Finding ${i + 1}: ${esc(f.kind)}"></button>`).join("");
-  nav.querySelectorAll(".finding-dot").forEach((d, i) => d.addEventListener("click", () => render(i)));
+  /* A finding is worth linking to. Until now the dots were the only way to
+     reach one, so a post pointing at the archive landed on whichever finding
+     happened to be first and the reader had to hunt for the one it promised.
+     Each carries a slug now: #finding-echo lands on the echo. */
+  const slugOf = i => "finding-" + (FINDINGS[i].slug || (i + 1));
+  nav.querySelectorAll(".finding-dot").forEach((d, i) => d.addEventListener("click", () => {
+    render(i);
+    /* replaceState, not a new entry: flicking through findings should not
+       fill the back button with them. */
+    history.replaceState(null, "", "#" + slugOf(i));
+  }));
+  const fromHash = () => {
+    const m = /^#finding-(.+)$/.exec(location.hash);
+    if (!m) return -1;
+    const key = m[1];
+    const bySlug = FINDINGS.findIndex(f => f.slug === key);
+    if (bySlug >= 0) return bySlug;
+    const asNum = parseInt(key, 10);
+    return Number.isInteger(asNum) && FINDINGS[asNum - 1] ? asNum - 1 : -1;
+  };
+  const openFromHash = (scroll) => {
+    const i = fromHash();
+    if (i < 0) return false;
+    render(i);
+    if (scroll) document.getElementById("findings").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    return true;
+  };
+  addEventListener("hashchange", () => openFromHash(true));
   document.getElementById("finding-method").innerHTML =
     "<b>Method.</b> The archive is a directed graph. Every artifact, person, and source is a node. Every connection is a typed edge that has to cite a claim we verified, and chains are found by depth-first traversal of those edges rather than by intuition. "
     + "<b>" + FINDING_STATS.claims + "</b> claims recorded, <b>" + FINDING_STATS.verified + "</b> verified, across <b>" + FINDING_STATS.artifacts
@@ -2466,7 +2496,7 @@ const FINDING_STATS = { claims:557, verified:527, sources:46, edges:85, artifact
        stopped being true when the per-plate ledgers began surfacing conflicts,
        so this states what the site now actually does. */
     + "Where sources disagree, the claim is kept as an open question and every version renders, in that plate's ledger and in the list below. Unverifiable material stays in the record and never renders. Two claims are marked false, because we published them before we checked.";
-  render(0);
+  if (!openFromHash(false)) render(0);
 }
 
 /* ---------- THE BOARD ----------
