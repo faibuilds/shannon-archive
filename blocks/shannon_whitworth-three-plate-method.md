@@ -86,4 +86,11 @@ CARRIED, NOT DRAWN. The block's closing observation is worth keeping in front
   of Fai: Harrison, Leibniz and Whitworth all turn on whether a design can
   survive leaving the hands that made it. Three plates on two lines now share
   that question. It is not a line and the block does not claim it should be.
+
+UPDATE, v2.18. The two edges held on this plate are drawn. The archive now carries a fifth synthesis
+  relation, echoes, meaning the same problem seen from another place. It
+  requires a verified claim like the other four, is drawn dashed rather than
+  solid, and is kept out of the lag arithmetic: six of the ten run backwards
+  in time, and counting them would have moved the mean idea-to-use figure
+  from 59 years to 24.
 === END BLOCK ===

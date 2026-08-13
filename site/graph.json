@@ -14121,6 +14121,16 @@
   {"type":"about","from":"c-crucible-cast-steel-13","to":"crucible-cast-steel"},
   {"type":"cites","from":"c-crucible-cast-steel-13","to":"src-crucible-cast-steel-vcl"},
   {"type":"enabled","from":"crucible-cast-steel","to":"brooklyn-bridge","claimId":"c-bb-01"},
-  {"type":"covers","from":"story-crucible-cast-steel","to":"crucible-cast-steel"}
+  {"type":"covers","from":"story-crucible-cast-steel","to":"crucible-cast-steel"},
+  {"type":"echoes","from":"whitworth-three-plate-method","to":"harrison-h4","claimId":"c-whitworth-three-plate-method-05","note":"Reproducibility demanded before the tooling existed to make it routine"},
+  {"type":"echoes","from":"whitworth-three-plate-method","to":"leibniz-stepped-reckoner","claimId":"c-whitworth-three-plate-method-05","note":"A design drawn for a precision the workshops of its day could not hold"},
+  {"type":"echoes","from":"whitworth-three-plate-method","to":"air-canada-143-gimli","claimId":"c-whitworth-three-plate-method-12","note":"A standard adopted cheaply, against the bill for a changeover left half done"},
+  {"type":"echoes","from":"united-232","to":"air-canada-143-gimli","claimId":"c-air-canada-143-gimli-10","note":"Two crews improvising where the book was blank, the missing procedure itself the finding"},
+  {"type":"echoes","from":"whitworth-three-plate-method","to":"float-glass-process","claimId":"c-float-glass-process-02","note":"Flatness with no flat surface to check against, answered from opposite ends: remove the error, or inherit a surface that has none"},
+  {"type":"echoes","from":"float-glass-process","to":"planar-process-ic","claimId":"c-float-glass-process-07","note":"Conceiving a thing and manufacturing it are different achievements, and only the second one ships"},
+  {"type":"echoes","from":"leibniz-stepped-reckoner","to":"float-glass-process","claimId":"c-float-glass-process-10","note":"The gap between a principle and a process that runs, closed from either side"},
+  {"type":"echoes","from":"harrison-h4","to":"crucible-cast-steel","claimId":"c-crucible-cast-steel-03","note":"Two clockmakers against materials that would not hold still: compensate for the change, or remove it from the metal"},
+  {"type":"echoes","from":"float-glass-process","to":"crucible-cast-steel","claimId":"c-crucible-cast-steel-03","note":"The molten state supplying a property that working the solid cannot: flatness in one, consistency in the other"},
+  {"type":"echoes","from":"whitworth-three-plate-method","to":"crucible-cast-steel","claimId":"c-crucible-cast-steel-03","note":"Consistency rather than performance as the product: interchangeable, not stronger"}
  ]
 }

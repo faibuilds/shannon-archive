@@ -85,4 +85,11 @@ CARRIED, NOT DRAWN. The block's second thread, the rational refusal: an
   industry declining a better thing for reasons defensible at the time.
   Sheffield is one instance. The block is right that it needs a second before
   it is claimed as anything.
+
+UPDATE, v2.18. The three edges held on this plate are drawn. The archive now carries a fifth synthesis
+  relation, echoes, meaning the same problem seen from another place. It
+  requires a verified claim like the other four, is drawn dashed rather than
+  solid, and is kept out of the lag arithmetic: six of the ten run backwards
+  in time, and counting them would have moved the mean idea-to-use figure
+  from 59 years to 24.
 === END BLOCK ===

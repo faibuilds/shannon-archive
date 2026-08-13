@@ -249,6 +249,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .byear rect{fill:#0b0c10;stroke:var(--green);stroke-width:1}
 .byear text{fill:var(--green);font-family:var(--mono);font-size:9px;letter-spacing:1.2px}
 .btrace{stroke:var(--green);stroke-width:1;fill:none;opacity:.5;transition:opacity .18s,stroke-width .18s}
+/* An echo is drawn dashed, because it is not a line of descent. The eye
+   should be able to tell a cause from a resemblance without reading. */
+.btrace.echo{stroke-dasharray:7 6;opacity:.42}
+.btrace.echo.hot{opacity:.95}
 .btrace.hot{opacity:1;stroke-width:1.8}
 .btrace.dim{opacity:.09}
 .bpad{cursor:pointer}
@@ -1283,7 +1287,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.17 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.18 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2386,7 +2390,7 @@ const FINDINGS = [
     note: "Three plates, thirty-three years, one idea. Each arrow cites the claim that licenses it."
   }
 ];
-const FINDING_STATS = { claims:557, verified:527, sources:46, edges:75, artifacts:63 };
+const FINDING_STATS = { claims:557, verified:527, sources:46, edges:85, artifacts:63 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
@@ -2460,7 +2464,11 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
 
 (async function board() {
   const view = document.getElementById("board-view");
-  const SYNTH = ["enabled", "forced", "responded-to", "corrects"];
+  /* Five relations. Four assert causation; echoes asserts likeness, meaning
+     the same problem seen from another place. It is deliberately kept out of
+     the lag arithmetic below, because the years between two plates that
+     rhyme are not an idea waiting for its use. */
+  const SYNTH = ["enabled", "forced", "responded-to", "corrects", "echoes"];
   const g = await GRAPH_READY;
   if (!g) {
     view.innerHTML = `<p class="finding-body" style="padding:20px">The board could not load the archive graph. The findings above stand on their own.</p>`;
@@ -2743,6 +2751,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
        written out of a failure, which is one of the archive's better
        findings, could only be seen by looking at every link at once. */
     ["type", "all", "All links"], ["type", "enabled", "Enabled"], ["type", "forced", "Forced"],
+    ["type", "echoes", "Echoes"],
     ["type", "corrects", "Corrects"], ["type", "responded-to", "Responded to"],
     ["mode", "board", "Board"], ["mode", "ledger", "Ledger"]
   ];
@@ -2796,7 +2805,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
       const a = pos.get(e.from), b = pos.get(e.to);
       const mx = a.x + (b.x - a.x) * 0.58;
       const d = `M${a.x} ${a.y} H${mx} V${b.y} H${b.x}`;
-      return `<path class="btrace" data-a="${esc(e.from)}" data-b="${esc(e.to)}" d="${d}"/>`;
+      return `<path class="btrace${e.type === "echoes" ? " echo" : ""}" data-a="${esc(e.from)}" data-b="${esc(e.to)}" d="${d}"/>`;
     }).join("");
     const pads = placed.filter(visible).map(p => {
       const { x, y } = pos.get(p.id);

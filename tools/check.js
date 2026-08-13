@@ -397,7 +397,7 @@ const ROEBLING = parseLineArray("ROEBLING");
   // Synthesis edges carry a claimId whose claim is verified AND about at
   // least one endpoint, so an edge cannot borrow an unrelated claim.
   // corrects edges follow the same discipline as the constitution trio.
-  const SYNTH = new Set(["enabled", "forced", "responded-to", "corrects"]);
+  const SYNTH = new Set(["enabled", "forced", "responded-to", "corrects", "echoes"]);
   const badSynth = [];
   for (const e of edges) {
     if (!SYNTH.has(e.type)) continue;
@@ -454,7 +454,7 @@ const ROEBLING = parseLineArray("ROEBLING");
   } catch (e) { fail(name, "unreadable: " + e.message); return; }
 
   const byId = new Map(g.nodes.map((n) => [n.id, n]));
-  const SYNTH = new Set(["enabled", "forced", "responded-to", "corrects"]);
+  const SYNTH = new Set(["enabled", "forced", "responded-to", "corrects", "echoes"]);
   const problems = [];
   let drawn = 0;
 

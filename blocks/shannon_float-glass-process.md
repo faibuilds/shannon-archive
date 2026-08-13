@@ -88,4 +88,11 @@ ADJACENT AND UNBUILT, carried forward: crucible steel. Benjamin Huntsman, a
   clockmaker who could not obtain steel that behaved and worked out how to
   melt it fully. The block places it on TIPPER, edging Harrison on one side
   and Whitworth on the other.
+
+UPDATE, v2.18. All three edges held on this plate are drawn, the Noyce one re-pointed to planar-process-ic, which is the node that exists. The archive now carries a fifth synthesis
+  relation, echoes, meaning the same problem seen from another place. It
+  requires a verified claim like the other four, is drawn dashed rather than
+  solid, and is kept out of the lag arithmetic: six of the ten run backwards
+  in time, and counting them would have moved the mean idea-to-use figure
+  from 59 years to 24.
 === END BLOCK ===
