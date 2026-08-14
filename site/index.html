@@ -1288,7 +1288,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.21 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.22 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2407,7 +2407,10 @@ const FINDINGS = [
       {from:0, to:1, type:"echoes", claim:"c-float-glass-process-02"},
       {from:1, to:2, type:"echoes", claim:"c-crucible-cast-steel-03"}
     ],
-    note: "Read the dates: 1841, then 1959, then 1740. An echo is not a sequence and carries no direction, which is why these are drawn dashed and without arrows. A third echo closes the triangle, Whitworth to crucible steel, and is on the board."
+    note: "Read the dates: 1841, then 1959, then 1740. An echo is not a sequence and carries no direction, which is why these are drawn dashed and without arrows. A third echo closes the triangle, Whitworth to crucible steel, and is on the board.",
+    /* The share tracking is stripped: what was pasted carried utm_source,
+       utm_medium and an rcm token identifying the account that shared it. */
+    posts: [{ label: "Read the post", url: "https://www.linkedin.com/posts/engineeringcommunity_that-is-what-no-standard-meant-threads-cut-activity-7493894753063686145-xuv-" }]
   }
 ];
 const FINDING_STATS = { claims:557, verified:527, sources:46, edges:85, artifacts:63 };
@@ -2448,6 +2451,7 @@ const FINDING_STATS = { claims:557, verified:527, sources:46, edges:85, artifact
           </svg>
         </div>
         <p class="finding-body" style="font-size:12px;color:var(--steel-faint)">${esc(f.note)}</p>
+        ${(f.posts || []).map(p => `<a class="btn-read" href="${safeUrl(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.label)} &#8594;</a>`).join("")}
       </article>`;
     slot.querySelectorAll("[data-jump]").forEach(el => el.addEventListener("click", () => {
       const t = document.getElementById(el.dataset.jump);
