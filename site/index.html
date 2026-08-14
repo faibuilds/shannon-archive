@@ -1288,7 +1288,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.20 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.21 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -4246,10 +4246,15 @@ async function exportCard(d, F, btn, sheet, mode) {
        the share call lands inside the gesture that asked for it. */
     const warmed = sheet.__warm && sheet.__warm[F.tag];
     const blob = await Promise.race([
-      (async () => (warmed && await warmed) || await new Promise(async r => {
+      /* Not an async executor: a throw inside one is swallowed, the promise
+         never settles, and the reader waits out the whole timeout for a
+         failure that happened immediately. */
+      (async () => {
+        const ready = warmed && await warmed;
+        if (ready) return ready;
         const cv = await renderCard(d, F);
-        cv.toBlob(r, "image/png");
-      }))(),
+        return await new Promise(r => cv.toBlob(r, "image/png"));
+      })(),
       new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ENCODE_TIMEOUT)),
     ]);
     if (!blob) throw new Error("no blob");
@@ -4353,7 +4358,7 @@ function openSheet(d, url) {
       host.innerHTML = "";
       host.appendChild(cv);
     } catch (e) { host.textContent = "Preview unavailable. The card will still save."; }
-    warm(fmt);
+    gate(fmt);
   };
 
   /* Encode the full size card in the background while the reader is looking
@@ -4370,6 +4375,32 @@ function openSheet(d, url) {
       return await new Promise(r => cv.toBlob(r, "image/png"));
     })().catch(() => null);
     return sheetEl.__warm[f];
+  }
+
+  /* Saving the heavier cards did not work, and f-14 is the worst of them at
+     about a second and a half to encode. A click that has to wait for that
+     lands after the browser has stopped treating the press as a user
+     gesture, so the download is quietly dropped and navigator.share refuses
+     outright. Warming alone did not fix it because nothing stopped the
+     reader pressing the button first. So the actions wait for the file:
+     disabled and saying why until the chosen format actually exists. */
+  const actions = () => [...sheetEl.querySelectorAll('[data-act="save"],[data-act="share"]')];
+  const status = () => sheetEl.querySelector(".sheet-status");
+  const PREPARING = "Preparing the full size card";
+  function gate(f) {
+    if (!actions().length) return;
+    actions().forEach(b => { b.disabled = true; });
+    const s = status();
+    if (s && !s.textContent) { s.className = "sheet-status working"; s.textContent = PREPARING; }
+    warm(f).then(blob => {
+      if (!sheetEl || fmt !== f) return;
+      actions().forEach(b => { b.disabled = !blob; });
+      const t = status();
+      if (t && t.textContent === PREPARING) {
+        t.className = "sheet-status" + (blob ? "" : " bad");
+        t.textContent = blob ? "" : "Could not build the card. Report a defect on the plate and we will look.";
+      }
+    });
   }
   paint();
 
