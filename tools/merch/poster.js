@@ -66,6 +66,11 @@ function archive(plateId) {
     id: plateId,
     name: grab(/name:"([^"]+)"/),
     year: grab(/year:(\d+)/),
+    /* Some plates span years and say so. The bridge is dated 1876 in the
+       array because that is where its story starts, but it opened in 1883
+       and the plate carries "1876 to 1883" for exactly that reason. A poster
+       printing the bare year states something the archive does not. */
+    date: grab(/date:"([^"]+)"/),
     lineName: (line.name || art.lineId || "").toUpperCase(),
     lineTag: "L-" + String(["kelly","petroski","hammurabi","barenyi","tipper","roebling",
                             "lovelace","wright","sutter","carnot","noyce"].indexOf(art.lineId) + 1).padStart(2, "0"),
@@ -151,33 +156,50 @@ function build(spec) {
     }
   }
 
+  /* The footer is measured before the drawing is placed, because the drawing
+     has to know how much room is left. It used to be a fixed 470 units with
+     the art at a fixed width above it, so whatever did not happen to be used
+     stayed empty: on Brooklyn that was a fifth of the sheet sitting blank
+     between the credit and the rule. */
+  const qrBox = (spec.qrBox || 700) * u;
+  const qCapH = 96 * u, qUrlH = 84 * u;
+  const footH = Math.max(470 * u, qCapH + qrBox + qUrlH);
+  const footTop = H - M - footH;
+
   /* the drawing */
   /* No drawing, no poster. The editor's rule is that visual-less plates do
      not ship, and enforcing it here also means a plate can never quietly
      borrow a neighbour's figure again. */
   if (!a.artHref) throw new Error("plate carries no drawing of its own, so no poster");
   const imgPath = path.join(SITE, a.artHref || "");
+  const creditLines = a.artCredit ? wrap(a.artCredit, 62) : [];
+  const creditH = creditLines.length ? 70 * u + creditLines.length * 52 * u : 0;
   let drawH = 0;
   if (a.artHref && fs.existsSync(imgPath)) {
     const src = spec.fullResArt && fs.existsSync(spec.fullResArt) ? spec.fullResArt : imgPath;
     const raw = fs.readFileSync(src);
     const iw = raw.readUInt32BE(16), ih = raw.readUInt32BE(20);
     const b64 = raw.toString("base64");
-    const maxW = CW * (spec.artWidth || 0.78);
-    const drawW = maxW, dh = drawW * (ih / iw);
-    y += 120 * u;
-    parts.push(`<image x="${px(M + (CW - drawW) / 2)}" y="${px(y)}" width="${px(drawW)}" height="${px(dh)}"
+    const artTop = y + 120 * u;
+    /* everything between the sub-headline and the rule, less the credit */
+    const band = footTop - 96 * u - creditH - artTop;
+    let drawW = CW * (spec.artWidth || 0.92), dh = drawW * (ih / iw);
+    if (dh > band) { dh = band; drawW = dh * (iw / ih); }
+    /* centred in the band, so the space that is left reads as margin rather
+       than as the drawing having drifted to the top */
+    const top = artTop + Math.max(0, (band - dh) / 2);
+    parts.push(`<image x="${px(M + (CW - drawW) / 2)}" y="${px(top)}" width="${px(drawW)}" height="${px(dh)}"
       href="data:image/png;base64,${b64}"/>`);
-    y += dh;
+    y = top + dh;
     drawH = dh;
     parts.push(`<!-- drawing native ${iw}x${ih}px, printed ${(drawW / DPI).toFixed(2)}in wide,
       scale ${(drawW / iw).toFixed(2)}x -->`);
   }
 
   /* credit, exactly as the archive files it */
-  if (a.artCredit) {
+  if (creditLines.length) {
     y += 70 * u;
-    for (const ln of wrap(a.artCredit, 62)) {
+    for (const ln of creditLines) {
       parts.push(`<text x="${M}" y="${px(y)}" font-family="IBM Plex Mono, monospace"
         font-size="${px(36 * u)}" fill="${C.faint}">${esc(ln)}</text>`);
       y += 52 * u;
@@ -185,11 +207,24 @@ function build(spec) {
   }
 
   /* ---------- foot: ledger, claim, QR ---------- */
-  const footTop = H - M - 470 * u;
   parts.push(`<line x1="${M}" y1="${px(footTop)}" x2="${W - M}" y2="${px(footTop)}"
     stroke="${C.line2}" stroke-width="${px(3 * u)}"/>`);
 
-  let fy = footTop + 90 * u;
+  /* The sheet never said what it was of. Read cold it offered a sentence, a
+     drawing and a line code, and nowhere the words Brooklyn Bridge. A poster
+     that will not name its subject is a puzzle rather than a label, so the
+     footer opens the way a drawing's title block does. It also gives the
+     left column the weight to stand beside the QR. */
+  let fy = footTop + 112 * u;
+  for (const ln of wrap(a.name.toUpperCase(), 26)) {
+    parts.push(`<text x="${M}" y="${px(fy)}" font-family="Poppins, Helvetica, Arial, sans-serif"
+      font-weight="800" font-size="${px(92 * u)}" fill="${C.steel}">${esc(ln)}</text>`);
+    fy += 104 * u;
+  }
+  fy += 4 * u;
+  parts.push(`<text x="${M}" y="${px(fy)}" font-family="IBM Plex Mono, monospace"
+    font-size="${px(38 * u)}" letter-spacing="${px(7 * u)}" fill="${C.faint}">${esc(String(a.date || a.year))} &#183; ${esc(a.lineName)} ${esc(a.lineTag)}</text>`);
+  fy += 96 * u;
   parts.push(`<text x="${M}" y="${px(fy)}" font-family="IBM Plex Mono, monospace"
     font-size="${px(40 * u)}" letter-spacing="${px(7 * u)}" fill="${C.green}">${a.verified} OF ${a.claims} CLAIMS VERIFIED</text>`);
   fy += 76 * u;
@@ -236,9 +271,11 @@ function build(spec) {
      promise: this plate is joined to others and the joins are evidenced. */
   const url = "https://shannon.engineeringcommunity.net/#" + a.id;
   const q = encode(url);
-  const box = 430 * u;
+  const box = qrBox;
   const mod = box / (q.size + 8);           /* 4 modules of quiet zone each side */
-  const qx = W - M - box, qy = H - M - box + 20 * u;
+  /* Sat directly under the rule with its caption drawn straight through it.
+     Both now hang off footTop with real clearance. */
+  const qx = W - M - box, qy = footTop + qCapH;
   parts.push(`<rect x="${px(qx)}" y="${px(qy)}" width="${px(box)}" height="${px(box)}" fill="#ffffff"/>`);
   let mods = "";
   for (let r = 0; r < q.size; r++) for (let c = 0; c < q.size; c++)
@@ -276,10 +313,10 @@ function build(spec) {
       <circle cx="${px(cx)}" cy="${px(cy)}" r="${px(bs * 0.15)}"/></g>`);
   }
 
-  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy - 60 * u)}" text-anchor="middle"
+  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy - 34 * u)}" text-anchor="middle"
     font-family="IBM Plex Mono, monospace" font-size="${px(33 * u)}" letter-spacing="${px(5 * u)}"
     fill="${C.green}">SEE WHAT IT CONNECTS TO</text>`);
-  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy + box + 74 * u)}" text-anchor="middle"
+  parts.push(`<text x="${px(qx + box / 2)}" y="${px(qy + box + 56 * u)}" text-anchor="middle"
     font-family="IBM Plex Mono, monospace" font-size="${px(28 * u)}" letter-spacing="${px(3 * u)}"
     fill="${C.faint}">SHANNON.ENGINEERINGCOMMUNITY.NET</text>`);
 
