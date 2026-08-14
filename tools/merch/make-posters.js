@@ -49,10 +49,20 @@ const POSTERS = [
 ];
 
 const size = process.argv[2] || "12x18";
+/* Optional plate ids after the size, so one poster can be built on its own
+   while the rest of the set is still being settled. */
+const only = process.argv.slice(3);
+const chosen = only.length ? POSTERS.filter(p => only.includes(p.plate)) : POSTERS;
+if (only.length && chosen.length !== only.length) {
+  const known = POSTERS.map(p => p.plate);
+  console.error("no poster defined for: " + only.filter(o => !known.includes(o)).join(", "));
+  console.error("defined: " + known.join(", "));
+  process.exit(1);
+}
 fs.mkdirSync(OUT, { recursive: true });
 
 let failed = 0;
-for (const p of POSTERS) {
+for (const p of chosen) {
   try {
     const { svg, meta } = build({ ...p, size });
     const f = path.join(OUT, p.plate + "-" + size + ".svg");
@@ -67,4 +77,4 @@ for (const p of POSTERS) {
   }
 }
 console.log("");
-console.log(failed ? failed + " poster(s) refused to build." : POSTERS.length + " posters written to merch/posters/");
+console.log(failed ? failed + " poster(s) refused to build." : chosen.length + " poster(s) written to merch/posters/");

@@ -193,7 +193,37 @@ function build(spec) {
   parts.push(`<text x="${M}" y="${px(fy)}" font-family="IBM Plex Mono, monospace"
     font-size="${px(40 * u)}" letter-spacing="${px(7 * u)}" fill="${C.green}">${a.verified} OF ${a.claims} CLAIMS VERIFIED</text>`);
   fy += 76 * u;
-  for (const ln of wrap(claim.text, 58).slice(0, 3)) {
+  /* Three lines is all there is room for, and the claim is usually longer.
+     Slicing the wrapped lines cut Brooklyn mid clause, ending the poster on
+     "Roebling estimated", which reads as a printing fault rather than an
+     extract. Cut the sentence instead: the longest run of whole sentences
+     that fits, or failing that the longest run of whole clauses with an
+     ellipsis to say plainly that there is more. */
+  const fitClaim = (text, cols, lines) => {
+    const fits = s => wrap(s, cols).length <= lines;
+    if (fits(text)) return text;
+    const ends = [];
+    for (let i = 0; i < text.length; i++) {
+      if (/[.!?]/.test(text[i]) && (i + 1 === text.length || /\s/.test(text[i + 1]))) ends.push(i + 1);
+    }
+    for (let i = ends.length - 1; i >= 0; i--) {
+      const s = text.slice(0, ends[i]).trim();
+      if (fits(s)) return s;
+    }
+    const clauses = [];
+    for (let i = 0; i < text.length; i++) if (/[;,]/.test(text[i])) clauses.push(i);
+    for (let i = clauses.length - 1; i >= 0; i--) {
+      const s = text.slice(0, clauses[i]).trim() + "…";
+      if (fits(s)) return s;
+    }
+    const words = text.split(/\s+/);
+    for (let n = words.length - 1; n > 0; n--) {
+      const s = words.slice(0, n).join(" ") + "…";
+      if (fits(s)) return s;
+    }
+    return text;
+  };
+  for (const ln of wrap(fitClaim(claim.text, 58, 3), 58)) {
     parts.push(`<text x="${M}" y="${px(fy)}" font-family="Poppins, Helvetica, Arial, sans-serif"
       font-size="${px(42 * u)}" fill="${C.mid}">${esc(ln)}</text>`);
     fy += 58 * u;
