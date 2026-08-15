@@ -16,13 +16,17 @@ const path = require("path");
 const http = require("http");
 
 const ROOT = path.join(__dirname, "..", "..");
-const DIR = path.join(ROOT, "merch", "posters");
+/* Posters by default. Shirts print on dark fabric, so they are drawn on
+   nothing at all and the ground has to stay transparent. */
+const SUB = process.argv[2] || "posters";
+const TRANSPARENT = SUB === "shirts";
+const DIR = path.join(ROOT, "merch", SUB);
 const PORT = 4400;
 
 const svgs = fs.readdirSync(DIR).filter(f => f.endsWith(".svg")).sort();
 if (!svgs.length) { console.error("no posters to rasterise. Run make-posters.js first."); process.exit(1); }
 
-const page = `<!doctype html><meta charset="utf-8"><title>rasterise</title>
+const page = `<script>const TRANSPARENT = ${TRANSPARENT};</script><!doctype html><meta charset="utf-8"><title>rasterise</title>
 <style>body{background:#0b0c10;color:#ccd1d6;font:13px/1.7 "IBM Plex Mono",monospace;padding:26px}
 b{color:#10b981}i{color:#5d636a;font-style:normal}</style>
 <h3 style="color:#10b981;letter-spacing:2px;font-weight:400">RASTERISING ${svgs.length} POSTER(S) AT 300 DPI</h3>
@@ -69,7 +73,7 @@ async function fontCss() {
     const cv = document.createElement("canvas");
     cv.width = W; cv.height = H;
     const x = cv.getContext("2d");
-    x.fillStyle = "#0b0c10"; x.fillRect(0, 0, W, H);
+    if (!TRANSPARENT) { x.fillStyle = "#0b0c10"; x.fillRect(0, 0, W, H); }
     x.drawImage(img, 0, 0, W, H);
     URL.revokeObjectURL(blobUrl);
 
