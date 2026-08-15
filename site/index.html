@@ -960,6 +960,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
       <span class="lt-name">Carnot</span>
       <span class="lt-sub">L-10 · Precision and prime movers · Live</span>
     </button>
+    <button class="line-tag active" data-line="olley">
+      <span class="lt-name">Olley</span>
+      <span class="lt-sub">L-12 &#183; How a car is made to work &#183; Live</span>
+    </button>
     <button class="line-tag active" data-line="noyce">
       <span class="lt-name">Noyce</span>
       <span class="lt-sub">L-11 · Semiconductors · Live</span>
@@ -1010,6 +1014,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     <button class="pill line-jump" data-jump="sutter">Sutter</button>
     <button class="pill line-jump" data-jump="carnot">Carnot</button>
     <button class="pill line-jump" data-jump="noyce">Noyce</button>
+    <button class="pill line-jump" data-jump="olley">Olley</button>
   </div>
   <div class="filter-group kelly-only">
     <span class="filter-group-label">Status</span>
@@ -1173,6 +1178,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="timeline" id="noyce-timeline"></div>
 </section>
 
+<section class="timeline-section" id="olley">
+  <div class="line-designation">
+    <div class="line-designation-inner brushed">
+      <span class="ld-name">Olley <b>/ Line 12</b></span>
+      <span class="ld-note">Named for Maurice Olley, who worked out that a car rides flat when the front is softer than the rear. Ordered by year.</span>
+    </div>
+  </div>
+  <div class="timeline" id="olley-timeline"></div>
+</section>
+
 <section class="timeline-section" id="roebling">
   <div class="line-designation">
     <div class="line-designation-inner brushed">
@@ -1288,7 +1303,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.22 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.23 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -2239,6 +2254,22 @@ const NOYCE = [
    hook:"The graphics cards that trained the first modern AI in 2012 could do it only because of a bet NVIDIA made in 2006, six years before anyone needed it.",
    post:{label:"Read the story", url:"https://www.linkedin.com/feed/update/urn:li:activity:7466536288733724672"}}
 ];
+const OLLEY = [
+  {id:"flat-ride", name:"The flat ride", year:1934, date:"Feb 1934", origin:"United States", field:"The rule", status:"covered",
+   artCredit:"Maurice Olley, US Patent 2,092,612 (1937), sheet 1, figures 1 and 2. Public domain.",
+   artNote:"Patent drawing, recolored, not redrawn. The sheet's own header carries the filing date and Olley's signature, so the figure is its own evidence for the date.",
+   art:`<svg viewBox="0 0 164 181" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/flat-ride.png" x="0" y="0" width="164" height="159"/>
+  <g fill="#10b981" font-family="IBM Plex Mono, monospace" font-size="7" text-anchor="middle">
+    <text x="82" y="174">US 2,092,612 &#183; FILED 3 FEB 1934</text>
+  </g>
+</svg>`,
+   ask:"Tune ride, springs or suspension. Is the front still the softer end on what you build?",
+   hook:"EVERY BUMP HITS YOUR CAR TWICE, AN EIGHTH OF A SECOND APART AT 80 KM/H. WHETHER IT ROCKS YOU OR LIFTS YOU WAS DECIDED IN THE 1930S.",
+   posts:[{label:"Read the story", date:"Aug 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7494466304515469313"},
+          {label:"On Facebook", date:"Aug 2026", url:"https://www.facebook.com/share/p/194CiG5r54/"}]}
+];
+
 const ROEBLING = [
   {id:"london-sewers", name:"Bazalgette's London sewers", year:1858, date:"1858 to 1875", origin:"United Kingdom", field:"Sewer network", status:"covered",
    ask:"Work in London water or sewers. Is Bazalgette brickwork still carrying you?",
@@ -2346,6 +2377,7 @@ function renderLine(lineId, arr, meta){
   ["sutter", SUTTER, {num:"1933 to 1989", thesis:"Commercial aviation: what decides whether good engineering matters. Market structure, a crack at the corner of a window, a bet made for a customer, and three independent systems that shared one corridor.", dateLabel:"Event", domain:"Commercial aviation", invite:INVITE_FLOWN}],
   ["carnot", CARNOT, {num:"1761 to 1959", thesis:"Four answers to one demand, that a thing work the same way in hands other than its maker's: the timekeeper that turned longitude from a guess into a measurement, the method that let a shop generate accuracy instead of inheriting it, the engine that beat steam on its own numbers, and the glass that stopped being ground flat and was floated flat instead.", dateLabel:"Milestone", domain:"Precision and prime movers", invite:INVITE_STUDIED}],
   ["noyce", NOYCE, {num:"1947 to 2012", thesis:"Semiconductors: the transistor, the foundry, the machine, the chip, and the bet that put intelligence on silicon.", dateLabel:"Milestone", domain:"Semiconductors", invite:INVITE_STUDIED}],
+  ["olley", OLLEY, {num:"1934", thesis:"How a car is made to work: the rule that a car rides flat when its front end is the softer one, and the instrument built to find it.", dateLabel:"Rule", domain:"How a car is made to work", invite:INVITE_STUDIED}],
   ["roebling", ROEBLING, {num:"1858 to 1907", thesis:"Structures: one quantity, the safety margin, told three ways. Bought in advance at London, absorbed by a crime at Brooklyn, spent in the design office at Quebec.", dateLabel:"Built", domain:"Structures", invite:INVITE_STUDIED}]
 ].forEach(([id, arr, meta]) => renderLine(id, arr, meta));
 
@@ -2413,7 +2445,7 @@ const FINDINGS = [
     posts: [{ label: "Read the post", url: "https://www.linkedin.com/posts/engineeringcommunity_that-is-what-no-standard-meant-threads-cut-activity-7493894753063686145-xuv-" }]
   }
 ];
-const FINDING_STATS = { claims:557, verified:527, sources:46, edges:85, artifacts:63 };
+const FINDING_STATS = { claims:576, verified:545, sources:50, edges:87, artifacts:64 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
@@ -2556,7 +2588,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
     { id: "kelly", label: "Kelly L-01" }, { id: "petroski", label: "Petroski L-02" },
     { id: "hammurabi", label: "Hammurabi L-03" }, { id: "barenyi", label: "Barenyi L-04" },
     { id: "tipper", label: "Tipper L-05" }, { id: "roebling", label: "Roebling L-06" },
-    { id: "lovelace", label: "Lovelace L-07" },
+    { id: "lovelace", label: "Lovelace L-07" }, { id: "olley", label: "Olley L-12" },
     { id: "wright", label: "Wright L-08" }, { id: "sutter", label: "Sutter L-09" },
     { id: "carnot", label: "Carnot L-10" }, { id: "noyce", label: "Noyce L-11" },
     { id: "other", label: "Unassigned" }, { id: "concept", label: "Outcomes" }
@@ -2800,7 +2832,7 @@ const GRAPH_READY = fetch("graph.json", { cache: "no-store" })
 
   // ---- filters ----
   const filters = [
-    ["line", "all", "All lines"], ["line", "kelly", "Kelly"], ["line", "petroski", "Petroski"], ["line", "hammurabi", "Hammurabi"], ["line", "barenyi", "Barenyi"], ["line", "tipper", "Tipper"], ["line", "roebling", "Roebling"], ["line", "lovelace", "Lovelace"], ["line", "wright", "Wright"], ["line", "sutter", "Sutter"], ["line", "carnot", "Carnot"], ["line", "noyce", "Noyce"],
+    ["line", "all", "All lines"], ["line", "kelly", "Kelly"], ["line", "petroski", "Petroski"], ["line", "hammurabi", "Hammurabi"], ["line", "barenyi", "Barenyi"], ["line", "tipper", "Tipper"], ["line", "roebling", "Roebling"], ["line", "lovelace", "Lovelace"], ["line", "wright", "Wright"], ["line", "sutter", "Sutter"], ["line", "carnot", "Carnot"], ["line", "noyce", "Noyce"], ["line", "olley", "Olley"],
     /* All four relations get a button. Forced had none, so the five rules
        written out of a failure, which is one of the archive's better
        findings, could only be seen by looking at every link at once. */
@@ -3276,7 +3308,7 @@ linesWrap.addEventListener("click", e => {
    there. Above the timelines we default to KELLY, the first line. */
 {
   const filtersEl = document.getElementById("filters");
-  const LINE_IDS = ["kelly", "petroski", "hammurabi", "barenyi", "tipper", "roebling", "lovelace", "wright", "sutter", "carnot", "noyce"];
+  const LINE_IDS = ["kelly", "petroski", "hammurabi", "barenyi", "tipper", "roebling", "lovelace", "wright", "sutter", "carnot", "noyce", "olley"];
   const syncLine = () => {
     const probe = window.innerHeight * 0.35;
     let cur = null;
@@ -4515,7 +4547,7 @@ window.addEventListener("load", () => {
   const lineName = id => ((node[id] || {}).name || id).toUpperCase();
   const tag = id => {
     const t = ["kelly","petroski","hammurabi","barenyi","tipper","roebling",
-               "lovelace","wright","sutter","carnot","noyce"].indexOf(id);
+               "lovelace","wright","sutter","carnot","noyce","olley"].indexOf(id);
     return t < 0 ? "" : " L-" + String(t + 1).padStart(2, "0");
   };
   /* Name and year come off the plate, not the graph node, so this section

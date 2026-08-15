@@ -12,7 +12,7 @@ const path = require("path");
 const http = require("http");
 
 const ROOT = path.join(__dirname, "..", "..");
-const DIR = path.join(ROOT, "merch", "shirts");
+const DIR = process.argv[2] || path.join(ROOT, "merch", "shirts");
 const PORT = 4405;
 
 const pngs = fs.readdirSync(DIR).filter(f => f.endsWith(".png")).sort();
