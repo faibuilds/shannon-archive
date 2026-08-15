@@ -11,6 +11,13 @@ const ART = process.env.SHANNON_FULLRES || "";
 
 const POSTERS = [
   {
+    plate: "diesel-engine",
+    claimId: "c-diesel-04",
+    statement: "The air is the spark",
+    sub: "No spark plug anywhere in it. Air compressed far enough is hot enough to light the injected fuel on its own.",
+    statementSize: 176,
+  },
+  {
     plate: "float-glass-process",
     claimId: "c-float-glass-process-02",
     statement: "Fifty-six years between the patent and the glass",
