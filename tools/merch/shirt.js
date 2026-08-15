@@ -27,7 +27,7 @@ const OUT = path.join(ROOT, "merch", "shirts");
    every file to the full 16 inches left the first draft sitting in the top
    third of its own canvas, which prints small and high on the chest, because
    the file is fitted to the print area and empty pixels are still pixels. */
-const DPI = 300, W = 12 * DPI, HMAX = 16 * DPI;
+const DPI = 300, HMAX = 16 * DPI;
 
 const C = {
   ink: "#e8ebee",      /* brighter than the site's steel: fabric eats contrast */
@@ -94,8 +94,12 @@ function plateArt(plateId) {
 }
 
 const px = n => Math.round(n * 100) / 100;
-const u = W / 3600;
-const GUT = 460 * u;                       /* the type column, both sides */
+/* Mutable on purpose: a chest mark is a 4 inch file and a back print is a 12
+   inch file, and every design is written in the same 3600 unit space, so the
+   build sets the physical width per design and the type scales with it. */
+let W = 12 * DPI;
+let u = W / 3600;
+let GUT = 460 * u;                         /* the type column, both sides */
 
 /* ---------- small drawing helpers ---------- */
 const anchorX = a => a === "left" ? px(GUT) : a === "right" ? px(W - GUT) : W / 2;
@@ -312,30 +316,71 @@ const SHIRTS = {
       return y + 130 * u;
     },
   },
-  /* 7. SR-71. The contrast. The fastest air-breathing aircraft ever built
-     could not start its own engines. Everyone prints the silhouette and the
-     word Blackbird; the cart with two car engines is the fact people tell
-     each other, and it is on the plate. */
-  "no-starter": {
+  /* 7a. SR-71 front. A chest mark, not a billboard: the number worn quietly,
+     with the contradiction in small type underneath. Whoever reads the second
+     line gets the story from the wearer, which is the point of a front. */
+  "no-starter-front": {
+    hookOf: "sr-71",
+    hookFacts: ["MACH 3.2"],
+    name: "No starter, the chest mark",
+    widthIn: 4.4,
+    noFooter: true,
+    draw(parts) {
+      let y = 430 * u;
+      /* display tightened: at this size Poppins 800 needs negative tracking
+         or the digits drift apart */
+      parts.push(`<text x="${W / 2}" y="${px(y)}" text-anchor="middle"
+        font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="800"
+        font-size="${px(560 * u)}" letter-spacing="${px(-8 * u)}" fill="${C.ink}">MACH 3.2</text>`);
+      y += 110 * u;
+      parts.push(`<line x1="${px(W / 2 - 1290 * u)}" y1="${px(y)}" x2="${px(W / 2 + 1290 * u)}" y2="${px(y)}"
+        stroke="${C.green}" stroke-width="${px(16 * u)}"/>`);
+      y += 210 * u;
+      parts.push(M(128 * u, C.mid, y, "AND NO STARTER", "center", 26));
+      return y + 30 * u;
+    },
+  },
+
+  /* 7b. SR-71 back. The argument, for everyone behind the wearer. Headline
+     lines are cut to seventeen characters each so the rag is a straight
+     deliberate edge, not an accident. The spec rows carry the punchline and
+     the hem carries the receipt. */
+  "no-starter-back": {
     hookOf: "sr-71",
     hookFacts: ["MACH 3.2", "TWO BUICK V8", "600"],
-    name: "No internal starter",
+    name: "No starter, the back",
     draw(parts) {
-      let y = 340 * u;
-      parts.push(P(430 * u, 800, C.ink, y, "MACH 3.2"));
-      y += 430 * u * 1.02;
-      parts.push(P(184 * u, 800, C.ink, y, "AND NO STARTER"));
-      y += 184 * u * 1.3;
-      y += 90 * u;
+      let y = 300 * u;
+      for (const ln of ["THE FASTEST THING", "ON THE FLIGHTLINE", "WAS PUSH-STARTED."]) {
+        parts.push(`<text x="${W / 2}" y="${px(y)}" text-anchor="middle"
+          font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="800"
+          font-size="${px(270 * u)}" letter-spacing="${px(-4 * u)}" fill="${C.ink}">${esc(ln)}</text>`);
+        y += 270 * u * 1.12;
+      }
+      y += 170 * u;
       y = row(parts, y, "CRUISE", "MACH 3.2");
       y = row(parts, y, "STARTER ABOARD", "NONE", C.rust);
       y = row(parts, y, "START CART", "TWO BUICK V8s", C.green);
       y = row(parts, y, "CART OUTPUT", "600+ HP", C.green);
-      y += 40 * u;
-      parts.push(P(70 * u, 600, C.ink, y, "The fastest thing on the flightline"));
-      y += 90 * u;
-      parts.push(P(70 * u, 600, C.ink, y, "was push-started by a drag racer."));
-      return y + 60 * u;
+      return y + 30 * u;
+    },
+  },
+
+  /* 8a. SR-71 planform front. The designation alone. The person this shirt
+     is for does not need it explained, and that is who it is for. */
+  "planform-front": {
+    hookOf: "sr-71",
+    hookFacts: [],
+    name: "Planform, the chest mark",
+    widthIn: 3.4,
+    noFooter: true,
+    draw(parts) {
+      let y = 320 * u;
+      parts.push(M(340 * u, C.ink, y, "SR-71", "center", 60));
+      y += 120 * u;
+      parts.push(`<line x1="${px(W / 2 - 700 * u)}" y1="${px(y)}" x2="${px(W / 2 + 700 * u)}" y2="${px(y)}"
+        stroke="${C.green}" stroke-width="${px(18 * u)}"/>`);
+      return y + 40 * u;
     },
   },
 
@@ -362,29 +407,6 @@ const SHIRTS = {
     },
   },
 
-  /* 9. SR-71. The taxonomy. Aviation people correct each other about the
-     A-12 and the SR-71 for sport, and the claim on the A-12 plate settles
-     it: the famous one was the derivative. */
-  "the-derivative": {
-    claimId: "c-a12-13",
-    name: "The famous one was the derivative",
-    draw(parts) {
-      let y = 300 * u;
-      for (const ln of ["THE FAMOUS ONE", "WAS THE", "DERIVATIVE"]) {
-        parts.push(P(290 * u, 800, C.ink, y, ln));
-        y += 290 * u * 1.07;
-      }
-      y += 140 * u;
-      y = row(parts, y, "A-12", "15 BUILT");
-      y = row(parts, y, "YF-12", "3 BUILT");
-      y = row(parts, y, "SR-71", "32 BUILT", C.green);
-      y += 40 * u;
-      parts.push(P(70 * u, 600, C.ink, y, "The A-12 flew first and retired quietly."));
-      y += 90 * u;
-      parts.push(P(70 * u, 600, C.green, y, "Its two-seat derivative became the legend."));
-      return y + 60 * u;
-    },
-  },
 };
 
 /* ---------- build ---------- */
@@ -394,14 +416,24 @@ function build(slug) {
   if (!s.claimId && !s.hookOf) throw new Error(slug + " stands on nothing: no claims, no hook");
   if (s.claimId) verifyClaims(s.claimId);
   if (s.hookOf) verifyHook(s.hookOf, s.hookFacts);
+  /* the design's physical width, and everything scales with it */
+  W = Math.round((s.widthIn || 12) * DPI);
+  u = W / 3600;
+  GUT = 460 * u;
   const parts = [];
   const end = s.draw(parts);
-  footer(parts, end + 160 * u, s);
-  /* fit the canvas to the art, then check it still fits the garment */
-  const H = Math.round(end + 160 * u + 44 * u + 120 * u);
+  let H;
+  if (s.noFooter) {
+    /* a chest mark carries no receipt: at three inches wide the receipt
+       would be illegible ink, and the back of the same shirt carries it */
+    H = Math.round(end + 120 * u);
+  } else {
+    footer(parts, end + 160 * u, s);
+    H = Math.round(end + 160 * u + 44 * u + 120 * u);
+  }
   if (H > HMAX)
     throw new Error("design is " + (H / DPI).toFixed(1) + "in tall, over the 16in print area");
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="12in" height="${(H / DPI).toFixed(2)}in"
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${(W / DPI).toFixed(2)}in" height="${(H / DPI).toFixed(2)}in"
   viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
 <title>SHANNON shirt: ${esc(s.name)}</title>
 <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap");</style>
