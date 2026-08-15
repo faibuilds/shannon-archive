@@ -54,6 +54,45 @@ function verifyClaims(claimId) {
   });
 }
 
+/* Some early plates carry no claims in the graph, only their published hook.
+   The SR-71 is one. A design standing on a hook names the plate and lists the
+   figures it prints, and the build checks each one appears in the hook as
+   published. A paraphrase cannot be machine-checked, but a number can, and
+   the numbers are what a shirt gets wrong. */
+function verifyHook(plateId, facts) {
+  const html = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
+  const i = html.indexOf('id:"' + plateId + '"');
+  if (i < 0) throw new Error("no plate " + plateId + " on the site");
+  const next = html.indexOf('{id:"', i + 1);
+  const seg = html.slice(i, next > i ? next : i + 2600);
+  if (!/status:"covered"/.test(seg))
+    throw new Error(plateId + " is not a covered plate, nothing it says is published");
+  const m = seg.match(/hook:"([^"]+)"/);
+  if (!m) throw new Error(plateId + " has no hook");
+  const hook = m[1].toUpperCase();
+  for (const f of facts || [])
+    if (hook.indexOf(String(f).toUpperCase()) < 0)
+      throw new Error('"' + f + '" is not in the ' + plateId + " hook, so it does not ship");
+  return hook;
+}
+
+/* Plate art, embedded the way the poster does it: the site's own file,
+   base64, never redrawn. */
+function plateArt(plateId) {
+  const html = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
+  const i = html.indexOf('id:"' + plateId + '"');
+  const next = html.indexOf('{id:"', i + 1);
+  const seg = html.slice(i, next > i ? next : i + 2600);
+  const href = (seg.match(/<image href="(art\/[^"]+)"/) || [])[1];
+  if (!href) throw new Error(plateId + " carries no drawing of its own");
+  const raw = fs.readFileSync(path.join(SITE, href));
+  return {
+    b64: raw.toString("base64"),
+    w: raw.readUInt32BE(16), h: raw.readUInt32BE(20),
+    credit: (seg.match(/artCredit:"([^"]+)"/) || [])[1] || "",
+  };
+}
+
 const px = n => Math.round(n * 100) / 100;
 const u = W / 3600;
 const GUT = 460 * u;                       /* the type column, both sides */
@@ -72,11 +111,14 @@ const M = (size, fill, y, text, a, track) =>
     font-family="IBM Plex Mono, monospace" font-size="${px(size)}"
     letter-spacing="${px((track === undefined ? 4 : track) * u)}" fill="${fill}">${esc(text)}</text>`;
 
-/* the receipt: the archive, and every claim the shirt stands on */
-function footer(parts, y, claimId) {
-  const ids = (Array.isArray(claimId) ? claimId : [claimId]).join("   ").toUpperCase();
+/* the receipt: the archive, and what the shirt stands on. Claim ids where
+   they exist; the plate itself where the design rests on a published hook. */
+function footer(parts, y, s) {
+  const bits = [];
+  if (s.claimId) bits.push(...(Array.isArray(s.claimId) ? s.claimId : [s.claimId]));
+  if (s.hookOf) bits.push(s.hookOf + " PLATE");
   parts.push(M(30 * u, C.faint, y, "SHANNON", "center", 9));
-  parts.push(M(24 * u, C.faint, y + 44 * u, ids, "center", 4));
+  parts.push(M(24 * u, C.faint, y + 44 * u, bits.join("   ").toUpperCase(), "center", 4));
 }
 
 /* a two column row with a rule under it */
@@ -270,16 +312,91 @@ const SHIRTS = {
       return y + 130 * u;
     },
   },
+  /* 7. SR-71. The contrast. The fastest air-breathing aircraft ever built
+     could not start its own engines. Everyone prints the silhouette and the
+     word Blackbird; the cart with two car engines is the fact people tell
+     each other, and it is on the plate. */
+  "no-starter": {
+    hookOf: "sr-71",
+    hookFacts: ["MACH 3.2", "TWO BUICK V8", "600"],
+    name: "No internal starter",
+    draw(parts) {
+      let y = 340 * u;
+      parts.push(P(430 * u, 800, C.ink, y, "MACH 3.2"));
+      y += 430 * u * 1.02;
+      parts.push(P(184 * u, 800, C.ink, y, "AND NO STARTER"));
+      y += 184 * u * 1.3;
+      y += 90 * u;
+      y = row(parts, y, "CRUISE", "MACH 3.2");
+      y = row(parts, y, "STARTER ABOARD", "NONE", C.rust);
+      y = row(parts, y, "START CART", "TWO BUICK V8s", C.green);
+      y = row(parts, y, "CART OUTPUT", "600+ HP", C.green);
+      y += 40 * u;
+      parts.push(P(70 * u, 600, C.ink, y, "The fastest thing on the flightline"));
+      y += 90 * u;
+      parts.push(P(70 * u, 600, C.ink, y, "was push-started by a drag racer."));
+      return y + 60 * u;
+    },
+  },
+
+  /* 8. SR-71. The quiet one. The aircraft itself, from NASA's own three
+     view, treated as a drawing rather than a hero shot. For the wearer who
+     does not need the name explained. */
+  "three-view": {
+    hookOf: "sr-71",
+    hookFacts: [],
+    name: "The planform",
+    draw(parts) {
+      const art = plateArt("sr-71");
+      /* NASA's file stacks the three views, so it is far taller than wide.
+         Sized by height or it runs off the garment. */
+      const drawH = 3300 * u, drawW = drawH * (art.w / art.h);
+      let y = 260 * u;
+      parts.push(`<image x="${px((W - drawW) / 2)}" y="${px(y)}" width="${px(drawW)}"
+        height="${px(drawH)}" href="data:image/png;base64,${art.b64}"/>`);
+      y += drawH + 120 * u;
+      parts.push(M(64 * u, C.ink, y, "SR-71", "center", 14));
+      y += 76 * u;
+      parts.push(M(38 * u, C.faint, y, art.credit.replace(/\.\s*$/, "").toUpperCase(), "center", 5));
+      return y + 40 * u;
+    },
+  },
+
+  /* 9. SR-71. The taxonomy. Aviation people correct each other about the
+     A-12 and the SR-71 for sport, and the claim on the A-12 plate settles
+     it: the famous one was the derivative. */
+  "the-derivative": {
+    claimId: "c-a12-13",
+    name: "The famous one was the derivative",
+    draw(parts) {
+      let y = 300 * u;
+      for (const ln of ["THE FAMOUS ONE", "WAS THE", "DERIVATIVE"]) {
+        parts.push(P(290 * u, 800, C.ink, y, ln));
+        y += 290 * u * 1.07;
+      }
+      y += 140 * u;
+      y = row(parts, y, "A-12", "15 BUILT");
+      y = row(parts, y, "YF-12", "3 BUILT");
+      y = row(parts, y, "SR-71", "32 BUILT", C.green);
+      y += 40 * u;
+      parts.push(P(70 * u, 600, C.ink, y, "The A-12 flew first and retired quietly."));
+      y += 90 * u;
+      parts.push(P(70 * u, 600, C.green, y, "Its two-seat derivative became the legend."));
+      return y + 60 * u;
+    },
+  },
 };
 
 /* ---------- build ---------- */
 function build(slug) {
   const s = SHIRTS[slug];
   if (!s) throw new Error("no shirt called " + slug);
-  verifyClaims(s.claimId);
+  if (!s.claimId && !s.hookOf) throw new Error(slug + " stands on nothing: no claims, no hook");
+  if (s.claimId) verifyClaims(s.claimId);
+  if (s.hookOf) verifyHook(s.hookOf, s.hookFacts);
   const parts = [];
   const end = s.draw(parts);
-  footer(parts, end + 160 * u, s.claimId);
+  footer(parts, end + 160 * u, s);
   /* fit the canvas to the art, then check it still fits the garment */
   const H = Math.round(end + 160 * u + 44 * u + 120 * u);
   if (H > HMAX)
