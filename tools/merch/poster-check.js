@@ -77,8 +77,12 @@ for (const f of files.sort()) {
     const q = matrixFromSvg(svg);
     const got = decode(q.m);
     const zone = quietZone(svg, q);
-    const plate = f.replace(/-\d+x\d+\.svg$/, "");
-    const want = "https://shannon.engineeringcommunity.net/#" + plate;
+    /* The sheet states its own target. Deriving it from the filename broke
+       the moment one plate carried two posters, because a variant suffix is
+       not part of a plate id. */
+    const stated = svg.match(/<!-- qr-target (\S+) -->/);
+    const want = stated ? stated[1]
+      : "https://shannon.engineeringcommunity.net/#" + f.replace(/-\d+x\d+\.svg$/, "");
     const okUrl = got.text === want;
     const okZone = zone.min >= 4 - 1e-6;
     if (!okUrl) { bad++; console.log("FAIL  " + f + "\n      decoded " + JSON.stringify(got.text) + "\n      wanted  " + JSON.stringify(want)); continue; }

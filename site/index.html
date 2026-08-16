@@ -1303,7 +1303,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.23 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.24 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -4525,11 +4525,30 @@ window.addEventListener("load", () => {
   const el = document.getElementById(location.hash.slice(1));
   if (!el || !el.classList.contains("plate")) return;
   el.classList.add("visible");
+  /* Somebody scans a code on a poster and arrives here, and the plate they
+     asked for can be fifty thousand pixels down. Smooth scrolling that far
+     animates for several seconds against a page whose height is still
+     changing underneath it, because plates above are still revealing and
+     their drawings are still loading. The animation aims at a position that
+     stops being true before it arrives, and the reader ends up at the top of
+     the archive looking at nothing, which is exactly what a scanned poster
+     felt like. Jump straight there instead, then keep correcting the landing
+     while the layout settles. */
+  const land = () => {
+    const top = Math.round(el.getBoundingClientRect().top + window.scrollY);
+    window.scrollTo(0, Math.max(0, top - 12));
+    return top;
+  };
+  let last = -1, tries = 0;
+  const settle = () => {
+    const top = land();
+    if (Math.abs(top - last) > 2 && tries++ < 12) { last = top; setTimeout(settle, 120); }
+  };
   setTimeout(() => {
-    el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    settle();
     el.classList.add("flash");
-    setTimeout(()=>el.classList.remove("flash"), 2600);
-  }, 300);
+    setTimeout(() => el.classList.remove("flash"), 2600);
+  }, 120);
 });
 
 /* ---------- WHERE THE SOURCES DISAGREE ----------

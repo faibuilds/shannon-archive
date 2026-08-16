@@ -66,6 +66,9 @@ function archive(plateId) {
     id: plateId,
     name: grab(/name:"([^"]+)"/),
     year: grab(/year:(\d+)/),
+    /* the plate's own published hook, so a hook poster never retypes it */
+    hook: grab(/hook:"([^"]+)"/),
+    field: grab(/field:"([^"]+)"/),
     /* Some plates span years and say so. The bridge is dated 1876 in the
        array because that is where its story starts, but it opened in 1883
        and the plate carries "1876 to 1883" for exactly that reason. A poster
@@ -135,6 +138,16 @@ function build(spec) {
   y += 46 * u;
   parts.push(`<line x1="${M}" y1="${px(y)}" x2="${W - M}" y2="${px(y)}" stroke="${C.line2}" stroke-width="${px(3 * u)}"/>`);
 
+  /* A hook poster prints the plate's own published hook rather than a
+     statement written for the wall. It never retypes it: the hook is read
+     off the plate, so the sheet and the site cannot drift apart. */
+  if (spec.useHook) {
+    if (!a.hook) throw new Error(spec.plate + " has no hook to print");
+    spec.statement = a.hook;
+    spec.statementPer = spec.statementPer || 26;
+    spec.statementSize = spec.statementSize || 104;
+  }
+
   /* the statement. A title, not a feed hook: it has to stand on a wall with
      nothing after it to resolve a promise. */
   y += 150 * u;
@@ -166,11 +179,43 @@ function build(spec) {
   const footH = Math.max(470 * u, qCapH + qrBox + qUrlH);
   const footTop = H - M - footH;
 
+  /* A hook poster carries a table instead of a drawing. Every row names the
+     claim it rests on and the build refuses the whole sheet if any of them
+     is missing or unverified, exactly as the statement is gated. */
+  if (spec.facts) {
+    for (const [, , cid] of spec.facts) {
+      const c = a.claimById(cid);
+      if (!c) throw new Error("fact row cites " + cid + ", which is not in the graph");
+      if (c.status !== "verified")
+        throw new Error("fact row cites " + cid + ", which is " + c.status + ", not verified");
+    }
+    /* Anchor the table just above the footer rather than tucking it under
+       the hook. With no drawing on the sheet the space has to go somewhere,
+       and a wall poster wants it as air between the statement and the
+       evidence, not as a hole at the bottom. */
+    const rowH = 102 * u;
+    const tableH = spec.facts.length * rowH;
+    y = Math.max(y + 150 * u, footTop - 150 * u - tableH);
+    const L = M, R = W - M;
+    for (const [label, value] of spec.facts) {
+      parts.push(`<text x="${L}" y="${px(y)}" font-family="IBM Plex Mono, monospace"
+        font-size="${px(46 * u)}" letter-spacing="${px(5 * u)}" fill="${C.faint}">${esc(label)}</text>`);
+      parts.push(`<text x="${R}" y="${px(y)}" text-anchor="end" font-family="IBM Plex Mono, monospace"
+        font-size="${px(46 * u)}" letter-spacing="${px(3 * u)}" fill="${C.steel}">${esc(value)}</text>`);
+      y += 26 * u;
+      parts.push(`<line x1="${L}" y1="${px(y)}" x2="${R}" y2="${px(y)}"
+        stroke="${C.line2}" stroke-width="${px(2.5 * u)}"/>`);
+      y += 76 * u;
+    }
+  }
+
   /* the drawing */
   /* No drawing, no poster. The editor's rule is that visual-less plates do
      not ship, and enforcing it here also means a plate can never quietly
-     borrow a neighbour's figure again. */
-  if (!a.artHref) throw new Error("plate carries no drawing of its own, so no poster");
+     borrow a neighbour's figure again. A hook poster is the one exception:
+     the words are the object and the table is the evidence. */
+  if (spec.noArt) { a.artHref = null; }
+  if (!spec.noArt && !a.artHref) throw new Error("plate carries no drawing of its own, so no poster");
   const imgPath = path.join(SITE, a.artHref || "");
   const creditLines = a.artCredit ? wrap(a.artCredit, 62) : [];
   const creditH = creditLines.length ? 70 * u + creditLines.length * 52 * u : 0;
@@ -197,7 +242,8 @@ function build(spec) {
   }
 
   /* credit, exactly as the archive files it */
-  if (creditLines.length) {
+  /* no drawing, no credit for one */
+  if (creditLines.length && !spec.noArt) {
     y += 70 * u;
     for (const ln of creditLines) {
       parts.push(`<text x="${M}" y="${px(y)}" font-family="IBM Plex Mono, monospace"
@@ -327,6 +373,7 @@ function build(spec) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size.w}in" height="${size.h}in"
   viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
 <title>SHANNON poster: ${esc(a.name)}</title>
+<!-- qr-target ${url} -->
 <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;family=IBM+Plex+Mono:wght@400;700&amp;display=swap");</style>
 ${parts.join("\n")}
 </svg>`;
