@@ -32,9 +32,12 @@ const DPI = 300, HMAX = 16 * DPI;
 const C = {
   ink: "#e8ebee",      /* brighter than the site's steel: fabric eats contrast */
   mid: "#9aa1a8",
-  faint: "#6c737a",
+  sub: "#bcc3ca",     /* a second line that still has to read across a room */
+  faint: "#8f979e",    /* the quiet register, but 6c737a measured 3.9 to 1 on
+                          black fabric, which is a line nobody can read once
+                          the ink has spread. This measures 6.4. */
   green: "#10b981",
-  rust: "#9c6b6b",     /* the one that did not work, never a brand colour */
+  rust: "#b58080",     /* the one that did not work, never a brand colour */
 };
 
 const esc = s => String(s).replace(/[&<>"']/g, c =>
@@ -93,6 +96,24 @@ function plateArt(plateId) {
   };
 }
 
+/* The same drawing as outlines, for anything printed large. The site's file
+   is web resolution, so a drawing worn at a foot tall would go to the
+   printer at eighty DPI. tools/art-trace.js traces the ink and writes the
+   outlines to merch/art-print, and a design that wants the drawing big asks
+   for it here. The credit still comes off the plate, so it cannot drift from
+   what the site says. */
+function plateVector(plateId) {
+  const f = path.join(ROOT, "merch", "art-print", plateId + ".svg");
+  if (!fs.existsSync(f))
+    throw new Error(plateId + " has no traced drawing. Run: node tools/art-trace.js site/art/"
+      + plateId + ".png merch/art-print/" + plateId + ".svg");
+  const svg = fs.readFileSync(f, "utf8");
+  const vb = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+  const d = (svg.match(/<path[^>]*\sd="([^"]+)"/) || [])[1];
+  if (!vb || !d) throw new Error("the traced drawing for " + plateId + " has no outlines");
+  return { d, w: +vb[1], h: +vb[2], credit: plateArt(plateId).credit };
+}
+
 const px = n => Math.round(n * 100) / 100;
 /* Mutable on purpose: a chest mark is a 4 inch file and a back print is a 12
    inch file, and every design is written in the same 3600 unit space, so the
@@ -110,10 +131,41 @@ const P = (size, weight, fill, y, text, a) =>
     font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="${weight}"
     font-size="${px(size)}" fill="${fill}">${esc(text)}</text>`;
 
-const M = (size, fill, y, text, a, track) =>
-  `<text x="${anchorX(a)}" y="${px(y)}" text-anchor="${anchorA(a)}"
+/* Letter spacing in SVG is added after the last glyph as well as between
+   them, so a centred line carries half a space of dead air on its right and
+   sits that far left of where it looks like it should. At the tracking a
+   chest mark uses that is a visible shove, and the rule underneath, which is
+   drawn symmetrically, stops lining up with the word above it. Centred lines
+   are nudged back by half a space. */
+const M = (size, fill, y, text, a, track) => {
+  const t = (track === undefined ? 4 : track) * u;
+  const x = a === "left" || a === "right" ? anchorX(a) : px(anchorX(a) + t / 2);
+  return `<text x="${x}" y="${px(y)}" text-anchor="${anchorA(a)}"
     font-family="IBM Plex Mono, monospace" font-size="${px(size)}"
-    letter-spacing="${px((track === undefined ? 4 : track) * u)}" fill="${fill}">${esc(text)}</text>`;
+    letter-spacing="${px(t)}" fill="${fill}">${esc(text)}</text>`;
+};
+
+/* The chine. The SR-71's defining line is not a stripe, it is a knife edge
+   that runs out from the nose and tapers to nothing at both ends. A plain
+   rectangular rule under a headline says nothing. The same rule cut to that
+   taper says aircraft without the type having to dress up as one, and it
+   prints as one clean shape rather than as a hairline that DTG can lose. */
+const chine = (y, half, thick, fill, cx) => {
+  const x = cx === undefined ? W / 2 : cx;
+  return `<path d="M${px(x - half)} ${px(y)} L${px(x)} ${px(y - thick / 2)}
+    L${px(x + half)} ${px(y)} L${px(x)} ${px(y + thick / 2)} Z" fill="${fill}"/>`;
+};
+
+/* The aircraft itself, placed. Height in canvas units, centred on cx, from
+   the traced outlines so it is sharp at any size. */
+function planform(parts, cx, top, h, fill, opacity) {
+  const art = plateVector("sr-71");
+  const k = h / art.h, w = art.w * k;
+  parts.push(`<g transform="translate(${px(cx - w / 2)} ${px(top)}) scale(${k.toFixed(5)})"${
+    opacity === undefined ? "" : ` opacity="${opacity}"`}>
+    <path fill="${fill}" fill-rule="evenodd" d="${art.d}"/></g>`);
+  return { w, h, bottom: top + h };
+}
 
 /* the receipt: the archive, and what the shirt stands on. Claim ids where
    they exist; the plate itself where the design rests on a published hook. */
@@ -121,16 +173,26 @@ function footer(parts, y, s) {
   const bits = [];
   if (s.claimId) bits.push(...(Array.isArray(s.claimId) ? s.claimId : [s.claimId]));
   if (s.hookOf) bits.push(s.hookOf + " PLATE");
-  parts.push(M(30 * u, C.faint, y, "SHANNON", "center", 9));
-  parts.push(M(24 * u, C.faint, y + 44 * u, bits.join("   ").toUpperCase(), "center", 4));
+  /* 30 and 24 units are 7.2pt and 5.8pt at 300 DPI. A shirt is not a page:
+     light ink on dark cotton spreads, and under about 9pt the receipt closes
+     up into a grey smudge. These are 11pt and 9.1pt. */
+  parts.push(M(46 * u, C.faint, y, "SHANNON", "center", 11));
+  parts.push(M(38 * u, C.faint, y + 66 * u, bits.join("   ").toUpperCase(), "center", 5));
+  /* A drawing carries its credit on the garment, not on the file. The chest
+     mark on the front of this shirt prints the NASA planform, and a credit
+     set small enough to fit a chest mark is a credit nobody can read, so the
+     back of the same shirt carries it. */
+  if (s.credit) parts.push(M(38 * u, C.faint, y + 124 * u, s.credit.toUpperCase(), "center", 5));
 }
 
 /* a two column row with a rule under it */
+/* the label used to sit at C.faint, which is fine on a screen and thin
+   on fabric. A spec row nobody can read from a metre away is decoration. */
 function row(parts, y, left, right, rightColour) {
-  parts.push(M(60 * u, C.faint, y, left, "left", 3));
+  parts.push(M(60 * u, C.mid, y, left, "left", 3));
   parts.push(M(60 * u, rightColour || C.mid, y, right, "right", 3));
   parts.push(`<line x1="${px(GUT)}" y1="${px(y + 30 * u)}" x2="${px(W - GUT)}" y2="${px(y + 30 * u)}"
-    stroke="${C.faint}" stroke-width="${px(3 * u)}" opacity="0.45"/>`);
+    stroke="${C.mid}" stroke-width="${px(3.5 * u)}" opacity="0.6"/>`);
   return y + 118 * u;
 }
 
@@ -295,7 +357,10 @@ const SHIRTS = {
     claimId: ["c-a10-recoil", "c-a10-gear"],
     name: "More recoil than thrust",
     draw(parts) {
-      let y = 340 * u;
+      /* 460 unit caps on a 340 unit baseline left nine units of headroom, and
+         the round shoulders of the zeros overshoot the cap line, so the top of
+         this line was printing shaved. The rasteriser catches it now. */
+      let y = 440 * u;
       parts.push(P(460 * u, 800, C.ink, y, "10,000 LB"));
       y += 460 * u * 1.04;
       parts.push(P(300 * u, 800, C.ink, y, "OF RECOIL"));
@@ -316,52 +381,74 @@ const SHIRTS = {
       return y + 130 * u;
     },
   },
-  /* 7a. SR-71 front. A chest mark, not a billboard: the number worn quietly,
-     with the contradiction in small type underneath. Whoever reads the second
-     line gets the story from the wearer, which is the point of a front. */
+  /* 7a. SR-71 front. The aircraft, then the two facts that have no business
+     sitting together. The old version whispered the punchline in mono under a
+     bar rule, which is the wrong way round: "AND NO STARTER" is the reason
+     anybody reads the shirt twice, so it is set in the same weight as the
+     number it contradicts and the two are cut apart by a chine rather than by
+     a rectangle. */
   "no-starter-front": {
     hookOf: "sr-71",
-    hookFacts: ["MACH 3.2"],
+    hookFacts: ["MACH 3.2", "NO INTERNAL STARTER"],
     name: "No starter, the chest mark",
-    widthIn: 4.4,
+    /* 5.6in is an honest chest mark and reads small on a body. Fai had the old
+       file stretched to 10.51in, which printed at 126 DPI, under Printful own
+       floor. Generated at 8in instead, so it is big and still 300 DPI. */
+    widthIn: 8,
     noFooter: true,
     draw(parts) {
-      let y = 430 * u;
-      /* display tightened: at this size Poppins 800 needs negative tracking
-         or the digits drift apart */
+      let y = 150 * u;
+      const air = planform(parts, W / 2, y, 880 * u, C.ink);
+      /* a text y is a baseline, and Poppins caps stand about 0.72 of the size
+         above it. Spacing off the baseline put the tail of the aircraft
+         through the top of the H. */
+      const mach = 540 * u;
+      y = air.bottom + mach * 0.72 + 120 * u;
       parts.push(`<text x="${W / 2}" y="${px(y)}" text-anchor="middle"
         font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="800"
-        font-size="${px(560 * u)}" letter-spacing="${px(-8 * u)}" fill="${C.ink}">MACH 3.2</text>`);
-      y += 110 * u;
-      parts.push(`<line x1="${px(W / 2 - 1290 * u)}" y1="${px(y)}" x2="${px(W / 2 + 1290 * u)}" y2="${px(y)}"
-        stroke="${C.green}" stroke-width="${px(16 * u)}"/>`);
-      y += 210 * u;
-      parts.push(M(128 * u, C.mid, y, "AND NO STARTER", "center", 26));
-      return y + 30 * u;
+        font-size="${px(mach)}" letter-spacing="${px(-14 * u)}" fill="${C.ink}">MACH 3.2</text>`);
+      y += 118 * u;
+      parts.push(chine(y, 1240 * u, 34 * u, C.green));
+      y += 268 * u;
+      parts.push(`<text x="${W / 2}" y="${px(y)}" text-anchor="middle"
+        font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="800"
+        font-size="${px(206 * u)}" letter-spacing="${px(12 * u)}" fill="${C.sub}">AND NO INTERNAL STARTER</text>`);
+      return y + 60 * u;
     },
   },
 
-  /* 7b. SR-71 back. The argument, for everyone behind the wearer. Headline
-     lines are cut to seventeen characters each so the rag is a straight
-     deliberate edge, not an accident. The spec rows carry the punchline and
-     the hem carries the receipt. */
+  /* 7b. SR-71 back. The two published numbers, put in one another's way. The
+     old back explained the joke across three lines of headline and then set
+     the evidence in a table nobody needed by then. This states the collision
+     in two lines, gives the reason in one, and lets the block underneath put
+     the air and the ground in the same column, which is the whole story. */
   "no-starter-back": {
     hookOf: "sr-71",
-    hookFacts: ["MACH 3.2", "TWO BUICK V8", "600"],
+    claimId: ["c-sr71-01"],
+    hookFacts: ["THE SR-71", "MACH 3.2", "NO INTERNAL STARTER", "TO START",
+                 "A CART", "TWO BUICK V8s", "BUICK", "600+ HP"],
+    credit: "NASA Dryden 3-view, public domain",
     name: "No starter, the back",
+    /* Nothing is said twice. The headline had MACH 3.2 in it and so did the
+       block underneath, and 600+ HP appeared in both, which meant the block
+       was decoration rather than evidence. Now the headline carries the
+       collision, and every row below it adds something the headline does not:
+       the speed, the reason a cart was needed at all, and what was in it. */
     draw(parts) {
-      let y = 300 * u;
-      for (const ln of ["THE FASTEST THING", "ON THE FLIGHTLINE", "WAS PUSH-STARTED."]) {
+      let y = 340 * u;
+      for (const ln of ["600+ HP OF BUICK", "TO START THE SR-71."]) {
         parts.push(`<text x="${W / 2}" y="${px(y)}" text-anchor="middle"
           font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="800"
-          font-size="${px(270 * u)}" letter-spacing="${px(-4 * u)}" fill="${C.ink}">${esc(ln)}</text>`);
-        y += 270 * u * 1.12;
+          font-size="${px(292 * u)}" letter-spacing="${px(-6 * u)}" fill="${C.ink}">${esc(ln)}</text>`);
+        y += 292 * u * 1.13;
       }
       y += 170 * u;
+      parts.push(chine(y, 1420 * u, 30 * u, C.green));
+      y += 230 * u;
       y = row(parts, y, "CRUISE", "MACH 3.2");
-      y = row(parts, y, "STARTER ABOARD", "NONE", C.rust);
-      y = row(parts, y, "START CART", "TWO BUICK V8s", C.green);
-      y = row(parts, y, "CART OUTPUT", "600+ HP", C.green);
+      y = row(parts, y, "RECORD ALTITUDE", "85,069 FT");
+      y = row(parts, y, "INTERNAL STARTER", "NONE", C.rust);
+      y = row(parts, y, "GROUND START", "TWO BUICK V8s", C.green);
       return y + 30 * u;
     },
   },
@@ -372,37 +459,48 @@ const SHIRTS = {
     hookOf: "sr-71",
     hookFacts: [],
     name: "Planform, the chest mark",
-    widthIn: 3.4,
+    /* 6in, because that is the size it actually prints at on the shirt, and a
+       file generated at its printed size is a file at 300 DPI */
+    widthIn: 6,
     noFooter: true,
     draw(parts) {
-      let y = 320 * u;
-      parts.push(M(340 * u, C.ink, y, "SR-71", "center", 60));
-      y += 120 * u;
-      parts.push(`<line x1="${px(W / 2 - 700 * u)}" y1="${px(y)}" x2="${px(W / 2 + 700 * u)}" y2="${px(y)}"
-        stroke="${C.green}" stroke-width="${px(18 * u)}"/>`);
-      return y + 40 * u;
+      /* The designation was set in the mono, which is the archive's reading
+         face and reads as a caption, not as a mark. In Poppins 800, tracked
+         open just enough to stop the digits closing up, it is a badge. */
+      const mark = 500 * u;
+      /* a baseline is not a top. Poppins caps stand about 0.72 of the size above
+         it, so a 500 unit mark on a 330 unit baseline had its head off the sheet. */
+      let y = mark * 0.72 + 110 * u;
+      parts.push(`<text x="${W / 2}" y="${px(y)}" text-anchor="middle"
+        font-family="Poppins, Helvetica, Arial, sans-serif" font-weight="800"
+        font-size="${px(mark)}" letter-spacing="${px(26 * u)}" fill="${C.ink}">SR-71</text>`);
+      y += 128 * u;
+      parts.push(chine(y, 900 * u, 30 * u, C.green));
+      return y + 60 * u;
     },
   },
 
-  /* 8. SR-71. The quiet one. The aircraft itself, from NASA's own three
-     view, treated as a drawing rather than a hero shot. For the wearer who
-     does not need the name explained. */
+  /* 8. SR-71 back. The aircraft itself, from NASA's own drawing, treated as
+     a drawing rather than a hero shot. The planform is long and narrow, so
+     it is sized by height and runs almost the full back: at a foot tall it
+     is read across a room, which is what a back is for. Printed from traced
+     outlines rather than the site's raster, because the site's file is 469
+     pixels wide and this is a foot of fabric. */
   "three-view": {
     hookOf: "sr-71",
     hookFacts: [],
-    name: "The planform",
+    name: "The planform, the back",
     draw(parts) {
-      const art = plateArt("sr-71");
-      /* NASA's file stacks the three views, so it is far taller than wide.
-         Sized by height or it runs off the garment. */
-      const drawH = 3300 * u, drawW = drawH * (art.w / art.h);
-      let y = 260 * u;
-      parts.push(`<image x="${px((W - drawW) / 2)}" y="${px(y)}" width="${px(drawW)}"
-        height="${px(drawH)}" href="data:image/png;base64,${art.b64}"/>`);
-      y += drawH + 120 * u;
-      parts.push(M(64 * u, C.ink, y, "SR-71", "center", 14));
-      y += 76 * u;
-      parts.push(M(38 * u, C.faint, y, art.credit.replace(/\.\s*$/, "").toUpperCase(), "center", 5));
+      const art = plateVector("sr-71");
+      const drawH = 3600 * u, drawW = drawH * (art.w / art.h);
+      const k = drawH / art.h;
+      let y = 180 * u;
+      parts.push(`<g transform="translate(${px((W - drawW) / 2)} ${px(y)}) scale(${k.toFixed(5)})">
+        <path fill="${C.ink}" fill-rule="evenodd" d="${art.d}"/></g>`);
+      y += drawH + 150 * u;
+      parts.push(M(78 * u, C.ink, y, "SR-71", "center", 18));
+      y += 96 * u;
+      parts.push(M(40 * u, C.faint, y, art.credit.replace(/\.\s*$/, "").toUpperCase(), "center", 5));
       return y + 40 * u;
     },
   },
@@ -428,8 +526,8 @@ function build(slug) {
        would be illegible ink, and the back of the same shirt carries it */
     H = Math.round(end + 120 * u);
   } else {
-    footer(parts, end + 160 * u, s);
-    H = Math.round(end + 160 * u + 44 * u + 120 * u);
+    footer(parts, end + 170 * u, s);
+    H = Math.round(end + 170 * u + (s.credit ? 124 : 66) * u + 130 * u);
   }
   if (H > HMAX)
     throw new Error("design is " + (H / DPI).toFixed(1) + "in tall, over the 16in print area");
@@ -452,8 +550,11 @@ if (require.main === module) {
     try {
       const r = build(slug);
       fs.writeFileSync(path.join(OUT, slug + ".svg"), r.svg);
+      /* the physical size to a tenth: these numbers get typed into Printful,
+         so a rounded width is a wrongly sized shirt */
       console.log("ok    " + slug.padEnd(16) + r.name.padEnd(32)
-        + (r.W / DPI).toFixed(0) + "x" + (r.H / DPI).toFixed(1) + "in");
+        + (r.W / DPI).toFixed(1) + " x " + (r.H / DPI).toFixed(1) + " in   "
+        + r.W + "x" + r.H + "px at " + DPI + " DPI");
     } catch (e) { failed++; console.log("FAIL  " + slug.padEnd(16) + e.message); }
   }
   console.log("");

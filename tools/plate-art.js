@@ -80,7 +80,13 @@ const say = h => { log.innerHTML += "<div>" + h + "</div>"; };
 
 http.createServer((req, res) => {
   if (req.url === "/src") {
-    res.writeHead(200, { "Content-Type": "image/png", "Cache-Control": "no-store" });
+    /* The source is not always a PNG. Some plate figures arrive as vector,
+       and a vector served as image/png does not decode in an <img> at all,
+       which looks like an empty crop rather than a wrong header. */
+    const TYPE = { ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+      ".gif": "image/gif", ".svg": "image/svg+xml", ".webp": "image/webp" };
+    const type = TYPE[path.extname(SRC).toLowerCase()] || "application/octet-stream";
+    res.writeHead(200, { "Content-Type": type, "Cache-Control": "no-store" });
     return fs.createReadStream(SRC).pipe(res);
   }
   if (req.method === "POST" && req.url === "/save") {

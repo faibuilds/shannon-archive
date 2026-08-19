@@ -15,71 +15,19 @@ const ART = process.env.SHANNON_FULLRES || path.join(__dirname, "..", "..", "mer
 
 const POSTERS = [
   {
+    /* The plate, printed. Same layout the site already shows on a share
+       card, with the code standing in for the URL and the claim count. */
     plate: "diesel-engine",
+    variant: "card",
     claimId: "c-diesel-04",
     fullResArt: path.join(ART, "diesel-engine.png"),
-    statement: "The air is the spark",
-    sub: "No spark plug anywhere in it. Air compressed far enough is hot enough to light the injected fuel on its own.",
-    statementSize: 176,
-  },
-  {
-    /* The hook sheet. The plate's own published hook, the figures under it,
-       and nothing else. For a wall where the words are the object. */
-    plate: "diesel-engine",
-    variant: "hook",
-    claimId: "c-diesel-02",
-    useHook: true,
-    noArt: true,
-    qrBox: 760,
-    /* the hook is the object on this sheet, so it carries the space */
-    statementPer: 19,
-    statementSize: 186,
-    facts: [
-      ["FIRST RUN", "17 FEBRUARY 1897", "c-diesel-03"],
-      ["BUILT AT", "MASCHINENFABRIK AUGSBURG", "c-diesel-03"],
-      ["IGNITION", "COMPRESSION, NO SPARK", "c-diesel-04"],
-      ["EFFICIENCY", "26% AGAINST STEAM'S 10%", "c-diesel-02"],
-      ["OUTPUT", "ABOUT 20 HORSEPOWER", "c-diesel-05"],
-      ["HEIGHT", "ABOUT TEN FEET", "c-diesel-05"],
-      ["MASS", "ABOUT FIVE TONNES", "c-diesel-05"],
-      ["DIESEL", "LOST AT SEA, 1913", "c-diesel-09"],
-    ],
-  },
-  {
-    plate: "float-glass-process",
-    claimId: "c-float-glass-process-02",
-    statement: "Fifty-six years between the patent and the glass",
-    sub: "The principle was patented in 1902. The line that ran on it arrived in 1959.",
-    fullResArt: path.join(ART, "fig8-full.png"),
-    artWidth: 0.72,
-  },
-  {
-    plate: "whitworth-three-plate-method",
-    claimId: "c-whitworth-three-plate-method-03",
-    statement: "Two surfaces can agree and both be wrong",
-    sub: "So he used three, scraped in rotating pairs until flatness was the only shape left standing.",
-    statementSize: 158,
-  },
-  {
-    plate: "air-canada-143-gimli",
-    claimId: "c-air-canada-143-gimli-07",
-    statement: "Nobody used the wrong number",
-    sub: "Every figure agreed with every other figure. The error sat in the conversion beneath all of them.",
-    statementSize: 172,
-  },
-  {
-    plate: "brooklyn-bridge",
-    claimId: "c-bb-13",
-    statement: "The wire is still in the cables",
-    sub: "It could not come out. So the cables were built stronger than the fraud could weaken them.",
-    statementSize: 168,
-  },
-  {
-    plate: "crucible-cast-steel",
-    claimId: "c-crucible-cast-steel-03",
-    statement: "Forging improves one bar. Melting treats the whole charge.",
-    sub: "A clockmaker who could not rely on the steel he could buy melted it in a clay pot.",
-    statementSize: 132,
+    artCaption: "US 542,846 · PATENTED 1895",
+    artWidth: 0.78,
+    /* The code is the last thing you should notice. The sheet is the drawing
+       and the sentence; the code is how you follow it up afterwards, so it is
+       sized to be found rather than to be seen. Shrinking it also gives the
+       drawing back the room the foot band was taking. */
+    qrBox: 540,
   },
 ];
 
@@ -117,3 +65,7 @@ for (const p of chosen) {
 }
 console.log("");
 console.log(failed ? failed + " poster(s) refused to build." : chosen.length + " poster(s) written to merch/posters/");
+/* Exit nonzero when a poster refuses. This printed FAIL and exited 0, so a
+   chained build and rasterise walked straight past a broken sheet and
+   rasterised the previous one instead, which looked exactly like success. */
+process.exit(failed ? 1 : 0);

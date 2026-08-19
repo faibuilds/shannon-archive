@@ -1,113 +1,113 @@
 {
- "archive": "SHANNON",
- "line": "KELLY L-01",
- "linesLive": 12,
- "lines": [
-  {
-   "id": "kelly",
-   "name": "KELLY L-01",
-   "total": 27,
-   "lit": 20
-  },
-  {
-   "id": "petroski",
-   "name": "PETROSKI L-02",
-   "total": 6,
-   "lit": 6
-  },
-  {
-   "id": "hammurabi",
-   "name": "HAMMURABI L-03",
-   "total": 1,
-   "lit": 1
-  },
-  {
-   "id": "barenyi",
-   "name": "BARENYI L-04",
-   "total": 1,
-   "lit": 1
-  },
-  {
-   "id": "tipper",
-   "name": "TIPPER L-05",
-   "total": 3,
-   "lit": 3
-  },
-  {
-   "id": "roebling",
-   "name": "ROEBLING L-06",
-   "total": 3,
-   "lit": 3
-  },
-  {
-   "id": "lovelace",
-   "name": "LOVELACE L-07",
-   "total": 6,
-   "lit": 5
-  },
-  {
-   "id": "wright",
-   "name": "WRIGHT L-08",
-   "total": 1,
-   "lit": 1
-  },
-  {
-   "id": "sutter",
-   "name": "SUTTER L-09",
-   "total": 4,
-   "lit": 4
-  },
-  {
-   "id": "carnot",
-   "name": "CARNOT L-10",
-   "total": 4,
-   "lit": 4
-  },
-  {
-   "id": "noyce",
-   "name": "NOYCE L-11",
-   "total": 6,
-   "lit": 6
-  },
-  {
-   "id": "olley",
-   "name": "OLLEY L-12",
-   "total": 1,
-   "lit": 1
-  }
- ],
- "total": 27,
- "lit": 20,
- "cells": [
-  1,
-  0,
-  0,
-  1,
-  1,
-  1,
-  1,
-  0,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  0,
-  1,
-  1,
-  1,
-  1,
-  0,
-  1,
-  1,
-  0,
-  0,
-  1
- ],
- "lastLit": "Crucible cast steel",
- "lastLitDate": "Aug 2026",
- "updated": "2026-08-09"
+  "archive": "SHANNON",
+  "line": "KELLY L-01",
+  "linesLive": 12,
+  "lines": [
+    {
+      "id": "kelly",
+      "name": "KELLY L-01",
+      "total": 27,
+      "lit": 21
+    },
+    {
+      "id": "petroski",
+      "name": "PETROSKI L-02",
+      "total": 6,
+      "lit": 6
+    },
+    {
+      "id": "hammurabi",
+      "name": "HAMMURABI L-03",
+      "total": 1,
+      "lit": 1
+    },
+    {
+      "id": "barenyi",
+      "name": "BARENYI L-04",
+      "total": 1,
+      "lit": 1
+    },
+    {
+      "id": "tipper",
+      "name": "TIPPER L-05",
+      "total": 3,
+      "lit": 3
+    },
+    {
+      "id": "roebling",
+      "name": "ROEBLING L-06",
+      "total": 3,
+      "lit": 3
+    },
+    {
+      "id": "lovelace",
+      "name": "LOVELACE L-07",
+      "total": 6,
+      "lit": 5
+    },
+    {
+      "id": "wright",
+      "name": "WRIGHT L-08",
+      "total": 1,
+      "lit": 1
+    },
+    {
+      "id": "sutter",
+      "name": "SUTTER L-09",
+      "total": 4,
+      "lit": 4
+    },
+    {
+      "id": "carnot",
+      "name": "CARNOT L-10",
+      "total": 4,
+      "lit": 4
+    },
+    {
+      "id": "noyce",
+      "name": "NOYCE L-11",
+      "total": 6,
+      "lit": 6
+    },
+    {
+      "id": "olley",
+      "name": "OLLEY L-12",
+      "total": 1,
+      "lit": 1
+    }
+  ],
+  "total": 27,
+  "lit": 21,
+  "cells": [
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1
+  ],
+  "lastLit": "B-29 Superfortress",
+  "lastLitDate": "Aug 2026",
+  "updated": "2026-08-19"
 }

@@ -241,20 +241,24 @@ function encode(text) {
     for (let i = 0; i < size; i++) for (let j = 0; j < size; j++)
       if (!reserved[i][j] && MASKS[mask](i, j)) g[i][j] ^= 1;
 
-    /* Format information, level H is 0b10. The two copies are written from
-       explicit coordinates rather than from arithmetic that has to bend
-       around the timing column and the dark module. The tangled version got
-       both wrong: it left one module of the second copy unwritten and
-       overwrote the dark module at (size-8, 8). */
+    /* Format information, level H is 0b10. The 15 bit word is written most
+       significant bit first, walking away from the corner: bit 14 lands
+       against the finder and bit 0 furthest from it. Writing it the other
+       way round produces a symbol that looks perfect, decodes perfectly
+       with a reader that shares the mistake, and cannot be read by any
+       phone, which is how it survived here for as long as it did. The two
+       copies are written from explicit coordinates rather than from
+       arithmetic that has to bend around the timing column and the dark
+       module. */
     const fmt = bch15((0b10 << 3) | mask);
     const bit = i => (fmt >> i) & 1;
-    for (let i = 0; i <= 5; i++) g[8][i] = bit(i);        /* copy 1, row 8 */
-    g[8][7] = bit(6);
+    for (let i = 0; i <= 5; i++) g[8][i] = bit(14 - i);   /* copy 1, row 8 */
+    g[8][7] = bit(8);
     g[8][8] = bit(7);
-    g[7][8] = bit(8);
-    for (let i = 9; i <= 14; i++) g[14 - i][8] = bit(i);  /* copy 1, column 8 */
-    for (let i = 0; i <= 6; i++) g[size - 1 - i][8] = bit(i);        /* copy 2, column 8 */
-    for (let i = 7; i <= 14; i++) g[8][size - 15 + i] = bit(i);      /* copy 2, row 8 */
+    g[7][8] = bit(6);
+    for (let i = 0; i <= 5; i++) g[i][8] = bit(i);        /* copy 1, column 8 */
+    for (let i = 0; i <= 6; i++) g[size - 1 - i][8] = bit(14 - i);   /* copy 2, column 8 */
+    for (let i = 0; i <= 7; i++) g[8][size - 8 + i] = bit(7 - i);    /* copy 2, row 8 */
     g[size - 8][8] = 1;                                  /* dark module, restated */
     if (version >= 7) {
       const vi = bch18(version);

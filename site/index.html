@@ -1303,7 +1303,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.24 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.26 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
   </div>
 </footer>
 
@@ -1353,7 +1353,18 @@ const AIRCRAFT = [
 
   {id:"sealed-1942a", name:"Me 262", variant:"Schwalbe", year:1942, ff:"Jul 1942 (jet power)", origin:"Germany", role:"fighter", status:"soon", lines:[92,78,64]},
 
-  {id:"sealed-1942b", name:"B-29 Superfortress", year:1942, ff:"Sep 1942", origin:"United States", role:"bomber", status:"soon", lines:[85,95,52]},
+  {id:"b-29", name:"B-29 Superfortress", year:1942, ff:"Sep 1942", origin:"United States", role:"bomber", status:"covered",
+   hook:"POINT AT SOMETHING, STEP SIDEWAYS, THEN PUT YOUR FINGER BACK ON IT. HOW FAR YOUR ARM SWINGS IS THE PROBLEM EVERY B-29 GUNNER HAD, ALL THE TIME.",
+   artCredit:"Vector 3-view by MLWatts, CC0 public domain.",
+   artNote:"Community drawing, recolored, not redrawn.",
+   art:`<svg viewBox="0 0 267 220" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/b-29.png" x="0" y="0" width="267" height="220.3"/>
+</svg>`,
+   posts:[
+     {label:"Read the story", url:"https://www.facebook.com/EngineeringUni/posts/pfbid05pXTd8pdwtYRzTLqsnA5TXXCKCzvqzLfMyZdirkLt1CE3HLoHby4TbtzkfwVjxkZl"},
+     {label:"On LinkedIn", url:"https://www.linkedin.com/posts/engineeringcommunity_every-bomber-before-the-b-29-sat-its-gunner-activity-7495125164636954624-oJJP"},
+     {label:"On Instagram", url:"https://www.instagram.com/p/DcIZjE7OUnQ/"}
+   ]},
 
   {id:"constellation", name:"Constellation", variant:"L-049", year:1943, ff:"Jan 1943", origin:"United States", role:"transport", status:"covered",
    ask:"Flew it, worked the cabin, or serviced it. What did that triple tail cost you on the ground?",
@@ -2445,7 +2456,7 @@ const FINDINGS = [
     posts: [{ label: "Read the post", url: "https://www.linkedin.com/posts/engineeringcommunity_that-is-what-no-standard-meant-threads-cut-activity-7493894753063686145-xuv-" }]
   }
 ];
-const FINDING_STATS = { claims:576, verified:545, sources:50, edges:87, artifacts:64 };
+const FINDING_STATS = { claims:606, verified:574, sources:61, edges:89, artifacts:64 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");

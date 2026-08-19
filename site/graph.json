@@ -1,6 +1,6 @@
 {
  "schema": "shannon-graph@0.1",
- "updated": "2026-08-09",
+ "updated": "2026-08-19",
  "line": "kelly",
  "nodes": [
   {
@@ -116,23 +116,23 @@
    "label": "First flight"
   },
   {
-   "id": "sealed-1942b",
+   "id": "b-29",
    "type": "artifact",
    "name": "B-29 Superfortress",
    "category": "bomber",
    "origin": "United States",
    "lineId": "kelly",
-   "sealed": true
+   "sealed": false
   },
   {
-   "id": "ev-ff-sealed-1942b",
+   "id": "ev-ff-b-29",
    "type": "event",
    "eventType": "first-flight",
    "date": {
     "year": 1942,
     "month": 9
    },
-   "subjectId": "sealed-1942b",
+   "subjectId": "b-29",
    "label": "First flight"
   },
   {
@@ -10862,6 +10862,397 @@
    "type": "story",
    "title": "The flat ride",
    "status": "published linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7494466304515469313 facebook: https://www.facebook.com/share/p/194CiG5r54/ instagram: pending newsletter: none"
+  },
+  {
+   "id": "src-sr71-tdia-19760728",
+   "type": "source",
+   "title": "This Day in Aviation: 28 July 1976 (FAI record files 3496, 8865, 8879)",
+   "kind": "reference"
+  },
+  {
+   "id": "src-sr71-nasm-records",
+   "type": "source",
+   "title": "Smithsonian NASM: Setting Records with the SR-71 Blackbird",
+   "kind": "reference"
+  },
+  {
+   "id": "ev-sr71-records-1976",
+   "type": "event",
+   "eventType": "record",
+   "date": {
+    "year": 1976,
+    "month": 7,
+    "day": 28
+   },
+   "subjectId": "sr-71",
+   "label": "FAI altitude and absolute speed records set at Beale Air Force Base"
+  },
+  {
+   "id": "c-sr71-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "sr-71"
+   ],
+   "text": "On 28 July 1976 an SR-71A set the FAI world record for altitude in horizontal flight at 25,929 m, about 85,069 ft, flown from Beale Air Force Base by Capt. Robert C. Helt and Maj. Larry A. Elliott. It is a sustained horizontal flight record, not a zoom climb peak. FAI record file 3496, since retired by changes to the sporting code.",
+   "sourceNote": "This Day in Aviation (FAI file 3496); Smithsonian NASM"
+  },
+  {
+   "id": "c-sr71-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "sr-71"
+   ],
+   "text": "The same day at Beale, Capt. Eldon W. Joersz and Maj. George T. Fuller Jr. set the FAI absolute speed record at 3,529.56 km/h, about 2,193.17 mph, over a straight 15 to 25 km course. FAI file 8879 is recorded as still standing.",
+   "sourceNote": "This Day in Aviation (FAI files 8865, 8879); Smithsonian NASM"
+  },
+  {
+   "id": "c-sr71-03",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "sr-71"
+   ],
+   "text": "Whether one aircraft or two flew the two records of 28 July 1976 is reported differently. This Day in Aviation records both the altitude and the speed record as flown by 61-7958. The Smithsonian says another SR-71 set the speed record.",
+   "sourceNote": "This Day in Aviation; Smithsonian NASM"
+  },
+  {
+   "id": "src-b29-gunnery-handbook-1944",
+   "type": "source",
+   "title": "AAF Gunnery Handbook, 26 July 1944",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-flight-manual-1943",
+   "type": "source",
+   "title": "AAF Flight and Operational Manual, B-29, July 1943",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-training-manual-1945",
+   "type": "source",
+   "title": "B-29 Pilots' and Flight Engineers' Training Manual, 1945",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-bif-1945",
+   "type": "source",
+   "title": "Bombardiers' Information File, War Department, March 1945",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-nmusaf",
+   "type": "source",
+   "title": "National Museum of the United States Air Force, B-29 fact sheets and photographs",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-nasm",
+   "type": "source",
+   "title": "Smithsonian National Air and Space Museum, curatorial notes and NASM catalogue",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-reference-lit",
+   "type": "source",
+   "title": "Reference literature: Detail and Scale Vol. 10; Squadron Signal B-29 in Action; Green; Chant",
+   "kind": "book"
+  },
+  {
+   "id": "src-b29-surviving-unit",
+   "type": "source",
+   "title": "Examination of a surviving General Electric computer unit",
+   "kind": "reference"
+  },
+  {
+   "id": "src-b29-vcl",
+   "type": "source",
+   "title": "EC VCL: B-29 central fire control (Aug 2026)",
+   "kind": "reference"
+  },
+  {
+   "id": "c-b29-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The pressure cabin was three zones: a forward crew compartment, an aft gunners' compartment, and an isolated tail gunner compartment. The bomb bays were unpressurised, and the forward and aft compartments were joined by a tunnel over them.",
+   "sourceNote": "AAF Flight and Operational Manual, Jul 1943; Pilots' and Flight Engineers' Training Manual, 1945"
+  },
+  {
+   "id": "c-b29-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The cabin was held at an 8,000 ft equivalent from 8,000 to 30,000 ft. Above 30,000 ft the differential is 13.34 inches of mercury. The widely quoted 6.55 psi is a conversion and not the manual's figure.",
+   "sourceNote": "Flight and Operational Manual, verbatim"
+  },
+  {
+   "id": "c-b29-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The tail gunner sat in his own pressurised compartment aiming guns that were outside the pressure shell.",
+   "sourceNote": "Manuals as claim 1; NMUSAF photograph 100614-F-1234S-030"
+  },
+  {
+   "id": "c-b29-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Four remote turrets on the skin plus a tail mount, with nobody inside the turrets. The gunners sat at sighting stations inside the pressurised compartments.",
+   "sourceNote": "AAF Gunnery Handbook, 26 Jul 1944; NMUSAF; Smithsonian"
+  },
+  {
+   "id": "c-b29-05",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The reasons the sources give are a bundle: less drag from smaller turrets, better sighting accuracy, gunner endurance on long missions, and avoiding a pressurised rotating turret. NMUSAF lists drag first; the Smithsonian gives the turret point as a preference.",
+   "sourceNote": "NMUSAF; Smithsonian. Two or more independent secondary agreeing"
+  },
+  {
+   "id": "c-b29-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "A B-29 airframe was fitted with manned turrets in October 1944 under Project S68, as a backup in case the General Electric remote system failed. No source states how the manned installation performed, and none states that the aircraft flew armed.",
+   "sourceNote": "Reference literature only, single class of secondary. Grade C, attributed in text. No archival citation found"
+  },
+  {
+   "id": "c-b29-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Nobody building the aircraft treated manned turrets on a pressurised B-29 as physically impossible, because a manned-turret contingency was built and fitted to the aircraft itself. You do not insure against something you believe cannot happen.",
+   "sourceNote": "Ours, an inference from claims 3 and 6. Marked as reasoning, not as a test result"
+  },
+  {
+   "id": "c-b29-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The B-29's first remote system was Sperry's, with periscopic sights. It was cancelled in April 1942 over sighting and hydraulic turret problems, and General Electric won the replacement.",
+   "sourceNote": "Smithsonian, curatorial"
+  },
+  {
+   "id": "c-b29-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "NASM holds the Sperry hardware, designated P-4. Many accounts attribute P-4 to General Electric. It is Sperry, from the cancelled system.",
+   "sourceNote": "NASM catalogue"
+  },
+  {
+   "id": "c-b29-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The separation between a sighting station and its turret is fixed. The angle that separation subtends at the target varies inversely with range, so the correction has to be recomputed continuously as the range changes. The angle is the arctangent of the separation divided by the range.",
+   "sourceNote": "Geometry, derived here. The fixed quantity is the separation and the variable is the angle. Stating it the other way round is the error this claim exists to stop"
+  },
+  {
+   "id": "c-b29-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Three correction domains: ballistics for gravity and air resistance, lead, and parallax.",
+   "sourceNote": "Smithsonian; NMUSAF corroborates for gravity drop"
+  },
+  {
+   "id": "c-b29-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Ballistic drop and lead are older corrections that every bomber's gunners already dealt with. Parallax existed only because the man had been moved away from the gun.",
+   "sourceNote": "Ours, an inference from claim 11"
+  },
+  {
+   "id": "c-b29-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Five sighting stations, each with its own computer. One computer per turret is wrong and is the most common error in circulation.",
+   "sourceNote": "Smithsonian and a second independent source"
+  },
+  {
+   "id": "c-b29-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "A dedicated General Electric parallax computer existed as a physical unit.",
+   "sourceNote": "NASM catalogue, manufacturer General Electric"
+  },
+  {
+   "id": "c-b29-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The computer was analog and electromechanical: gears, relays and valves in a steel case weighing over 50 lb.",
+   "sourceNote": "From examination of a surviving unit. No named published source, so grade C rather than A"
+  },
+  {
+   "id": "c-b29-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The navigator set indicated airspeed, barometric altitude and outside air temperature on a handset, and the computer derived true airspeed and air density from them.",
+   "sourceNote": "AAF Gunnery Handbook, 26 Jul 1944, verbatim"
+  },
+  {
+   "id": "c-b29-17",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The gunner set the fighter's wingspan, tracked the target to give the computer its motion, and framed the target in a ring with a range handle.",
+   "sourceNote": "AAF Gunnery Handbook, verbatim"
+  },
+  {
+   "id": "c-b29-18",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Control transferred between stations, in the handbook's words, wherever the fire power will do the most good.",
+   "sourceNote": "AAF Gunnery Handbook, verbatim"
+  },
+  {
+   "id": "c-b29-19",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The top gunner has sole control of the upper aft turret and cannot hand it over. The nose gunner has first call on both forward turrets. The two side gunners share the lower aft turret through a switch box. The tail gunner has first call on the tail mount, and it passes to the side gunners when he is not using it.",
+   "sourceNote": "AAF Gunnery Handbook, verbatim. These pairings are the claim and no generalisation of them is permitted"
+  },
+  {
+   "id": "c-b29-20",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "One gunner could work two turrets at once, on the same sight and the same triggers.",
+   "sourceNote": "AAF Gunnery Handbook, verbatim"
+  },
+  {
+   "id": "c-b29-21",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "A dead man's switch: release it and a gunner holding secondary control takes the turret.",
+   "sourceNote": "AAF Gunnery Handbook, verbatim"
+  },
+  {
+   "id": "c-b29-22",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Crews were required to warn over the interphone before giving up control.",
+   "sourceNote": "Bombardiers' Information File, War Department, Mar 1945"
+  },
+  {
+   "id": "c-b29-23",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "One surviving gunner could not have worked the whole system. It needed a man holding a target in his sight before it had anything to compute, and he could only do that through his own window. A turret behind him could be driven, but not aimed.",
+   "sourceNote": "Ours, an inference. Marked as ours in the shipped copy"
+  },
+  {
+   "id": "c-b29-24",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "For the Tokyo raid of 9 to 10 March 1945, LeMay ordered all defensive guns except the tail removed, together with the gunners and the ammunition, and bombed from 5,000 to 7,000 feet. 279 aircraft crossed the city and 12 were lost.",
+   "sourceNote": "Two independent secondary agreeing"
+  },
+  {
+   "id": "c-b29-25",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "A post-war report credited B-29s with 914 victories against 72 losses in more than 31,000 sorties. General Electric claimed accuracy at 50 per cent more range than uncomputed guns. The 50 per cent figure is General Electric's own and carries no source.",
+   "sourceNote": "Smithsonian, curatorial. Both figures are claims and must never be restated as counts"
+  },
+  {
+   "id": "c-b29-26",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "Prior art. The Me 210 carried remote barbettes from 1942. The B-17E carried a Sperry remote ventral turret on its first 112 airframes from late 1941, and no kills were ever recorded with it. Analog fire control went to sea in 1917. The Bell Labs M-9 director reached Anzio in February 1944, four months before the B-29's first combat mission.",
+   "sourceNote": "Multiple secondary, consistent"
+  },
+  {
+   "id": "c-b29-27",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "b-29"
+   ],
+   "text": "The defensible first is narrow, and it is the Smithsonian's own wording: the first production aircraft to use analog computers to remotely aim and fire gun turrets.",
+   "sourceNote": "Smithsonian"
+  },
+  {
+   "id": "story-b-29",
+   "type": "story",
+   "title": "The B-29 fire control story",
+   "aboutIds": [
+    "b-29"
+   ],
+   "platforms": {
+    "facebook": "https://www.facebook.com/EngineeringUni/posts/pfbid05pXTd8pdwtYRzTLqsnA5TXXCKCzvqzLfMyZdirkLt1CE3HLoHby4TbtzkfwVjxkZl",
+    "linkedin": "https://www.linkedin.com/posts/engineeringcommunity_every-bomber-before-the-b-29-sat-its-gunner-activity-7495125164636954624-oJJP",
+    "instagram": "https://www.instagram.com/p/DcIZjE7OUnQ/"
+   }
   }
  ],
  "edges": [
@@ -10877,8 +11268,8 @@
   },
   {
    "type": "event-of",
-   "from": "ev-ff-sealed-1942b",
-   "to": "sealed-1942b"
+   "from": "ev-ff-b-29",
+   "to": "b-29"
   },
   {
    "type": "event-of",
@@ -19575,6 +19966,385 @@
    "to": "crumple-zone",
    "claimId": "c-flat-ride-09",
    "note": "A car arranged to disagree with physics on the occupant's behalf, once before the crash and once during it"
+  },
+  {
+   "type": "about",
+   "from": "c-sr71-01",
+   "to": "sr-71"
+  },
+  {
+   "type": "about",
+   "from": "c-sr71-02",
+   "to": "sr-71"
+  },
+  {
+   "type": "about",
+   "from": "c-sr71-03",
+   "to": "sr-71"
+  },
+  {
+   "type": "cites",
+   "from": "c-sr71-01",
+   "to": "src-sr71-tdia-19760728"
+  },
+  {
+   "type": "cites",
+   "from": "c-sr71-01",
+   "to": "src-sr71-nasm-records"
+  },
+  {
+   "type": "cites",
+   "from": "c-sr71-02",
+   "to": "src-sr71-tdia-19760728"
+  },
+  {
+   "type": "cites",
+   "from": "c-sr71-02",
+   "to": "src-sr71-nasm-records"
+  },
+  {
+   "type": "cites",
+   "from": "c-sr71-03",
+   "to": "src-sr71-tdia-19760728"
+  },
+  {
+   "type": "cites",
+   "from": "c-sr71-03",
+   "to": "src-sr71-nasm-records"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-sr71-records-1976",
+   "to": "sr-71"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-01",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-01",
+   "to": "src-b29-flight-manual-1943"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-01",
+   "to": "src-b29-training-manual-1945"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-02",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-02",
+   "to": "src-b29-flight-manual-1943"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-03",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-03",
+   "to": "src-b29-flight-manual-1943"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-03",
+   "to": "src-b29-training-manual-1945"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-03",
+   "to": "src-b29-nmusaf"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-04",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-04",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-04",
+   "to": "src-b29-nmusaf"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-04",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-05",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-05",
+   "to": "src-b29-nmusaf"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-05",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-06",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-06",
+   "to": "src-b29-reference-lit"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-07",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-07",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-08",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-08",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-09",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-09",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-10",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-10",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-11",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-11",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-11",
+   "to": "src-b29-nmusaf"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-12",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-12",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-13",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-13",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-13",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-14",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-14",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-15",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-15",
+   "to": "src-b29-surviving-unit"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-16",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-16",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-17",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-17",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-18",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-18",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-19",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-19",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-20",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-20",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-21",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-21",
+   "to": "src-b29-gunnery-handbook-1944"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-22",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-22",
+   "to": "src-b29-bif-1945"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-23",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-23",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-24",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-24",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-25",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-25",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-26",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-26",
+   "to": "src-b29-vcl"
+  },
+  {
+   "type": "about",
+   "from": "c-b29-27",
+   "to": "b-29"
+  },
+  {
+   "type": "cites",
+   "from": "c-b29-27",
+   "to": "src-b29-nasm"
+  },
+  {
+   "type": "echoes",
+   "from": "flat-ride",
+   "to": "b-29",
+   "claimId": "c-b29-10",
+   "note": "A correction that depends on a quantity the operator cannot perceive: Olley's eighth of a second, the gunner's range"
+  },
+  {
+   "type": "echoes",
+   "from": "wright-wind-tunnel",
+   "to": "b-29",
+   "claimId": "c-b29-17",
+   "note": "An instrument built to replace guessing with number, and the limit of it: the computer took the arithmetic and left the measurement to a man judging a wingspan"
+  },
+  {
+   "type": "covers",
+   "from": "story-b-29",
+   "to": "b-29"
   }
  ]
 }

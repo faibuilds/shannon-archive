@@ -77,12 +77,37 @@ async function fontCss() {
     x.drawImage(img, 0, 0, W, H);
     URL.revokeObjectURL(blobUrl);
 
+    /* A design is written by stacking baselines, and a baseline is not a top:
+       the SR-71 chest mark once put a 500 unit cap on a 330 unit baseline and
+       printed with its head cut off. Nothing upstream noticed, because the
+       SVG was valid and the build was happy. So the pixels are asked instead:
+       any ink on the outer edge of a garment file means the artwork is
+       clipped, or is about to be by the printer's own tolerance. */
+    let edge = "";
+    if (TRANSPARENT) {
+      const d = x.getImageData(0, 0, W, H).data;
+      const lit = (px, py) => d[(py * W + px) * 4 + 3] > 8;
+      const band = 2;
+      const sides = [];
+      for (let b = 0; b < band; b++) {
+        for (let px = 0; px < W; px++) {
+          if (lit(px, b) && !sides.includes("top")) sides.push("top");
+          if (lit(px, H - 1 - b) && !sides.includes("bottom")) sides.push("bottom");
+        }
+        for (let py = 0; py < H; py++) {
+          if (lit(b, py) && !sides.includes("left")) sides.push("left");
+          if (lit(W - 1 - b, py) && !sides.includes("right")) sides.push("right");
+        }
+      }
+      if (sides.length) edge = " <b style='color:#ef4444'>CLIPPED: ink on the " + sides.join(", ") + " edge</b>";
+    }
+
     const blob = await new Promise(r => cv.toBlob(r, "image/png"));
     const name = f.replace(/\\.svg$/, ".png");
     const r = await fetch("/save/" + name, { method: "POST", body: blob });
     const ms = Math.round(performance.now() - t0);
     say((r.ok ? "<b>ok</b>   " : "<b style='color:#ef4444'>FAIL</b> ") + name +
-        "  " + W + "x" + H + "  " + Math.round(blob.size / 1024) + "KB  " + ms + "ms");
+        "  " + W + "x" + H + "  " + Math.round(blob.size / 1024) + "KB  " + ms + "ms" + edge);
   }
   say("<br><b>done. Files are in merch/posters/</b>");
 })();

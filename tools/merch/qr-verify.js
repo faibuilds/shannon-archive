@@ -76,19 +76,27 @@ const bch15 = v => {              /* format info generator, used to check */
   return ((v << 10) | d) ^ 0x5412;
 };
 
+/* The 15 bit word runs most significant bit first, away from the corner.
+   Both copies are read, and they have to agree: a symbol whose two copies
+   disagree is one a phone may or may not read depending on which half it
+   trusts, and that is not a thing to print. */
 function readFormat(g) {
   const size = g.length;
-  let raw = 0;
+  let a = 0, b = 0;
   /* copy 1: the ring around the top left finder */
-  for (let i = 0; i <= 5; i++) raw |= g[8][i] << i;
-  raw |= g[8][7] << 6;
-  raw |= g[8][8] << 7;
-  raw |= g[7][8] << 8;
-  for (let i = 9; i <= 14; i++) raw |= g[14 - i][8] << i;
+  for (let i = 0; i <= 5; i++) a |= g[8][i] << (14 - i);
+  a |= g[8][7] << 8;
+  a |= g[8][8] << 7;
+  a |= g[7][8] << 6;
+  for (let i = 0; i <= 5; i++) a |= g[i][8] << i;
+  /* copy 2: down the left edge and along the top right */
+  for (let i = 0; i <= 6; i++) b |= g[size - 1 - i][8] << (14 - i);
+  for (let i = 0; i <= 7; i++) b |= g[8][size - 8 + i] << (7 - i);
+  if (a !== b) return { ecBits: null, mask: null, raw: a, disagree: b };
   /* find which of the 32 valid format strings this is */
   for (let ec = 0; ec < 4; ec++) for (let mask = 0; mask < 8; mask++)
-    if (bch15((ec << 3) | mask) === raw) return { ecBits: ec, mask, raw };
-  return { ecBits: null, mask: null, raw };
+    if (bch15((ec << 3) | mask) === a) return { ecBits: ec, mask, raw: a };
+  return { ecBits: null, mask: null, raw: a };
 }
 
 function decode(g) {

@@ -82,6 +82,42 @@ function archive(plateId) {
     claims: claims.length,
     verified,
     claimById: id => graph.nodes.find(n => n.id === id && n.type === "claim"),
+
+    /* Plate n of m within its own line, counted the way the site counts it:
+       by the order the plates appear in that line's array. */
+    plateNo: (() => {
+      const m = html.match(new RegExp("const " + String(art.lineId || "").toUpperCase() + " = \\[([\\s\\S]*?)\\n\\];"));
+      if (!m) return null;
+      const ids = [...m[1].matchAll(/\{id:"([a-z0-9-]+)"/g)].map(x => x[1]);
+      const i = ids.indexOf(plateId);
+      if (i < 0) return null;
+      const pad = n => String(n).padStart(2, "0");
+      return "PLATE " + pad(i + 1) + " / " + pad(ids.length);
+    })(),
+
+    /* The line the share card carries under the rule, taken from the plate's
+       own synthesis edges, which are claim-cited by construction. Reproduced
+       from the site's rule rather than written by hand, so a poster and a
+       card can never say different things about the same plate. */
+    fact: (() => {
+      const VERB = { enabled: "MADE POSSIBLE", "responded-to": "ANSWERED", forced: "FORCED", corrects: "CORRECTED" };
+      const byId = {};
+      graph.nodes.forEach(n => { byId[n.id] = n; });
+      const headOf = s => {
+        let v = String(s).replace(/\s*\([^)]*\)/g, "").split(":")[0].trim();
+        if (v.length > 64) v = v.split(/,\s/)[0].trim();
+        return v.toUpperCase();
+      };
+      const mine = graph.edges.filter(e => e.from === plateId && VERB[e.type]);
+      if (mine.length) {
+        const better = mine.find(x => byId[x.to] && byId[x.to].type === "artifact") || mine[0];
+        const target = byId[better.to];
+        return VERB[better.type] + " \u00b7 " + headOf(target && target.name ? target.name : better.to);
+      }
+      const people = graph.edges.filter(e => e.type === "contributed" && e.to === plateId)
+        .map(e => (byId[e.from] ? byId[e.from].name : e.from));
+      return people.length ? "NAMED \u00b7 " + people.slice(0, 3).join(", ").toUpperCase() : null;
+    })(),
   };
 }
 
@@ -99,8 +135,169 @@ function wrap(text, perLine) {
 const esc = s => String(s).replace(/[&<>"']/g, c =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+/* ---------- the card layout ----------
+   The plate as it already reads on the site, printed for a wall. Same order
+   and the same register: the name, the year and plate number, the hook, the
+   drawing with its patent line, then the rule and the connection the plate
+   stands on. The share card ends with a URL and a claim count. A poster
+   needs neither: the code in the corner is the link, and a wall is not a
+   feed. */
+function cardLayout(spec) {
+  const a = archive(spec.plate);
+  const claim = a.claimById(spec.claimId);
+  if (!claim) throw new Error("poster cites " + spec.claimId + ", which is not in the graph");
+  if (claim.status !== "verified")
+    throw new Error("poster cites " + spec.claimId + ", which is " + claim.status + ", not verified");
+
+  const size = SIZES[spec.size || "12x18"];
+  if (!size) throw new Error("unknown size " + spec.size);
+  const W = size.w * DPI, H = size.h * DPI;
+  /* Every size below is a share of the width, so the sheet can grow to
+     24 by 36 without the type quietly getting smaller against it. */
+  const u = W / 3600;
+  const M = Math.round(W * 0.076), CW = W - M * 2;
+  const px = n => Math.round(n * 100) / 100;
+  const parts = [];
+
+  parts.push(`<rect width="${W}" height="${H}" fill="${C.bg}"/>`);
+  const gg = Math.round(180 * u);
+  let grid = "";
+  for (let x = 0; x < W; x += gg) grid += `<line x1="${x}" y1="0" x2="${x}" y2="${H}"/>`;
+  for (let yy = 0; yy < H; yy += gg) grid += `<line x1="0" y1="${yy}" x2="${W}" y2="${yy}"/>`;
+  parts.push(`<g stroke="${C.line}" stroke-width="${px(1.6 * u)}" opacity="0.55">${grid}</g>`);
+
+  let y = M + 74 * u;
+  parts.push(`<text x="${M}" y="${px(y)}" font-family="IBM Plex Mono, monospace" font-weight="700"
+    font-size="${px(62 * u)}" letter-spacing="${px(12 * u)}" fill="${C.steel}">SHANNON</text>`);
+  /* The line reference used to sit opposite the wordmark. On a wall it read
+     as filing, which is the archive talking to itself rather than to whoever
+     is looking at the sheet. The claim id at the foot already carries the
+     provenance for anyone who wants it. */
+  y += 48 * u;
+  parts.push(`<line x1="${M}" y1="${px(y)}" x2="${W - M}" y2="${px(y)}" stroke="${C.line2}" stroke-width="${px(3 * u)}"/>`);
+
+  /* The name wants to be one line. Poppins 800 in caps runs about 0.62 of
+     its size per character, so the size is pulled back until the longest
+     line fits the column rather than the line being broken in half. */
+  const NAME = a.name.toUpperCase();
+  let nameSize = (spec.nameSize || 215) * u;
+  const fits = (s, per) => wrap(NAME, per).every(l => l.length * s * 0.62 <= CW);
+  let nameLines = [NAME];
+  if (!fits(nameSize, 99)) {
+    const shrunk = Math.max((spec.nameMin || 150) * u, CW / (NAME.length * 0.62));
+    if (shrunk >= (spec.nameMin || 150) * u) nameSize = shrunk;
+    else nameLines = wrap(NAME, spec.namePer || 20);
+  }
+  y += 262 * u;
+  for (const ln of nameLines) {
+    parts.push(`<text x="${M}" y="${px(y)}" font-family="Poppins, Helvetica, Arial, sans-serif"
+      font-weight="800" font-size="${px(nameSize)}" fill="${C.steel}">${esc(ln)}</text>`);
+    y += nameSize * 1.12;
+  }
+
+  y -= nameSize * 1.12;
+  y += 178 * u;
+  parts.push(`<text x="${M}" y="${px(y)}" font-family="IBM Plex Mono, monospace"
+    font-size="${px(84 * u)}" letter-spacing="${px(12 * u)}" fill="${C.faint}">${esc(a.year + "   " + (a.plateNo || ""))}</text>`);
+
+  if (!a.hook) throw new Error(spec.plate + " has no hook to print");
+  y += 198 * u;
+  const hookSize = (spec.hookSize || 134) * u;
+  const hookLines = wrap(a.hook, spec.hookPer || 42);
+  for (const ln of hookLines) {
+    parts.push(`<text x="${M}" y="${px(y)}" font-family="Poppins, Helvetica, Arial, sans-serif"
+      font-weight="600" font-size="${px(hookSize)}" fill="${C.mid}">${esc(ln.toUpperCase())}</text>`);
+    y += hookSize * 1.29;
+  }
+  y -= hookSize * 1.29;
+
+  /* The foot is one band: the connection on the left, the code on the right,
+     measured up from the bottom so the drawing knows exactly what is left. */
+  const box = (spec.qrBox || 620) * u;
+  const footTop = H - M - (box + 214 * u);
+
+  if (!a.artHref) throw new Error("plate carries no drawing of its own, so no poster");
+  const src = spec.fullResArt && fs.existsSync(spec.fullResArt) ? spec.fullResArt : path.join(SITE, a.artHref);
+  const raw = fs.readFileSync(src);
+  const iw = raw.readUInt32BE(16), ih = raw.readUInt32BE(20);
+  const capH = spec.artCaption ? 150 * u : 0;
+  const top = y + 108 * u;
+  const band = footTop - 96 * u - capH - top;
+  let dw = CW * (spec.artWidth || 0.78), dh = dw * (ih / iw);
+  if (dh > band) { dh = band; dw = dh * (iw / ih); }
+  const dy = top + Math.max(0, (band - dh) / 2);
+  parts.push(`<image x="${px((W - dw) / 2)}" y="${px(dy)}" width="${px(dw)}" height="${px(dh)}"
+    href="data:image/png;base64,${raw.toString("base64")}"/>`);
+  parts.push(`<!-- drawing native ${iw}x${ih}px, printed ${(dw / DPI).toFixed(2)}in wide,
+    ${(iw / (dw / DPI)).toFixed(0)} DPI on the sheet -->`);
+  if (spec.artCaption) {
+    parts.push(`<text x="${W / 2}" y="${px(dy + dh + 104 * u)}" text-anchor="middle"
+      font-family="IBM Plex Mono, monospace" font-size="${px(52 * u)}"
+      letter-spacing="${px(8 * u)}" fill="${C.green}">${esc(spec.artCaption)}</text>`);
+  }
+
+  parts.push(`<line x1="${M}" y1="${px(footTop)}" x2="${W - M}" y2="${px(footTop)}"
+    stroke="${C.line2}" stroke-width="${px(3 * u)}"/>`);
+
+  /* the code, bottom right, with its quiet zone inside the white */
+  const url = "https://shannon.engineeringcommunity.net/#" + a.id;
+  const q = encode(url);
+  const mod = box / (q.size + 8);
+  const qx = W - M - box, qy = footTop + 108 * u;
+  parts.push(`<rect x="${px(qx)}" y="${px(qy)}" width="${px(box)}" height="${px(box)}" fill="#ffffff"/>`);
+  let mods = "";
+  for (let r = 0; r < q.size; r++) for (let c = 0; c < q.size; c++)
+    if (q.modules[r][c]) mods += `<rect x="${px(qx + (c + 4) * mod)}" y="${px(qy + (r + 4) * mod)}"
+      width="${px(mod + 0.5)}" height="${px(mod + 0.5)}"/>`;
+  parts.push(`<g fill="#000000">${mods}</g>`);
+  /* The four green corner brackets are gone. A code cannot shrink past the
+     point where a camera resolves a module, so the way to make it quieter is
+     to stop decorating it: the brackets were the brightest thing in the foot
+     and they were pointing at the least important thing on the sheet. The
+     small line above it says what it is, which is all it needs. */
+  parts.push(`<text x="${px(qx + box)}" y="${px(qy - 46 * u)}" text-anchor="end"
+    font-family="IBM Plex Mono, monospace" font-size="${px(36 * u)}" letter-spacing="${px(6 * u)}"
+    fill="${C.faint}">SCAN FOR THE RECORD</text>`);
+
+  /* The connection, left, set beside the code rather than under it. Mono
+     advance is 0.6 of the size, and the tracking is added to every character,
+     so the column has to be measured in advances and not in em widths: the
+     first draft measured it in ems and ran the line straight into the code. */
+  const factSize = 58 * u, factTrack = 7 * u, factLead = 80 * u;
+  /* the gutter between the connection and the code, measured from the code's
+     left edge so the two never close on one another */
+  const factW = qx - M - 150 * u;
+  if (a.fact) {
+    const per = Math.max(14, Math.floor(factW / (factSize * 0.6 + factTrack)));
+    const lines = wrap(a.fact, per);
+    /* set against the middle of the code, not the top of the band, so the
+       foot reads as two things standing side by side */
+    let fy = qy + (box - (lines.length - 1) * factLead) / 2 + factSize * 0.36;
+    for (const ln of lines) {
+      parts.push(`<text x="${M}" y="${px(fy)}" font-family="IBM Plex Mono, monospace"
+        font-size="${px(factSize)}" letter-spacing="${px(factTrack)}" fill="${C.green}">${esc(ln)}</text>`);
+      fy += factLead;
+    }
+  }
+  parts.push(`<text x="${M}" y="${px(H - M)}" font-family="IBM Plex Mono, monospace"
+    font-size="${px(40 * u)}" letter-spacing="${px(6 * u)}" fill="${C.faint}">${esc(spec.claimId.toUpperCase())}</text>`);
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size.w}in" height="${size.h}in"
+  viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+<title>SHANNON poster: ${esc(a.name)}</title>
+<!-- qr-target ${url} -->
+<style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;family=IBM+Plex+Mono:wght@400;700&amp;display=swap");</style>
+${parts.join("\n")}
+</svg>`;
+  return { svg, meta: { size: spec.size || "12x18", W, H, qrVersion: q.version, qrSize: q.size, url,
+    claims: a.claims, verified: a.verified,
+    art: { w: iw, h: ih, inches: +(dw / DPI).toFixed(2), dpi: Math.round(iw / (dw / DPI)) },
+    nameLines: nameLines.length, hookLines: hookLines.length } };
+}
+
 /* ---------- the poster ---------- */
 function build(spec) {
+  if (spec.variant === "card") return cardLayout(spec);
   const a = archive(spec.plate);
 
   /* gate: the statement must rest on a verified claim */

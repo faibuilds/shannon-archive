@@ -33,9 +33,14 @@ const log = document.getElementById("log");
 const say = h => { log.innerHTML += "<div>" + h + "</div>"; };
 (async () => {
   for (const f of PNGS) {
-    const img = new Image();
-    img.src = "/png/" + f;
-    await img.decode();
+    /* onload, not decode(): decode() can sit forever on a page the browser
+       has decided not to paint, and this page is often not the one in front */
+    const img = await new Promise((res, rej) => {
+      const i = new Image();
+      i.onload = () => res(i);
+      i.onerror = () => rej(new Error("could not decode " + f));
+      i.src = "/png/" + f;
+    });
     /* a torso's worth of fabric around the print, so the scale reads true */
     const pad = Math.round(img.naturalWidth * 0.22);
     const cv = document.createElement("canvas");
