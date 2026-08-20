@@ -11253,6 +11253,639 @@
     "linkedin": "https://www.linkedin.com/posts/engineeringcommunity_every-bomber-before-the-b-29-sat-its-gunner-activity-7495125164636954624-oJJP",
     "instagram": "https://www.instagram.com/p/DcIZjE7OUnQ/"
    }
+  },
+  {
+   "id": "container-corner-fitting",
+   "type": "artifact",
+   "name": "The container corner fitting",
+   "category": "standard",
+   "origin": "United States",
+   "lineId": "carnot",
+   "sealed": false
+  },
+  {
+   "id": "keith-tantlinger",
+   "type": "person",
+   "name": "Keith W. Tantlinger",
+   "note": "Inventor of record on US 3,027,025 and its divisional US 3,085,707. Residence given as Mobile, Alabama. Both patents were assigned to his employer and he owned neither."
+  },
+  {
+   "id": "leslie-harlander",
+   "type": "person",
+   "name": "Leslie A. Harlander",
+   "note": "Container engineering at Matson, later L. A. Harlander and Associates. The source for most of the standards politics on this plate, and a participant who sat on the losing side of several of these arguments rather than a neutral historian. Read his claims in that light."
+  },
+  {
+   "id": "albert-kirchner",
+   "type": "person",
+   "name": "Albert K. Kirchner",
+   "note": "Attorney of record on US 3,027,025. His signature is on drawing sheet 11, below the two figures the plate carries."
+  },
+  {
+   "id": "src-container-us-3027025",
+   "type": "source",
+   "title": "Keith W. Tantlinger, US 3,027,025, Apparatus for handling freight in transit, filed 8 April 1958, granted 27 March 1962. Assignee Sea-Land Service",
+   "kind": "patent"
+  },
+  {
+   "id": "src-container-us-3085707",
+   "type": "source",
+   "title": "Keith W. Tantlinger, US 3,085,707, divisional of US 3,027,025, granted 16 April 1963, stacking interlock",
+   "kind": "patent"
+  },
+  {
+   "id": "src-container-iso-1161-2016",
+   "type": "source",
+   "title": "ISO 1161:2016, series 1 freight containers, corner and intermediate fittings",
+   "kind": "reference"
+  },
+  {
+   "id": "src-container-iso-r1161-1970",
+   "type": "source",
+   "title": "ISO/R 1161, corner fittings for series 1 freight containers, 1st edition, January 1970",
+   "kind": "reference"
+  },
+  {
+   "id": "src-container-iso-r668-1968",
+   "type": "source",
+   "title": "ISO/R 668, series 1 freight containers, classification and dimensions, 1st edition, February 1968",
+   "kind": "reference"
+  },
+  {
+   "id": "src-container-harlander-1982",
+   "type": "source",
+   "title": "L. A. Harlander, 1982, on the standardisation of the container corner fitting",
+   "kind": "book"
+  },
+  {
+   "id": "src-container-dtic-ad0762171",
+   "type": "source",
+   "title": "US Army, DTIC AD0762171",
+   "kind": "reference"
+  },
+  {
+   "id": "c-container-01",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The load is carried by four corner posts and eight corner castings, not by the walls.",
+   "sourceNote": "US 3,027,025, verbatim: the posts constitute the structural columns which alone support the weight of superposed boxes"
+  },
+  {
+   "id": "c-container-02",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Four castings sit at the front corners and four at the rear.",
+   "sourceNote": "US 3,027,025, verbatim: at each of the four front corners, and at each of the four rear corners"
+  },
+  {
+   "id": "c-container-03",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The casting must not intrude into the cargo space.",
+   "sourceNote": "US 3,027,025, verbatim: no obstruction projecting into the interior; interior walls meet in right angular vertexes"
+  },
+  {
+   "id": "c-container-04",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The aperture is a keyhole.",
+   "sourceNote": "US 3,027,025, verbatim: circularly enlarged centrally as at 41 and having oppositely longitudinally extending straight end extensions 42 of reduced width"
+  },
+  {
+   "id": "c-container-05",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The number of apertures per fitting is not established from the text held. The 1958 casting has slots in walls 38 and 39; modern fittings have more.",
+   "sourceNote": "Configuration is in ISO 1161 figures 1 to 4, not in the text held. Count castings, never holes. Recorded so the number is never printed"
+  },
+  {
+   "id": "c-container-06",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The crane lug is a grapple head with a circular central portion and diametrically projecting wings.",
+   "sourceNote": "US 3,027,025: head 131, portion 132, wings 133"
+  },
+  {
+   "id": "c-container-07",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "It is inserted with the parts positioned as in figure 15, then rotated.",
+   "sourceNote": "US 3,027,025, verbatim: the crane is lowered with the parts in the positions shown in FIG. 15 for the insertion of the lug heads into the openings 40"
+  },
+  {
+   "id": "c-container-08",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The rotation is ninety degrees.",
+   "sourceNote": "US 3,027,025, verbatim: suitable operating means 134 is employed in conjunction with each stem 129 for rocking it 90 degrees"
+  },
+  {
+   "id": "c-container-09",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Rotation carries the wings across the aperture to lock.",
+   "sourceNote": "US 3,027,025, verbatim: rotated 90 degrees to turn the wings 133 transversely of the openings 40, to lock the parts in engaged position"
+  },
+  {
+   "id": "c-container-10",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The stacking connection also turns.",
+   "sourceNote": "US 3,027,025, figures 17 to 20: double ended lug 150, heads 155 on tubular member 154 rotatably supported in collars 153, handle 160 rotates it, pin 161 holds it"
+  },
+  {
+   "id": "c-container-11",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "One handle movement locks both boxes.",
+   "sourceNote": "US 3,027,025, verbatim: the handle 160 then may be swung to the right, to move both ends of the double lug device to locked position"
+  },
+  {
+   "id": "c-container-12",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The phrase rigidly and non-rotatably connected in US 3,085,707 fixes the lug heads to the member. It is a claim limitation describing one joint, and it is what allows a single handle to turn both ends together. It is not a statement that the device does not rotate.",
+   "sourceNote": "Derived here, reading US 3,085,707 claim 1 against the US 3,027,025 specification"
+  },
+  {
+   "id": "c-container-13",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "US 3,027,025, Apparatus for handling freight in transit, Tantlinger, assignee Sea-Land Service, filed 8 April 1958, granted 27 March 1962.",
+   "sourceNote": "Patent front page. 18 drawing sheets, 31 figures"
+  },
+  {
+   "id": "c-container-14",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Claim 1 protects the chassis plus box plus hoisting lug combination, not the corner casting.",
+   "sourceNote": "The casting is described in the specification and is not claimed alone"
+  },
+  {
+   "id": "c-container-15",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The stacking interlock is a divisional, US 3,085,707, granted 16 April 1963.",
+   "sourceNote": "Patent front page"
+  },
+  {
+   "id": "c-container-16",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Seventeen prior art items are cited, back to US 895,278 of 1908, including Fitch US 1,437,964 of 1922. Demountable bodies that lock to a carrier predate Tantlinger by fifty years; the corner casting as one interface for load, lift and lock does not appear in that prior art.",
+   "sourceNote": "US 3,027,025 references, and a derivation stated here"
+  },
+  {
+   "id": "c-container-17",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "A parent application, serial number 682,512, filed 9 September 1957, is referenced by both patents but has not been matched to an issued patent.",
+   "sourceNote": "Would be the earliest document in the story if it exists. Recorded, not printed"
+  },
+  {
+   "id": "c-container-18",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Top fitting, stacking: 942 kN.",
+   "sourceNote": "ISO 1161:2016"
+  },
+  {
+   "id": "c-container-19",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Bottom fitting, stacking: 1200 kN.",
+   "sourceNote": "ISO 1161:2016"
+  },
+  {
+   "id": "c-container-20",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Top lifting, twistlock or hook: 195 kN.",
+   "sourceNote": "ISO 1161:2016"
+  },
+  {
+   "id": "c-container-21",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Bottom lifting, sling at 30 degrees: 390 kN.",
+   "sourceNote": "ISO 1161:2016"
+  },
+  {
+   "id": "c-container-22",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Misgather, off centre landing: 190 kN through a contact patch 25 mm by 6 mm. That is 150 square millimetres carrying about 19.4 tonnes force, roughly the footprint of a house key.",
+   "sourceNote": "ISO 1161:2016, with the area and comparison derived here"
+  },
+  {
+   "id": "c-container-23",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Minimum bearing area is 800 square millimetres per fitting.",
+   "sourceNote": "ISO 1161:2016"
+  },
+  {
+   "id": "c-container-24",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Material minimums: yield 275 MPa, tensile 480 MPa, 27 J at minus 20 C.",
+   "sourceNote": "ISO 1161:2016"
+  },
+  {
+   "id": "c-container-25",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Six high stacking plus 0.8g for pitch and heave was the design case.",
+   "sourceNote": "Harlander 1982, corroborated by US Army DTIC AD0762171"
+  },
+  {
+   "id": "c-container-26",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The load figures in this plate are modern. ISO/R 1161 of 1970 carries no load values at all: its scope is dimensions and functional and strength requirements, pointing to ISO/R 1496 for testing.",
+   "sourceNote": "Any load figure must be dated where it is used"
+  },
+  {
+   "id": "c-container-27",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The American standards body settled container lengths in 1961, and strength and fitting configurations in 1963.",
+   "sourceNote": "US Army DTIC AD0762171"
+  },
+  {
+   "id": "c-container-28",
+   "type": "claim",
+   "status": "unverifiable",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Harlander gives Matson and Sea-Land as holding 67 per cent of containers in 1965, against 16 per cent for standard lengths.",
+   "sourceNote": "The figure is held but its scope is not stated by the source. If ever used, say of the containers in service, never of the world's"
+  },
+  {
+   "id": "c-container-29",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Non standard status threatened government cargoes, shipbuilding subsidies, Title XI financing and regulatory bodies.",
+   "sourceNote": "Harlander 1982, verbatim list"
+  },
+  {
+   "id": "c-container-30",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "The 1965 fitting was defective in two ways: published artwork showed lifting by bridles from the side apertures of bottom fittings with insufficient bearing area in the corner fittings to withstand such loads, and the bottom face of the lower corner fitting was too thin to permit landing of a fully loaded container without upsetting the bottom face when the aperture missed the cone or twist lock.",
+   "sourceNote": "Harlander 1982, verbatim"
+  },
+  {
+   "id": "c-container-31",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Harlander judged that the process included an element of political expediency and lacked certain technical merit.",
+   "sourceNote": "The judgment of a named participant, framed as his"
+  },
+  {
+   "id": "c-container-32",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "A redesigned fitting was tabled at Moscow in June 1967 and approved by TC 104.",
+   "sourceNote": "Harlander 1982"
+  },
+  {
+   "id": "c-container-33",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "ISO/R 668, sizes, was accepted in February 1968. Australia, France, Ireland, Poland and the USSR opposed.",
+   "sourceNote": "ISO/R 668, 1st edition foreword"
+  },
+  {
+   "id": "c-container-34",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "ISO/R 1161, corner fittings, was approved in January 1970. France and the United Kingdom opposed. The USSR approved.",
+   "sourceNote": "ISO/R 1161, 1st edition"
+  },
+  {
+   "id": "c-container-35",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "After legislation barring federal discrimination against non standard operators, both lines' sizes entered the 1971 American standard.",
+   "sourceNote": "Harlander 1982"
+  },
+  {
+   "id": "c-container-36",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Sea-Land released a corner fitting patent royalty free in January 1963, to the American standards body.",
+   "sourceNote": "Harlander 1982. Which patent is in conflict, see the conflicting claim"
+  },
+  {
+   "id": "c-container-37",
+   "type": "claim",
+   "status": "conflicting",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Which patent Sea-Land released is reported inconsistently. Harlander names US 3,042,227 as covering a box type corner fitting, but that patent's claim 1 is a shipboard gantry system, and the fitting is claimed in US 3,027,025 and US 3,085,707.",
+   "sourceNote": "The record disagrees with itself. Say a patent was released, do not say which"
+  },
+  {
+   "id": "c-container-38",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Harlander describes the strength criterion as essentially a safety factor having a value of 1, based upon yield, and argues this philosophy is among the most important reasons containerisation was affordable.",
+   "sourceNote": "His argument, not a fact about the standard"
+  },
+  {
+   "id": "c-container-39",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "Harlander argued the container end wall needed 0.2 rather than the adopted 0.4g and lost, pricing it at over 100 dollars per container, over 3 million dollars across a 30,000 box fleet.",
+   "sourceNote": "Harlander 1982, his aside: we lost"
+  },
+  {
+   "id": "c-container-40",
+   "type": "claim",
+   "status": "verified",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "text": "A rival fitting existed, the Speedloader by National Castings, with heavy debate over its relative merits, and it was in use in a few container systems. The twistlock won an argument rather than arriving unopposed.",
+   "sourceNote": "Harlander 1982"
+  },
+  {
+   "id": "ev-container-01",
+   "type": "event",
+   "eventType": "publication",
+   "date": {
+    "year": 1922
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "Demountable bodies that lock to a carrier are already patented, including Fitch US 1,437,964"
+  },
+  {
+   "id": "ev-container-02",
+   "type": "event",
+   "eventType": "patent-filed",
+   "date": {
+    "year": 1957,
+    "month": 9,
+    "day": 9
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "Parent application serial number 682,512 filed"
+  },
+  {
+   "id": "ev-container-03",
+   "type": "event",
+   "eventType": "patent-filed",
+   "date": {
+    "year": 1958,
+    "month": 4,
+    "day": 8
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "US 3,027,025 filed by Keith Tantlinger, assigned to Sea-Land Service"
+  },
+  {
+   "id": "ev-container-04",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1961
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "The American standards body settles container lengths"
+  },
+  {
+   "id": "ev-container-05",
+   "type": "event",
+   "eventType": "patent-granted",
+   "date": {
+    "year": 1962,
+    "month": 3,
+    "day": 27
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "US 3,027,025 granted"
+  },
+  {
+   "id": "ev-container-06",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1963,
+    "month": 1
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "Sea-Land releases a corner fitting patent royalty free to the American body"
+  },
+  {
+   "id": "ev-container-07",
+   "type": "event",
+   "eventType": "patent-granted",
+   "date": {
+    "year": 1963,
+    "month": 4,
+    "day": 16
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "Divisional US 3,085,707 granted, stacking interlock"
+  },
+  {
+   "id": "ev-container-08",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1963
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "The American body settles strength and fitting configurations"
+  },
+  {
+   "id": "ev-container-09",
+   "type": "event",
+   "eventType": "adoption",
+   "date": {
+    "year": 1965
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "The American corner fitting is approved, and is defective in two ways"
+  },
+  {
+   "id": "ev-container-10",
+   "type": "event",
+   "eventType": "assessment",
+   "date": {
+    "year": 1965
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "Matson and Sea-Land hold 67 per cent of containers in service, standard lengths 16 per cent"
+  },
+  {
+   "id": "ev-container-11",
+   "type": "event",
+   "eventType": "decision",
+   "date": {
+    "year": 1967,
+    "month": 6
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "A redesigned fitting is tabled at Moscow and approved by TC 104"
+  },
+  {
+   "id": "ev-container-12",
+   "type": "event",
+   "eventType": "adoption",
+   "date": {
+    "year": 1968,
+    "month": 2
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "ISO/R 668, sizes, accepted"
+  },
+  {
+   "id": "ev-container-13",
+   "type": "event",
+   "eventType": "adoption",
+   "date": {
+    "year": 1970,
+    "month": 1
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "ISO/R 1161, corner fittings, approved"
+  },
+  {
+   "id": "ev-container-14",
+   "type": "event",
+   "eventType": "regulation",
+   "date": {
+    "year": 1971
+   },
+   "subjectId": "container-corner-fitting",
+   "label": "Both Matson and Sea-Land sizes included in the American standard after legislation"
+  },
+  {
+   "id": "story-container-corner-fitting",
+   "type": "story",
+   "title": "The container corner fitting story",
+   "aboutIds": [
+    "container-corner-fitting"
+   ],
+   "platforms": {
+    "facebook": "https://www.facebook.com/EngineeringUni/posts/pfbid02Y5TgEayrJsxmFKb5nveYJyEMpG3zA58P48iG7GKHhjokyQEQjy8czncGjtsaGpMPl",
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:activity:7496153092779028480"
+   }
   }
  ],
  "edges": [
@@ -20345,6 +20978,535 @@
    "type": "covers",
    "from": "story-b-29",
    "to": "b-29"
+  },
+  {
+   "type": "about",
+   "from": "c-container-01",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-01",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-02",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-02",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-03",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-03",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-04",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-04",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-05",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-05",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-06",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-06",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-07",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-07",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-08",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-08",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-09",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-09",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-10",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-10",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-11",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-11",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-12",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-12",
+   "to": "src-container-us-3085707"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-12",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-13",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-13",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-14",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-14",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-15",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-15",
+   "to": "src-container-us-3085707"
+  },
+  {
+   "type": "about",
+   "from": "c-container-16",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-16",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-17",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-17",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-18",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-18",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-19",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-19",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-20",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-20",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-21",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-21",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-22",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-22",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-23",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-23",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-24",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-24",
+   "to": "src-container-iso-1161-2016"
+  },
+  {
+   "type": "about",
+   "from": "c-container-25",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-25",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-25",
+   "to": "src-container-dtic-ad0762171"
+  },
+  {
+   "type": "about",
+   "from": "c-container-26",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-26",
+   "to": "src-container-iso-r1161-1970"
+  },
+  {
+   "type": "about",
+   "from": "c-container-27",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-27",
+   "to": "src-container-dtic-ad0762171"
+  },
+  {
+   "type": "about",
+   "from": "c-container-28",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-28",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-29",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-29",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-30",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-30",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-31",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-31",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-32",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-32",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-33",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-33",
+   "to": "src-container-iso-r668-1968"
+  },
+  {
+   "type": "about",
+   "from": "c-container-34",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-34",
+   "to": "src-container-iso-r1161-1970"
+  },
+  {
+   "type": "about",
+   "from": "c-container-35",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-35",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-36",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-36",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-37",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-37",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-37",
+   "to": "src-container-us-3027025"
+  },
+  {
+   "type": "about",
+   "from": "c-container-38",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-38",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-39",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-39",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "about",
+   "from": "c-container-40",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "cites",
+   "from": "c-container-40",
+   "to": "src-container-harlander-1982"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-01",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-02",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-03",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-04",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-05",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-06",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-07",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-08",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-09",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-10",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-11",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-12",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-13",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "event-of",
+   "from": "ev-container-14",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "covers",
+   "from": "story-container-corner-fitting",
+   "to": "container-corner-fitting"
+  },
+  {
+   "type": "echoes",
+   "from": "whitworth-three-plate-method",
+   "to": "container-corner-fitting",
+   "claimId": "c-container-34",
+   "note": "Threads were not stronger, they were interchangeable. The corner fitting was not a stronger corner, it was a corner everyone agreed on"
+  },
+  {
+   "type": "echoes",
+   "from": "float-glass-process",
+   "to": "container-corner-fitting",
+   "claimId": "c-container-38",
+   "note": "Not a better surface, an inherited one"
+  },
+  {
+   "type": "echoes",
+   "from": "crucible-cast-steel",
+   "to": "container-corner-fitting",
+   "claimId": "c-container-24",
+   "note": "Not stronger steel, steel that behaved the same way twice"
+  },
+  {
+   "type": "contributed",
+   "from": "keith-tantlinger",
+   "to": "container-corner-fitting",
+   "role": "designed"
+  },
+  {
+   "type": "contributed",
+   "from": "leslie-harlander",
+   "to": "container-corner-fitting",
+   "role": "opposed"
+  },
+  {
+   "type": "contributed",
+   "from": "albert-kirchner",
+   "to": "container-corner-fitting",
+   "role": "filed"
   }
  ]
 }

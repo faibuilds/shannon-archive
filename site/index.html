@@ -63,6 +63,7 @@
   --font:'Poppins','Helvetica Neue',Arial,sans-serif;
   --mono:'IBM Plex Mono',monospace;
   --stencil:'Saira Stencil One',var(--mono);
+  --figure-ground:#17191d;
   --bevel:inset 0 1px 0 rgba(255,255,255,.05),inset 0 -1px 0 rgba(0,0,0,.45);
   --depth:0 14px 34px rgba(0,0,0,.45),0 3px 10px rgba(0,0,0,.35);
 }
@@ -119,7 +120,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,12,16,.9)
 .fnode .fyear{fill:var(--green);font-size:9.5px;letter-spacing:1.5px}
 .fnode.terminal rect{stroke-dasharray:4 3;stroke:#5d636a}
 .fedge{stroke:var(--green);stroke-width:1.2;fill:none;opacity:.85}
-.fedge-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase}
+.fedge-label{fill:var(--steel-faint);font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;paint-order:stroke;stroke:var(--figure-ground);stroke-width:3px;stroke-linejoin:round}
 .finding-nav{display:flex;align-items:center;gap:10px;margin-top:16px}
 .finding-dot{width:22px;height:3px;background:var(--line2);border:none;cursor:pointer;padding:0;transition:background .2s}
 .finding-dot.on{background:var(--green)}
@@ -897,7 +898,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   <div class="nav-right">
     <a class="nav-findings" href="#findings">Findings</a>
     <a class="nav-findings" href="#conflicts">Open questions</a>
-    <div class="nav-tag">EC Archive / <span id="nav-lines">11</span> lines live</div>
+    <div class="nav-tag">EC Archive / <span id="nav-lines">12</span> lines live</div>
     <a class="nav-cta nav-support" href="https://buymeacoffee.com/engineeringcommunity" target="_blank" rel="noopener">Support</a>
     <a class="nav-cta nav-linkedin" href="https://www.linkedin.com/company/engineeringcommunity/" target="_blank" rel="noopener">Follow on LinkedIn</a>
   </div>
@@ -1303,7 +1304,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   </div>
   <div class="footer-bottom">
     <span>© 2026 Engineering Community</span>
-    <span class="footer-stamp">SHANNON v2.26 / BUILT 2026 / 11 LINES LIVE, L-01 THROUGH L-11</span>
+    <span class="footer-stamp">SHANNON v2.27 / BUILT 2026 / 12 LINES LIVE, L-01 THROUGH L-12</span>
   </div>
 </footer>
 
@@ -2222,7 +2223,20 @@ const CARNOT = [
    ask:"Run a float line, or work with glass that came off one. What does the tin side still tell you about a sheet?",
    hook:"Flat glass used to be made by grinding away glass you had paid to melt. In 1902 someone proposed floating it on molten metal. That took fifty-six years to work.",
    posts:[{label:"Read the story", date:"Aug 2026", url:"https://www.linkedin.com/posts/engineeringcommunity_two-ways-to-make-flat-glass-existed-and-activity-7492792859197075456-Raqg"},
-          {label:"On Facebook", date:"Aug 2026", url:"https://www.facebook.com/share/p/18xRQ4g1kp/"}]}
+          {label:"On Facebook", date:"Aug 2026", url:"https://www.facebook.com/share/p/18xRQ4g1kp/"}]},
+  {id:"container-corner-fitting", name:"The container corner fitting", year:1970, date:"1958 to 1971", origin:"United States", field:"Standard interface", status:"covered",
+   artCredit:"Keith W. Tantlinger, US Patent 3,027,025 (filed 1958, granted 1962), sheet 11, figures 15 and 16. Public domain.",
+   artNote:"Patent drawing, recolored, not redrawn. Header and signature block trimmed; the figures and their reference numerals are as filed. One corner is drawn twice: the lug clear of the casting in figure 15, and turned into it in figure 16.",
+   art:`<svg viewBox="0 0 267 430.1" xmlns="http://www.w3.org/2000/svg">
+  <image href="art/container-corner-fitting.png" x="0" y="0" width="267" height="396.1"/>
+  <g fill="#10b981" font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+    <text x="133.5" y="418.1">US 3,027,025 &#183; FILED 1958</text>
+  </g>
+</svg>`,
+   ask:"Work a terminal, a lashing gang, or a box yard. What does a worn corner casting tell you that the paperwork does not?",
+   hook:"A shipping container is lifted, stacked and locked at eight steel castings, and the walls carry none of it. The world agreed the size of the box in February 1968, and the shape of the castings in January 1970.",
+   posts:[{label:"Read the story", date:"Aug 2026", url:"https://www.linkedin.com/feed/update/urn:li:activity:7496153092779028480"},
+          {label:"On Facebook", date:"Aug 2026", url:"https://www.facebook.com/EngineeringUni/posts/pfbid02Y5TgEayrJsxmFKb5nveYJyEMpG3zA58P48iG7GKHhjokyQEQjy8czncGjtsaGpMPl"}]}
 ];
 const NOYCE = [
   {id:"point-contact-transistor", name:"The point-contact transistor", year:1947, date:"16 Dec 1947", origin:"United States", field:"Solid-state device", status:"covered",
@@ -2438,25 +2452,27 @@ const FINDINGS = [
   {
     slug: "echo",
     kind: "Echo",
-    title: "Three engineers, three centuries, and not one of them was trying to make anything stronger.",
-    body: "Whitworth's thread was not better than the ones it replaced. It was the same in every workshop, because he set it at the average of what Britain was already cutting, so almost nobody had far to move to adopt it. Pilkington's glass was not a finer surface. It was a surface inherited from a liquid that gravity had already levelled. Huntsman's steel was not harder. It was steel that behaved the same way twice, because melting treated the whole charge at once where forging could only ever improve one bar. In each the product is not performance. It is predictability, and it is the thing the other three relations in this archive cannot express, because none of these made the others possible.",
-    vh: 150,
+    title: "Three engineers and a committee, three centuries, and not one of them was trying to make anything stronger.",
+    body: "Whitworth's thread was not better than the ones it replaced. It was the same in every workshop, because he set it at the average of what Britain was already cutting, so almost nobody had far to move to adopt it. Pilkington's glass was not a finer surface. It was a surface inherited from a liquid that gravity had already levelled. Huntsman's steel was not harder. It was steel that behaved the same way twice, because melting treated the whole charge at once where forging could only ever improve one bar. The corner fitting was not a stronger corner. Harlander describes the strength criterion behind it as essentially a safety factor of one, based on yield, and argues that philosophy is among the most important reasons containerisation was affordable. By 1968 the world had agreed the size of the box; what was still unsettled was not how strong the casting had to be but what shape everyone would accept, and that took until January 1970. In all four the product is not performance. It is predictability, and it is the thing the other three relations in this archive cannot express, because none of these made the others possible.",
+    vh: 320,
     nodes: [
-      {id:"whitworth-three-plate-method", label:"Whitworth's thread", year:"1841", x:6, y:52, w:190},
-      {id:"float-glass-process", label:"The float glass process", year:"1959", x:352, y:52, w:190},
-      {id:"crucible-cast-steel", label:"Crucible cast steel", year:"1740", x:698, y:52, w:190}
+      {id:"whitworth-three-plate-method", label:"Whitworth's thread", year:"1841", x:6, y:20, w:190},
+      {id:"float-glass-process", label:"The float glass process", year:"1959", x:6, y:134, w:190},
+      {id:"crucible-cast-steel", label:"Crucible cast steel", year:"1740", x:6, y:248, w:190},
+      {id:"container-corner-fitting", label:"The corner fitting", year:"1970", x:698, y:134, w:196}
     ],
     edges: [
-      {from:0, to:1, type:"echoes", claim:"c-float-glass-process-02"},
-      {from:1, to:2, type:"echoes", claim:"c-crucible-cast-steel-03"}
+      {from:0, to:3, type:"echoes", claim:"c-container-34"},
+      {from:1, to:3, type:"echoes", claim:"c-container-38"},
+      {from:2, to:3, type:"echoes", claim:"c-container-24"}
     ],
-    note: "Read the dates: 1841, then 1959, then 1740. An echo is not a sequence and carries no direction, which is why these are drawn dashed and without arrows. A third echo closes the triangle, Whitworth to crucible steel, and is on the board.",
+    note: "Read the dates: 1740, 1841, 1959, 1970, in no order at all. An echo is not a sequence and carries no direction, which is why these are drawn dashed and without arrows. The first three close a triangle on the board. The corner fitting joins to all three, so the figure is drawn as what it is, four instances of one idea rather than a chain.",
     /* The share tracking is stripped: what was pasted carried utm_source,
        utm_medium and an rcm token identifying the account that shared it. */
     posts: [{ label: "Read the post", url: "https://www.linkedin.com/posts/engineeringcommunity_that-is-what-no-standard-meant-threads-cut-activity-7493894753063686145-xuv-" }]
   }
 ];
-const FINDING_STATS = { claims:606, verified:574, sources:61, edges:89, artifacts:64 };
+const FINDING_STATS = { claims:646, verified:610, sources:68, edges:92, artifacts:65 };
 {
   const slot = document.getElementById("finding-slot");
   const nav = document.getElementById("finding-nav");
@@ -3267,7 +3283,8 @@ const GAUGE_LINES = [
   { label: "Wright", tag: "L-08", plates: WRIGHT },
   { label: "Sutter", tag: "L-09", plates: SUTTER },
   { label: "Carnot", tag: "L-10", plates: CARNOT },
-  { label: "Noyce", tag: "L-11", plates: NOYCE }
+  { label: "Noyce", tag: "L-11", plates: NOYCE },
+  { label: "Olley", tag: "L-12", plates: OLLEY }
 ];
 /* Every visible line count is read from the roster, so none of them can
    drift the way "ten lines live" did across the nav, the head and here. */

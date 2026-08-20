@@ -60,8 +60,8 @@
     {
       "id": "carnot",
       "name": "CARNOT L-10",
-      "total": 4,
-      "lit": 4
+      "total": 5,
+      "lit": 5
     },
     {
       "id": "noyce",
@@ -107,7 +107,7 @@
     0,
     1
   ],
-  "lastLit": "B-29 Superfortress",
+  "lastLit": "The container corner fitting",
   "lastLitDate": "Aug 2026",
-  "updated": "2026-08-19"
+  "updated": "2026-08-20"
 }
