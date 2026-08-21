@@ -1,0 +1,15 @@
+# build output
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# synced from /site by scripts/sync-public.mjs; /site stays canonical
+public/graph.json
+public/status.json
+public/art/
+public/favicon.png
+public/og.png
+public/robots.txt
+public/sitemap.xml
+public/_headers
